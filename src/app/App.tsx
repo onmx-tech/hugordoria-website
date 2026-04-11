@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import Doria from "../imports/Doria";
 import { useLenis } from "../hooks/useLenis";
 import { initDoriaReveals } from "../animations/doria-reveals";
-import { initHorizontalSections } from "../animations/horizontal-sections";
 import { ScrollTrigger } from "../lib/gsap";
 
 export default function App() {
@@ -21,13 +20,8 @@ export default function App() {
 
   useEffect(() => {
     if (!stageRef.current) return;
-    const stage = stageRef.current;
-    const cleanupReveals = initDoriaReveals(stage);
-    const cleanupHorizontal = initHorizontalSections(stage);
-    return () => {
-      cleanupReveals();
-      cleanupHorizontal();
-    };
+    const cleanup = initDoriaReveals(stageRef.current);
+    return cleanup;
   }, []);
 
   useEffect(() => {
