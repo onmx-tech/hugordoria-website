@@ -1,13 +1,3 @@
-@import './tokens.css';
-@import './base.css';
-@import './typography.css';
-@import './utilities.css';
-
-@import '../components/header/header.css';
-@import '../components/hero/hero.css';
-@import '../components/about/about.css';
-@import '../components/quote/quote.css';
-@import '../components/specialties/specialties.css';
-@import '../components/testimonials/testimonials.css';
-@import '../components/neuroimagens/neuroimagens.css';
-@import '../components/footer/footer.css';
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
