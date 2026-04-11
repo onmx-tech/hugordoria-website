@@ -1,0 +1,112 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  padding-block: var(--space-md);
+  background: linear-gradient(180deg, rgba(12, 16, 44, 0.85), rgba(12, 16, 44, 0));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.4s var(--ease-out-expo);
+}
+
+.header[data-scrolled='true'] {
+  background: rgba(10, 14, 38, 0.9);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.header__brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--color-text);
+}
+
+.header__brand-pre {
+  font-size: 0.6em;
+  color: var(--color-gold-light);
+}
+
+.header__brand-name {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.header__brand-mark {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--color-gold);
+}
+
+.header__nav {
+  display: none;
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.header__nav a {
+  position: relative;
+  color: var(--color-text-soft);
+  transition: color 0.3s var(--ease-out-expo);
+}
+
+.header__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s var(--ease-out-expo);
+}
+
+.header__nav a:hover {
+  color: var(--color-text);
+}
+
+.header__nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.header__lang {
+  display: none;
+  gap: var(--space-2xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+}
+
+.header__lang button {
+  color: var(--color-text-mute);
+  padding: 0.35em 0.6em;
+  border-radius: var(--radius-sm);
+  transition: color 0.3s, background 0.3s;
+}
+
+.header__lang button[aria-pressed='true'] {
+  color: var(--color-bg);
+  background: var(--color-gold);
+}
+
+@media (min-width: 880px) {
+  .header__nav,
+  .header__lang {
+    display: flex;
+  }
+}
