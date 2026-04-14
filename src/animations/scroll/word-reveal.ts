@@ -10,12 +10,12 @@ type WordRevealOptions = {
 };
 
 const DEFAULTS: Required<WordRevealOptions> = {
-  dimColor: "rgba(255, 255, 255, 0.16)",
+  dimColor: "rgba(255, 255, 255, 0.2)",
   brightColor: "#ffffff",
-  stagger: 0.06,
-  start: "top 80%",
-  end: "bottom 55%",
-  scrub: 1,
+  stagger: 0.05,
+  start: "top 75%",
+  end: "bottom 60%",
+  scrub: true as unknown as number,
 };
 
 function splitIntoWords(el: HTMLElement): HTMLSpanElement[] {
@@ -41,7 +41,7 @@ function splitIntoWords(el: HTMLElement): HTMLSpanElement[] {
     word.dataset.word = "";
     word.textContent = token;
     word.style.display = "inline-block";
-    word.style.willChange = "color, filter";
+    word.style.willChange = "color";
     el.appendChild(word);
     wordEls.push(word);
   });
@@ -58,14 +58,10 @@ export function createWordReveal(
   const words = splitIntoWords(target);
   if (!words.length) return null;
 
-  gsap.set(words, {
-    color: opts.dimColor,
-    filter: "blur(6px)",
-  });
+  gsap.set(words, { color: opts.dimColor });
 
   return gsap.to(words, {
     color: opts.brightColor,
-    filter: "blur(0px)",
     ease: "none",
     stagger: { each: opts.stagger, ease: "none" },
     scrollTrigger: {
