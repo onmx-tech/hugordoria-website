@@ -8,6 +8,7 @@ import imgImage10 from "@/assets/1237b2795956579d89da3b7db4b78c58db67e687.png";
 import imgFreepikGenerate9DifferentAnglesOfThisImageTile8000111 from "@/assets/67f1c6b7d4a309019bd2b0d60cc617ad92d98a04.png";
 import imgFreepikMaintainTheExactSameCompositionPoseCameraAngleLightingBackgroundAndFacialFeaturesDoNotChangeTheEnvironmentPerspectiveOrBodyPositionOnlyReplaceTheCurrentOutfit000111 from "@/assets/7fce637c41f772dc3b46182964e1004bde51609a.png";
 import { imgDoria } from "./svg-hwktx";
+import imgHeroDoria from "@/assets/hero-doria-1e071a.png";
 
 function Group1() {
   return (
@@ -421,7 +422,7 @@ function Frame21() {
     <div className="absolute bg-gradient-to-b from-[#eeebe4] h-[2593px] left-[12px] rounded-[23.69px] to-[143.79%] to-white top-[4939px] w-[1896px]">
       <Frame36 />
       <Frame34 />
-      <div className="-translate-x-1/2 -translate-y-1/2 absolute flex flex-col font-['Geist:Medium',sans-serif] font-medium justify-center leading-[0] left-1/2 text-[#1a293f] text-[64px] text-center top-[202px] tracking-[-2.56px] w-[790px]">
+      <div className="-translate-x-1/2 -translate-y-1/2 absolute flex flex-col font-['Geist',sans-serif] font-medium justify-center leading-[0] left-1/2 text-[#1a293f] text-[64px] text-center top-[202px] tracking-[-2.56px] w-[790px]">
         <p className="leading-[1.24] mb-0">Melhor Neurocirurgia</p>
         <p className="leading-[1.24]">e Cuidados Neurológicos</p>
       </div>
@@ -1244,22 +1245,8 @@ function Group11() {
 
 function Doria2() {
   return (
-    <div className="-translate-x-1/2 absolute bg-gradient-to-b from-[#122136] from-[1.338%] h-[1084px] left-1/2 overflow-clip to-[133.58%] to-white top-0 w-[1920px]" data-name="Doria">
-      <div className="absolute flex h-[688px] items-center justify-center left-[calc(16.67%+141px)] top-[105px] w-[947px]">
-        <div className="-scale-y-100 flex-none rotate-180">
-          <div className="h-[688px] relative w-[947px]">
-            <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 947 688">
-              <path d={svgPaths.p369ea300} fill="var(--fill-0, #D9D9D9)" fillOpacity="0.1" id="Rectangle 1430107477" />
-            </svg>
-          </div>
-        </div>
-      </div>
-      <div className="absolute h-[962px] left-[calc(16.67%+141px)] top-[122px] w-[953px]" data-name="freepik_generate-9-different-angles-of-this-image-tile-8_0001 (1) 1">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[199.06%] left-[-132.31%] max-w-none top-[-8.52%] w-[360.71%]" src={imgFreepikGenerate9DifferentAnglesOfThisImageTile8000111} />
-        </div>
-      </div>
-      <Group11 />
+    <div className="absolute h-[1222px] left-[401px] top-[83px] w-[1073px]" data-name="freepik_2784531111 1">
+      <img alt="Dr. Hugo Doria" className="block size-full object-cover" src={imgHeroDoria} />
     </div>
   );
 }
@@ -1281,12 +1268,11 @@ function Group10() {
 
 function Frame17() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex gap-[19.57px] items-start leading-[0] left-[calc(50%+0.41px)] top-[843px]">
-      <Group10 />
-      <div className="flex flex-col font-['Geist:Bold',sans-serif] font-bold justify-center relative shrink-0 text-[290.824px] text-white tracking-[-11.633px] w-[858.84px]">
+    <div className="absolute content-stretch flex items-center justify-between leading-[0] left-[32px] top-[828px] w-[1858px]">
+      <div className="flex flex-col font-['Geist',sans-serif] font-bold justify-center relative shrink-0 text-[290.824px] text-white tracking-[-11.633px]">
         <p className="leading-[0.92]">HUGO</p>
       </div>
-      <div className="flex flex-col font-['Geist:Bold',sans-serif] font-bold justify-center relative shrink-0 text-[290.824px] text-white tracking-[-11.633px] whitespace-nowrap">
+      <div className="flex flex-col font-['Geist',sans-serif] font-bold justify-center relative shrink-0 text-[290.824px] text-white tracking-[-11.633px]">
         <p className="leading-[0.92]">DORIA</p>
       </div>
     </div>
@@ -1295,7 +1281,7 @@ function Frame17() {
 
 function Frame6() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex font-['Geist:Medium',sans-serif] font-medium gap-[16px] items-center leading-[0] left-[calc(87.5%-40.5px)] text-[14px] top-[20px] whitespace-nowrap">
+    <div className="absolute content-stretch flex font-['Geist',sans-serif] font-medium gap-[16px] items-center leading-[0] left-[1393px] text-[14px] top-[20px] whitespace-nowrap">
       <div className="flex flex-col justify-center relative shrink-0 text-[#c5a471]">
         <p className="leading-[1.5]">Iníco</p>
       </div>
@@ -1322,37 +1308,51 @@ function Doria1() {
   return (
     <div className="-translate-x-1/2 absolute bg-gradient-to-b from-[#122136] from-[1.338%] h-[1084px] left-1/2 overflow-clip to-[133.58%] to-white top-0 w-[1920px]" data-name="Doria">
       <Doria2 />
-      <div className="-translate-y-1/2 absolute flex flex-col font-['Geist:Regular',sans-serif] font-normal justify-center leading-[0] left-[calc(25%+23px)] text-[24px] text-[rgba(255,255,255,0.58)] top-[282px] tracking-[-0.96px] w-[252px]">
-        <p className="leading-[1.1] whitespace-pre-wrap">{`A Neurocirurgia é uma arte.  A maior honra é poder exercê-la`}</p>
+
+      {/* Eyebrow (left) */}
+      <div className="absolute flex flex-col font-['Geist_Mono',sans-serif] font-medium justify-center leading-[0] left-[32px] text-[#f3f4f5] text-[20px] top-[335px] tracking-[1.4px] uppercase w-[307px] h-[18px]">
+        <p className="leading-[0.92]">MD PhD - Neurocirurgião</p>
       </div>
-      <div className="-translate-y-1/2 absolute flex h-[20px] items-center justify-center left-[calc(16.67%+179px)] top-[740px] w-[26px]" style={{ "--transform-inner-width": "1185", "--transform-inner-height": "18" } as React.CSSProperties}>
-        <div className="flex-none rotate-90">
-          <div className="flex flex-col font-['Geist:Regular',sans-serif] font-normal justify-center leading-[0] relative text-[24px] text-[rgba(255,255,255,0.58)] tracking-[-0.96px] whitespace-nowrap">
-            <p className="leading-[1.1]">→</p>
-          </div>
-        </div>
-      </div>
-      <div className="-translate-y-1/2 absolute flex flex-col font-['Geist_Mono:Regular',sans-serif] font-normal justify-center leading-[0] left-[calc(58.33%+23px)] text-[16px] text-[rgba(255,255,255,0.58)] top-[148.5px] tracking-[1.12px] uppercase whitespace-nowrap">
-        <p className="leading-[0.92]">Neurocirurgia Vascular</p>
-      </div>
-      <div className="absolute h-0 left-[calc(58.33%-24px)] top-[193px] w-[297px]">
-        <div className="absolute inset-[-1px_0_0_0]">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 297 1">
-            <line id="Line 105" stroke="var(--stroke-0, white)" strokeOpacity="0.12" x2="297" y1="0.5" y2="0.5" />
+
+      {/* Divider under eyebrow (left) */}
+      <div className="absolute h-0 left-[32px] top-[379px] w-[416px]">
+        <div className="absolute inset-[-0.5px_0_0_0]">
+          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 416 1">
+            <line id="Line 106" stroke="rgba(255,255,255,0.24)" x2="416" y1="0.5" y2="0.5" />
           </svg>
         </div>
       </div>
-      <div className="-translate-y-1/2 absolute flex flex-col font-['Geist:Regular',sans-serif] font-normal justify-center leading-[0] left-[calc(58.33%-24px)] text-[16px] text-[rgba(255,255,255,0.71)] top-[303px] w-[282px]">
-        <p className="leading-[1.5]">Transformando vidas com inovação, pesquisa avançada e precisão em tratamentos Neurológicos Complexos, proporcionando qualidade e segurança aos pacientes.</p>
+
+      {/* Hero title (left) */}
+      <div className="absolute flex flex-col font-['Geist',sans-serif] font-normal justify-center leading-[0] left-[32px] text-white text-[48px] top-[407px] tracking-[-1.92px] w-[375px] h-[212px]">
+        <p className="leading-[1.1] whitespace-pre-wrap">{`A Neurocirurgia é uma arte.  A maior honra é poder exercê-la`}</p>
       </div>
+
+      {/* Divider above description (right) */}
+      <div className="absolute h-0 left-[1466px] top-[379px] w-[420px]">
+        <div className="absolute inset-[-0.5px_0_0_0]">
+          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 420 1">
+            <line id="Line 107" stroke="rgba(255,255,255,0.24)" x2="420" y1="0.5" y2="0.5" />
+          </svg>
+        </div>
+      </div>
+
+      {/* Description (right) */}
+      <div className="absolute flex flex-col font-['Geist',sans-serif] font-normal justify-center leading-[0] left-[1466px] text-white text-[24px] top-[407px] w-[420px] h-[170px]">
+        <p className="leading-[1.41]">Transformando vidas com inovação, pesquisa avançada e precisão em tratamentos Neurológicos Complexos, proporcionando qualidade e segurança aos pacientes.</p>
+      </div>
+
       <Frame17 />
-      <div className="-translate-y-1/2 absolute flex flex-col font-['Geist:Bold',sans-serif] font-bold justify-center leading-[0] left-[24px] text-[0px] text-white top-[26px] tracking-[-0.6977px] whitespace-nowrap">
+
+      {/* Brand top-left */}
+      <div className="absolute flex flex-col font-['Geist',sans-serif] font-bold justify-center leading-[0] left-[24px] text-[0px] text-white top-[20px] tracking-[-0.6977px] whitespace-nowrap">
         <p>
           <span className="leading-[0.92] text-[10px]">{`DR. `}</span>
           <span className="leading-[0.92] text-[17.441px]">HUGO DORIA</span>
-          <span className="font-['Geist:Regular',sans-serif] font-normal leading-[0.92] text-[17.441px]">®</span>
+          <span className="font-['Geist',sans-serif] font-normal leading-[0.92] text-[17.441px]">®</span>
         </p>
       </div>
+
       <Frame6 />
     </div>
   );

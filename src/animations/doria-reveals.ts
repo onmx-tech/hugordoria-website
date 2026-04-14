@@ -138,6 +138,109 @@ export function initDoriaReveals(root: HTMLElement): Cleanup {
     register(tween);
   });
 
+  // ─── Quote signature SVG draw-in ───────────────────────────────────
+  const signatureContainers = Array.from(
+    root.querySelectorAll('[data-name="Quote Icon Container"]')
+  );
+  signatureContainers.forEach((container) => {
+    const paths = Array.from(
+      container.querySelectorAll("path")
+    ) as SVGPathElement[];
+    if (!paths.length) return;
+
+    paths.forEach((path) => {
+      try {
+        const length = path.getTotalLength();
+        if (!Number.isFinite(length) || length === 0) return;
+        gsap.set(path, {
+          strokeDasharray: length,
+          strokeDashoffset: length,
+          strokeWidth: 1.2,
+          autoRound: false,
+        });
+      } catch {
+        /* path without geometry */
+      }
+    });
+
+    const tween = gsap.to(paths, {
+      strokeDashoffset: 0,
+      ease: "none",
+      stagger: { each: 0.08, from: "start" },
+      scrollTrigger: {
+        trigger: container,
+        start: "top 85%",
+        end: "bottom 40%",
+        scrub: 1.2,
+      },
+    });
+    register(tween);
+
+    // Subtle entry fade for the whole signature container
+    const entry = gsap.fromTo(
+      container,
+      { y: 24, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.1,
+        ease: "power3.out",
+        scrollTrigger: { trigger: container, start: "top 88%", once: true },
+      }
+    );
+    register(entry);
+  });
+
+  // ─── Quote text word-by-word reveal on scroll ──────────────────────
+  const quoteTextContainers = Array.from(
+    root.querySelectorAll<HTMLElement>("p")
+  ).filter((el) =>
+    (el.textContent ?? "").includes("A Neurocirurgia é uma arte e é uma honra")
+  );
+  quoteTextContainers.forEach((p) => {
+    if (p.dataset.wordSplit === "done") return;
+
+    const wordEls: HTMLSpanElement[] = [];
+    const spans = Array.from(p.querySelectorAll<HTMLElement>("span"));
+    const targets: HTMLElement[] = spans.length ? spans : [p];
+
+    targets.forEach((container) => {
+      const text = container.textContent ?? "";
+      container.textContent = "";
+      const tokens = text.split(/(\s+)/);
+      tokens.forEach((token) => {
+        if (!token) return;
+        if (/^\s+$/.test(token)) {
+          container.appendChild(document.createTextNode(token));
+          return;
+        }
+        const word = document.createElement("span");
+        word.textContent = token;
+        word.style.display = "inline-block";
+        word.style.opacity = "0.12";
+        word.style.willChange = "opacity";
+        container.appendChild(word);
+        wordEls.push(word);
+      });
+    });
+
+    p.dataset.wordSplit = "done";
+    if (!wordEls.length) return;
+
+    const tween = gsap.to(wordEls, {
+      opacity: 1,
+      ease: "none",
+      stagger: { each: 0.06, ease: "none" },
+      scrollTrigger: {
+        trigger: p,
+        start: "top 78%",
+        end: "bottom 45%",
+        scrub: 1,
+      },
+    });
+    register(tween);
+  });
+
   // Horizontal rules (line dividers)
   const lines = root.querySelectorAll("svg line");
   lines.forEach((line) => {
