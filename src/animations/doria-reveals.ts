@@ -191,7 +191,7 @@ export function initDoriaReveals(root: HTMLElement): Cleanup {
     register(entry);
   });
 
-  // ─── Quote text word-by-word reveal on scroll ──────────────────────
+  // ─── Quote text word-by-word reveal on scroll (GSAP scrub) ─────────
   const quoteTextContainers = Array.from(
     root.querySelectorAll<HTMLElement>("p")
   ).filter((el) =>
@@ -200,41 +200,40 @@ export function initDoriaReveals(root: HTMLElement): Cleanup {
   quoteTextContainers.forEach((p) => {
     if (p.dataset.wordSplit === "done") return;
 
-    const wordEls: HTMLSpanElement[] = [];
-    const spans = Array.from(p.querySelectorAll<HTMLElement>("span"));
-    const targets: HTMLElement[] = spans.length ? spans : [p];
+    // Flatten any existing children (like gradient-clip spans) into
+    // plain text so we get a clean word-split canvas.
+    const fullText = p.textContent ?? "";
+    p.innerHTML = "";
+    p.style.color = "rgba(255, 255, 255, 0.14)";
 
-    targets.forEach((container) => {
-      const text = container.textContent ?? "";
-      container.textContent = "";
-      const tokens = text.split(/(\s+)/);
-      tokens.forEach((token) => {
-        if (!token) return;
-        if (/^\s+$/.test(token)) {
-          container.appendChild(document.createTextNode(token));
-          return;
-        }
-        const word = document.createElement("span");
-        word.textContent = token;
-        word.style.display = "inline-block";
-        word.style.opacity = "0.12";
-        word.style.willChange = "opacity";
-        container.appendChild(word);
-        wordEls.push(word);
-      });
+    const wordEls: HTMLSpanElement[] = [];
+    const tokens = fullText.split(/(\s+)/);
+    tokens.forEach((token) => {
+      if (!token) return;
+      if (/^\s+$/.test(token)) {
+        p.appendChild(document.createTextNode(token));
+        return;
+      }
+      const word = document.createElement("span");
+      word.textContent = token;
+      word.style.display = "inline-block";
+      word.style.color = "rgba(255, 255, 255, 0.14)";
+      word.style.willChange = "color";
+      p.appendChild(word);
+      wordEls.push(word);
     });
 
     p.dataset.wordSplit = "done";
     if (!wordEls.length) return;
 
     const tween = gsap.to(wordEls, {
-      opacity: 1,
+      color: "#ffffff",
       ease: "none",
-      stagger: { each: 0.06, ease: "none" },
+      stagger: { each: 0.04, ease: "none" },
       scrollTrigger: {
         trigger: p,
-        start: "top 78%",
-        end: "bottom 45%",
+        start: "top 80%",
+        end: "bottom 40%",
         scrub: 1,
       },
     });
