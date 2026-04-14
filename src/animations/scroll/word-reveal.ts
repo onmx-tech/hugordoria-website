@@ -7,6 +7,9 @@ type WordRevealOptions = {
   start?: string;
   end?: string;
   scrub?: number | boolean;
+  /** Line-height restored on the target (parents using leading-[0] would
+   *  collapse the word spans on top of each other otherwise). */
+  lineHeight?: string | number;
 };
 
 const DEFAULTS: Required<WordRevealOptions> = {
@@ -16,9 +19,13 @@ const DEFAULTS: Required<WordRevealOptions> = {
   start: "top 75%",
   end: "bottom 60%",
   scrub: true as unknown as number,
+  lineHeight: 1.24,
 };
 
-function splitIntoWords(el: HTMLElement): HTMLSpanElement[] {
+function splitIntoWords(
+  el: HTMLElement,
+  lineHeight: string | number
+): HTMLSpanElement[] {
   if (el.dataset.wordSplit === "done") {
     return Array.from(
       el.querySelectorAll<HTMLSpanElement>("[data-word]")
@@ -27,6 +34,7 @@ function splitIntoWords(el: HTMLElement): HTMLSpanElement[] {
 
   const text = el.textContent ?? "";
   el.innerHTML = "";
+  el.style.lineHeight = String(lineHeight);
 
   const wordEls: HTMLSpanElement[] = [];
   const tokens = text.split(/(\s+)/);
@@ -41,6 +49,7 @@ function splitIntoWords(el: HTMLElement): HTMLSpanElement[] {
     word.dataset.word = "";
     word.textContent = token;
     word.style.display = "inline-block";
+    word.style.lineHeight = String(lineHeight);
     word.style.willChange = "color";
     el.appendChild(word);
     wordEls.push(word);
@@ -55,7 +64,7 @@ export function createWordReveal(
   options: WordRevealOptions = {}
 ): gsap.core.Tween | null {
   const opts = { ...DEFAULTS, ...options };
-  const words = splitIntoWords(target);
+  const words = splitIntoWords(target, opts.lineHeight);
   if (!words.length) return null;
 
   gsap.set(words, { color: opts.dimColor });
