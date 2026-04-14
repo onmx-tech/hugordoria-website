@@ -1,4 +1,5 @@
 import { gsap, ScrollTrigger } from "../lib/gsap";
+import { createWordReveal } from "./scroll/word-reveal";
 
 type Cleanup = () => void;
 
@@ -198,46 +199,8 @@ export function initDoriaReveals(root: HTMLElement): Cleanup {
     (el.textContent ?? "").includes("A Neurocirurgia é uma arte e é uma honra")
   );
   quoteTextContainers.forEach((p) => {
-    if (p.dataset.wordSplit === "done") return;
-
-    // Flatten any existing children (like gradient-clip spans) into
-    // plain text so we get a clean word-split canvas.
-    const fullText = p.textContent ?? "";
-    p.innerHTML = "";
-    p.style.color = "rgba(255, 255, 255, 0.14)";
-
-    const wordEls: HTMLSpanElement[] = [];
-    const tokens = fullText.split(/(\s+)/);
-    tokens.forEach((token) => {
-      if (!token) return;
-      if (/^\s+$/.test(token)) {
-        p.appendChild(document.createTextNode(token));
-        return;
-      }
-      const word = document.createElement("span");
-      word.textContent = token;
-      word.style.display = "inline-block";
-      word.style.color = "rgba(255, 255, 255, 0.14)";
-      word.style.willChange = "color";
-      p.appendChild(word);
-      wordEls.push(word);
-    });
-
-    p.dataset.wordSplit = "done";
-    if (!wordEls.length) return;
-
-    const tween = gsap.to(wordEls, {
-      color: "#ffffff",
-      ease: "none",
-      stagger: { each: 0.04, ease: "none" },
-      scrollTrigger: {
-        trigger: p,
-        start: "top 80%",
-        end: "bottom 40%",
-        scrub: 1,
-      },
-    });
-    register(tween);
+    const tween = createWordReveal(p);
+    if (tween) register(tween);
   });
 
   // Horizontal rules (line dividers)
