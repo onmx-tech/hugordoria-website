@@ -8,7 +8,7 @@ import imgImage10 from "@/assets/1237b2795956579d89da3b7db4b78c58db67e687.png";
 import imgFreepikGenerate9DifferentAnglesOfThisImageTile8000111 from "@/assets/67f1c6b7d4a309019bd2b0d60cc617ad92d98a04.png";
 import imgFreepikMaintainTheExactSameCompositionPoseCameraAngleLightingBackgroundAndFacialFeaturesDoNotChangeTheEnvironmentPerspectiveOrBodyPositionOnlyReplaceTheCurrentOutfit000111 from "@/assets/7fce637c41f772dc3b46182964e1004bde51609a.png";
 import { imgDoria } from "./svg-hwktx";
-import imgHeroDoria from "@/assets/hero-doria-1e071a.png";
+import imgHeroDoria from "@/assets/figma-7258-548.png";
 
 function Group1() {
   return (
