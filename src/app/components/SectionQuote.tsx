@@ -1,23 +1,10 @@
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger, SplitText } from "../../lib/gsap";
-import svgPaths from "../../imports/svg-nx92b0rij3";
-
-const QUOTE_TEXT =
-  "A Neurocirurgia é uma arte e é uma honra poder exercê-la. Atuar em uma área de extrema importância para resgatar a vida dos pacientes é muito mais que uma profissão, é um grande privilégio.";
-
-const ATTRIBUTION =
-  "Assim define Dr. Hugo Leonardo Doria-Netto, MD, PhD, seu dom na medicina é reconhecido como uma dádiva de Deus.";
-
-const SIGNATURE_PATHS = [
-  svgPaths.p1fc81800,
-  svgPaths.p13cf9480,
-  svgPaths.p28fd4ec0,
-  svgPaths.p136b1e50,
-  svgPaths.p58bf700,
-  svgPaths.p312a1a00,
-  svgPaths.p3236b800,
-  svgPaths.p3a754760,
-];
+import {
+  ATTRIBUTION,
+  QUOTE_TEXT,
+  SIGNATURE_PATHS,
+} from "./section-quote/data";
+import { initQuoteAnimation } from "./section-quote/animations";
 
 export default function SectionQuote() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -30,86 +17,10 @@ export default function SectionQuote() {
     const section = sectionRef.current;
     const mark = markRef.current;
     const quote = quoteRef.current;
-    const sig = signatureRef.current;
-    const attr = attributionRef.current;
-    if (!section || !mark || !quote || !sig || !attr) return;
-
-    const ctx = gsap.context(() => {
-      // Split quote into lines with overflow-hidden mask
-      const split = new SplitText(quote, {
-        type: "lines",
-        mask: "lines",
-        linesClass: "quote-line",
-      });
-
-      const paths = Array.from(sig.querySelectorAll("path")) as SVGPathElement[];
-      const pathLengths = paths.map((p) => {
-        try {
-          const len = p.getTotalLength();
-          if (Number.isFinite(len) && len > 0) {
-            gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
-            return len;
-          }
-        } catch {
-          /* noop */
-        }
-        return 0;
-      });
-      void pathLengths;
-
-      gsap.set(split.lines, { yPercent: 110 });
-      gsap.set(mark, { y: -24, opacity: 0 });
-      gsap.set(attr, { y: 24, opacity: 0 });
-
-      const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
-
-      const tl = gsap.timeline({
-        defaults: { ease: "power3.out" },
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: isDesktop ? "+=1800" : "bottom top",
-          pin: isDesktop,
-          scrub: 1,
-          anticipatePin: isDesktop ? 1 : 0,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      tl.to(mark, { y: 0, opacity: 1, duration: 0.6 }, 0)
-        .to(
-          split.lines,
-          {
-            yPercent: 0,
-            duration: 1,
-            stagger: 0.15,
-          },
-          0.15
-        )
-        .to(
-          paths,
-          {
-            strokeDashoffset: 0,
-            duration: 1.2,
-            stagger: 0.08,
-            ease: "none",
-          },
-          ">-0.3"
-        )
-        .to(
-          attr,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-          },
-          ">-0.25"
-        );
-
-      ScrollTrigger.refresh();
-    }, section);
-
-    return () => ctx.revert();
+    const signature = signatureRef.current;
+    const attribution = attributionRef.current;
+    if (!section || !mark || !quote || !signature || !attribution) return;
+    return initQuoteAnimation({ section, mark, quote, signature, attribution });
   }, []);
 
   return (
@@ -118,6 +29,7 @@ export default function SectionQuote() {
       className="relative w-full overflow-hidden bg-[#1a293f]"
       style={{ height: "100vh" }}
       data-section="quote"
+      data-component="quote"
     >
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span
@@ -151,13 +63,7 @@ export default function SectionQuote() {
           aria-hidden="true"
         >
           {SIGNATURE_PATHS.map((d, i) => (
-            <path
-              key={i}
-              d={d}
-              stroke="#B78E30"
-              strokeLinecap="round"
-              fill="none"
-            />
+            <path key={i} d={d} stroke="#B78E30" strokeLinecap="round" fill="none" />
           ))}
         </svg>
 
