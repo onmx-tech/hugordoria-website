@@ -9,27 +9,41 @@ import { ScrollTrigger } from "../lib/gsap";
 
 const CANVAS_WIDTH = 1920;
 const CANVAS_HEIGHT = 9258;
-const HERO_END = 1238;
+const HERO_NATIVE_H = 1084;
 const REST_START = 4700;
 const MIN_MOBILE_SCALE = 0.5;
 
-function computeScale() {
+function computeHeroScale() {
+  if (typeof window === "undefined") return 1;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  if (vw < 1024) {
+    return Math.max(MIN_MOBILE_SCALE, Math.min(1, vw / CANVAS_WIDTH));
+  }
+  // Contain: fit the 1920x1084 hero frame inside the viewport without clipping
+  return Math.min(vh / HERO_NATIVE_H, vw / CANVAS_WIDTH);
+}
+
+function computeRestScale() {
   if (typeof window === "undefined") return 1;
   const vw = window.innerWidth;
   const natural = Math.min(1, vw / CANVAS_WIDTH);
-  if (vw >= 1024) return natural;
-  return Math.max(MIN_MOBILE_SCALE, natural);
+  return vw >= 1024 ? natural : Math.max(MIN_MOBILE_SCALE, natural);
 }
 
 export default function App() {
-  const [scale, setScale] = useState(computeScale);
+  const [heroScale, setHeroScale] = useState(computeHeroScale);
+  const [restScale, setRestScale] = useState(computeRestScale);
   const heroStageRef = useRef<HTMLDivElement | null>(null);
   const restStageRef = useRef<HTMLDivElement | null>(null);
 
   useLenis();
 
   useEffect(() => {
-    const handleResize = () => setScale(computeScale());
+    const handleResize = () => {
+      setHeroScale(computeHeroScale());
+      setRestScale(computeRestScale());
+    };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -43,41 +57,41 @@ export default function App() {
 
   useEffect(() => {
     ScrollTrigger.refresh();
-  }, [scale]);
+  }, [heroScale, restScale]);
 
   const restHeight = CANVAS_HEIGHT - REST_START;
 
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      {/* Hero block — shows canvas y=0 to y=HERO_END */}
+      {/* Hero — full 100vh, contained + centered inside the viewport */}
       <div
-        style={{
-          width: "100%",
-          overflow: "hidden",
-          height: HERO_END * scale,
-        }}
+        className="relative w-full overflow-hidden flex items-center justify-center"
+        style={{ height: "100vh", backgroundColor: "#122136" }}
       >
         <div
-          ref={heroStageRef}
+          className="relative flex-shrink-0 overflow-hidden"
           style={{
-            width: CANVAS_WIDTH,
-            height: CANVAS_HEIGHT,
-            transform: `scale(${scale})`,
-            transformOrigin: "top left",
+            width: CANVAS_WIDTH * heroScale,
+            height: HERO_NATIVE_H * heroScale,
           }}
-          className="relative"
         >
-          <Doria />
+          <div
+            ref={heroStageRef}
+            className="absolute left-0 top-0"
+            style={{
+              width: CANVAS_WIDTH,
+              height: CANVAS_HEIGHT,
+              transform: `scale(${heroScale})`,
+              transformOrigin: "top left",
+            }}
+          >
+            <Doria />
+          </div>
         </div>
       </div>
 
-      {/* Horizontal-scroll "Sobre" section */}
       <SectionSobre />
-
-      {/* Pinned quote reveal — 100vh */}
       <SectionQuote />
-
-      {/* Pinned especialidades — horizontal card scroll with static title */}
       <SectionEspecialidades />
 
       {/* Rest of canvas — shows y=REST_START to y=CANVAS_HEIGHT */}
@@ -85,22 +99,22 @@ export default function App() {
         style={{
           width: "100%",
           overflow: "hidden",
-          height: restHeight * scale,
+          height: restHeight * restScale,
           position: "relative",
         }}
       >
         <div
           ref={restStageRef}
+          className="relative"
           style={{
             width: CANVAS_WIDTH,
             height: CANVAS_HEIGHT,
-            transform: `scale(${scale})`,
+            transform: `scale(${restScale})`,
             transformOrigin: "top left",
             position: "absolute",
-            top: -REST_START * scale,
+            top: -REST_START * restScale,
             left: 0,
           }}
-          className="relative"
         >
           <Doria />
         </div>
