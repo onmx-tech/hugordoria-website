@@ -157,11 +157,11 @@ function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
         backgroundColor: "rgba(255, 255, 255, 0.07)",
       }}
     >
-      <div style={{ margin: "0 auto", width: 48, height: 48 }}>{card.icon}</div>
+      <div style={{ width: 48, height: 48 }}>{card.icon}</div>
 
       <div
         className="flex flex-col"
-        style={{ width: 449, height: 174, gap: 64, margin: "0 auto" }}
+        style={{ width: 449, height: 174, gap: 64 }}
       >
         <div className="flex flex-col" style={{ width: 449, gap: 8 }}>
           <p
