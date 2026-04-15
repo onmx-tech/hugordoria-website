@@ -1,5 +1,5 @@
 import { gsap, ScrollTrigger } from "../lib/gsap";
-import { createWordReveal } from "./scroll/word-reveal";
+import { createLineReveal } from "./scroll/line-reveal";
 
 type Cleanup = () => void;
 
@@ -199,8 +199,8 @@ export function initDoriaReveals(root: HTMLElement): Cleanup {
     (el.textContent ?? "").includes("A Neurocirurgia é uma arte e é uma honra")
   );
   quoteTextContainers.forEach((p) => {
-    const tween = createWordReveal(p);
-    if (tween) register(tween);
+    const reveal = createLineReveal(p);
+    if (reveal) register(reveal.tween);
   });
 
   // Horizontal rules (line dividers)
