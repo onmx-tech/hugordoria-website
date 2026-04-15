@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Doria from "../imports/Doria";
 import SectionSobre from "./components/SectionSobre";
 import SectionQuote from "./components/SectionQuote";
+import SectionEspecialidades from "./components/SectionEspecialidades";
 import { useLenis } from "../hooks/useLenis";
 import { initDoriaReveals } from "../animations/doria-reveals";
 import { ScrollTrigger } from "../lib/gsap";
@@ -9,7 +10,7 @@ import { ScrollTrigger } from "../lib/gsap";
 const CANVAS_WIDTH = 1920;
 const CANVAS_HEIGHT = 9258;
 const HERO_END = 1238;
-const REST_START = 3500;
+const REST_START = 4700;
 
 export default function App() {
   const [scale, setScale] = useState(
@@ -71,6 +72,9 @@ export default function App() {
 
       {/* Pinned quote reveal — 100vh */}
       <SectionQuote />
+
+      {/* Pinned especialidades — horizontal card scroll with static title */}
+      <SectionEspecialidades />
 
       {/* Rest of canvas — shows y=REST_START to y=CANVAS_HEIGHT */}
       <div
