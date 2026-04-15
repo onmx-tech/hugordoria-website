@@ -1245,8 +1245,8 @@ function Group11() {
 
 function Doria2() {
   return (
-    <div className="absolute h-[1222px] left-[401px] top-[83px] w-[1073px]" data-name="freepik_2784531111 1">
-      <img alt="Dr. Hugo Doria" className="block size-full object-cover" src={imgHeroDoria} />
+    <div className="absolute h-[1084px] left-[422px] top-0 w-[1019px]" data-name="freepik_2786814772 1">
+      <img alt="Dr. Hugo Doria" className="block size-full object-cover object-top" src={imgHeroDoria} />
     </div>
   );
 }
@@ -1345,12 +1345,19 @@ function Doria1() {
       <Frame17 />
 
       {/* Brand top-left */}
-      <div className="absolute flex flex-col font-['Geist',sans-serif] font-bold justify-center leading-[0] left-[24px] text-[0px] text-white top-[20px] tracking-[-0.6977px] whitespace-nowrap">
-        <p>
-          <span className="leading-[0.92] text-[10px]">{`DR. `}</span>
-          <span className="leading-[0.92] text-[17.441px]">HUGO DORIA</span>
-          <span className="font-['Geist',sans-serif] font-normal leading-[0.92] text-[17.441px]">®</span>
-        </p>
+      <div
+        className="absolute flex items-center font-['Geist',sans-serif] font-bold text-white whitespace-nowrap"
+        style={{
+          left: 24,
+          top: 20,
+          width: 133,
+          height: 12,
+          fontSize: 10,
+          lineHeight: 0.92,
+          letterSpacing: "-0.04em",
+        }}
+      >
+        DR. HUGO DORIA®
       </div>
 
       <Frame6 />
