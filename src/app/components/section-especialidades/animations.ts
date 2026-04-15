@@ -1,5 +1,5 @@
 import { gsap } from "../../../lib/gsap";
-import { CANVAS_H, TRACK_W } from "./data";
+import { CANVAS_H, HEADER_W, TRACK_W } from "./data";
 
 type Refs = {
   section: HTMLElement;
@@ -8,7 +8,11 @@ type Refs = {
 };
 
 export function initEspecialidadesAnimation({ section, track, headerWrap }: Refs) {
-  const getScale = () => window.innerHeight / CANVAS_H;
+  const getScale = () => {
+    const byHeight = window.innerHeight / CANVAS_H;
+    const byWidth = window.innerWidth / HEADER_W;
+    return Math.min(byHeight, byWidth);
+  };
   const getDistance = () =>
     Math.max(0, TRACK_W * getScale() - window.innerWidth);
 
