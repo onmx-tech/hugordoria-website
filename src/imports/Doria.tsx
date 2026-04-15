@@ -1306,7 +1306,7 @@ function Frame6() {
 
 function Doria1() {
   return (
-    <div className="-translate-x-1/2 absolute bg-gradient-to-b from-[#122136] from-[1.338%] h-[1084px] left-1/2 overflow-clip to-[133.58%] to-white top-0 w-[1920px]" data-name="Doria">
+    <div className="-translate-x-1/2 absolute bg-gradient-to-b from-[#122136] from-[1.338%] h-[1084px] left-1/2 overflow-clip to-[133.58%] to-[#1a293f] top-0 w-[1920px]" data-name="Doria">
       <Doria2 />
 
       {/* Eyebrow (left) */}
