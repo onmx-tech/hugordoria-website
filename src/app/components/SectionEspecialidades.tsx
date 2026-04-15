@@ -147,6 +147,7 @@ function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
   return (
     <article
       className="absolute flex flex-col items-start justify-between"
+      data-card
       style={{
         left: x,
         top: y,
@@ -155,6 +156,19 @@ function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
         padding: 32,
         gap: 24,
         backgroundColor: "rgba(255, 255, 255, 0.07)",
+        transition:
+          "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.45s ease",
+        willChange: "transform",
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLElement).style.transform = "translateY(-10px)";
+        (e.currentTarget as HTMLElement).style.backgroundColor =
+          "rgba(255, 255, 255, 0.1)";
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+        (e.currentTarget as HTMLElement).style.backgroundColor =
+          "rgba(255, 255, 255, 0.07)";
       }}
     >
       <div style={{ width: 48, height: 48 }}>{card.icon}</div>
