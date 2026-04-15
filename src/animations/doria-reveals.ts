@@ -1,4 +1,6 @@
 import { gsap, ScrollTrigger } from "../lib/gsap";
+import { createLineReveal } from "./scroll/line-reveal";
+import { createParallax } from "./scroll/parallax";
 
 type Cleanup = () => void;
 
@@ -69,16 +71,21 @@ export function initDoriaReveals(root: HTMLElement): Cleanup {
     register(tween);
   });
 
-  // Section headings (Arimo 36px)
-  const sectionHeadings = Array.from(root.querySelectorAll("p")).filter((el) => {
+  // Section headings (Arimo 30-50px) — premium line reveal via SplitText
+  const sectionHeadings = Array.from(root.querySelectorAll<HTMLElement>("p")).filter((el) => {
     const cs = window.getComputedStyle(el);
     const fontSize = parseFloat(cs.fontSize);
     const family = cs.fontFamily;
     return fontSize >= 30 && fontSize <= 50 && family.includes("Arimo");
   });
   sectionHeadings.forEach((el) => {
-    const tween = fadeUp(el);
-    register(tween);
+    const reveal = createLineReveal(el, {
+      start: "top 85%",
+      end: "top 45%",
+      scrub: 1,
+      stagger: 0.1,
+    });
+    if (reveal) register(reveal.tween);
   });
 
   // Body paragraphs (Arimo 20px)
@@ -104,8 +111,8 @@ export function initDoriaReveals(root: HTMLElement): Cleanup {
     register(tween);
   });
 
-  // Images: subtle fade + scale on enter
-  const images = root.querySelectorAll("img");
+  // Images: subtle fade + scale on enter, plus scroll parallax for depth
+  const images = Array.from(root.querySelectorAll<HTMLImageElement>("img"));
   images.forEach((img) => {
     const tween = gsap.fromTo(
       img,
@@ -119,6 +126,15 @@ export function initDoriaReveals(root: HTMLElement): Cleanup {
       }
     );
     register(tween);
+
+    // Apply parallax to the frame wrapper so the img overflow doesn't
+    // clip — walk up to the nearest positioned ancestor that has
+    // overflow-clip/hidden (matches the Doria Frame* cards).
+    const frame = img.closest<HTMLElement>('[class*="overflow-clip"], [class*="overflow-hidden"]');
+    if (frame) {
+      const parallax = createParallax(img, { distance: 80 });
+      if (parallax) register(parallax);
+    }
   });
 
   // Background image elements (divs with bg-position styling)
