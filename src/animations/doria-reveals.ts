@@ -1,46 +1,37 @@
 import { gsap, ScrollTrigger } from "../lib/gsap";
 import { createLineReveal } from "./scroll/line-reveal";
 import { createParallax } from "./scroll/parallax";
+import { createFadeUp } from "./scroll/fade-up";
+import { createFadeScale } from "./scroll/fade-scale";
+import { createSignatureDraw } from "./scroll/signature-draw";
+import { createLineDraw } from "./scroll/line-draw";
 
 type Cleanup = () => void;
 
-const REVEAL_FROM = { y: 60, opacity: 0 };
-const REVEAL_TO = { y: 0, opacity: 1, duration: 1, ease: "power3.out" as const };
+const fontSizeOf = (el: Element) =>
+  parseFloat(window.getComputedStyle(el).fontSize);
 
-function fadeUp(targets: Element | Element[] | NodeListOf<Element>, opts: gsap.TweenVars = {}) {
-  return gsap.fromTo(
-    targets,
-    { ...REVEAL_FROM },
-    {
-      ...REVEAL_TO,
-      ...opts,
-      scrollTrigger: {
-        trigger: opts.scrollTrigger ? undefined : (Array.isArray(targets) ? targets[0] : targets) as Element,
-        start: "top 85%",
-        once: true,
-        ...(typeof opts.scrollTrigger === "object" ? opts.scrollTrigger : {}),
-      },
-    }
-  );
+const fontFamilyOf = (el: Element) =>
+  window.getComputedStyle(el).fontFamily;
+
+function queryParagraphs(
+  root: HTMLElement,
+  predicate: (el: HTMLElement) => boolean
+) {
+  return Array.from(root.querySelectorAll<HTMLElement>("p")).filter(predicate);
 }
 
 export function initDoriaReveals(root: HTMLElement): Cleanup {
   const triggers: ScrollTrigger[] = [];
 
-  const register = (tween: gsap.core.Tween) => {
-    if (tween.scrollTrigger) triggers.push(tween.scrollTrigger);
+  const register = (tween: gsap.core.Tween | null | undefined) => {
+    if (tween?.scrollTrigger) triggers.push(tween.scrollTrigger);
   };
 
-  // Hero — top section, animate on first paint (no scroll trigger)
-  const heroH1 = root.querySelector('p.leading-\\[0\\.92\\]') || root.querySelector('[data-name="Doria"]');
-  // Massive Hugo Doria title (font 313.058px in original)
-  const massiveTitles = Array.from(root.querySelectorAll("p")).filter((el) => {
-    const cs = window.getComputedStyle(el);
-    const fontSize = parseFloat(cs.fontSize);
-    return fontSize > 200;
-  });
+  // Massive titles (> 200px) — load animation, no scroll trigger
+  const massiveTitles = queryParagraphs(root, (el) => fontSizeOf(el) > 200);
   if (massiveTitles.length) {
-    const tween = gsap.from(massiveTitles, {
+    gsap.from(massiveTitles, {
       yPercent: 100,
       opacity: 0,
       duration: 1.4,
@@ -50,13 +41,11 @@ export function initDoriaReveals(root: HTMLElement): Cleanup {
     });
   }
 
-  // Big quote section (>=120px text)
-  const bigQuotes = Array.from(root.querySelectorAll("p")).filter((el) => {
-    const cs = window.getComputedStyle(el);
-    const fontSize = parseFloat(cs.fontSize);
-    return fontSize > 100 && fontSize < 200;
-  });
-  bigQuotes.forEach((el) => {
+  // Big quotes (100–200px) — scrubbed rise on enter
+  queryParagraphs(root, (el) => {
+    const size = fontSizeOf(el);
+    return size > 100 && size < 200;
+  }).forEach((el) => {
     const tween = gsap.fromTo(
       el,
       { yPercent: 50, opacity: 0 },
@@ -71,14 +60,11 @@ export function initDoriaReveals(root: HTMLElement): Cleanup {
     register(tween);
   });
 
-  // Section headings (Arimo 30-50px) — premium line reveal via SplitText
-  const sectionHeadings = Array.from(root.querySelectorAll<HTMLElement>("p")).filter((el) => {
-    const cs = window.getComputedStyle(el);
-    const fontSize = parseFloat(cs.fontSize);
-    const family = cs.fontFamily;
-    return fontSize >= 30 && fontSize <= 50 && family.includes("Arimo");
-  });
-  sectionHeadings.forEach((el) => {
+  // Section headings (30–50px Arimo) — premium SplitText line reveal
+  queryParagraphs(root, (el) => {
+    const size = fontSizeOf(el);
+    return size >= 30 && size <= 50 && fontFamilyOf(el).includes("Arimo");
+  }).forEach((el) => {
     const reveal = createLineReveal(el, {
       start: "top 85%",
       end: "top 45%",
@@ -88,147 +74,47 @@ export function initDoriaReveals(root: HTMLElement): Cleanup {
     if (reveal) register(reveal.tween);
   });
 
-  // Body paragraphs (Arimo 20px)
-  const bodyParas = Array.from(root.querySelectorAll("p")).filter((el) => {
-    const cs = window.getComputedStyle(el);
-    const fontSize = parseFloat(cs.fontSize);
-    const family = cs.fontFamily;
-    return fontSize >= 18 && fontSize <= 22 && family.includes("Arimo");
+  // Body paragraphs (18–22px Arimo) — simple fadeUp with batched stagger
+  queryParagraphs(root, (el) => {
+    const size = fontSizeOf(el);
+    return size >= 18 && size <= 22 && fontFamilyOf(el).includes("Arimo");
+  }).forEach((el, i) => {
+    register(createFadeUp(el, { delay: (i % 4) * 0.05 }));
   });
-  bodyParas.forEach((el, i) => {
-    const tween = gsap.fromTo(
-      el,
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.9,
-        delay: (i % 4) * 0.05,
-        ease: "power3.out",
-        scrollTrigger: { trigger: el, start: "top 88%", once: true },
-      }
+
+  // Images — enter fade+scale plus subtle scroll parallax
+  Array.from(root.querySelectorAll<HTMLImageElement>("img")).forEach((img) => {
+    register(createFadeScale(img));
+
+    const frame = img.closest<HTMLElement>(
+      '[class*="overflow-clip"], [class*="overflow-hidden"]'
     );
-    register(tween);
+    if (frame) register(createParallax(img, { distance: 80 }));
   });
 
-  // Images: subtle fade + scale on enter, plus scroll parallax for depth
-  const images = Array.from(root.querySelectorAll<HTMLImageElement>("img"));
-  images.forEach((img) => {
-    const tween = gsap.fromTo(
-      img,
-      { opacity: 0, scale: 0.96 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1.4,
-        ease: "expo.out",
-        scrollTrigger: { trigger: img, start: "top 85%", once: true },
-      }
-    );
-    register(tween);
-
-    // Apply parallax to the frame wrapper so the img overflow doesn't
-    // clip — walk up to the nearest positioned ancestor that has
-    // overflow-clip/hidden (matches the Doria Frame* cards).
-    const frame = img.closest<HTMLElement>('[class*="overflow-clip"], [class*="overflow-hidden"]');
-    if (frame) {
-      const parallax = createParallax(img, { distance: 80 });
-      if (parallax) register(parallax);
-    }
-  });
-
-  // Background image elements (divs with bg-position styling)
-  const bgImages = root.querySelectorAll('[style*="background-image"]');
-  bgImages.forEach((el) => {
-    const tween = gsap.fromTo(
-      el,
-      { opacity: 0, scale: 0.96 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1.4,
-        ease: "expo.out",
-        scrollTrigger: { trigger: el, start: "top 85%", once: true },
-      }
-    );
-    register(tween);
-  });
-
-  // ─── Quote signature SVG draw-in ───────────────────────────────────
-  const signatureContainers = Array.from(
-    root.querySelectorAll('[data-name="Quote Icon Container"]')
+  // Background-image divs — enter fade+scale
+  root.querySelectorAll<HTMLElement>('[style*="background-image"]').forEach(
+    (el) => register(createFadeScale(el))
   );
-  signatureContainers.forEach((container) => {
-    const paths = Array.from(
-      container.querySelectorAll("path")
-    ) as SVGPathElement[];
-    if (!paths.length) return;
 
-    paths.forEach((path) => {
-      try {
-        const length = path.getTotalLength();
-        if (!Number.isFinite(length) || length === 0) return;
-        gsap.set(path, {
-          strokeDasharray: length,
-          strokeDashoffset: length,
-          strokeWidth: 1.2,
-          autoRound: false,
-        });
-      } catch {
-        /* path without geometry */
+  // Quote signature draw-on
+  root
+    .querySelectorAll<HTMLElement>('[data-name="Quote Icon Container"]')
+    .forEach((container) => {
+      const sig = createSignatureDraw(container);
+      if (sig) {
+        register(sig.draw);
+        register(sig.entry);
       }
     });
 
-    const tween = gsap.to(paths, {
-      strokeDashoffset: 0,
-      ease: "none",
-      stagger: { each: 0.08, from: "start" },
-      scrollTrigger: {
-        trigger: container,
-        start: "top 85%",
-        end: "bottom 40%",
-        scrub: 1.2,
-      },
-    });
-    register(tween);
-
-    // Subtle entry fade for the whole signature container
-    const entry = gsap.fromTo(
-      container,
-      { y: 24, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.1,
-        ease: "power3.out",
-        scrollTrigger: { trigger: container, start: "top 88%", once: true },
-      }
-    );
-    register(entry);
-  });
-
-  // Quote text reveal moved to SectionQuote component
-
-  // Horizontal rules (line dividers)
-  const lines = root.querySelectorAll("svg line");
-  lines.forEach((line) => {
-    const parent = (line.closest("svg") as SVGElement) || (line as unknown as Element);
-    const tween = gsap.fromTo(
-      parent,
-      { scaleX: 0, transformOrigin: "left center" },
-      {
-        scaleX: 1,
-        duration: 1.2,
-        ease: "power3.out",
-        scrollTrigger: { trigger: parent, start: "top 90%", once: true },
-      }
-    );
-    register(tween);
+  // SVG horizontal dividers — scaleX draw-in
+  root.querySelectorAll<SVGLineElement>("svg line").forEach((line) => {
+    const parent = line.closest("svg") as SVGElement | null;
+    if (parent) register(createLineDraw(parent));
   });
 
   ScrollTrigger.refresh();
 
-  return () => {
-    triggers.forEach((t) => t.kill());
-  };
+  return () => triggers.forEach((t) => t.kill());
 }
