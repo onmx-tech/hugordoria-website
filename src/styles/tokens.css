@@ -1,0 +1,36 @@
+:root {
+  /* ── Brand colors ───────────────────────────────────────────── */
+  --color-bg-deep: #1a293f;
+  --color-bg-deeper: #122136;
+  --color-accent-gold: #b78e30;
+  --color-accent-gold-light: #c5a471;
+  --color-text-muted: #d9d3ca;
+  --color-text-soft: #f3f4f5;
+
+  /* ── Surface tints (on dark) ────────────────────────────────── */
+  --surface-card: rgba(255, 255, 255, 0.07);
+  --surface-card-hover: rgba(255, 255, 255, 0.1);
+  --surface-subtle: rgba(255, 255, 255, 0.04);
+  --surface-line: rgba(255, 255, 255, 0.24);
+  --surface-line-soft: rgba(255, 255, 255, 0.12);
+
+  /* ── Text alphas ────────────────────────────────────────────── */
+  --text-primary: #ffffff;
+  --text-body: rgba(255, 255, 255, 0.7);
+  --text-quiet: rgba(255, 255, 255, 0.5);
+
+  /* ── Typography ─────────────────────────────────────────────── */
+  --font-display: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-body: "Arimo", system-ui, sans-serif;
+
+  /* ── Easing ─────────────────────────────────────────────────── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Layout breakpoints (used as max-width) ─────────────────── */
+  --bp-mobile: 768px;
+  --bp-tablet: 1024px;
+  --bp-desktop: 1440px;
+}

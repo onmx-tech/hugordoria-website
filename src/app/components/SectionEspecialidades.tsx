@@ -320,18 +320,18 @@ export default function SectionEspecialidades() {
     const headerWrap = headerWrapRef.current;
     if (!section || !track || !headerWrap) return;
 
+    const getScale = () => window.innerHeight / CANVAS_H;
+    const getDistance = () =>
+      Math.max(0, TRACK_W * getScale() - window.innerWidth);
+
+    const applyScale = () => {
+      const s = getScale();
+      gsap.set(headerWrap, { scale: s, transformOrigin: "top left" });
+      gsap.set(track, { scale: s, transformOrigin: "top left" });
+    };
+    applyScale();
+
     const ctx = gsap.context(() => {
-      const getScale = () => window.innerHeight / CANVAS_H;
-      const getDistance = () =>
-        Math.max(0, TRACK_W * getScale() - window.innerWidth);
-
-      const applyScale = () => {
-        const s = getScale();
-        gsap.set(headerWrap, { scale: s, transformOrigin: "top left" });
-        gsap.set(track, { scale: s, transformOrigin: "top left" });
-      };
-      applyScale();
-
       gsap.to(track, {
         x: () => `-${getDistance()}`,
         ease: "none",
@@ -345,12 +345,13 @@ export default function SectionEspecialidades() {
           anticipatePin: 1,
         },
       });
-
-      window.addEventListener("resize", applyScale);
-      return () => window.removeEventListener("resize", applyScale);
     }, section);
 
-    return () => ctx.revert();
+    window.addEventListener("resize", applyScale);
+    return () => {
+      window.removeEventListener("resize", applyScale);
+      ctx.revert();
+    };
   }, []);
 
   return (
