@@ -61,15 +61,17 @@ export default function SectionQuote() {
       gsap.set(mark, { y: -24, opacity: 0 });
       gsap.set(attr, { y: 24, opacity: 0 });
 
+      const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+
       const tl = gsap.timeline({
         defaults: { ease: "power3.out" },
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "+=1800",
-          pin: true,
+          end: isDesktop ? "+=1800" : "bottom top",
+          pin: isDesktop,
           scrub: 1,
-          anticipatePin: 1,
+          anticipatePin: isDesktop ? 1 : 0,
           invalidateOnRefresh: true,
         },
       });

@@ -11,21 +11,25 @@ const CANVAS_WIDTH = 1920;
 const CANVAS_HEIGHT = 9258;
 const HERO_END = 1238;
 const REST_START = 4700;
+const MIN_MOBILE_SCALE = 0.5;
+
+function computeScale() {
+  if (typeof window === "undefined") return 1;
+  const vw = window.innerWidth;
+  const natural = Math.min(1, vw / CANVAS_WIDTH);
+  if (vw >= 1024) return natural;
+  return Math.max(MIN_MOBILE_SCALE, natural);
+}
 
 export default function App() {
-  const [scale, setScale] = useState(
-    typeof window !== "undefined"
-      ? Math.min(1, window.innerWidth / CANVAS_WIDTH)
-      : 1
-  );
+  const [scale, setScale] = useState(computeScale);
   const heroStageRef = useRef<HTMLDivElement | null>(null);
   const restStageRef = useRef<HTMLDivElement | null>(null);
 
   useLenis();
 
   useEffect(() => {
-    const handleResize = () =>
-      setScale(Math.min(1, window.innerWidth / CANVAS_WIDTH));
+    const handleResize = () => setScale(computeScale());
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);

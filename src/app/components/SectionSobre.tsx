@@ -193,18 +193,17 @@ export default function SectionSobre() {
     const track = trackRef.current;
     if (!section || !track) return;
 
-    const ctx = gsap.context(() => {
-      const getScale = () => window.innerHeight / CANVAS_H;
+    const getScale = () => window.innerHeight / CANVAS_H;
+    const applyScale = () => {
+      gsap.set(track, { scale: getScale(), transformOrigin: "top left" });
+    };
+    applyScale();
+
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 1024px)", () => {
       const getDistance = () =>
         Math.max(0, CANVAS_W * getScale() - window.innerWidth);
-
-      const applyScale = () => {
-        gsap.set(track, {
-          scale: getScale(),
-          transformOrigin: "top left",
-        });
-      };
-      applyScale();
 
       gsap.to(track, {
         x: () => `-${getDistance()}`,
@@ -219,18 +218,19 @@ export default function SectionSobre() {
           anticipatePin: 1,
         },
       });
+    });
 
-      window.addEventListener("resize", applyScale);
-      return () => window.removeEventListener("resize", applyScale);
-    }, section);
-
-    return () => ctx.revert();
+    window.addEventListener("resize", applyScale);
+    return () => {
+      window.removeEventListener("resize", applyScale);
+      mm.revert();
+    };
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden"
+      className="relative w-full lg:overflow-hidden overflow-x-auto overflow-y-hidden"
       style={{ height: "100vh", backgroundColor: "#1A293F" }}
       data-section="sobre"
     >

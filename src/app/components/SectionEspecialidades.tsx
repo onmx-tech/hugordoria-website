@@ -331,7 +331,8 @@ export default function SectionEspecialidades() {
     };
     applyScale();
 
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 1024px)", () => {
       gsap.to(track, {
         x: () => `-${getDistance()}`,
         ease: "none",
@@ -345,19 +346,19 @@ export default function SectionEspecialidades() {
           anticipatePin: 1,
         },
       });
-    }, section);
+    });
 
     window.addEventListener("resize", applyScale);
     return () => {
       window.removeEventListener("resize", applyScale);
-      ctx.revert();
+      mm.revert();
     };
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#1a293f]"
+      className="relative w-full overflow-y-hidden overflow-x-auto lg:overflow-hidden bg-[#1a293f]"
       style={{ height: "100vh" }}
       data-section="especialidades"
     >
