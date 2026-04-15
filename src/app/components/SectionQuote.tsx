@@ -117,7 +117,7 @@ export default function SectionQuote() {
       style={{ height: "100vh" }}
       data-section="quote"
     >
-      <div className="absolute inset-0 flex flex-col items-center justify-start pt-[22vh]">
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span
           ref={markRef}
           className="block font-['Geist',sans-serif] font-bold text-[clamp(96px,10vw,138px)] leading-none tracking-[-0.04em] text-[#b78e30]"
