@@ -1,5 +1,4 @@
 import { gsap, ScrollTrigger } from "../lib/gsap";
-import { createLineReveal } from "./scroll/line-reveal";
 
 type Cleanup = () => void;
 
@@ -192,16 +191,7 @@ export function initDoriaReveals(root: HTMLElement): Cleanup {
     register(entry);
   });
 
-  // ─── Quote text word-by-word reveal on scroll (GSAP scrub) ─────────
-  const quoteTextContainers = Array.from(
-    root.querySelectorAll<HTMLElement>("p")
-  ).filter((el) =>
-    (el.textContent ?? "").includes("A Neurocirurgia é uma arte e é uma honra")
-  );
-  quoteTextContainers.forEach((p) => {
-    const reveal = createLineReveal(p);
-    if (reveal) register(reveal.tween);
-  });
+  // Quote text reveal moved to SectionQuote component
 
   // Horizontal rules (line dividers)
   const lines = root.querySelectorAll("svg line");
