@@ -4,7 +4,7 @@ import imgConference from "@/assets/b07dcf44e39fe46f52ddf687bc20067c3cbe5ad0.png
 import imgScrubsBlue from "@/assets/6c18cf7f306c9df025d6a7f74b408d318276b82c.png";
 import imgScrubsGreen from "@/assets/1237b2795956579d89da3b7db4b78c58db67e687.png";
 
-export const CANVAS_W = 3366;
+export const CANVAS_W = 3566;
 export const CANVAS_H = 1299;
 
 export const texts = {

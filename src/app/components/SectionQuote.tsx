@@ -8,6 +8,7 @@ import { initQuoteAnimation } from "./section-quote/animations";
 
 export default function SectionQuote() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const groupRef = useRef<HTMLDivElement>(null);
   const markRef = useRef<HTMLSpanElement>(null);
   const quoteRef = useRef<HTMLParagraphElement>(null);
   const signatureRef = useRef<SVGSVGElement>(null);
@@ -15,23 +16,27 @@ export default function SectionQuote() {
 
   useEffect(() => {
     const section = sectionRef.current;
+    const group = groupRef.current;
     const mark = markRef.current;
     const quote = quoteRef.current;
     const signature = signatureRef.current;
     const attribution = attributionRef.current;
-    if (!section || !mark || !quote || !signature || !attribution) return;
-    return initQuoteAnimation({ section, mark, quote, signature, attribution });
+    if (!section || !group || !mark || !quote || !signature || !attribution) return;
+    return initQuoteAnimation({ section, group, mark, quote, signature, attribution });
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#1a293f]"
-      style={{ height: "100vh" }}
+      className="relative w-full overflow-hidden"
+      style={{ height: "100vh", backgroundColor: "#1A293F" }}
       data-section="quote"
       data-component="quote"
     >
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
+      <div
+        ref={groupRef}
+        className="absolute inset-0 flex flex-col items-center justify-center will-change-transform"
+      >
         <span
           ref={markRef}
           className="block font-['Geist',sans-serif] font-bold text-[clamp(96px,10vw,138px)] leading-none tracking-[-0.04em] text-[#b78e30]"
