@@ -38,7 +38,7 @@ export default function SectionEspecialidades() {
       <div ref={contentRef} className="absolute inset-0 will-change-transform">
         <div
           ref={headerWrapRef}
-          className="absolute left-0 top-0 z-10"
+          className="pointer-events-none absolute left-0 top-0 z-10"
           style={{ width: HEADER_W, height: CANVAS_H }}
         >
           <Header />

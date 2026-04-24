@@ -41,8 +41,8 @@ export default function SectionSobreMim() {
         background: "linear-gradient(180deg, #eeebe4 0%, #ffffff 100%)",
       }}
     >
-      <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-16 py-16 md:py-24 lg:py-32">
-        {/* Title */}
+      {/* Title */}
+      <div className="px-6 md:px-12 lg:px-16 pt-16 md:pt-24 lg:pt-32">
         <h2
           data-reveal
           className="mx-auto max-w-[790px] text-center font-['Geist',sans-serif] font-medium text-[#1a293f] leading-[1.24] tracking-[-0.04em]"
@@ -51,54 +51,60 @@ export default function SectionSobreMim() {
           Melhor Neurocirurgia
           <br />e Cuidados Neurológicos
         </h2>
+      </div>
 
-        {/* Content grid: photo left, text+stats right */}
-        <div className="mt-12 md:mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* Photo */}
-          <div
+      {/* Content grid: photo left, text+stats right — full width */}
+      <div className="mt-12 md:mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-2 items-stretch pb-16 md:pb-24 lg:pb-32">
+        {/* Photo */}
+        <div
+          data-reveal
+          className="relative aspect-[815/980] md:aspect-auto w-full overflow-hidden bg-[rgba(88,88,88,0.1)]"
+        >
+          <img
+            src={imgMedicalRoom}
+            alt="Consultório Dr. Hugo Doria"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Text + Stats */}
+        <div className="flex flex-col justify-between gap-12 md:gap-16 px-6 md:px-12 lg:px-16 py-10 md:py-16">
+          <p
             data-reveal
-            className="relative aspect-[815/980] max-h-[600px] md:max-h-none w-full overflow-hidden rounded-sm bg-[rgba(88,88,88,0.1)]"
+            className="font-['Arimo',sans-serif] font-normal text-[#1a293f] leading-[1.18] tracking-[-0.02em]"
+            style={{ fontSize: "clamp(22px, 2.5vw, 40px)" }}
           >
-            <img
-              src={imgMedicalRoom}
-              alt="Consultório Dr. Hugo Doria"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          </div>
+            Confie em mim, para proporcionar o melhor tratamento e transformar
+            sua vida com excelência e dedicação, de forma humana e exclusiva,
+            meu maior compromisso com meus pacientes e suas familias.
+          </p>
 
-          {/* Text + Stats */}
-          <div className="flex flex-col justify-between gap-12 md:gap-16 min-h-full">
-            <p
-              data-reveal
-              className="font-['Arimo',sans-serif] font-normal text-[#1a293f] leading-[1.18] tracking-[-0.02em]"
-              style={{ fontSize: "clamp(22px, 2.5vw, 40px)" }}
-            >
-              Confie em mim, para proporcionar o melhor tratamento e transformar
-              sua vida com excelência e dedicação, de forma humana e exclusiva,
-              meu maior compromisso com meus pacientes e suas familias.
-            </p>
-
-            <div className="flex flex-col gap-10 md:gap-12">
-              {STATS.map((stat) => (
-                <div key={stat.label} data-reveal>
-                  <div className="h-px w-full bg-[#1a293f]/24 mb-5" />
-                  <div className="flex items-baseline justify-between gap-4">
-                    <span
-                      className="font-['Geist',sans-serif] font-normal text-[#1a293f] leading-[1.09] tracking-[-0.03em] whitespace-nowrap"
-                      style={{ fontSize: "clamp(36px, 4vw, 64px)" }}
-                    >
-                      {stat.value}
-                    </span>
-                    <span
-                      className="font-['Geist',sans-serif] font-normal text-black/60 leading-[1.09] tracking-[-0.03em] whitespace-nowrap"
-                      style={{ fontSize: "clamp(14px, 1.2vw, 20px)" }}
-                    >
-                      {stat.label}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-3 gap-px bg-[#c5a471]/20 rounded-2xl overflow-hidden">
+            {STATS.map((stat) => (
+              <div
+                key={stat.label}
+                data-reveal
+                className="group relative flex flex-col items-center text-center gap-2 md:gap-3 bg-white px-4 py-8 md:px-6 md:py-10 lg:py-12"
+              >
+                <div
+                  className="absolute inset-0 bg-gradient-to-b from-[#1a293f]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  aria-hidden
+                />
+                <span
+                  className="relative font-['Geist',sans-serif] font-semibold text-[#1a293f] leading-[1] tracking-[-0.04em]"
+                  style={{ fontSize: "clamp(24px, 2.2vw, 40px)" }}
+                >
+                  {stat.value}
+                </span>
+                <div className="relative w-8 h-px bg-[#c5a471] mt-1 mb-1" />
+                <span
+                  className="relative font-['Geist',sans-serif] font-normal text-[#1a293f]/50 leading-[1.4] tracking-[0.02em] uppercase"
+                  style={{ fontSize: "clamp(10px, 0.8vw, 13px)" }}
+                >
+                  {stat.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
