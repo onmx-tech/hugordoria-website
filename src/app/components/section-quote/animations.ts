@@ -36,7 +36,7 @@ export function initQuoteAnimation(refs: Refs) {
 
     // Initial states. Section bg matches the preceding section (no seam),
     // group is hidden below, quote lines masked, mark drops in from above.
-    gsap.set(section, { backgroundColor: "#1A293F" });
+    gsap.set(section, { backgroundColor: "var(--color-bg-deep)" });
     gsap.set(group, { y: 120, autoAlpha: 0 });
     gsap.set(split.lines, { yPercent: 110 });
     gsap.set(mark, {
@@ -63,7 +63,7 @@ export function initQuoteAnimation(refs: Refs) {
     const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
 
     // Pinned timeline: bg round-trips blue → dark → blue so the section never
-    // shows a seam against the preceding/following #1A293F sections. Quote
+    // shows a seam against the preceding/following navy sections. Quote
     // lines and signature reveal while held in the dark middle.
     const tl = gsap.timeline({
       defaults: { ease: "power2.inOut" },
@@ -79,7 +79,7 @@ export function initQuoteAnimation(refs: Refs) {
 
     tl
       // 1. Darken to navy black
-      .to(section, { backgroundColor: "#0c1a2e", duration: 0.6 }, 0)
+      .to(section, { backgroundColor: "var(--color-bg-darkest)", duration: 0.6 }, 0)
       // 2. Mark drops in with a back ease
       .to(
         mark,
@@ -105,7 +105,7 @@ export function initQuoteAnimation(refs: Refs) {
         ">-0.1"
       )
       // 4. Hold a beat at max dark
-      .to(section, { backgroundColor: "#0c1a2e", duration: 0.4 })
+      .to(section, { backgroundColor: "var(--color-bg-darkest)", duration: 0.4 })
       // 5. Lines re-mask + signature dissolves so the exit mirrors the entry
       .to(
         split.lines,
@@ -143,7 +143,7 @@ export function initQuoteAnimation(refs: Refs) {
       // 7. Lighten back to navy so the exit matches the next section
       .to(
         section,
-        { backgroundColor: "#1A293F", duration: 0.8 },
+        { backgroundColor: "var(--color-bg-deep)", duration: 0.8 },
         "<0.2"
       );
 

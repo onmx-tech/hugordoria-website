@@ -126,9 +126,9 @@ export default function EspecialidadePage() {
 
   if (!card) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-[#122136]">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-navy-deep">
         <p
-          className="font-['Geist',sans-serif] text-white/60"
+          className="font-['Geist',sans-serif] text-cream/60"
           style={{ fontSize: 18 }}
         >
           Especialidade não encontrada.
@@ -136,7 +136,7 @@ export default function EspecialidadePage() {
         <button
           type="button"
           onClick={() => navigate("/")}
-          className="mt-6 font-['Geist',sans-serif] text-[#c5a471] underline underline-offset-4"
+          className="mt-6 font-['Geist',sans-serif] text-gold-light underline underline-offset-4"
           style={{ fontSize: 15 }}
         >
           Voltar ao início
@@ -157,8 +157,8 @@ export default function EspecialidadePage() {
         className="relative w-full overflow-hidden"
         style={{
           height: "100vh",
-          minHeight: 640,
-          background: "#0d1a2d",
+          minHeight: 520,
+          background: "var(--color-bg-darkest)",
         }}
       >
         {/* Background image with parallax */}
@@ -176,7 +176,7 @@ export default function EspecialidadePage() {
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(13, 26, 45, 0.4) 0%, rgba(13, 26, 45, 0.15) 30%, rgba(13, 26, 45, 0.5) 65%, #0d1a2d 100%)",
+                  "linear-gradient(180deg, rgba(13, 26, 45, 0.4) 0%, rgba(13, 26, 45, 0.15) 30%, rgba(13, 26, 45, 0.5) 65%, var(--color-bg-darkest) 100%)",
               }}
             />
             <div
@@ -208,7 +208,7 @@ export default function EspecialidadePage() {
           <button
             type="button"
             onClick={() => navigate("/")}
-            className="flex items-center gap-3 font-['Geist',sans-serif] text-white/50 transition-colors duration-300 hover:text-white"
+            className="flex items-center gap-3 font-['Geist',sans-serif] text-cream/50 transition-colors duration-300 hover:text-cream"
             style={{ fontSize: 13, fontWeight: 500, letterSpacing: "0.02em" }}
           >
             <svg
@@ -229,7 +229,7 @@ export default function EspecialidadePage() {
 
           <span
             data-hero-reveal
-            className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.2em] text-[#c5a471]/70"
+            className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.2em] text-gold-light/70"
             style={{ fontSize: 10, fontWeight: 500 }}
           >
             {displayIndex} / {String(cards.length).padStart(2, "0")}
@@ -239,11 +239,11 @@ export default function EspecialidadePage() {
         {/* Large decorative index number */}
         <span
           data-hero-index
-          className="absolute z-[2] font-['Arimo',sans-serif] text-white/[0.04] select-none pointer-events-none"
+          className="absolute z-[2] font-['Arimo',sans-serif] text-cream/[0.04] select-none pointer-events-none"
           style={{
-            right: "clamp(24px, 6vw, 96px)",
-            bottom: "clamp(48px, 12vh, 160px)",
-            fontSize: "clamp(200px, 28vw, 420px)",
+            right: "clamp(16px, 6vw, 96px)",
+            bottom: "clamp(40px, 12vh, 160px)",
+            fontSize: "clamp(140px, 28vw, 420px)",
             fontWeight: 400,
             lineHeight: 0.8,
             letterSpacing: "-0.04em",
@@ -268,7 +268,7 @@ export default function EspecialidadePage() {
               <Icon />
             </div>
             <span
-              className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-[#c5a471]"
+              className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-gold-light"
               style={{ fontSize: 11, fontWeight: 500 }}
             >
               Especialidade
@@ -277,14 +277,14 @@ export default function EspecialidadePage() {
 
           <h1
             data-hero-title
-            className="font-['Arimo',sans-serif] text-white"
+            className="font-['Arimo',sans-serif] text-cream"
             style={{
               margin: 0,
               fontWeight: 400,
-              fontSize: "clamp(40px, 5.5vw, 80px)",
+              fontSize: "clamp(32px, 5.5vw, 80px)",
               lineHeight: 1.05,
               letterSpacing: "-0.03em",
-              maxWidth: "clamp(400px, 60vw, 800px)",
+              maxWidth: "min(100%, 800px)",
             }}
           >
             {card.title}
@@ -292,7 +292,7 @@ export default function EspecialidadePage() {
 
           <p
             data-hero-reveal
-            className="font-['Geist',sans-serif] text-white/50"
+            className="font-['Geist',sans-serif] text-cream/50"
             style={{
               margin: 0,
               marginTop: "clamp(16px, 2.5vh, 28px)",
@@ -315,7 +315,7 @@ export default function EspecialidadePage() {
               style={{ height: 40 }}
             />
             <span
-              className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.2em] text-white/30"
+              className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.2em] text-cream/30"
               style={{ fontSize: 10 }}
             >
               Scroll
@@ -331,7 +331,7 @@ export default function EspecialidadePage() {
         data-section-reveal
         className="relative w-full"
         style={{
-          background: "#122136",
+          background: "var(--color-bg-deeper)",
           paddingTop: "clamp(80px, 12vh, 140px)",
           paddingBottom: "clamp(80px, 10vh, 120px)",
         }}
@@ -343,7 +343,7 @@ export default function EspecialidadePage() {
             <div data-reveal className="flex flex-col gap-8 lg:sticky lg:top-24">
               <div>
                 <span
-                  className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-[#c5a471]/60"
+                  className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-gold-light/60"
                   style={{ fontSize: 10 }}
                 >
                   Sobre
@@ -357,7 +357,7 @@ export default function EspecialidadePage() {
                     <Icon />
                   </div>
                   <span
-                    className="font-['Geist',sans-serif] text-white/70"
+                    className="font-['Geist',sans-serif] text-cream/70"
                     style={{ fontSize: 14, fontWeight: 500 }}
                   >
                     {card.title}
@@ -367,7 +367,7 @@ export default function EspecialidadePage() {
 
               <div>
                 <span
-                  className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-[#c5a471]/60"
+                  className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-gold-light/60"
                   style={{ fontSize: 10 }}
                 >
                   Especialista
@@ -377,13 +377,13 @@ export default function EspecialidadePage() {
                   style={{ height: 1, background: "rgba(255,255,255,0.08)" }}
                 />
                 <span
-                  className="font-['Geist',sans-serif] text-white/70"
+                  className="font-['Geist',sans-serif] text-cream/70"
                   style={{ fontSize: 14, fontWeight: 500 }}
                 >
                   Dr. Hugo Doria
                 </span>
                 <p
-                  className="font-['Geist',sans-serif] text-white/35"
+                  className="font-['Geist',sans-serif] text-cream/35"
                   style={{ margin: 0, marginTop: 4, fontSize: 13 }}
                 >
                   MD PhD — Neurocirurgião
@@ -398,17 +398,17 @@ export default function EspecialidadePage() {
                 style={{
                   marginTop: 8,
                   padding: "12px 24px",
-                  background: "#c5a471",
+                  background: "var(--color-accent-gold-light)",
                   borderRadius: 100,
                   textDecoration: "none",
                   transition: "background 0.25s ease, transform 0.25s ease",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#d4b480";
+                  (e.currentTarget as HTMLElement).style.background = "var(--color-accent-gold-hover)";
                   (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#c5a471";
+                  (e.currentTarget as HTMLElement).style.background = "var(--color-accent-gold-light)";
                   (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                 }}
               >
@@ -417,7 +417,7 @@ export default function EspecialidadePage() {
                   height={14}
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#122136"
+                  stroke="var(--color-bg-deeper)"
                   strokeWidth={2}
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -426,7 +426,7 @@ export default function EspecialidadePage() {
                 </svg>
                 <span
                   className="font-['Geist',sans-serif]"
-                  style={{ fontWeight: 600, fontSize: 13, color: "#122136" }}
+                  style={{ fontWeight: 600, fontSize: 13, color: "var(--color-bg-deeper)" }}
                 >
                   Agendar Consulta
                 </span>
@@ -437,7 +437,7 @@ export default function EspecialidadePage() {
             <div>
               <p
                 data-reveal
-                className="font-['Arimo',sans-serif] text-white/75"
+                className="font-['Arimo',sans-serif] text-cream/75"
                 style={{
                   margin: 0,
                   fontWeight: 400,
@@ -461,7 +461,7 @@ export default function EspecialidadePage() {
                     }}
                   />
                   <span
-                    className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-[#c5a471]/60"
+                    className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-gold-light/60"
                     style={{ fontSize: 10 }}
                   >
                     Diferenciais
@@ -479,7 +479,7 @@ export default function EspecialidadePage() {
                         }}
                       >
                         <span
-                          className="font-['Arimo',sans-serif] text-[#c5a471]/40 shrink-0"
+                          className="font-['Arimo',sans-serif] text-gold-light/40 shrink-0"
                           style={{
                             fontSize: "clamp(28px, 2.5vw, 40px)",
                             fontWeight: 400,
@@ -491,7 +491,7 @@ export default function EspecialidadePage() {
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <span
-                          className="font-['Geist',sans-serif] text-white/70"
+                          className="font-['Geist',sans-serif] text-cream/70"
                           style={{
                             fontSize: "clamp(16px, 1.2vw, 20px)",
                             lineHeight: 1.5,
@@ -518,7 +518,7 @@ export default function EspecialidadePage() {
           data-section-reveal
           className="relative w-full"
           style={{
-            background: "linear-gradient(180deg, #EEEBE4 0%, #FFFFFF 100%)",
+            background: "linear-gradient(180deg, var(--color-bg-cream) 0%, #FFFFFF 100%)",
             paddingTop: "clamp(80px, 12vh, 140px)",
             paddingBottom: "clamp(80px, 10vh, 120px)",
           }}
@@ -530,13 +530,13 @@ export default function EspecialidadePage() {
             >
               <div>
                 <span
-                  className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-[#c5a471]"
+                  className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-gold-light"
                   style={{ fontSize: 11, fontWeight: 500 }}
                 >
                   Depoimentos
                 </span>
                 <h2
-                  className="font-['Arimo',sans-serif] text-[#1a293f]"
+                  className="font-['Arimo',sans-serif] text-navy"
                   style={{
                     margin: 0,
                     marginTop: 12,
@@ -553,7 +553,7 @@ export default function EspecialidadePage() {
               </div>
               <p
                 data-reveal
-                className="font-['Arimo',sans-serif] text-[#1a293f]/50"
+                className="font-['Arimo',sans-serif] text-navy/50"
                 style={{
                   margin: 0,
                   fontSize: "clamp(14px, 1.1vw, 18px)",
@@ -571,81 +571,47 @@ export default function EspecialidadePage() {
               style={{ height: 1, background: "rgba(26, 41, 63, 0.12)" }}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
               {card.testimonials.map((t, i) => (
                 <article
                   key={i}
                   data-reveal
-                  className="flex flex-col"
+                  className="group relative flex flex-col justify-between rounded-2xl border border-navy/[0.08] bg-white p-8 md:p-10 lg:p-12 transition-all duration-400 hover:border-gold-light/30 hover:shadow-[0_8px_40px_-12px_rgba(26,41,63,0.08)]"
                 >
-                  <svg
-                    width={40}
-                    height={34}
-                    viewBox="0 0 55 47"
-                    fill="none"
-                    style={{ marginBottom: "clamp(20px, 3vh, 32px)" }}
-                  >
-                    <path
-                      d="M0 47V31.1667C0 25.7778 1.02778 20.6389 3.08333 15.75C5.13889 10.8611 8.55556 6.22222 13.3333 1.83333L22.9167 8.25C19.6944 11.4722 17.3472 14.8889 15.875 18.5C14.4028 22.1111 13.6667 25.7778 13.6667 29.5H23.8333V47H0ZM31.1667 47V31.1667C31.1667 25.7778 32.1944 20.6389 34.25 15.75C36.3056 10.8611 39.7222 6.22222 44.5 1.83333L54.0833 8.25C50.8611 11.4722 48.5139 14.8889 47.0417 18.5C45.5694 22.1111 44.8333 25.7778 44.8333 29.5H55V47H31.1667Z"
-                      fill="#C5A471"
-                    />
-                  </svg>
-
-                  <p
-                    className="font-['Arimo',sans-serif] text-[#1a293f]"
-                    style={{
-                      margin: 0,
-                      fontWeight: 400,
-                      fontSize: "clamp(20px, 2.2vw, 32px)",
-                      lineHeight: 1.3,
-                      letterSpacing: "-0.02em",
-                    }}
-                  >
-                    {t.quote}
-                  </p>
-
-                  <div
-                    className="flex items-center gap-3"
-                    style={{
-                      marginTop: "clamp(24px, 3vh, 40px)",
-                      paddingTop: "clamp(16px, 2vh, 24px)",
-                      borderTop: "1px solid rgba(26, 41, 63, 0.1)",
-                    }}
-                  >
-                    <div
-                      className="flex items-center justify-center shrink-0"
-                      style={{
-                        width: 40,
-                        height: 40,
-                        borderRadius: "50%",
-                        background: "rgba(26, 41, 63, 0.06)",
-                      }}
+                  <div className="flex flex-col gap-6 md:gap-8">
+                    <svg
+                      className="w-[40px] h-[34px] md:w-[55px] md:h-[47px]"
+                      viewBox="0 0 55 47"
+                      fill="none"
                     >
-                      <span
-                        className="font-['Geist',sans-serif] text-[#1a293f]/40"
-                        style={{ fontSize: 15, fontWeight: 500 }}
-                      >
+                      <path
+                        d="M0 47V31.1667C0 25.7778 1.02778 20.6389 3.08333 15.75C5.13889 10.8611 8.55556 6.22222 13.3333 1.83333L22.9167 8.25C19.6944 11.4722 17.3472 14.8889 15.875 18.5C14.4028 22.1111 13.6667 25.7778 13.6667 29.5H23.8333V47H0ZM31.1667 47V31.1667C31.1667 25.7778 32.1944 20.6389 34.25 15.75C36.3056 10.8611 39.7222 6.22222 44.5 1.83333L54.0833 8.25C50.8611 11.4722 48.5139 14.8889 47.0417 18.5C45.5694 22.1111 44.8333 25.7778 44.8333 29.5H55V47H31.1667Z"
+                        fill="var(--color-accent-gold-light)"
+                      />
+                    </svg>
+                    <p
+                      className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.18] tracking-[-0.02em]"
+                      style={{ fontSize: "clamp(18px, 2vw, 32px)" }}
+                    >
+                      {t.quote}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3 mt-8 md:mt-10 pt-6 border-t border-navy/[0.08]">
+                    <div className="size-10 rounded-full bg-navy/[0.06] flex items-center justify-center">
+                      <span className="font-['Geist',sans-serif] font-medium text-navy/40 text-sm">
                         {t.name.charAt(0)}
                       </span>
                     </div>
                     <div className="flex flex-col">
                       <span
-                        className="font-['Arimo',sans-serif] text-[#1a293f]"
-                        style={{
-                          fontSize: "clamp(14px, 1vw, 18px)",
-                          fontWeight: 400,
-                          lineHeight: 1.3,
-                        }}
+                        className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.3]"
+                        style={{ fontSize: "clamp(14px, 1vw, 18px)" }}
                       >
                         {t.name}
                       </span>
                       <span
-                        className="font-['Arimo',sans-serif] text-[#1a293f]/40"
-                        style={{
-                          fontSize: "clamp(12px, 0.9vw, 15px)",
-                          fontWeight: 400,
-                          lineHeight: 1.3,
-                        }}
+                        className="font-['Arimo',sans-serif] font-normal text-navy/40 leading-[1.3]"
+                        style={{ fontSize: "clamp(12px, 0.9vw, 15px)" }}
                       >
                         {t.role}
                       </span>
@@ -665,7 +631,7 @@ export default function EspecialidadePage() {
         data-section-reveal
         className="relative w-full"
         style={{
-          background: "#1A293F",
+          background: "var(--color-bg-deep)",
           paddingTop: "clamp(48px, 6vh, 80px)",
           paddingBottom: "clamp(48px, 6vh, 80px)",
         }}
@@ -710,7 +676,7 @@ export default function EspecialidadePage() {
                   style={{ padding: "clamp(20px, 3vw, 32px)" }}
                 >
                   <span
-                    className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-white/30 flex items-center gap-2"
+                    className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-cream/30 flex items-center gap-2"
                     style={{ fontSize: 10, marginBottom: 8 }}
                   >
                     <svg
@@ -729,7 +695,7 @@ export default function EspecialidadePage() {
                     Anterior
                   </span>
                   <span
-                    className="font-['Arimo',sans-serif] text-white group-hover:text-[#c5a471] transition-colors duration-300"
+                    className="font-['Arimo',sans-serif] text-cream group-hover:text-gold-light transition-colors duration-300"
                     style={{
                       fontSize: "clamp(20px, 2vw, 28px)",
                       fontWeight: 400,
@@ -783,7 +749,7 @@ export default function EspecialidadePage() {
                   style={{ padding: "clamp(20px, 3vw, 32px)" }}
                 >
                   <span
-                    className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-white/30 flex items-center justify-end gap-2"
+                    className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-cream/30 flex items-center justify-end gap-2"
                     style={{ fontSize: 10, marginBottom: 8 }}
                   >
                     Próxima
@@ -802,7 +768,7 @@ export default function EspecialidadePage() {
                     </svg>
                   </span>
                   <span
-                    className="font-['Arimo',sans-serif] text-white group-hover:text-[#c5a471] transition-colors duration-300"
+                    className="font-['Arimo',sans-serif] text-cream group-hover:text-gold-light transition-colors duration-300"
                     style={{
                       fontSize: "clamp(20px, 2vw, 28px)",
                       fontWeight: 400,
@@ -827,7 +793,7 @@ export default function EspecialidadePage() {
           >
             <Link
               to="/#especialidades"
-              className="font-['Geist',sans-serif] text-white/30 transition-colors duration-300 hover:text-white/60 flex items-center gap-2"
+              className="font-['Geist',sans-serif] text-cream/30 transition-colors duration-300 hover:text-cream/60 flex items-center gap-2"
               style={{
                 fontSize: 13,
                 fontWeight: 500,

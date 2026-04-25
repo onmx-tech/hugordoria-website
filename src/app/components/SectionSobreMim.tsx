@@ -38,14 +38,14 @@ export default function SectionSobreMim() {
       ref={sectionRef}
       className="relative w-full overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #eeebe4 0%, #ffffff 100%)",
+        background: "var(--color-bg-cream)",
       }}
     >
       {/* Title */}
       <div className="px-6 md:px-12 lg:px-16 pt-16 md:pt-24 lg:pt-32">
         <h2
           data-reveal
-          className="mx-auto max-w-[790px] text-center font-['Geist',sans-serif] font-medium text-[#1a293f] leading-[1.24] tracking-[-0.04em]"
+          className="mx-auto max-w-[790px] text-center font-['Geist',sans-serif] font-medium text-navy leading-[1.24] tracking-[-0.04em]"
           style={{ fontSize: "clamp(32px, 4vw, 64px)" }}
         >
           Melhor Neurocirurgia
@@ -71,7 +71,7 @@ export default function SectionSobreMim() {
         <div className="flex flex-col justify-between gap-12 md:gap-16 px-6 md:px-12 lg:px-16 py-10 md:py-16">
           <p
             data-reveal
-            className="font-['Arimo',sans-serif] font-normal text-[#1a293f] leading-[1.18] tracking-[-0.02em]"
+            className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.18] tracking-[-0.02em]"
             style={{ fontSize: "clamp(22px, 2.5vw, 40px)" }}
           >
             Confie em mim, para proporcionar o melhor tratamento e transformar
@@ -79,27 +79,27 @@ export default function SectionSobreMim() {
             meu maior compromisso com meus pacientes e suas familias.
           </p>
 
-          <div className="grid grid-cols-3 gap-px bg-[#c5a471]/20 rounded-2xl overflow-hidden">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-gold-light/20 rounded-2xl overflow-hidden">
             {STATS.map((stat) => (
               <div
                 key={stat.label}
                 data-reveal
-                className="group relative flex flex-col items-center text-center gap-2 md:gap-3 bg-white px-4 py-8 md:px-6 md:py-10 lg:py-12"
+                className="group relative flex flex-col items-center text-center gap-2 md:gap-3 bg-white px-3 py-7 sm:px-4 sm:py-8 md:px-6 md:py-10 lg:py-12"
               >
                 <div
-                  className="absolute inset-0 bg-gradient-to-b from-[#1a293f]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="absolute inset-0 bg-gradient-to-b from-navy/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   aria-hidden
                 />
                 <span
-                  className="relative font-['Geist',sans-serif] font-semibold text-[#1a293f] leading-[1] tracking-[-0.04em]"
-                  style={{ fontSize: "clamp(24px, 2.2vw, 40px)" }}
+                  className="relative font-['Geist',sans-serif] font-semibold text-navy leading-[1] tracking-[-0.04em]"
+                  style={{ fontSize: "clamp(28px, 2.2vw, 40px)" }}
                 >
                   {stat.value}
                 </span>
-                <div className="relative w-8 h-px bg-[#c5a471] mt-1 mb-1" />
+                <div className="relative w-8 h-px bg-gold-light mt-1 mb-1" />
                 <span
-                  className="relative font-['Geist',sans-serif] font-normal text-[#1a293f]/50 leading-[1.4] tracking-[0.02em] uppercase"
-                  style={{ fontSize: "clamp(10px, 0.8vw, 13px)" }}
+                  className="relative font-['Geist',sans-serif] font-normal text-navy/50 leading-[1.4] tracking-[0.02em] uppercase"
+                  style={{ fontSize: "clamp(12px, 0.8vw, 13px)" }}
                 >
                   {stat.label}
                 </span>

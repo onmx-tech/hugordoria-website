@@ -119,6 +119,23 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ── Brand palette ──────────────────────────────────────────── */
+  --color-navy: var(--color-bg-deep);
+  --color-navy-deep: var(--color-bg-deeper);
+  --color-navy-darkest: var(--color-bg-darkest);
+  --color-navy-mid: var(--color-bg-mid);
+  --color-cream: var(--color-bg-cream);
+
+  --color-gold: var(--color-accent-gold);
+  --color-gold-light: var(--color-accent-gold-light);
+  --color-gold-hover: var(--color-accent-gold-hover);
+
+  --color-silver: var(--color-text-tertiary);
+  --color-steel: var(--color-border-muted);
+  --color-steel-dark: var(--color-icon-muted);
+  --color-warm: var(--color-text-muted);
+  --color-soft: var(--color-text-soft);
 }
 
 @layer base {

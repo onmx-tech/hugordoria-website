@@ -29,7 +29,7 @@ export default function SectionQuote() {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden"
-      style={{ height: "100vh", backgroundColor: "#1A293F" }}
+      style={{ height: "100vh", backgroundColor: "var(--color-bg-deep)" }}
       data-section="quote"
       data-component="quote"
     >
@@ -39,7 +39,7 @@ export default function SectionQuote() {
       >
         <span
           ref={markRef}
-          className="block font-['Geist',sans-serif] font-bold text-[clamp(96px,10vw,138px)] leading-none tracking-[-0.04em] text-[#b78e30]"
+          className="block font-['Geist',sans-serif] font-bold text-[clamp(96px,10vw,138px)] leading-none tracking-[-0.04em] text-gold"
           style={{ marginBottom: "clamp(24px, 3vh, 40px)" }}
           aria-hidden="true"
         >
@@ -48,7 +48,7 @@ export default function SectionQuote() {
 
         <p
           ref={quoteRef}
-          className="mx-auto max-w-[min(1066px,88vw)] text-center font-['Geist',sans-serif] font-bold uppercase text-white"
+          className="mx-auto max-w-[min(1066px,88vw)] text-center font-['Geist',sans-serif] font-bold uppercase text-cream"
           style={{
             fontSize: "clamp(26px, 2.6vw, 44px)",
             lineHeight: 1.24,
@@ -68,13 +68,13 @@ export default function SectionQuote() {
           aria-hidden="true"
         >
           {SIGNATURE_PATHS.map((d, i) => (
-            <path key={i} d={d} stroke="#B78E30" strokeLinecap="round" fill="none" />
+            <path key={i} d={d} stroke="var(--color-accent-gold)" strokeLinecap="round" fill="none" />
           ))}
         </svg>
 
         <p
           ref={attributionRef}
-          className="mt-[clamp(16px,2.5vh,24px)] max-w-[433px] text-center font-['Arimo',sans-serif] text-[clamp(14px,1.1vw,18px)] leading-[1.32] text-white/70"
+          className="mt-[clamp(16px,2.5vh,24px)] max-w-[433px] text-center font-['Arimo',sans-serif] text-[clamp(14px,1.1vw,18px)] leading-[1.32] text-cream/70"
         >
           {ATTRIBUTION}
         </p>

@@ -18,25 +18,24 @@ export default function App() {
         <Hero />
       </div>
 
-      {/* Breathing room before the horizontal-scroll pin of SectionSobre */}
+      {/* Breathing room before SectionSobre — shorter on mobile (no pin) */}
       <div
         aria-hidden
-        className="w-full"
-        style={{ height: "40vh", backgroundColor: "#1A293F" }}
+        className="w-full h-[8vh] lg:h-[40vh]"
+        style={{ backgroundColor: "var(--color-bg-deep)" }}
       />
 
       <SectionSobre />
 
-      {/* Breathing room after the horizontal pin releases, before SectionQuote */}
+      {/* Breathing room after SectionSobre — shorter on mobile */}
       <div
         aria-hidden
-        className="w-full"
-        style={{ height: "30vh", backgroundColor: "#1A293F" }}
+        className="w-full h-[6vh] lg:h-[30vh]"
+        style={{ backgroundColor: "var(--color-bg-deep)" }}
       />
 
-      <div id="depoimentos">
-        <SectionQuote />
-      </div>
+      <SectionQuote />
+
       <div id="especialidades">
         <SectionEspecialidades />
       </div>
@@ -44,9 +43,12 @@ export default function App() {
         <SectionSobreMim />
       </div>
 
+      <div id="depoimentos">
+        <SectionCasosDeSucesso />
+      </div>
+
       <FloatingNav />
 
-      <SectionCasosDeSucesso />
       <SectionBrain />
       <Footer />
     </div>

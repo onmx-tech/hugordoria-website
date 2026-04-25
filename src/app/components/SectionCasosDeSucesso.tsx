@@ -51,7 +51,7 @@ function QuoteIcon() {
       viewBox="0 0 55 47"
       fill="none"
     >
-      <path d={svgPaths.p3f3a4c80} fill="#C5A471" />
+      <path d={svgPaths.p3f3a4c80} fill="var(--color-accent-gold-light)" />
     </svg>
   );
 }
@@ -59,7 +59,7 @@ function QuoteIcon() {
 function ArrowIcon({ flipped }: { flipped?: boolean }) {
   return (
     <span
-      className="inline-flex text-[rgba(26,41,63,0.58)] text-2xl leading-none tracking-[-0.04em]"
+      className="inline-flex text-navy/60 text-2xl leading-none tracking-[-0.04em]"
       style={{ transform: flipped ? "scaleX(-1)" : undefined }}
     >
       →
@@ -117,7 +117,7 @@ export default function SectionCasosDeSucesso() {
       ref={sectionRef}
       className="relative w-full"
       style={{
-        background: "linear-gradient(180deg, #eeebe4 0%, #ffffff 100%)",
+        background: "var(--color-bg-cream)",
       }}
     >
       <div className="w-full px-6 md:px-12 lg:px-16 py-16 md:py-24 lg:py-28">
@@ -127,13 +127,13 @@ export default function SectionCasosDeSucesso() {
           className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-8 mb-12 md:mb-16"
         >
           <h2
-            className="font-['Arimo',sans-serif] font-normal text-[#1a293f] leading-[1.18] tracking-[-0.02em]"
+            className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.18] tracking-[-0.02em]"
             style={{ fontSize: "clamp(28px, 3.2vw, 40px)" }}
           >
             Casos de Sucesso
           </h2>
           <p
-            className="font-['Arimo',sans-serif] font-normal text-[rgba(26,41,63,0.7)] leading-[1.13] max-w-[380px]"
+            className="font-['Arimo',sans-serif] font-normal text-navy/70 leading-[1.13] max-w-[380px]"
             style={{ fontSize: "clamp(16px, 1.2vw, 20px)" }}
           >
             Veja como transformamos vidas com nossos tratamentos inovadores e
@@ -144,7 +144,7 @@ export default function SectionCasosDeSucesso() {
         {/* Divider */}
         <div
           data-reveal
-          className="w-full h-px bg-[#1a293f]/[0.24] mb-10 md:mb-14"
+          className="w-full h-px bg-navy/[0.24] mb-10 md:mb-14"
         />
 
         {/* Testimonial cards */}
@@ -156,32 +156,32 @@ export default function SectionCasosDeSucesso() {
             <article
               key={`${page}-${i}`}
               data-card
-              className="group relative flex flex-col justify-between rounded-2xl border border-[#1a293f]/[0.08] bg-white p-8 md:p-10 lg:p-12 transition-all duration-400 hover:border-[#c5a471]/30 hover:shadow-[0_8px_40px_-12px_rgba(26,41,63,0.08)]"
+              className="group relative flex flex-col justify-between rounded-2xl border border-navy/[0.08] bg-white p-8 md:p-10 lg:p-12 transition-all duration-400 hover:border-gold-light/30 hover:shadow-[0_8px_40px_-12px_rgba(26,41,63,0.08)]"
             >
               <div className="flex flex-col gap-6 md:gap-8">
                 <QuoteIcon />
                 <p
-                  className="font-['Arimo',sans-serif] font-normal text-[#1a293f] leading-[1.18] tracking-[-0.02em]"
+                  className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.18] tracking-[-0.02em]"
                   style={{ fontSize: "clamp(18px, 2vw, 32px)" }}
                 >
                   {t.quote}
                 </p>
               </div>
-              <div className="flex items-center gap-3 mt-8 md:mt-10 pt-6 border-t border-[#1a293f]/[0.08]">
-                <div className="size-10 rounded-full bg-[#1a293f]/[0.06] flex items-center justify-center">
-                  <span className="font-['Geist',sans-serif] font-medium text-[#1a293f]/40 text-sm">
+              <div className="flex items-center gap-3 mt-8 md:mt-10 pt-6 border-t border-navy/[0.08]">
+                <div className="size-10 rounded-full bg-navy/[0.06] flex items-center justify-center">
+                  <span className="font-['Geist',sans-serif] font-medium text-navy/40 text-sm">
                     {t.name.charAt(0)}
                   </span>
                 </div>
                 <div className="flex flex-col">
                   <span
-                    className="font-['Arimo',sans-serif] font-normal text-[#1a293f] leading-[1.3]"
+                    className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.3]"
                     style={{ fontSize: "clamp(14px, 1vw, 18px)" }}
                   >
                     {t.name}
                   </span>
                   <span
-                    className="font-['Arimo',sans-serif] font-normal text-[#1a293f]/40 leading-[1.3]"
+                    className="font-['Arimo',sans-serif] font-normal text-navy/40 leading-[1.3]"
                     style={{ fontSize: "clamp(12px, 0.9vw, 15px)" }}
                   >
                     {t.role}
@@ -198,7 +198,7 @@ export default function SectionCasosDeSucesso() {
           className="flex items-center justify-between mt-10 md:mt-14"
         >
           <span
-            className="font-['Arimo',sans-serif] font-normal text-[#1a293f] leading-[1.18] tracking-[-0.02em]"
+            className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.18] tracking-[-0.02em]"
             style={{ fontSize: "clamp(18px, 1.4vw, 24px)" }}
           >
             {String(page + 1).padStart(2, "0")} —{" "}
@@ -210,7 +210,7 @@ export default function SectionCasosDeSucesso() {
               type="button"
               onClick={() => canPrev && setPage((p) => p - 1)}
               disabled={!canPrev}
-              className="inline-flex items-center gap-3 rounded-full border border-[#1a293f] px-5 py-3 font-['Arimo',sans-serif] font-normal text-[#1a293f] transition-opacity duration-200 disabled:opacity-30"
+              className="inline-flex items-center gap-3 rounded-full border border-navy px-5 py-3 font-['Arimo',sans-serif] font-normal text-navy transition-opacity duration-200 disabled:opacity-30"
               style={{ fontSize: "clamp(16px, 1.2vw, 24px)" }}
             >
               <ArrowIcon flipped />
@@ -220,7 +220,7 @@ export default function SectionCasosDeSucesso() {
               type="button"
               onClick={() => canNext && setPage((p) => p + 1)}
               disabled={!canNext}
-              className="inline-flex items-center gap-3 rounded-full border border-[#1a293f] px-5 py-3 font-['Arimo',sans-serif] font-normal text-[#1a293f] transition-opacity duration-200 disabled:opacity-30"
+              className="inline-flex items-center gap-3 rounded-full border border-navy px-5 py-3 font-['Arimo',sans-serif] font-normal text-navy transition-opacity duration-200 disabled:opacity-30"
               style={{ fontSize: "clamp(16px, 1.2vw, 24px)" }}
             >
               Próximo

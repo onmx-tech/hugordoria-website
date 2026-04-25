@@ -1,11 +1,22 @@
 :root {
-  /* ── Brand colors ───────────────────────────────────────────── */
+  /* ── Brand blues ────────────────────────────────────────────── */
   --color-bg-deep: #1a293f;
   --color-bg-deeper: #122136;
+  --color-bg-darkest: #0d1a2d;
+  --color-bg-mid: #3b5473;
+  --color-bg-cream: #eeebe4;
+
+  /* ── Brand golds ───────────────────────────────────────────── */
   --color-accent-gold: #b78e30;
   --color-accent-gold-light: #c5a471;
+  --color-accent-gold-hover: #d4b584;
+
+  /* ── Brand neutrals ────────────────────────────────────────── */
   --color-text-muted: #d9d3ca;
   --color-text-soft: #f3f4f5;
+  --color-text-tertiary: #b7bdc4;
+  --color-border-muted: #707c89;
+  --color-icon-muted: #5e6b7a;
 
   /* ── Surface tints (on dark) ────────────────────────────────── */
   --surface-card: rgba(255, 255, 255, 0.07);
@@ -14,10 +25,10 @@
   --surface-line: rgba(255, 255, 255, 0.24);
   --surface-line-soft: rgba(255, 255, 255, 0.12);
 
-  /* ── Text alphas ────────────────────────────────────────────── */
-  --text-primary: #ffffff;
-  --text-body: rgba(255, 255, 255, 0.7);
-  --text-quiet: rgba(255, 255, 255, 0.5);
+  /* ── Text alphas (cream-based for warmth) ───────────────────── */
+  --text-primary: var(--color-bg-cream);
+  --text-body: color-mix(in srgb, var(--color-bg-cream) 70%, transparent);
+  --text-quiet: color-mix(in srgb, var(--color-bg-cream) 50%, transparent);
 
   /* ── Typography ─────────────────────────────────────────────── */
   --font-display: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;

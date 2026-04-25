@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { CANVAS_H, CANVAS_W } from "./section-sobre/data";
-import { SobreContent } from "./section-sobre/parts";
+import { SobreContent, SobreContentMobile } from "./section-sobre/parts";
 import { initSobreAnimation } from "./section-sobre/animations";
 
 export default function SectionSobre() {
@@ -15,20 +15,33 @@ export default function SectionSobre() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full lg:overflow-hidden overflow-x-auto overflow-y-hidden"
-      style={{ height: "100vh", backgroundColor: "#1A293F" }}
-      data-section="sobre"
-      data-component="sobre"
-    >
-      <div
-        ref={trackRef}
-        className="absolute left-0 top-0 will-change-transform"
-        style={{ width: CANVAS_W, height: CANVAS_H }}
+    <>
+      {/* Desktop: pinned horizontal canvas */}
+      <section
+        ref={sectionRef}
+        className="relative w-full overflow-hidden hidden lg:block"
+        style={{ height: "100vh", backgroundColor: "var(--color-bg-deep)" }}
+        data-section="sobre"
+        data-component="sobre"
       >
-        <SobreContent />
-      </div>
-    </section>
+        <div
+          ref={trackRef}
+          className="absolute left-0 top-0 will-change-transform"
+          style={{ width: CANVAS_W, height: CANVAS_H }}
+        >
+          <SobreContent />
+        </div>
+      </section>
+
+      {/* Mobile/tablet: vertical stacked layout */}
+      <section
+        className="relative w-full lg:hidden"
+        style={{ backgroundColor: "var(--color-bg-deep)" }}
+        data-section="sobre"
+        data-component="sobre-mobile"
+      >
+        <SobreContentMobile />
+      </section>
+    </>
   );
 }

@@ -1,5 +1,9 @@
 import type { ReactNode, CSSProperties } from "react";
 import { imageFrames, lineSpecs, texts } from "./data";
+import imgMedicalRoom from "@/assets/e25bc4f66b4a426ccf342bc9c87ec2d3e73f4b1a.png";
+import imgVideo from "@/assets/a375c45d2716fbbea43385fdee4485566a41cfa6.png";
+import imgScrubsBlue from "@/assets/6c18cf7f306c9df025d6a7f74b408d318276b82c.png";
+import imgScrubsGreen from "@/assets/1237b2795956579d89da3b7db4b78c58db67e687.png";
 
 export function Box({
   x, y, w, h, children, className, style,
@@ -70,7 +74,7 @@ export function Label({
           fontSize: 20,
           lineHeight: 0.73,
           letterSpacing: "-0.02em",
-          color: "#FFFFFF",
+          color: "var(--color-accent-gold-light)",
         }}
       >
         {children}
@@ -92,7 +96,7 @@ export function Caption({
           fontWeight: 400,
           fontSize: 20,
           lineHeight: 1.32,
-          color: "rgba(255, 255, 255, 0.7)",
+          color: "color-mix(in srgb, var(--color-bg-cream) 70%, transparent)",
           margin: 0,
         }}
       >
@@ -114,7 +118,7 @@ export function SobreContent() {
             fontWeight: 400,
             fontSize: 14,
             lineHeight: 1.3,
-            color: "#D9D3CA",
+            color: "var(--color-text-muted)",
           }}
         >
           MD PhD - Neurocirurgião
@@ -130,7 +134,7 @@ export function SobreContent() {
             fontSize: 36,
             lineHeight: 1.18,
             letterSpacing: "-0.02em",
-            color: "#FFFFFF",
+            color: "var(--color-bg-cream)",
             margin: 0,
           }}
         >
@@ -166,5 +170,125 @@ export function SobreContent() {
       <Label x={2866} y={1072} w={175} h={15}>Atuação Profissional</Label>
       <Caption x={2866} y={1116} w={500} h={104}>{texts.publicationsB}</Caption>
     </>
+  );
+}
+
+function MobileLabel({ children }: { children: ReactNode }) {
+  return (
+    <span
+      className="block uppercase tracking-[0.04em]"
+      style={{
+        fontFamily: "'Arimo', sans-serif",
+        fontWeight: 400,
+        fontSize: 14,
+        lineHeight: 1.2,
+        letterSpacing: "-0.01em",
+        color: "var(--color-accent-gold-light)",
+      }}
+    >
+      {children}
+    </span>
+  );
+}
+
+function MobileCaption({ children }: { children: ReactNode }) {
+  return (
+    <p
+      style={{
+        fontFamily: "'Arimo', sans-serif",
+        fontWeight: 400,
+        fontSize: 16,
+        lineHeight: 1.4,
+        color: "color-mix(in srgb, var(--color-bg-cream) 75%, transparent)",
+        margin: 0,
+      }}
+    >
+      {children}
+    </p>
+  );
+}
+
+function MobileFrame({
+  src,
+  alt,
+  ratio = "4 / 3",
+}: {
+  src: string;
+  alt: string;
+  ratio?: string;
+}) {
+  return (
+    <div
+      className="w-full overflow-hidden"
+      style={{ aspectRatio: ratio, backgroundColor: "rgba(255, 255, 255, 0.06)" }}
+    >
+      <img
+        src={src}
+        alt={alt}
+        draggable={false}
+        className="block h-full w-full select-none object-cover"
+      />
+    </div>
+  );
+}
+
+export function SobreContentMobile() {
+  return (
+    <div className="flex flex-col gap-10 px-6 py-16">
+      <header className="flex flex-col gap-4">
+        <span
+          className="uppercase tracking-[0.06em]"
+          style={{
+            fontFamily: "'Geist', sans-serif",
+            fontWeight: 400,
+            fontSize: 12,
+            lineHeight: 1.3,
+            color: "var(--color-text-muted)",
+          }}
+        >
+          MD PhD — Neurocirurgião
+        </span>
+        <h2
+          style={{
+            fontFamily: "'Arimo', sans-serif",
+            fontWeight: 400,
+            fontSize: "clamp(28px, 8vw, 36px)",
+            lineHeight: 1.18,
+            letterSpacing: "-0.02em",
+            color: "var(--color-bg-cream)",
+            margin: 0,
+          }}
+        >
+          Especialista em Neurocirurgia Vascular
+        </h2>
+      </header>
+
+      <MobileFrame src={imgMedicalRoom} alt="Consultório" ratio="4 / 5" />
+
+      <section className="flex flex-col gap-3">
+        <MobileLabel>Atuação Profissional</MobileLabel>
+        <MobileCaption>{texts.hospitals}</MobileCaption>
+      </section>
+
+      <MobileFrame src={imgVideo} alt="Palestra" ratio="16 / 11" />
+
+      <section className="flex flex-col gap-3">
+        <MobileLabel>Coordenação e Liderança</MobileLabel>
+        <MobileCaption>{texts.coordination}</MobileCaption>
+      </section>
+
+      <MobileFrame
+        src={imgScrubsBlue}
+        alt="Dr. Hugo Doria em ambiente cirúrgico"
+        ratio="4 / 5"
+      />
+
+      <section className="flex flex-col gap-3">
+        <MobileLabel>Publicações & Pesquisa</MobileLabel>
+        <MobileCaption>{texts.publicationsA}</MobileCaption>
+      </section>
+
+      <MobileFrame src={imgScrubsGreen} alt="Dr. Hugo Doria" ratio="4 / 5" />
+    </div>
   );
 }
