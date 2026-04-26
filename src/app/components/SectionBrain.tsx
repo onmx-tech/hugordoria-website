@@ -48,22 +48,27 @@ export default function SectionBrain() {
 
     const resizeCanvas = () => {
       const dpr = Math.min(window.devicePixelRatio, 2);
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
+      const w = Math.round(window.innerWidth * dpr);
+      const h = Math.round(window.innerHeight * dpr);
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w;
+        canvas.height = h;
+      }
       renderFrame(currentFrameRef.current);
     };
 
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // On mobile, only load the first and last frame to keep network/decoding light.
-    // The desktop pin scrub through all 194 frames is too costly for phones.
-    const framesToLoad = isDesktop ? FRAME_COUNT : 2;
+    const MOBILE_STEP = 4;
+    const mobileFrameCount = Math.ceil(FRAME_COUNT / MOBILE_STEP);
+    const totalFrames = isDesktop ? FRAME_COUNT : mobileFrameCount;
+
     const images: HTMLImageElement[] = [];
-    for (let i = 0; i < framesToLoad; i++) {
+    for (let i = 0; i < totalFrames; i++) {
       const img = new Image();
-      const idx = isDesktop ? i : i === 0 ? 0 : FRAME_COUNT - 1;
-      img.src = buildFramePath(idx);
+      const srcIdx = isDesktop ? i : Math.min(i * MOBILE_STEP, FRAME_COUNT - 1);
+      img.src = buildFramePath(srcIdx);
       if (i === 0) img.onload = () => renderFrame(0);
       images.push(img);
     }
@@ -72,47 +77,15 @@ export default function SectionBrain() {
     const textEls = trigger.querySelectorAll("[data-brain-text]");
     const overlayEl = trigger.querySelector("[data-brain-overlay]");
 
+    const lastFrame = totalFrames - 1;
+
     const gsapCtx = gsap.context(() => {
-      if (!isDesktop) {
-        // Mobile: render the final frame as a static poster, fade overlay + text in.
-        const lastImg = images[1];
-        const showLast = () => {
-          currentFrameRef.current = 1;
-          renderFrame(1);
-        };
-        if (lastImg.complete && lastImg.naturalWidth) {
-          showLast();
-        } else {
-          lastImg.onload = showLast;
-        }
-
-        if (overlayEl) {
-          gsap.set(overlayEl, { opacity: 1 });
-        }
-        gsap.set(textEls, { opacity: 0, y: 24 });
-        gsap.to(textEls, {
-          opacity: 1,
-          y: 0,
-          stagger: 0.12,
-          duration: 0.7,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger,
-            start: "top 70%",
-            end: "top 30%",
-            scrub: 0.6,
-            invalidateOnRefresh: true,
-          },
-        });
-        return;
-      }
-
       const frameObj = { value: 0 };
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger,
           start: "top top",
-          end: "+=400%",
+          end: isDesktop ? "+=400%" : "+=250%",
           pin: true,
           scrub: 0.5,
           anticipatePin: 1,
@@ -120,11 +93,10 @@ export default function SectionBrain() {
         },
       });
 
-      // 0 → 0.6: image sequence plays through all frames
       tl.to(
         frameObj,
         {
-          value: FRAME_COUNT - 1,
+          value: lastFrame,
           ease: "none",
           duration: 0.6,
           onUpdate() {
@@ -138,7 +110,6 @@ export default function SectionBrain() {
         0,
       );
 
-      // 0.45 → 0.6: overlay fades in for text readability
       if (overlayEl) {
         tl.fromTo(
           overlayEl,
@@ -148,7 +119,6 @@ export default function SectionBrain() {
         );
       }
 
-      // 0.55 → 0.9: text content fades in staggered
       tl.fromTo(
         textEls[0] || [],
         { y: 60, opacity: 0 },
@@ -167,8 +137,6 @@ export default function SectionBrain() {
         { y: 0, opacity: 1, ease: "power2.out", duration: 0.15 },
         0.75,
       );
-
-      // hold at 1.0 so the section stays pinned after text appears
     }, trigger);
 
     return () => {

@@ -179,11 +179,21 @@ export default function Hero() {
           <img
             src={imgHeroDoria}
             alt="Dr. Hugo Doria"
-            className="h-[78vh] sm:h-[88vh] lg:h-[96vh] max-h-none min-h-[420px] sm:min-h-[480px] lg:min-h-[520px] w-auto max-w-none object-contain object-bottom select-none block"
+            className="h-[65vh] sm:h-[88vh] lg:h-[96vh] max-h-none min-h-[420px] sm:min-h-[480px] lg:min-h-[520px] w-auto max-w-none object-contain object-bottom select-none block"
             draggable={false}
           />
         </div>
       </div>
+
+      {/* Gradient scrim — keeps text readable over the photo on mobile */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[55%] sm:h-[45%] lg:hidden"
+        style={{
+          background:
+            "linear-gradient(180deg, var(--color-bg-deeper) 0%, var(--color-bg-deeper) 30%, transparent 100%)",
+        }}
+      />
 
       {/* Entrance curtain — dissolves on load */}
       <div

@@ -34,9 +34,6 @@ export function initQuoteAnimation(refs: Refs) {
       }
     });
 
-    // Initial states. Section bg matches the preceding section (no seam),
-    // group is hidden below, quote lines masked, mark drops in from above.
-    gsap.set(section, { backgroundColor: "var(--color-bg-deep)" });
     gsap.set(group, { y: 120, autoAlpha: 0 });
     gsap.set(split.lines, { yPercent: 110 });
     gsap.set(mark, {
@@ -77,10 +74,11 @@ export function initQuoteAnimation(refs: Refs) {
       },
     });
 
+    const bgDark = getComputedStyle(section).getPropertyValue("--color-bg-darkest").trim() || "#0a0e1a";
+    const bgDeep = getComputedStyle(section).getPropertyValue("--color-bg-deep").trim() || "#101828";
+
     tl
-      // 1. Darken to navy black
-      .to(section, { backgroundColor: "var(--color-bg-darkest)", duration: 0.6 }, 0)
-      // 2. Mark drops in with a back ease
+      .to(section, { backgroundColor: bgDark, duration: 0.6 }, 0)
       .to(
         mark,
         {
@@ -92,32 +90,26 @@ export function initQuoteAnimation(refs: Refs) {
         },
         0.2
       )
-      // 3. Quote lines rise in the dark
       .to(
         split.lines,
         { yPercent: 0, duration: 1, stagger: 0.12, ease: "power3.out" },
         0.6
       )
-      // 3. Signature draws
       .to(
         paths,
         { strokeDashoffset: 0, duration: 1.2, stagger: 0.06, ease: "none" },
         ">-0.1"
       )
-      // 4. Hold a beat at max dark
-      .to(section, { backgroundColor: "var(--color-bg-darkest)", duration: 0.4 })
-      // 5. Lines re-mask + signature dissolves so the exit mirrors the entry
       .to(
         split.lines,
         { yPercent: -110, duration: 1, stagger: 0.08, ease: "power3.in" },
-        ">"
+        "+=0.4"
       )
       .to(
         paths,
         { autoAlpha: 0, duration: 0.6, stagger: 0.04, ease: "none" },
         "<"
       )
-      // 6a. Mark shrinks back up and out
       .to(
         mark,
         {
@@ -129,7 +121,6 @@ export function initQuoteAnimation(refs: Refs) {
         },
         "<"
       )
-      // 6b. Group sinks up and fades out, mirroring the rise on entry
       .to(
         group,
         {
@@ -140,14 +131,11 @@ export function initQuoteAnimation(refs: Refs) {
         },
         "<0.1"
       )
-      // 7. Lighten back to navy so the exit matches the next section
       .to(
         section,
-        { backgroundColor: "var(--color-bg-deep)", duration: 0.8 },
+        { backgroundColor: bgDeep, duration: 0.8 },
         "<0.2"
       );
-
-    ScrollTrigger.refresh();
   }, section);
 
   return () => ctx.revert();

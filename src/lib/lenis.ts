@@ -4,8 +4,15 @@ import { gsap, ScrollTrigger } from "./gsap";
 let lenis: Lenis | null = null;
 let lenisTicker: ((time: number) => void) | null = null;
 
-export function initLenis(): Lenis {
+const isTouchOnly =
+  typeof window !== "undefined" &&
+  "ontouchstart" in window &&
+  !window.matchMedia("(pointer: fine)").matches;
+
+export function initLenis(): Lenis | null {
   if (lenis) return lenis;
+
+  if (isTouchOnly) return null;
 
   lenis = new Lenis({
     duration: 1.1,

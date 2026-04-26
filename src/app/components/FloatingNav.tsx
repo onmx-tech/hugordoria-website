@@ -81,7 +81,7 @@ export default function FloatingNav() {
     <nav
       ref={navRef}
       aria-label="Navegação flutuante"
-      className="fixed bottom-6 left-1/2 z-50 flex items-center gap-1 rounded-full px-1.5 py-1.5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+      className="fixed bottom-6 left-1/2 z-50 flex items-center rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] gap-1 px-1.5 py-1.5"
       style={{
         transform: visible
           ? "translate(-50%, 0)"
@@ -94,6 +94,7 @@ export default function FloatingNav() {
         boxShadow: "none",
       }}
     >
+      {/* Section links — hidden on mobile, visible from md */}
       {NAV_LINKS.map((link) => {
         const isActive = activeHref === link.href;
         return (
@@ -101,7 +102,7 @@ export default function FloatingNav() {
             key={link.href}
             href={link.href}
             onClick={(e) => handleClick(e, link.href)}
-            className="relative rounded-full px-4 py-2 text-[13px] font-medium leading-none tracking-[-0.01em] transition-all duration-300 whitespace-nowrap"
+            className="relative hidden md:inline-block rounded-full px-4 py-2 text-[13px] font-medium leading-none tracking-[-0.01em] transition-all duration-300 whitespace-nowrap"
             style={{
               fontFamily: "'Geist', sans-serif",
               color: isActive ? "var(--color-bg-deep)" : "color-mix(in srgb, var(--color-bg-cream) 60%, transparent)",
@@ -117,7 +118,7 @@ export default function FloatingNav() {
         href="https://wa.me/5511999999999"
         target="_blank"
         rel="noopener noreferrer"
-        className="ml-1 flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium leading-none tracking-[-0.01em] transition-all duration-300 whitespace-nowrap"
+        className="flex items-center gap-2 rounded-full px-5 py-2.5 md:ml-1 md:px-4 md:py-2 text-[14px] md:text-[13px] font-medium leading-none tracking-[-0.01em] transition-all duration-300 whitespace-nowrap"
         style={{
           fontFamily: "'Geist', sans-serif",
           color: "var(--color-bg-cream)",
