@@ -27,10 +27,10 @@ export default function App() {
 
       <SectionSobre />
 
-      {/* Breathing room after SectionSobre — shorter on mobile */}
+      {/* Respiro entre as seções — handoff contínuo, sem buracos */}
       <div
         aria-hidden
-        className="w-full h-[6vh] lg:h-[30vh]"
+        className="w-full h-[6vh] lg:h-[18vh]"
         style={{ backgroundColor: "var(--color-bg-deep)" }}
       />
 

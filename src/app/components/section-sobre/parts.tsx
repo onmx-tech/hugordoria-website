@@ -1,5 +1,5 @@
 import type { ReactNode, CSSProperties } from "react";
-import { imageFrames, lineSpecs, texts } from "./data";
+import { cells, texts, HEADER } from "./data";
 import imgMedicalRoom from "@/assets/e25bc4f66b4a426ccf342bc9c87ec2d3e73f4b1a.png";
 import imgVideo from "@/assets/a375c45d2716fbbea43385fdee4485566a41cfa6.png";
 import imgScrubsBlue from "@/assets/6c18cf7f306c9df025d6a7f74b408d318276b82c.png";
@@ -22,12 +22,13 @@ export function Box({
 }
 
 export function ImageFrame({
-  x, y, w, h, src, alt, imgLeft, imgTop, imgWidth, imgHeight,
+  x, y, w, h, src, alt,
 }: {
   x: number; y: number; w: number; h: number;
   src: string; alt: string;
-  imgLeft: number; imgTop: number; imgWidth: number; imgHeight: number;
 }) {
+  // object-cover centralizado. A imagem interna tem overscan (120% de largura,
+  // left -10%) para que o parallax horizontal (±6%) nunca exponha as bordas.
   return (
     <div
       className="absolute overflow-hidden"
@@ -40,8 +41,8 @@ export function ImageFrame({
         src={src}
         alt={alt}
         draggable={false}
-        className="absolute block max-w-none select-none object-cover"
-        style={{ left: imgLeft, top: imgTop, width: imgWidth, height: imgHeight }}
+        className="absolute top-0 block max-w-none select-none object-cover"
+        style={{ left: "-10%", width: "120%", height: "100%" }}
       />
     </div>
   );
@@ -106,11 +107,54 @@ export function Caption({
   );
 }
 
+function CaptionCell({
+  x, y, w, h, label, text,
+}: {
+  x: number; y: number; w: number; h: number; label: string; text: string;
+}) {
+  // Legenda alinhada ao topo da célula (logo abaixo da foto da linha de cima),
+  // com uma linha dourada de divisão para amarrar ao grid.
+  return (
+    <Box x={x} y={y} w={w} h={h}>
+      <div className="flex flex-col gap-5 pt-1">
+        <div
+          style={{ height: 1, width: "100%", backgroundColor: "rgba(255, 255, 255, 0.24)" }}
+        />
+        <span
+          className="whitespace-nowrap"
+          style={{
+            fontFamily: "'Arimo', sans-serif",
+            fontWeight: 400,
+            fontSize: 24,
+            lineHeight: 1,
+            letterSpacing: "-0.02em",
+            color: "var(--color-accent-gold-light)",
+          }}
+        >
+          {label}
+        </span>
+        <p
+          style={{
+            fontFamily: "'Arimo', sans-serif",
+            fontWeight: 400,
+            fontSize: 26,
+            lineHeight: 1.38,
+            color: "color-mix(in srgb, var(--color-bg-cream) 72%, transparent)",
+            margin: 0,
+          }}
+        >
+          {text}
+        </p>
+      </div>
+    </Box>
+  );
+}
+
 export function SobreContent() {
   return (
     <>
-      {/* Eyebrow top-left */}
-      <Box x={84} y={124} w={160} h={18}>
+      {/* Header fixo à esquerda */}
+      <Box x={HEADER.x} y={HEADER.eyebrowY} w={HEADER.w} h={18}>
         <span
           className="absolute inset-0 flex items-center whitespace-nowrap"
           style={{
@@ -125,14 +169,13 @@ export function SobreContent() {
         </span>
       </Box>
 
-      {/* Title */}
-      <Box x={84} y={175} w={353} h={80}>
+      <Box x={HEADER.x} y={HEADER.titleY} w={HEADER.w} h={160}>
         <h2
           style={{
             fontFamily: "'Arimo', sans-serif",
             fontWeight: 400,
-            fontSize: 36,
-            lineHeight: 1.18,
+            fontSize: 46,
+            lineHeight: 1.16,
             letterSpacing: "-0.02em",
             color: "var(--color-bg-cream)",
             margin: 0,
@@ -142,33 +185,14 @@ export function SobreContent() {
         </h2>
       </Box>
 
-      {imageFrames.map((frame, i) => (
-        <ImageFrame key={i} {...frame} />
-      ))}
-
-      {lineSpecs.map((line, i) => (
-        <Line key={i} {...line} />
-      ))}
-
-      {/* Col 1 bottom labels */}
-      <Label x={72} y={1060} w={175} h={15}>Atuação Profissional</Label>
-      <Caption x={387} y={1060} w={374} h={78}>{texts.hospitals}</Caption>
-
-      {/* Col 2 mid Coord */}
-      <Label x={1144} y={412} w={227} h={15}>Coordenação e Liderança:</Label>
-      <Caption x={1144} y={456} w={352} h={78}>{texts.coordination}</Caption>
-
-      {/* Col 3 mid Coord */}
-      <Label x={2417} y={412} w={226} h={15}>Coordenação e Liderança:</Label>
-      <Caption x={2417} y={456} w={352} h={78}>{texts.coordination}</Caption>
-
-      {/* Col 2 bottom Atuação */}
-      <Label x={1593} y={1072} w={175} h={15}>Atuação Profissional</Label>
-      <Caption x={1593} y={1116} w={500} h={104}>{texts.publicationsA}</Caption>
-
-      {/* Col 3 bottom Atuação */}
-      <Label x={2866} y={1072} w={175} h={15}>Atuação Profissional</Label>
-      <Caption x={2866} y={1116} w={500} h={104}>{texts.publicationsB}</Caption>
+      {/* Grid de fotos + legendas (2 linhas × 4 colunas, alinhado) */}
+      {cells.map((cell, i) =>
+        cell.kind === "image" ? (
+          <ImageFrame key={i} x={cell.x} y={cell.y} w={cell.w} h={cell.h} src={cell.src} alt={cell.alt} />
+        ) : (
+          <CaptionCell key={i} x={cell.x} y={cell.y} w={cell.w} h={cell.h} label={cell.label} text={cell.text} />
+        )
+      )}
     </>
   );
 }

@@ -17,13 +17,14 @@ export function initSobreAnimation({ section, track }: Refs) {
   mm.add("(min-width: 1024px)", () => {
     const getDistance = () =>
       Math.max(0, CANVAS_W * getScale() - window.innerWidth);
-    const getHold = () => window.innerHeight * 0.6; // ~60vh reading pause
+    const getHold = () => window.innerHeight * 0.25; // ~25vh: já começa a panorâmica logo
+    const getEndHold = () => window.innerHeight * 0.6; // ~60vh: cauda do último card que o Quote cobre ao subir
 
     const masterTween = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: () => `+=${getDistance() + getHold()}`,
+        end: () => `+=${getDistance() + getHold() + getEndHold()}`,
         pin: true,
         scrub: 0.6,
         invalidateOnRefresh: true,
@@ -38,6 +39,8 @@ export function initSobreAnimation({ section, track }: Refs) {
       ease: "none",
       duration: getDistance(),
     });
+    // 3. End hold — segura na última coluna antes de soltar o pin
+    masterTween.to({}, { duration: getEndHold() });
 
     // Individual entrance per item. Image frames reveal via clip-path + scale;
     // text elements rise with a subtle 3D tilt. Images also get parallax on
@@ -77,10 +80,13 @@ export function initSobreAnimation({ section, track }: Refs) {
             scrub: 0.6,
           }
         : {
+            // Revela conforme a foto entra pela direita e completa quando ela
+            // já está inteira na tela (borda direita) — assim a ÚLTIMA coluna,
+            // que para na direita e nunca chega ao centro, também revela 100%.
             trigger: el,
             containerAnimation: masterTween,
-            start: "left 95%",
-            end: "left 50%",
+            start: "left right",
+            end: "right right",
             scrub: 0.6,
           };
 

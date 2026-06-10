@@ -1,0 +1,190 @@
+{
+  "version": 2,
+  "tokens": {
+    "typography": {
+      "font-size": {
+        "value": "16px",
+        "variable": "--font-size"
+      },
+      "font-weight-medium": {
+        "value": "500",
+        "variable": "--font-weight-medium"
+      },
+      "font-weight-normal": {
+        "value": "400",
+        "variable": "--font-weight-normal"
+      },
+      "font-sans": {
+        "value": "'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+        "variable": "--font-sans"
+      },
+      "font-mono": {
+        "value": "\"Geist Mono\", ui-monospace, SFMono-Regular, monospace",
+        "variable": "--font-mono"
+      },
+      "text-body": {
+        "value": "color-mix(in srgb, var(--color-bg-cream) 70%, transparent)",
+        "variable": "--text-body"
+      },
+      "text-quiet": {
+        "value": "color-mix(in srgb, var(--color-bg-cream) 50%, transparent)",
+        "variable": "--text-quiet"
+      },
+      "font-display": {
+        "value": "\"Geist\", ui-sans-serif, system-ui, -apple-system, sans-serif",
+        "variable": "--font-display"
+      },
+      "font-body": {
+        "value": "\"Arimo\", system-ui, sans-serif",
+        "variable": "--font-body"
+      }
+    },
+    "colors": {
+      "background": {
+        "value": "oklch(0.145 0 0)",
+        "variable": "--background"
+      },
+      "foreground": {
+        "value": "oklch(0.985 0 0)",
+        "variable": "--foreground"
+      },
+      "primary": {
+        "value": "oklch(0.985 0 0)",
+        "variable": "--primary"
+      },
+      "primary-foreground": {
+        "value": "oklch(0.205 0 0)",
+        "variable": "--primary-foreground"
+      },
+      "secondary": {
+        "value": "oklch(0.269 0 0)",
+        "variable": "--secondary"
+      },
+      "secondary-foreground": {
+        "value": "oklch(0.985 0 0)",
+        "variable": "--secondary-foreground"
+      },
+      "accent": {
+        "value": "oklch(0.269 0 0)",
+        "variable": "--accent"
+      },
+      "accent-foreground": {
+        "value": "oklch(0.985 0 0)",
+        "variable": "--accent-foreground"
+      },
+      "color-bg-deep": {
+        "value": "#1a293f",
+        "variable": "--color-bg-deep"
+      },
+      "color-bg-deeper": {
+        "value": "#122136",
+        "variable": "--color-bg-deeper"
+      },
+      "color-bg-darkest": {
+        "value": "#0d1a2d",
+        "variable": "--color-bg-darkest"
+      },
+      "color-bg-mid": {
+        "value": "#3b5473",
+        "variable": "--color-bg-mid"
+      },
+      "color-bg-cream": {
+        "value": "#eeebe4",
+        "variable": "--color-bg-cream"
+      },
+      "color-accent-gold": {
+        "value": "#b78e30",
+        "variable": "--color-accent-gold"
+      },
+      "color-accent-gold-light": {
+        "value": "#c5a471",
+        "variable": "--color-accent-gold-light"
+      },
+      "color-accent-gold-hover": {
+        "value": "#d4b584",
+        "variable": "--color-accent-gold-hover"
+      },
+      "color-text-muted": {
+        "value": "#d9d3ca",
+        "variable": "--color-text-muted"
+      },
+      "color-text-soft": {
+        "value": "#f3f4f5",
+        "variable": "--color-text-soft"
+      },
+      "color-text-tertiary": {
+        "value": "#b7bdc4",
+        "variable": "--color-text-tertiary"
+      },
+      "color-border-muted": {
+        "value": "#707c89",
+        "variable": "--color-border-muted"
+      },
+      "color-icon-muted": {
+        "value": "#5e6b7a",
+        "variable": "--color-icon-muted"
+      }
+    },
+    "radii": {
+      "radius": {
+        "value": "0.625rem",
+        "variable": "--radius"
+      },
+      "radius-sm": {
+        "value": "calc(var(--radius) - 4px)",
+        "variable": "--radius-sm"
+      },
+      "radius-md": {
+        "value": "calc(var(--radius) - 2px)",
+        "variable": "--radius-md"
+      },
+      "radius-xl": {
+        "value": "calc(var(--radius) + 4px)",
+        "variable": "--radius-xl"
+      }
+    }
+  },
+  "components": {
+    "Button": {
+      "props": {
+        "variant": {
+          "type": "enum",
+          "values": ["default", "destructive", "outline", "secondary", "ghost", "link"],
+          "class_map": {
+            "default": "bg-primary text-primary-foreground hover:bg-primary/90",
+            "destructive": "bg-destructive text-white hover:bg-destructive/90",
+            "outline": "border bg-background text-foreground hover:bg-accent hover:text-accent-foreground",
+            "secondary": "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+            "ghost": "hover:bg-accent hover:text-accent-foreground",
+            "link": "text-primary underline-offset-4 hover:underline"
+          }
+        },
+        "size": {
+          "type": "enum",
+          "values": ["default", "sm", "lg", "icon"],
+          "class_map": {
+            "default": "h-9 px-4 py-2 has-[>svg]:px-3",
+            "sm": "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
+            "lg": "h-10 rounded-md px-6 has-[>svg]:px-4",
+            "icon": "size-9 rounded-md"
+          }
+        },
+        "disabled": { "type": "boolean" }
+      }
+    },
+    "Badge": {
+      "props": {
+        "variant": {
+          "type": "enum",
+          "values": ["default", "secondary", "destructive", "outline"],
+          "class_map": {
+            "default": "border-transparent bg-primary text-primary-foreground",
+            "secondary": "border-transparent bg-secondary text-secondary-foreground",
+            "destructive": "border-transparent bg-destructive text-white",
+            "outline": "text-foreground"
+          }
+        }
+      }
+    }
+  }
+}

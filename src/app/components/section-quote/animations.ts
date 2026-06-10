@@ -50,8 +50,8 @@ export function initQuoteAnimation(refs: Refs) {
       ease: "power3.out",
       scrollTrigger: {
         trigger: section,
-        start: "top 85%",
-        end: "top 35%",
+        start: "top 95%",
+        end: "top 48%",
         scrub: 0.8,
         invalidateOnRefresh: true,
       },
@@ -78,22 +78,22 @@ export function initQuoteAnimation(refs: Refs) {
     const bgDeep = getComputedStyle(section).getPropertyValue("--color-bg-deep").trim() || "#101828";
 
     tl
-      .to(section, { backgroundColor: bgDark, duration: 0.6 }, 0)
+      .to(section, { backgroundColor: bgDark, duration: 0.4 }, 0)
       .to(
         mark,
         {
           scale: 1,
           autoAlpha: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.6,
           ease: "back.out(1.6)",
         },
-        0.2
+        0.05
       )
       .to(
         split.lines,
-        { yPercent: 0, duration: 1, stagger: 0.12, ease: "power3.out" },
-        0.6
+        { yPercent: 0, duration: 0.9, stagger: 0.08, ease: "power3.out" },
+        0.2
       )
       .to(
         paths,

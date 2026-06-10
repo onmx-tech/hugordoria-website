@@ -9,10 +9,10 @@ const NAV_LINKS = [
   { label: "Depoimentos", href: "#depoimentos" },
 ] as const;
 
-const CONTACT = [
-  "contato@hugodoria.com",
-  "(00) 00000-0000",
-] as const;
+// Contato estático — ajustar com os dados reais do cliente.
+const CONTACT = ["contato@hugodoria.com", "(00) 00000-0000"] as const;
+const ADDRESS =
+  "R. Teixeira da Silva, 54 - 73 - Bela Vista, São Paulo - SP, 04002-030, Brasil";
 
 function LogoSection() {
   return (
@@ -64,9 +64,7 @@ function LogoSection() {
         </svg>
       </div>
       <p className="font-['Geist',sans-serif] font-normal text-cream text-sm leading-[1.5]">
-        R. Teixeira da Silva, 54 - 73 - Bela Vista,
-        <br />
-        São Paulo - SP, 04002-030, Brasil
+        {ADDRESS}
       </p>
     </div>
   );

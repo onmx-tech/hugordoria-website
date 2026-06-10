@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import svgPaths from "../../imports/svg-nx92b0rij3";
 import { gsap } from "../../lib/gsap";
 
-const TESTIMONIALS = [
+// Depoimentos manuais — substituir pelos textos reais (nome + depoimento).
+type Testimonial = { quote: string; name: string; role: string; photo?: string | null };
+const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "Arcu congue dolor eget non mi blandit at bibendum. Morbi eget egestas id sed amet tortor at cursus. Dictum odio lacus quam suspendisse. Vulputate hendrerit vitae urna massa fusce ultrices odio.",
@@ -39,10 +41,9 @@ const TESTIMONIALS = [
     name: "Nome do Cliente",
     role: "Função",
   },
-] as const;
+];
 
 const CARDS_PER_PAGE = 2;
-const TOTAL_PAGES = Math.ceil(TESTIMONIALS.length / CARDS_PER_PAGE);
 
 function QuoteIcon() {
   return (
@@ -72,10 +73,13 @@ export default function SectionCasosDeSucesso() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const cardsRef = useRef<HTMLDivElement | null>(null);
 
-  const canPrev = page > 0;
-  const canNext = page < TOTAL_PAGES - 1;
+  const items = TESTIMONIALS.slice(0, 10); // home: no máximo 10
+  const totalPages = Math.max(1, Math.ceil(items.length / CARDS_PER_PAGE));
 
-  const visibleCards = TESTIMONIALS.slice(
+  const canPrev = page > 0;
+  const canNext = page < totalPages - 1;
+
+  const visibleCards = items.slice(
     page * CARDS_PER_PAGE,
     page * CARDS_PER_PAGE + CARDS_PER_PAGE,
   );
@@ -168,11 +172,20 @@ export default function SectionCasosDeSucesso() {
                 </p>
               </div>
               <div className="flex items-center gap-3 mt-8 md:mt-10 pt-6 border-t border-navy/[0.08]">
-                <div className="size-10 rounded-full bg-navy/[0.06] flex items-center justify-center">
-                  <span className="font-['Geist',sans-serif] font-medium text-navy/40 text-sm">
-                    {t.name.charAt(0)}
-                  </span>
-                </div>
+                {t.photo ? (
+                  <img
+                    src={t.photo}
+                    alt={t.name}
+                    referrerPolicy="no-referrer"
+                    className="size-10 rounded-full object-cover"
+                  />
+                ) : (
+                  <div className="size-10 rounded-full bg-navy/[0.06] flex items-center justify-center">
+                    <span className="font-['Geist',sans-serif] font-medium text-navy/40 text-sm">
+                      {t.name.charAt(0)}
+                    </span>
+                  </div>
+                )}
                 <div className="flex flex-col">
                   <span
                     className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.3]"
@@ -202,7 +215,7 @@ export default function SectionCasosDeSucesso() {
             style={{ fontSize: "clamp(18px, 1.4vw, 24px)" }}
           >
             {String(page + 1).padStart(2, "0")} —{" "}
-            {String(TOTAL_PAGES).padStart(2, "0")}
+            {String(totalPages).padStart(2, "0")}
           </span>
 
           <div className="flex items-center gap-3">
