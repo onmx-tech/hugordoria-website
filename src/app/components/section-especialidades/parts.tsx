@@ -28,8 +28,9 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
       <div
         className="flex h-full w-full flex-col items-start overflow-hidden will-change-transform group-hover:-translate-y-2.5 bg-white/[0.07] group-hover:bg-white/10"
         style={{
+          // Tailwind v4 aplica o lift via propriedade CSS `translate` (não transform)
           transition:
-            "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.45s ease",
+            "translate 0.45s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.45s ease",
         }}
       >
       {hasImage ? (
@@ -43,7 +44,8 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
               alt={card.title}
               className="absolute inset-0 h-full w-full object-cover group-hover:scale-105"
               style={{
-                transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+                // idem: `scale-105` do v4 usa a propriedade CSS `scale`
+                transition: "scale 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
             />
             <div
