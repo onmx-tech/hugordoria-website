@@ -2,44 +2,69 @@ import { useEffect, useRef, useState } from "react";
 import svgPaths from "../../imports/svg-nx92b0rij3";
 import { gsap } from "../../lib/gsap";
 
-// Depoimentos manuais — substituir pelos textos reais (nome + depoimento).
+// Depoimentos reais de pacientes — excertos das avaliações verificadas no
+// Doctoralia (perfil do Dr. Hugo Doria-Netto), levemente encurtados.
 type Testimonial = { quote: string; name: string; role: string; photo?: string | null };
 const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "Arcu congue dolor eget non mi blandit at bibendum. Morbi eget egestas id sed amet tortor at cursus. Dictum odio lacus quam suspendisse. Vulputate hendrerit vitae urna massa fusce ultrices odio.",
-    name: "Nome do Cliente",
-    role: "Função",
+      "Com muita competência, atenção e sensibilidade, conduziu minha cirurgia de forma impecável, sempre me transmitindo segurança, calma e confiança desde o primeiro contato.",
+    name: "Rita Cássia Nogueira",
+    role: "Paciente — Cirurgia de Aneurisma",
   },
   {
     quote:
-      "Arcu congue dolor eget non mi blandit at bibendum. Morbi eget egestas id sed amet tortor at cursus. Dictum odio lacus quam suspendisse. Vulputate hendrerit vitae urna massa fusce ultrices odio.",
-    name: "Nome do Cliente",
-    role: "Função",
+      "Não há palavras que possam expressar minha sincera gratidão e admiração pelo Dr. Hugo! É evidente a capacidade dele como profissional. Mas é a forma como trata os pacientes, com respeito e dedicação, que o transforma em um ser humano único.",
+    name: "Marjouri Garcia",
+    role: "Paciente — Tumores Cerebrais",
   },
   {
     quote:
-      "Arcu congue dolor eget non mi blandit at bibendum. Morbi eget egestas id sed amet tortor at cursus. Dictum odio lacus quam suspendisse. Vulputate hendrerit vitae urna massa fusce ultrices odio.",
-    name: "Nome do Cliente",
-    role: "Função",
+      "Excelente profissional. Atendimento humanizado, muito empático. Dr. Hugo e sua equipe salvaram minha vida. A cirurgia foi um sucesso e me recupero muito bem.",
+    name: "Rita de Cássia de Jesus Silva",
+    role: "Paciente — Schwannoma",
   },
   {
     quote:
-      "Arcu congue dolor eget non mi blandit at bibendum. Morbi eget egestas id sed amet tortor at cursus. Dictum odio lacus quam suspendisse. Vulputate hendrerit vitae urna massa fusce ultrices odio.",
-    name: "Nome do Cliente",
-    role: "Função",
+      "Dr. Hugo demonstra muito domínio técnico e conhecimento científico em sua área de atuação; mas possui um diferencial: respeitar os momentos humanos que passamos como pacientes de cirurgias tão delicadas.",
+    name: "Rebecca F. A. Silva",
+    role: "Paciente — Meningioma",
   },
   {
     quote:
-      "Arcu congue dolor eget non mi blandit at bibendum. Morbi eget egestas id sed amet tortor at cursus. Dictum odio lacus quam suspendisse. Vulputate hendrerit vitae urna massa fusce ultrices odio.",
-    name: "Nome do Cliente",
-    role: "Função",
+      "Eu só tenho a agradecer a Deus, ao meu anjo da guarda Dr. Hugo Doria e toda equipe médica, que esteve ao meu lado durante todo o período que estive hospitalizada. Eterna gratidão!",
+    name: "Maria José da Silva Barbosa",
+    role: "Paciente — Cirurgia de Aneurisma",
   },
   {
     quote:
-      "Arcu congue dolor eget non mi blandit at bibendum. Morbi eget egestas id sed amet tortor at cursus. Dictum odio lacus quam suspendisse. Vulputate hendrerit vitae urna massa fusce ultrices odio.",
-    name: "Nome do Cliente",
-    role: "Função",
+      "Neurocirurgião com expertise de nível internacional. Médico de altíssimo conhecimento científico e alma iluminada.",
+    name: "Reginaldo Queiroz",
+    role: "Paciente",
+  },
+  {
+    quote:
+      "Desde a primeira consulta me passou total confiança, foi muito atencioso e prestativo. Faz 5 anos que fiz a cirurgia e estou totalmente curada.",
+    name: "Marli de Fátima Pereira Viana",
+    role: "Paciente — Cirurgia de Aneurisma",
+  },
+  {
+    quote:
+      "Dr. Hugo e sua equipe, com a graça de Deus, conseguiram me livrar dessa angústia — hoje estou curado e minha gratidão é eterna!",
+    name: "James Cássio de Miranda",
+    role: "Paciente — Cirurgia de Aneurisma",
+  },
+  {
+    quote:
+      "Ótimo profissional, muito atencioso antes, durante e após o procedimento. Tratamento super eficaz! Sou grato por tudo!",
+    name: "Renato Santos",
+    role: "Paciente",
+  },
+  {
+    quote:
+      "Na minha primeira consulta fui muito bem recebida, com muita atenção e carinho. Me senti totalmente segura e confiante. Minha recuperação tem sido rápida e tranquila graças à atenção e profissionalismo do Dr. Hugo e toda sua equipe.",
+    name: "Ana Maria Rosini",
+    role: "Paciente — Meningioma",
   },
 ];
 
