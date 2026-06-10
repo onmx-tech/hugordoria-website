@@ -14,38 +14,24 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
   };
 
   return (
+    // O article fica parado (hit-area estável p/ o hover); quem levanta é o
+    // wrapper interno — senão o card sai de baixo do cursor e o hover oscila.
     <article
-      className="absolute flex flex-col items-start overflow-hidden cursor-pointer"
+      className="group absolute cursor-pointer"
       data-card
       role="button"
       tabIndex={0}
       onClick={handleOpen}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleOpen(); } }}
-      style={{
-        left: x,
-        top: y,
-        width: CARD_W,
-        height: CARD_H,
-        backgroundColor: "rgba(255, 255, 255, 0.07)",
-        transition:
-          "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.45s ease",
-        willChange: "transform",
-      }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.transform = "translateY(-10px)";
-        (e.currentTarget as HTMLElement).style.backgroundColor =
-          "rgba(255, 255, 255, 0.1)";
-        const img = e.currentTarget.querySelector<HTMLElement>("[data-card-img]");
-        if (img) img.style.transform = "scale(1.05)";
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-        (e.currentTarget as HTMLElement).style.backgroundColor =
-          "rgba(255, 255, 255, 0.07)";
-        const img = e.currentTarget.querySelector<HTMLElement>("[data-card-img]");
-        if (img) img.style.transform = "scale(1)";
-      }}
+      style={{ left: x, top: y, width: CARD_W, height: CARD_H }}
     >
+      <div
+        className="flex h-full w-full flex-col items-start overflow-hidden will-change-transform group-hover:-translate-y-2.5 bg-white/[0.07] group-hover:bg-white/10"
+        style={{
+          transition:
+            "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.45s ease",
+        }}
+      >
       {hasImage ? (
         <>
           <div
@@ -53,10 +39,9 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
             style={{ height: IMAGE_H }}
           >
             <img
-              data-card-img
               src={card.image}
               alt={card.title}
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover group-hover:scale-105"
               style={{
                 transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
@@ -151,6 +136,7 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
           </div>
         </>
       )}
+      </div>
     </article>
   );
 }
