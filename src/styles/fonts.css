@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
+/* Display serif das subpáginas (títulos/quotes) — itálicos de caráter p/ a ênfase dourada */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&display=swap');
 
 @font-face {
   font-family: 'Geist';

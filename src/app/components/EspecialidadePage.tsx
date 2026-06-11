@@ -273,7 +273,7 @@ export default function EspecialidadePage() {
         {/* Large decorative index number */}
         <span
           data-hero-index
-          className="absolute z-[2] font-['Arimo',sans-serif] text-cream/[0.04] select-none pointer-events-none"
+          className="absolute z-[2] font-['Fraunces',serif] text-cream/[0.04] select-none pointer-events-none"
           style={{
             right: "clamp(16px, 6vw, 96px)",
             bottom: "clamp(40px, 12vh, 160px)",
@@ -311,7 +311,7 @@ export default function EspecialidadePage() {
 
           <h1
             data-hero-title
-            className="font-['Arimo',sans-serif] text-cream"
+            className="font-['Fraunces',serif] text-cream"
             style={{
               margin: 0,
               fontWeight: 400,
@@ -471,7 +471,7 @@ export default function EspecialidadePage() {
             <div>
               <p
                 data-reveal
-                className="font-['Arimo',sans-serif] text-cream/75"
+                className="font-['Fraunces',serif] text-cream/75"
                 style={{
                   margin: 0,
                   fontWeight: 400,
@@ -513,7 +513,7 @@ export default function EspecialidadePage() {
                         }}
                       >
                         <span
-                          className="font-['Arimo',sans-serif] text-gold-light/40 shrink-0"
+                          className="font-['Fraunces',serif] text-gold-light/40 shrink-0"
                           style={{
                             fontSize: "clamp(28px, 2.5vw, 40px)",
                             fontWeight: 400,
@@ -631,7 +631,7 @@ export default function EspecialidadePage() {
                   >
                     <h2
                       data-reveal
-                      className="font-['Arimo',sans-serif] text-cream"
+                      className="font-['Fraunces',serif] text-cream"
                       style={{
                         margin: 0,
                         fontWeight: 400,
@@ -657,7 +657,7 @@ export default function EspecialidadePage() {
                             data-reveal
                             className={
                               isOpening
-                                ? "font-['Arimo',sans-serif] text-cream/85"
+                                ? "font-['Fraunces',serif] text-cream/85"
                                 : "font-['Geist',sans-serif] text-cream/60"
                             }
                             style={{
@@ -709,7 +709,7 @@ export default function EspecialidadePage() {
                   Depoimentos
                 </span>
                 <h2
-                  className="font-['Arimo',sans-serif] text-navy"
+                  className="font-['Fraunces',serif] text-navy"
                   style={{
                     margin: 0,
                     marginTop: 12,
@@ -726,7 +726,7 @@ export default function EspecialidadePage() {
               </div>
               <p
                 data-reveal
-                className="font-['Arimo',sans-serif] text-navy/50"
+                className="font-['Fraunces',serif] text-navy/50"
                 style={{
                   margin: 0,
                   fontSize: "clamp(14px, 1.1vw, 18px)",
@@ -763,7 +763,7 @@ export default function EspecialidadePage() {
                       />
                     </svg>
                     <p
-                      className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.18] tracking-[-0.02em]"
+                      className="font-['Fraunces',serif] font-normal text-navy leading-[1.18] tracking-[-0.02em]"
                       style={{ fontSize: "clamp(18px, 2vw, 32px)" }}
                     >
                       {t.quote}
@@ -777,13 +777,13 @@ export default function EspecialidadePage() {
                     </div>
                     <div className="flex flex-col">
                       <span
-                        className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.3]"
+                        className="font-['Fraunces',serif] font-normal text-navy leading-[1.3]"
                         style={{ fontSize: "clamp(14px, 1vw, 18px)" }}
                       >
                         {t.name}
                       </span>
                       <span
-                        className="font-['Arimo',sans-serif] font-normal text-navy/40 leading-[1.3]"
+                        className="font-['Fraunces',serif] font-normal text-navy/40 leading-[1.3]"
                         style={{ fontSize: "clamp(12px, 0.9vw, 15px)" }}
                       >
                         {t.role}
@@ -868,7 +868,7 @@ export default function EspecialidadePage() {
                     Anterior
                   </span>
                   <span
-                    className="font-['Arimo',sans-serif] text-cream group-hover:text-gold-light transition-colors duration-300"
+                    className="font-['Fraunces',serif] text-cream group-hover:text-gold-light transition-colors duration-300"
                     style={{
                       fontSize: "clamp(20px, 2vw, 28px)",
                       fontWeight: 400,
@@ -941,7 +941,7 @@ export default function EspecialidadePage() {
                     </svg>
                   </span>
                   <span
-                    className="font-['Arimo',sans-serif] text-cream group-hover:text-gold-light transition-colors duration-300"
+                    className="font-['Fraunces',serif] text-cream group-hover:text-gold-light transition-colors duration-300"
                     style={{
                       fontSize: "clamp(20px, 2vw, 28px)",
                       fontWeight: 400,

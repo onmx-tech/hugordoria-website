@@ -101,7 +101,7 @@ function CenterHeader({
       </span>
       <h2
         data-reveal
-        className={`font-['Arimo',sans-serif] ${dark ? "text-cream" : "text-navy"}`}
+        className={`font-['Fraunces',serif] ${dark ? "text-cream" : "text-navy"}`}
         style={{
           margin: 0,
           marginTop: 20,
@@ -214,7 +214,7 @@ function IconCard({
         )}
       </div>
       <h3
-        className="font-['Arimo',sans-serif] text-navy"
+        className="font-['Fraunces',serif] text-navy"
         style={{
           margin: 0,
           marginTop: 24,
@@ -309,7 +309,7 @@ function DocumentCard({ href, kicker, title }: { href: string; kicker: string; t
           {kicker}
         </span>
         <p
-          className="font-['Arimo',sans-serif] text-navy"
+          className="font-['Fraunces',serif] text-navy"
           style={{
             margin: 0,
             marginTop: 10,
@@ -347,14 +347,14 @@ export function SobreMimPage() {
           <blockquote className="lg:col-span-8" style={{ margin: 0 }}>
             <span
               aria-hidden
-              className="block font-['Arimo',sans-serif] text-gold-light"
+              className="block font-['Fraunces',serif] text-gold-light"
               style={{ fontSize: 64, lineHeight: 0.55, marginBottom: 28 }}
             >
               “
             </span>
             <p
               data-reveal
-              className="font-['Arimo',sans-serif] text-cream"
+              className="font-['Fraunces',serif] text-cream"
               style={{
                 margin: 0,
                 fontSize: "clamp(22px, 2.3vw, 36px)",
@@ -384,7 +384,7 @@ export function SobreMimPage() {
                 }}
               >
                 <span
-                  className="font-['Arimo',sans-serif] text-gold-light"
+                  className="font-['Fraunces',serif] text-gold-light"
                   style={{ fontSize: "clamp(32px, 3vw, 44px)", lineHeight: 1, letterSpacing: "-0.02em" }}
                 >
                   {s.value}
@@ -433,7 +433,7 @@ export function SobreMimPage() {
               [&nbsp;&nbsp;02 — Trajetória&nbsp;&nbsp;]
             </span>
             <p
-              className="font-['Arimo',sans-serif] text-navy"
+              className="font-['Fraunces',serif] text-navy"
               style={{
                 margin: 0,
                 marginTop: 24,
@@ -547,7 +547,7 @@ export function DoutoradoPage() {
               [&nbsp;&nbsp;01 — A Pesquisa&nbsp;&nbsp;]
             </span>
             <p
-              className="font-['Arimo',sans-serif] text-navy"
+              className="font-['Fraunces',serif] text-navy"
               style={{
                 margin: 0,
                 marginTop: 24,
@@ -630,7 +630,7 @@ export function PublicacoesPage() {
               [&nbsp;&nbsp;01 — O Artigo&nbsp;&nbsp;]
             </span>
             <p
-              className="font-['Arimo',sans-serif] text-navy"
+              className="font-['Fraunces',serif] text-navy"
               style={{
                 margin: 0,
                 marginTop: 24,
@@ -899,7 +899,7 @@ export function ContatoPage() {
             style={{ textDecoration: "none", marginTop: 28 }}
           >
             <span
-              className="font-['Arimo',sans-serif] text-navy transition-colors duration-300 group-hover/wa:text-gold"
+              className="font-['Fraunces',serif] text-navy transition-colors duration-300 group-hover/wa:text-gold"
               style={{
                 fontSize: "clamp(34px, 5.2vw, 80px)",
                 lineHeight: 1.05,

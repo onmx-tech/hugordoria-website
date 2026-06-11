@@ -196,7 +196,7 @@ export default function SubPage({
               <h1
                 data-sub-title
                 data-em={em}
-                className="relative z-10 font-['Arimo',sans-serif] text-navy"
+                className="relative z-10 font-['Fraunces',serif] text-navy"
                 style={{
                   margin: 0,
                   marginTop: 32,
