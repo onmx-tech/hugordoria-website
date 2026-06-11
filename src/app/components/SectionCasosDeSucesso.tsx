@@ -97,6 +97,9 @@ export default function SectionCasosDeSucesso() {
   const [page, setPage] = useState(0);
   const sectionRef = useRef<HTMLElement | null>(null);
   const cardsRef = useRef<HTMLDivElement | null>(null);
+  // Direção da última navegação (1 = próximo, -1 = voltar, 0 = carga inicial)
+  const dirRef = useRef<0 | 1 | -1>(0);
+  const animatingRef = useRef(false);
 
   const items = TESTIMONIALS.slice(0, 10); // home: no máximo 10
   const totalPages = Math.max(1, Math.ceil(items.length / CARDS_PER_PAGE));
@@ -131,15 +134,57 @@ export default function SectionCasosDeSucesso() {
     return () => ctx.revert();
   }, []);
 
+  // Entrada dos cards: direcional quando vem da paginação, vertical na carga
   useEffect(() => {
     if (!cardsRef.current) return;
     const cards = cardsRef.current.querySelectorAll("[data-card]");
+    const dir = dirRef.current;
     gsap.fromTo(
       cards,
-      { y: 24, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.08, duration: 0.5, ease: "power2.out" },
+      dir === 0
+        ? { y: 24, opacity: 0 }
+        : { x: dir * 56, y: 0, opacity: 0, scale: 0.985 },
+      {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        stagger: dir === 0 ? 0.08 : 0.07,
+        duration: dir === 0 ? 0.5 : 0.55,
+        ease: "power3.out",
+        onComplete: () => {
+          animatingRef.current = false;
+        },
+      },
     );
+    // micro-stagger interno: aspas → texto → autor
+    if (dir !== 0) {
+      const parts = cardsRef.current.querySelectorAll("[data-card] > *");
+      gsap.fromTo(
+        parts,
+        { x: dir * 24, opacity: 0 },
+        { x: 0, opacity: 1, stagger: 0.05, duration: 0.5, delay: 0.08, ease: "power3.out" },
+      );
+    }
   }, [page]);
+
+  // Saída direcional: anima os cards atuais para fora e só então troca a página
+  const paginate = (dir: 1 | -1) => {
+    if (animatingRef.current || !cardsRef.current) return;
+    if (dir === 1 ? !canNext : !canPrev) return;
+    animatingRef.current = true;
+    dirRef.current = dir;
+    const cards = cardsRef.current.querySelectorAll("[data-card]");
+    gsap.to(cards, {
+      x: dir * -56,
+      opacity: 0,
+      scale: 0.985,
+      stagger: 0.05,
+      duration: 0.3,
+      ease: "power2.in",
+      onComplete: () => setPage((p) => p + dir),
+    });
+  };
 
   return (
     <section
@@ -246,7 +291,7 @@ export default function SectionCasosDeSucesso() {
           <div className="flex items-center gap-3">
             <button
               type="button"
-              onClick={() => canPrev && setPage((p) => p - 1)}
+              onClick={() => paginate(-1)}
               disabled={!canPrev}
               className="inline-flex items-center gap-3 rounded-full border border-navy px-5 py-3 font-['Arimo',sans-serif] font-normal text-navy transition-opacity duration-200 disabled:opacity-30"
               style={{ fontSize: "clamp(16px, 1.2vw, 24px)" }}
@@ -256,7 +301,7 @@ export default function SectionCasosDeSucesso() {
             </button>
             <button
               type="button"
-              onClick={() => canNext && setPage((p) => p + 1)}
+              onClick={() => paginate(1)}
               disabled={!canNext}
               className="inline-flex items-center gap-3 rounded-full border border-navy px-5 py-3 font-['Arimo',sans-serif] font-normal text-navy transition-opacity duration-200 disabled:opacity-30"
               style={{ fontSize: "clamp(16px, 1.2vw, 24px)" }}
