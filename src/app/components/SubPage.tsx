@@ -10,6 +10,7 @@ const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http:
 export default function SubPage({
   eyebrow,
   title,
+  em,
   lead,
   meta,
   watermark,
@@ -17,6 +18,8 @@ export default function SubPage({
 }: {
   eyebrow: string;
   title: string;
+  /** Palavras do título que recebem itálico dourado (assinatura editorial das subpáginas) */
+  em?: string;
   lead?: string;
   meta?: string;
   watermark?: string;
@@ -37,6 +40,12 @@ export default function SubPage({
       const titleEl = root.querySelector<HTMLElement>("[data-sub-title]");
       if (titleEl) {
         const text = titleEl.textContent ?? "";
+        const emSet = new Set(
+          (titleEl.dataset.em ?? "")
+            .toLowerCase()
+            .split(/\s+/)
+            .filter(Boolean),
+        );
         titleEl.innerHTML = "";
         const wordSpans: HTMLSpanElement[] = [];
         text.split(/(\s+)/).forEach((token) => {
@@ -53,6 +62,11 @@ export default function SubPage({
           const inner = document.createElement("span");
           inner.style.display = "inline-block";
           inner.textContent = token;
+          const clean = token.toLowerCase().replace(/[^\p{L}\p{N}-]/gu, "");
+          if (emSet.has(clean)) {
+            inner.style.fontStyle = "italic";
+            inner.style.color = "var(--color-accent-gold-light)";
+          }
           outer.appendChild(inner);
           titleEl.appendChild(outer);
           wordSpans.push(inner);
@@ -203,22 +217,17 @@ export default function SubPage({
             paddingBottom: "clamp(64px, 12vh, 140px)",
           }}
         >
-          <div data-hero-reveal className="flex items-center gap-4">
-            <span
-              aria-hidden
-              className="inline-block"
-              style={{ width: 40, height: 1, background: "var(--color-accent-gold-light)" }}
-            />
-            <span
-              className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.24em] text-gold-light/80"
-              style={{ fontSize: 11 }}
-            >
-              {eyebrow}
-            </span>
-          </div>
+          <span
+            data-hero-reveal
+            className="inline-block font-['Geist_Mono',sans-serif] uppercase tracking-[0.24em] text-gold-light/80"
+            style={{ fontSize: 11 }}
+          >
+            [&nbsp;&nbsp;{eyebrow}&nbsp;&nbsp;]
+          </span>
 
           <h1
             data-sub-title
+            data-em={em}
             className="font-['Arimo',sans-serif] text-cream"
             style={{
               margin: 0,

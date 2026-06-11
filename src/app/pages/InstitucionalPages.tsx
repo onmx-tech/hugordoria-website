@@ -62,20 +62,12 @@ function SectionHeader({
 }) {
   return (
     <div data-reveal className="flex items-baseline justify-between" style={{ marginBottom: "clamp(36px, 5vh, 56px)" }}>
-      <div className="flex items-center gap-4">
-        <span
-          className={`font-['Geist_Mono',sans-serif] ${dark ? "text-navy/40" : "text-gold-light/50"}`}
-          style={{ fontSize: 12 }}
-        >
-          {index}
-        </span>
-        <span
-          className={`font-['Geist_Mono',sans-serif] uppercase tracking-[0.22em] ${dark ? "text-navy/60" : "text-gold-light/70"}`}
-          style={{ fontSize: 11 }}
-        >
-          {label}
-        </span>
-      </div>
+      <span
+        className={`font-['Geist_Mono',sans-serif] uppercase tracking-[0.22em] whitespace-nowrap ${dark ? "text-navy/60" : "text-gold-light/70"}`}
+        style={{ fontSize: 11 }}
+      >
+        [&nbsp;&nbsp;{index} — {label}&nbsp;&nbsp;]
+      </span>
       <span
         aria-hidden
         className="hidden md:block flex-1"
@@ -244,32 +236,47 @@ export function SobreMimPage() {
     <SubPage
       eyebrow="Sobre mim"
       title="A neurocirurgia como vocação"
+      em="vocação"
       lead="Dr. Hugo Leonardo Doria-Netto, MD PhD — especialista em neurocirurgia vascular, confiado por mais de 9.500 pacientes."
-      meta="São Paulo — Brasil"
+      meta="Nº 01 — São Paulo, Brasil"
       watermark="HD"
     >
       {/* Retrato + citação sobreposta */}
       <Section first flush>
         <div className="px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 items-stretch">
-            <div
-              data-reveal
-              className="relative lg:col-span-7 overflow-hidden rounded-2xl"
-              style={{ minHeight: 420 }}
-            >
-              <img
-                src={imgRetrato}
-                alt="Dr. Hugo Doria em seu consultório"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
+            <div data-reveal className="relative lg:col-span-7" style={{ minHeight: 420 }}>
+              {/* Moldura deslocada — eco dos color-blocks editoriais (ref. Neko Health) */}
               <div
                 aria-hidden
-                className="absolute inset-0"
+                className="absolute rounded-2xl hidden md:block"
                 style={{
-                  background:
-                    "linear-gradient(35deg, rgba(13,26,45,0.55) 0%, transparent 55%)",
+                  inset: 0,
+                  transform: "translate(-18px, 18px)",
+                  border: "1px solid color-mix(in srgb, var(--color-accent-gold-light) 40%, transparent)",
                 }}
               />
+              <div className="absolute inset-0 overflow-hidden rounded-2xl">
+                <img
+                  src={imgRetrato}
+                  alt="Dr. Hugo Doria em seu consultório"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(35deg, rgba(13,26,45,0.55) 0%, transparent 55%)",
+                  }}
+                />
+                <span
+                  className="absolute font-['Geist_Mono',sans-serif] uppercase tracking-[0.2em] text-cream/70"
+                  style={{ left: 24, bottom: 20, fontSize: 10 }}
+                >
+                  [&nbsp;&nbsp;Dr. Hugo Doria — São Paulo&nbsp;&nbsp;]
+                </span>
+              </div>
             </div>
 
             <div className="lg:col-span-5 flex items-center">
@@ -497,8 +504,9 @@ export function DoutoradoPage() {
     <SubPage
       eyebrow="Doutorado"
       title="Tese sobre aneurismas cerebrais paraclinóideos"
+      em="paraclinóideos"
       lead="PhD em Neurologia e Neurociência pela Universidade Federal de São Paulo (UNIFESP), publicado na World Neurosurgery (2022)."
-      meta="UNIFESP — 2018–2022"
+      meta="Nº 02 — UNIFESP, 2018–2022"
       watermark="PhD"
     >
       <Section first>
@@ -532,7 +540,8 @@ export function PublicacoesPage() {
     <SubPage
       eyebrow="Publicações"
       title="Pesquisa publicada na World Neurosurgery"
-      meta="2018 — 2024"
+      em="World Neurosurgery"
+      meta="Nº 03 — 2018–2024"
       watermark="W N"
     >
       <Section first>
@@ -571,8 +580,9 @@ export function EventosPage() {
     <SubPage
       eyebrow="Palestras & Eventos"
       title="Presença na comunidade neurocirúrgica"
+      em="comunidade"
       lead="20 anos de experiência compartilhados em congressos nacionais e internacionais, aulas para residentes e simpósios de neurocirurgia vascular."
-      meta="SBN — CLAN — CBAN"
+      meta="Nº 04 — SBN · CLAN · CBAN"
       watermark="20"
     >
       <Section first>
@@ -614,8 +624,9 @@ export function MidiaPage() {
     <SubPage
       eyebrow="Mídia"
       title="Dr. Hugo Doria na mídia"
+      em="mídia"
       lead="Entrevistas e participações sobre neurocirurgia — aneurismas, cavernomas, neuralgia do trigêmeo e mais."
-      meta="Imprensa & TV"
+      meta="Nº 05 — Imprensa & TV"
       watermark="TV"
     >
       <Section first>
@@ -650,9 +661,10 @@ export function DepoimentosPage() {
   return (
     <SubPage
       eyebrow="Depoimentos"
-      title="Mensagens de pacientes"
-      lead="Mensagens reais recebidas de pacientes e familiares ao longo de 20 anos — gratidão que é o maior reconhecimento do trabalho."
-      meta="+ 9.500 casos de sucesso"
+      title="Mensagens de gratidão"
+      em="gratidão"
+      lead="Mensagens reais recebidas de pacientes e familiares ao longo de 20 anos — o maior reconhecimento do trabalho."
+      meta="Nº 06 — + 9.500 casos de sucesso"
       watermark="“"
     >
       <Section first tone="cream">
@@ -747,8 +759,9 @@ export function ContatoPage() {
     <SubPage
       eyebrow="Contato"
       title="Fale conosco"
+      em="conosco"
       lead="Clique no número para falar diretamente com a equipe do Dr. Hugo via WhatsApp."
-      meta="Atendimento — São Paulo"
+      meta="Nº 07 — Atendimento, São Paulo"
       watermark="@"
     >
       <Section first>
@@ -837,8 +850,9 @@ export function LocalizacaoPage() {
     <SubPage
       eyebrow="Localização"
       title="Onde estamos"
+      em="estamos"
       lead={CONTATO.endereco}
-      meta="Bela Vista — São Paulo"
+      meta="Nº 08 — Bela Vista, São Paulo"
       watermark="SP"
     >
       <Section first tone="cream">

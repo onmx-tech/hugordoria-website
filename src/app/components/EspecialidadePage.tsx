@@ -380,7 +380,7 @@ export default function EspecialidadePage() {
                   className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-gold-light/60"
                   style={{ fontSize: 10 }}
                 >
-                  Sobre
+                  [&nbsp;&nbsp;Sobre&nbsp;&nbsp;]
                 </span>
                 <div
                   className="w-full mt-3 mb-4"
@@ -404,7 +404,7 @@ export default function EspecialidadePage() {
                   className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-gold-light/60"
                   style={{ fontSize: 10 }}
                 >
-                  Especialista
+                  [&nbsp;&nbsp;Especialista&nbsp;&nbsp;]
                 </span>
                 <div
                   className="w-full mt-3 mb-4"
@@ -498,7 +498,7 @@ export default function EspecialidadePage() {
                     className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-gold-light/60"
                     style={{ fontSize: 10 }}
                   >
-                    Diferenciais
+                    [&nbsp;&nbsp;Diferenciais&nbsp;&nbsp;]
                   </span>
 
                   <div className="flex flex-col" style={{ marginTop: 24 }}>
@@ -571,7 +571,7 @@ export default function EspecialidadePage() {
                   className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-gold-light/60"
                   style={{ fontSize: 10 }}
                 >
-                  Neste artigo
+                  [&nbsp;&nbsp;Neste artigo&nbsp;&nbsp;]
                 </span>
                 <div
                   className="w-full mt-3 mb-2"
