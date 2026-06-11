@@ -3,26 +3,27 @@ import { useNavigate } from "react-router";
 import { gsap } from "../../lib/gsap";
 import Footer from "./Footer";
 
-const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
-
-// Layout compartilhado das páginas institucionais — hero editorial com
-// reveal tipográfico, grain e watermark fantasma, no idioma visual da home.
+// Subpáginas = "miolo da revista": base cream clara (a home é a capa navy).
+// Hero split texto+imagem com o título display atravessando a foto.
 export default function SubPage({
   eyebrow,
   title,
   em,
   lead,
   meta,
-  watermark,
+  image,
+  imageCaption,
   children,
 }: {
   eyebrow: string;
   title: string;
-  /** Palavras do título que recebem itálico dourado (assinatura editorial das subpáginas) */
+  /** Palavras do título em itálico dourado (assinatura editorial) */
   em?: string;
   lead?: string;
   meta?: string;
-  watermark?: string;
+  /** Imagem do hero (coluna direita); sem ela o hero é tipográfico puro */
+  image?: string;
+  imageCaption?: string;
   children: ReactNode;
 }) {
   const navigate = useNavigate();
@@ -36,15 +37,11 @@ export default function SubPage({
     const root = rootRef.current;
     if (!root) return;
     const ctx = gsap.context(() => {
-      // Título: reveal palavra a palavra com clip (mesmo gesto da página de especialidade)
       const titleEl = root.querySelector<HTMLElement>("[data-sub-title]");
       if (titleEl) {
         const text = titleEl.textContent ?? "";
         const emSet = new Set(
-          (titleEl.dataset.em ?? "")
-            .toLowerCase()
-            .split(/\s+/)
-            .filter(Boolean),
+          (titleEl.dataset.em ?? "").toLowerCase().split(/\s+/).filter(Boolean),
         );
         titleEl.innerHTML = "";
         const wordSpans: HTMLSpanElement[] = [];
@@ -65,7 +62,10 @@ export default function SubPage({
           const clean = token.toLowerCase().replace(/[^\p{L}\p{N}-]/gu, "");
           if (emSet.has(clean)) {
             inner.style.fontStyle = "italic";
-            inner.style.color = "var(--color-accent-gold-light)";
+            inner.style.color = "var(--color-accent-gold)";
+            // folga p/ o glyph inclinado não ser clipado pelo overflow do reveal
+            outer.style.paddingRight = "0.1em";
+            outer.style.marginRight = "-0.1em";
           }
           outer.appendChild(inner);
           titleEl.appendChild(outer);
@@ -89,18 +89,17 @@ export default function SubPage({
         stagger: 0.12,
         duration: 0.8,
         ease: "power3.out",
-        delay: 0.45,
+        delay: 0.4,
       });
 
-      const mark = root.querySelector("[data-watermark]");
-      if (mark) {
-        gsap.set(mark, { autoAlpha: 0, scale: 0.94 });
-        gsap.to(mark, {
-          autoAlpha: 1,
-          scale: 1,
-          duration: 1.4,
-          ease: "power2.out",
-          delay: 0.1,
+      const heroImg = root.querySelector("[data-hero-img]");
+      if (heroImg) {
+        gsap.set(heroImg, { clipPath: "inset(0 0 100% 0)" });
+        gsap.to(heroImg, {
+          clipPath: "inset(0 0 0% 0)",
+          duration: 1.2,
+          ease: "power3.inOut",
+          delay: 0.2,
         });
       }
 
@@ -127,153 +126,149 @@ export default function SubPage({
 
   return (
     // overflow-x-clip preserva o position:sticky interno (hidden quebraria)
-    <div ref={rootRef} className="w-full overflow-x-clip">
-      <section
-        className="relative w-full overflow-hidden"
-        style={{ background: "var(--color-bg-darkest)" }}
-      >
-        {/* Atmosfera: glow dourado + grain */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute"
-          style={{
-            top: "-30%",
-            right: "-12%",
-            width: "55vw",
-            height: "55vw",
-            background:
-              "radial-gradient(circle, color-mix(in srgb, var(--color-accent-gold-light) 7%, transparent) 0%, transparent 65%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            opacity: 0.03,
-            backgroundImage: GRAIN,
-            backgroundRepeat: "repeat",
-            backgroundSize: "200px 200px",
-          }}
-        />
-
-        {/* Watermark fantasma */}
-        {watermark && (
-          <span
-            data-watermark
-            aria-hidden
-            className="pointer-events-none absolute select-none font-['Arimo',sans-serif]"
-            style={{
-              right: "-1vw",
-              bottom: "-6vh",
-              fontSize: "clamp(160px, 26vw, 420px)",
-              lineHeight: 0.8,
-              letterSpacing: "-0.05em",
-              color: "transparent",
-              WebkitTextStroke: "1px rgba(255,255,255,0.05)",
-            }}
-          >
-            {watermark}
-          </span>
-        )}
-
+    <div
+      ref={rootRef}
+      className="w-full overflow-x-clip"
+      style={{ background: "var(--color-bg-cream)" }}
+    >
+      <section className="relative w-full">
         {/* Top bar */}
-        <div className="relative z-10">
-          <div
-            className="flex items-center justify-between px-6 md:px-12 lg:px-16"
-            style={{ height: 72 }}
-          >
-            <button
-              type="button"
-              onClick={() => navigate("/")}
-              className="group/back flex items-center gap-3 font-['Geist',sans-serif] text-cream/50 transition-colors duration-300 hover:text-cream"
-              style={{ fontSize: 14, background: "none", border: "none", cursor: "pointer", padding: 0 }}
-            >
-              <span
-                aria-hidden
-                className="inline-block transition-transform duration-300 group-hover/back:-translate-x-1"
-              >
-                ←
-              </span>
-              Dr. Hugo Doria
-            </button>
-            <span
-              className="hidden md:inline font-['Geist_Mono',sans-serif] uppercase tracking-[0.22em] text-cream/30"
-              style={{ fontSize: 10 }}
-            >
-              MD PhD — Neurocirurgião
-            </span>
-          </div>
-          <div
-            className="mx-6 md:mx-12 lg:mx-16"
-            style={{ height: 1, background: "rgba(255,255,255,0.1)" }}
-          />
-        </div>
-
-        {/* Hero editorial */}
         <div
-          className="relative z-10 px-6 md:px-12 lg:px-16"
-          style={{
-            paddingTop: "clamp(56px, 11vh, 130px)",
-            paddingBottom: "clamp(64px, 12vh, 140px)",
-          }}
+          className="flex items-center justify-between px-6 md:px-12 lg:px-16"
+          style={{ height: 72 }}
         >
-          <span
-            data-hero-reveal
-            className="inline-block font-['Geist_Mono',sans-serif] uppercase tracking-[0.24em] text-gold-light/80"
-            style={{ fontSize: 11 }}
+          <button
+            type="button"
+            onClick={() => navigate("/")}
+            className="group/back flex items-center gap-3 font-['Geist',sans-serif] text-navy/50 transition-colors duration-300 hover:text-navy"
+            style={{ fontSize: 14, background: "none", border: "none", cursor: "pointer", padding: 0 }}
           >
-            [&nbsp;&nbsp;{eyebrow}&nbsp;&nbsp;]
-          </span>
-
-          <h1
-            data-sub-title
-            data-em={em}
-            className="font-['Arimo',sans-serif] text-cream"
-            style={{
-              margin: 0,
-              marginTop: 28,
-              fontWeight: 400,
-              fontSize: "clamp(42px, 6.5vw, 96px)",
-              lineHeight: 1.02,
-              letterSpacing: "-0.03em",
-              maxWidth: 980,
-            }}
-          >
-            {title}
-          </h1>
-
-          {(lead || meta) && (
-            <div
-              className="grid grid-cols-1 lg:grid-cols-[minmax(0,640px)_1fr] gap-8 items-end"
-              style={{ marginTop: "clamp(32px, 5vh, 56px)" }}
+            <span
+              aria-hidden
+              className="inline-block transition-transform duration-300 group-hover/back:-translate-x-1"
             >
-              {lead ? (
+              ←
+            </span>
+            Dr. Hugo Doria
+          </button>
+          <span
+            className="hidden md:inline font-['Geist_Mono',sans-serif] uppercase tracking-[0.22em] text-navy/35"
+            style={{ fontSize: 10 }}
+          >
+            MD PhD — Neurocirurgião
+          </span>
+        </div>
+        <div
+          className="mx-6 md:mx-12 lg:mx-16"
+          style={{ height: 1, background: "rgba(26,41,63,0.15)" }}
+        />
+
+        {/* Hero split: texto à esquerda, imagem alta à direita; o título
+            display avança sobre a coluna da imagem (overlap de revista) */}
+        <div className="relative px-6 md:px-12 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
+            <div
+              className="lg:col-span-7 flex flex-col justify-center"
+              style={{
+                paddingTop: "clamp(56px, 10vh, 120px)",
+                paddingBottom: "clamp(56px, 10vh, 120px)",
+              }}
+            >
+              <div className="flex items-baseline justify-between" style={{ maxWidth: 720 }}>
+                <span
+                  data-hero-reveal
+                  className="inline-block font-['Geist_Mono',sans-serif] uppercase tracking-[0.24em] text-navy/45"
+                  style={{ fontSize: 11 }}
+                >
+                  [&nbsp;&nbsp;{eyebrow}&nbsp;&nbsp;]
+                </span>
+                {meta && (
+                  <span
+                    data-hero-reveal
+                    className="hidden sm:inline font-['Geist_Mono',sans-serif] uppercase tracking-[0.18em] text-navy/35"
+                    style={{ fontSize: 10 }}
+                  >
+                    {meta}
+                  </span>
+                )}
+              </div>
+
+              <h1
+                data-sub-title
+                data-em={em}
+                className="relative z-10 font-['Arimo',sans-serif] text-navy"
+                style={{
+                  margin: 0,
+                  marginTop: 32,
+                  fontWeight: 400,
+                  fontSize: "clamp(44px, 6.5vw, 96px)",
+                  lineHeight: 1.02,
+                  letterSpacing: "-0.03em",
+                  // avança sobre a coluna da imagem no desktop
+                  maxWidth: "120%",
+                  width: image ? "120%" : "100%",
+                }}
+              >
+                {title}
+              </h1>
+
+              {lead && (
                 <p
                   data-hero-reveal
-                  className="font-['Geist',sans-serif] text-cream/55"
+                  className="font-['Geist',sans-serif] text-navy/60"
                   style={{
                     margin: 0,
-                    fontSize: "clamp(16px, 1.3vw, 20px)",
-                    lineHeight: 1.6,
+                    marginTop: "clamp(28px, 4vh, 44px)",
+                    fontSize: "clamp(16px, 1.25vw, 19px)",
+                    lineHeight: 1.65,
+                    maxWidth: 520,
                   }}
                 >
                   {lead}
                 </p>
-              ) : (
-                <span />
-              )}
-              {meta && (
-                <span
-                  data-hero-reveal
-                  className="hidden lg:block font-['Geist_Mono',sans-serif] uppercase tracking-[0.18em] text-cream/30 lg:text-right"
-                  style={{ fontSize: 11 }}
-                >
-                  {meta}
-                </span>
               )}
             </div>
-          )}
+
+            {image ? (
+              <div className="relative lg:col-span-5 hidden lg:block">
+                <div
+                  data-hero-img
+                  className="absolute overflow-hidden"
+                  style={{ inset: "0 0 0 clamp(24px, 3vw, 64px)" }}
+                >
+                  <img
+                    src={image}
+                    alt=""
+                    aria-hidden
+                    className="h-full w-full object-cover"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(180deg, transparent 55%, rgba(26,41,63,0.45) 100%)",
+                    }}
+                  />
+                  {imageCaption && (
+                    <span
+                      className="absolute font-['Geist_Mono',sans-serif] uppercase tracking-[0.2em] text-cream/80"
+                      style={{ left: 22, bottom: 18, fontSize: 10 }}
+                    >
+                      [&nbsp;&nbsp;{imageCaption}&nbsp;&nbsp;]
+                    </span>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <div className="hidden lg:block lg:col-span-5" />
+            )}
+          </div>
         </div>
+        <div
+          className="mx-6 md:mx-12 lg:mx-16"
+          style={{ height: 1, background: "rgba(26,41,63,0.15)" }}
+        />
       </section>
 
       {children}
