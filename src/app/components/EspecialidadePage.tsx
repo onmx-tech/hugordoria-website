@@ -104,6 +104,35 @@ export default function EspecialidadePage() {
         });
       }
 
+      // TOC do artigo: destaca a seção ativa conforme o scroll
+      const tocLinks = root.querySelectorAll<HTMLElement>("[data-toc-link]");
+      if (tocLinks.length) {
+        const setActive = (id: string | null) => {
+          tocLinks.forEach((l) => {
+            const active = l.dataset.tocLink === id;
+            const label = l.querySelector<HTMLElement>("[data-toc-label]");
+            const num = l.querySelector<HTMLElement>("[data-toc-num]");
+            if (label) label.style.color = active ? "var(--color-bg-cream)" : "";
+            if (num) num.style.color = active ? "var(--color-accent-gold-light)" : "";
+            l.style.borderBottomColor = active
+              ? "color-mix(in srgb, var(--color-accent-gold-light) 40%, transparent)"
+              : "";
+          });
+        };
+        root
+          .querySelectorAll<HTMLElement>("[data-article-section]")
+          .forEach((sec) => {
+            ScrollTrigger.create({
+              trigger: sec,
+              start: "top 45%",
+              end: "bottom 45%",
+              onToggle: (self) => {
+                if (self.isActive) setActive(sec.id);
+              },
+            });
+          });
+      }
+
       // Scroll-triggered sections
       const sections = root.querySelectorAll("[data-section-reveal]");
       sections.forEach((section) => {
@@ -151,7 +180,9 @@ export default function EspecialidadePage() {
   const Icon = card.icon;
 
   return (
-    <div ref={pageRef} className="w-full overflow-hidden">
+    // overflow-x-clip (e não hidden): hidden criaria um scroll context e
+    // quebraria o position:sticky do sumário do artigo
+    <div ref={pageRef} className="w-full overflow-x-clip">
       {/* ────────────────────────────────────────────────
           HERO — full viewport, cinematic
          ──────────────────────────────────────────────── */}
@@ -550,6 +581,7 @@ export default function EspecialidadePage() {
                   <a
                     key={s.id}
                     href={`#${s.id}`}
+                    data-toc-link={s.id}
                     onClick={(e) => {
                       e.preventDefault();
                       const el = document.getElementById(s.id);
@@ -563,15 +595,18 @@ export default function EspecialidadePage() {
                       padding: "10px 0",
                       borderBottom: "1px solid rgba(255,255,255,0.05)",
                       textDecoration: "none",
+                      transition: "border-color 0.3s ease",
                     }}
                   >
                     <span
+                      data-toc-num
                       className="font-['Geist_Mono',sans-serif] text-gold-light/40 shrink-0"
-                      style={{ fontSize: 11 }}
+                      style={{ fontSize: 11, transition: "color 0.3s ease" }}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span
+                      data-toc-label
                       className="font-['Geist',sans-serif] text-cream/55 transition-colors duration-200 group-hover/toc:text-cream"
                       style={{ fontSize: 14, fontWeight: 500 }}
                     >
@@ -586,10 +621,11 @@ export default function EspecialidadePage() {
                 className="flex flex-col"
                 style={{ gap: "clamp(48px, 7vh, 80px)" }}
               >
-                {article.sections.map((s) => (
+                {article.sections.map((s, si) => (
                   <div
                     key={s.id}
                     id={s.id}
+                    data-article-section
                     data-section-reveal
                     style={{ scrollMarginTop: 96 }}
                   >
@@ -612,21 +648,32 @@ export default function EspecialidadePage() {
                       style={{ height: 2, background: "var(--color-accent-gold-light)", opacity: 0.5 }}
                     />
                     <div className="flex flex-col" style={{ gap: 20 }}>
-                      {s.paragraphs.map((p, i) => (
-                        <p
-                          key={i}
-                          data-reveal
-                          className="font-['Geist',sans-serif] text-cream/60"
-                          style={{
-                            margin: 0,
-                            fontWeight: 400,
-                            fontSize: "clamp(15px, 1.1vw, 17px)",
-                            lineHeight: 1.75,
-                          }}
-                        >
-                          {p}
-                        </p>
-                      ))}
+                      {s.paragraphs.map((p, i) => {
+                        // Abertura do artigo: primeiro parágrafo em corpo editorial maior
+                        const isOpening = si === 0 && i === 0;
+                        return (
+                          <p
+                            key={i}
+                            data-reveal
+                            className={
+                              isOpening
+                                ? "font-['Arimo',sans-serif] text-cream/85"
+                                : "font-['Geist',sans-serif] text-cream/60"
+                            }
+                            style={{
+                              margin: 0,
+                              fontWeight: 400,
+                              fontSize: isOpening
+                                ? "clamp(19px, 1.6vw, 25px)"
+                                : "clamp(15px, 1.1vw, 17px)",
+                              lineHeight: isOpening ? 1.55 : 1.75,
+                              letterSpacing: isOpening ? "-0.01em" : undefined,
+                            }}
+                          >
+                            {p}
+                          </p>
+                        );
+                      })}
                     </div>
                   </div>
                 ))}
