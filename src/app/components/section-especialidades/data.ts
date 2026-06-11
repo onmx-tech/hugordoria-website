@@ -49,18 +49,13 @@ export const cards: CardData[] = [
       "Preservação da função facial e auditiva",
       "Microcirurgia de alta precisão",
     ],
+    // Depoimentos reais — excertos de avaliações verificadas no Doctoralia.
     testimonials: [
       {
         quote:
-          "Após a cirurgia com o Dr. Hugo Doria, recuperei minha audição e a qualidade de vida. Um profissional extraordinário e humano.",
-        name: "Maria S.",
-        role: "Paciente — Schwannoma Vestibular",
-      },
-      {
-        quote:
-          "O Dr. Hugo me explicou todo o procedimento com calma e clareza. Me senti seguro do início ao fim. Resultado excelente.",
-        name: "Carlos R.",
-        role: "Paciente — Schwannoma Vestibular",
+          "Excelente profissional. Atendimento humanizado, muito empático. Dr. Hugo e sua equipe salvaram minha vida. A cirurgia foi um sucesso e me recupero muito bem.",
+        name: "Rita de Cássia de Jesus Silva",
+        role: "Paciente — Schwannoma",
       },
     ],
   },
@@ -81,15 +76,15 @@ export const cards: CardData[] = [
     testimonials: [
       {
         quote:
-          "Descobri um aneurisma por acaso e o Dr. Hugo me operou com maestria. Hoje vivo sem medo, graças à sua competência.",
-        name: "Ana P.",
-        role: "Paciente — Aneurisma Cerebral",
+          "Com muita competência, atenção e sensibilidade, conduziu minha cirurgia de forma impecável, sempre me transmitindo segurança, calma e confiança desde o primeiro contato.",
+        name: "Rita Cássia Nogueira",
+        role: "Paciente — Cirurgia de Aneurisma",
       },
       {
         quote:
-          "Minha mãe teve uma emergência e o Dr. Hugo agiu com rapidez e precisão. Eternamente grato por ter salvo a vida dela.",
-        name: "Roberto M.",
-        role: "Familiar — Aneurisma Cerebral",
+          "Eu só tenho a agradecer a Deus, ao meu anjo da guarda Dr. Hugo Doria e toda equipe médica, que esteve ao meu lado durante todo o período que estive hospitalizada. Eterna gratidão!",
+        name: "Maria José da Silva Barbosa",
+        role: "Paciente — Cirurgia de Aneurisma",
       },
     ],
   },
@@ -110,9 +105,9 @@ export const cards: CardData[] = [
     testimonials: [
       {
         quote:
-          "Após anos convivendo com crises, a cirurgia com o Dr. Hugo mudou minha vida completamente. Profissional excepcional.",
-        name: "Fernando L.",
-        role: "Paciente — MAV Cerebral",
+          "Neurocirurgião com expertise de nível internacional. Médico de altíssimo conhecimento científico e alma iluminada.",
+        name: "Reginaldo Queiroz",
+        role: "Paciente",
       },
     ],
   },
@@ -133,15 +128,15 @@ export const cards: CardData[] = [
     testimonials: [
       {
         quote:
-          "O Dr. Hugo conseguiu remover meu tumor preservando todas as funções. Sua expertise e cuidado são incomparáveis.",
-        name: "Luciana D.",
-        role: "Paciente — Tumor Cerebral",
+          "Não há palavras que possam expressar minha sincera gratidão e admiração pelo Dr. Hugo! É evidente a capacidade dele como profissional. Mas é a forma como trata os pacientes, com respeito e dedicação, que o transforma em um ser humano único.",
+        name: "Marjouri Garcia",
+        role: "Paciente — Tumores Cerebrais",
       },
       {
         quote:
-          "Fui operado acordado e em nenhum momento senti medo. A equipe do Dr. Hugo é de outro nível.",
-        name: "Paulo H.",
-        role: "Paciente — Tumor Cerebral",
+          "Na minha primeira consulta fui muito bem recebida, com muita atenção e carinho. Me senti totalmente segura e confiante. Minha recuperação tem sido rápida e tranquila graças à atenção e profissionalismo do Dr. Hugo e toda sua equipe.",
+        name: "Ana Maria Rosini",
+        role: "Paciente — Meningioma",
       },
     ],
   },
@@ -162,9 +157,9 @@ export const cards: CardData[] = [
     testimonials: [
       {
         quote:
-          "Minha filha foi diagnosticada com Moyamoya e o Dr. Hugo foi o único que nos deu esperança. Hoje ela vive normalmente.",
-        name: "Claudia F.",
-        role: "Familiar — Doença de Moyamoya",
+          "Ótimo profissional, muito atencioso antes, durante e após o procedimento. Tratamento super eficaz! Sou grato por tudo!",
+        name: "Renato Santos",
+        role: "Paciente",
       },
     ],
   },
@@ -182,20 +177,6 @@ export const cards: CardData[] = [
       "Alívio duradouro da dor",
       "Preservação da sensibilidade facial",
     ],
-    testimonials: [
-      {
-        quote:
-          "Sofri por 3 anos com dores insuportáveis. Após a cirurgia, nunca mais senti dor. O Dr. Hugo devolveu minha vida.",
-        name: "Teresa G.",
-        role: "Paciente — Neuralgia do Trigêmeo",
-      },
-      {
-        quote:
-          "Passei por vários médicos antes de encontrar o Dr. Hugo. Ele resolveu em uma única cirurgia o que ninguém conseguiu.",
-        name: "José A.",
-        role: "Paciente — Neuralgia do Trigêmeo",
-      },
-    ],
   },
   {
     slug: "espasmo-hemifacial",
@@ -210,14 +191,6 @@ export const cards: CardData[] = [
       "Cura definitiva em +90% dos casos",
       "Monitorização neurofisiológica contínua",
       "Procedimento minimamente invasivo",
-    ],
-    testimonials: [
-      {
-        quote:
-          "Os espasmos me causavam constrangimento diário. Após a cirurgia, minha vida social voltou ao normal. Obrigada, Dr. Hugo!",
-        name: "Sandra B.",
-        role: "Paciente — Espasmo Hemifacial",
-      },
     ],
   },
   {
@@ -234,14 +207,6 @@ export const cards: CardData[] = [
       "Um dos poucos no Brasil com esta expertise",
       "Indicado para múltiplas patologias vasculares",
     ],
-    testimonials: [
-      {
-        quote:
-          "Uma cirurgia complexa realizada com perfeição. O Dr. Hugo é um verdadeiro artista da neurocirurgia vascular.",
-        name: "Ricardo N.",
-        role: "Paciente — Revascularização Cerebral",
-      },
-    ],
   },
   {
     slug: "tumores-hipofisarios",
@@ -257,13 +222,33 @@ export const cards: CardData[] = [
       "Endoscopia de alta definição",
       "Preservação da função glandular",
     ],
-    testimonials: [
-      {
-        quote:
-          "Cirurgia sem cortes visíveis e recuperação rápida. Voltei às minhas atividades em duas semanas. Excelente resultado.",
-        name: "Marcos V.",
-        role: "Paciente — Tumor Hipofisário",
-      },
+  },
+  {
+    slug: "cavernomas",
+    icon: IconMAV,
+    title: "Cavernomas",
+    description:
+      "Malformações vasculares de baixo fluxo, cerebrais ou medulares, tratadas por microcirurgia.",
+    detailedDescription:
+      "Os cavernomas (angiomas cavernosos) são malformações vasculares de baixo fluxo formadas por capilares dilatados, que podem ocorrer no cérebro ou na medula espinhal. Podem causar convulsões, déficits neurológicos e sangramentos. O tratamento microcirúrgico é indicado em lesões sintomáticas ou com sangramentos recorrentes, com técnica de alta precisão para remoção completa preservando o tecido neural adjacente.",
+    highlights: [
+      "Ressecção microcirúrgica completa",
+      "Cavernomas cerebrais e medulares",
+      "Preservação do tecido neural adjacente",
+    ],
+  },
+  {
+    slug: "tumores-medulares",
+    icon: IconTumor,
+    title: "Tumores Medulares",
+    description:
+      "Tumores da coluna vertebral e da medula tratados com técnica microcirúrgica de precisão.",
+    detailedDescription:
+      "Tumores da coluna vertebral podem acometer o osso vertebral, as meninges ou a medula propriamente dita. Ependimomas e astrocitomas são os mais frequentes entre os tumores medulares. O tratamento é fundamentado na técnica microcirúrgica, associado a radioterapia e/ou quimioterapia conforme o tipo celular tumoral identificado pela biópsia.",
+    highlights: [
+      "Microcirurgia da medula e coluna vertebral",
+      "Monitorização neurofisiológica intraoperatória",
+      "Tratamento integrado com radio/quimioterapia",
     ],
   },
 ];

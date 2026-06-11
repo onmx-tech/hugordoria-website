@@ -3,14 +3,15 @@ import svgPaths from "../../imports/svg-nx92b0rij3";
 import { cards } from "./section-especialidades/data";
 
 const NAV_LINKS = [
-  { label: "Início", href: "#inicio", active: true },
-  { label: "Especialidades", href: "#especialidades" },
-  { label: "Sobre mim", href: "#sobre-mim" },
-  { label: "Depoimentos", href: "#depoimentos" },
+  { label: "Sobre mim", to: "/sobre-mim" },
+  { label: "Doutorado", to: "/doutorado" },
+  { label: "Publicações", to: "/publicacoes" },
+  { label: "Eventos", to: "/eventos" },
+  { label: "Mídia", to: "/midia" },
+  { label: "Depoimentos", to: "/depoimentos" },
+  { label: "Contato", to: "/contato" },
 ] as const;
 
-// Contato estático — ajustar com os dados reais do cliente.
-const CONTACT = ["contato@hugodoria.com", "(00) 00000-0000"] as const;
 const ADDRESS =
   "R. Teixeira da Silva, 54 - 73 - Bela Vista, São Paulo - SP, 04002-030, Brasil";
 
@@ -135,17 +136,13 @@ export default function Footer() {
               </h3>
               <nav className="flex flex-col gap-2">
                 {NAV_LINKS.map((link) => (
-                  <a
+                  <Link
                     key={link.label}
-                    href={link.href}
-                    className={`font-['Geist',sans-serif] font-normal leading-normal transition-colors duration-200 hover:text-cream ${
-                      link.active
-                        ? "text-gold"
-                        : "text-cream/50"
-                    }`}
+                    to={link.to}
+                    className="font-['Geist',sans-serif] font-normal text-cream/50 leading-normal transition-colors duration-200 hover:text-cream"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </div>
@@ -174,14 +171,20 @@ export default function Footer() {
                 Contato
               </h3>
               <div className="flex flex-col gap-2">
-                {CONTACT.map((info) => (
-                  <span
-                    key={info}
-                    className="font-['Geist',sans-serif] font-normal text-cream/50 leading-normal"
-                  >
-                    {info}
-                  </span>
-                ))}
+                <a
+                  href="https://wa.me/5511971622777"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-['Geist',sans-serif] font-normal text-cream/50 leading-normal transition-colors duration-200 hover:text-cream"
+                >
+                  +55 (11) 97162-2777
+                </a>
+                <Link
+                  to="/localizacao"
+                  className="font-['Geist',sans-serif] font-normal text-cream/50 leading-normal transition-colors duration-200 hover:text-cream"
+                >
+                  Localização
+                </Link>
               </div>
             </div>
           </div>

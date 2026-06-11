@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import { useParams, useNavigate, Link } from "react-router";
 import { findCardBySlug, cards } from "./section-especialidades/data";
+import { findArticleBySlug } from "../content/especialidades";
+import { getLenis } from "../../lib/lenis";
 import { gsap, ScrollTrigger } from "../../lib/gsap";
 import Footer from "./Footer";
 
@@ -8,6 +10,7 @@ export default function EspecialidadePage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const card = slug ? findCardBySlug(slug) : undefined;
+  const article = slug ? findArticleBySlug(slug) : undefined;
   const pageRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLImageElement>(null);
 
@@ -391,7 +394,7 @@ export default function EspecialidadePage() {
               </div>
 
               <a
-                href="https://wa.me/5511999999999"
+                href="https://wa.me/5511971622777"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 self-start"
@@ -509,6 +512,129 @@ export default function EspecialidadePage() {
           </div>
         </div>
       </section>
+
+      {/* ────────────────────────────────────────────────
+          ARTIGO — conteúdo médico completo (migrado 1:1 do site original)
+         ──────────────────────────────────────────────── */}
+      {article && (
+        <section
+          className="relative w-full"
+          style={{
+            background: "var(--color-bg-deeper)",
+            paddingBottom: "clamp(80px, 10vh, 120px)",
+          }}
+        >
+          <div className="px-6 md:px-12 lg:px-16">
+            <div
+              className="w-full"
+              style={{
+                height: 1,
+                background: "rgba(255,255,255,0.08)",
+                marginBottom: "clamp(56px, 8vh, 96px)",
+              }}
+            />
+            <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-20 items-start">
+              {/* Sumário sticky */}
+              <nav className="flex flex-col lg:sticky lg:top-24">
+                <span
+                  className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.15em] text-gold-light/60"
+                  style={{ fontSize: 10 }}
+                >
+                  Neste artigo
+                </span>
+                <div
+                  className="w-full mt-3 mb-2"
+                  style={{ height: 1, background: "rgba(255,255,255,0.08)" }}
+                />
+                {article.sections.map((s, i) => (
+                  <a
+                    key={s.id}
+                    href={`#${s.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const el = document.getElementById(s.id);
+                      if (!el) return;
+                      const lenis = getLenis();
+                      if (lenis) lenis.scrollTo(el, { offset: -96 });
+                      else el.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="group/toc flex items-baseline gap-3"
+                    style={{
+                      padding: "10px 0",
+                      borderBottom: "1px solid rgba(255,255,255,0.05)",
+                      textDecoration: "none",
+                    }}
+                  >
+                    <span
+                      className="font-['Geist_Mono',sans-serif] text-gold-light/40 shrink-0"
+                      style={{ fontSize: 11 }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span
+                      className="font-['Geist',sans-serif] text-cream/55 transition-colors duration-200 group-hover/toc:text-cream"
+                      style={{ fontSize: 14, fontWeight: 500 }}
+                    >
+                      {s.heading}
+                    </span>
+                  </a>
+                ))}
+              </nav>
+
+              {/* Corpo do artigo */}
+              <div
+                className="flex flex-col"
+                style={{ gap: "clamp(48px, 7vh, 80px)" }}
+              >
+                {article.sections.map((s) => (
+                  <div
+                    key={s.id}
+                    id={s.id}
+                    data-section-reveal
+                    style={{ scrollMarginTop: 96 }}
+                  >
+                    <h2
+                      data-reveal
+                      className="font-['Arimo',sans-serif] text-cream"
+                      style={{
+                        margin: 0,
+                        fontWeight: 400,
+                        fontSize: "clamp(24px, 2.2vw, 34px)",
+                        lineHeight: 1.2,
+                        letterSpacing: "-0.02em",
+                      }}
+                    >
+                      {s.heading}
+                    </h2>
+                    <div
+                      data-reveal
+                      className="w-12 mt-4 mb-7"
+                      style={{ height: 2, background: "var(--color-accent-gold-light)", opacity: 0.5 }}
+                    />
+                    <div className="flex flex-col" style={{ gap: 20 }}>
+                      {s.paragraphs.map((p, i) => (
+                        <p
+                          key={i}
+                          data-reveal
+                          className="font-['Geist',sans-serif] text-cream/60"
+                          style={{
+                            margin: 0,
+                            fontWeight: 400,
+                            fontSize: "clamp(15px, 1.1vw, 17px)",
+                            lineHeight: 1.75,
+                          }}
+                        >
+                          {p}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ────────────────────────────────────────────────
           TESTIMONIALS — warm cream background
