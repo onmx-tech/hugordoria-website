@@ -236,7 +236,7 @@ export default function EspecialidadePage() {
 
         {/* Top bar */}
         <div
-          className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-6 md:px-12 lg:px-16"
+          className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16"
           style={{ height: 72 }}
         >
           <button
@@ -288,7 +288,7 @@ export default function EspecialidadePage() {
 
         {/* Hero content — bottom left */}
         <div
-          className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 lg:px-16"
+          className="absolute bottom-0 left-0 right-0 z-10 mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16"
           style={{ paddingBottom: "clamp(48px, 8vh, 96px)" }}
         >
           <div data-hero-reveal className="flex items-center gap-3 mb-5">
@@ -370,7 +370,7 @@ export default function EspecialidadePage() {
           paddingBottom: "clamp(80px, 10vh, 120px)",
         }}
       >
-        <div className="px-6 md:px-12 lg:px-16">
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">
           {/* Two column: left narrow, right wide */}
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-20 items-start">
             {/* Left column — metadata */}
@@ -555,7 +555,7 @@ export default function EspecialidadePage() {
             paddingBottom: "clamp(80px, 10vh, 120px)",
           }}
         >
-          <div className="px-6 md:px-12 lg:px-16">
+          <div className="mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">
             <div
               className="w-full"
               style={{
@@ -696,7 +696,7 @@ export default function EspecialidadePage() {
             paddingBottom: "clamp(80px, 10vh, 120px)",
           }}
         >
-          <div className="px-6 md:px-12 lg:px-16">
+          <div className="mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">
             <div
               data-reveal
               className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-8 mb-12 md:mb-20"
@@ -809,7 +809,7 @@ export default function EspecialidadePage() {
           paddingBottom: "clamp(48px, 6vh, 80px)",
         }}
       >
-        <div className="px-6 md:px-12 lg:px-16">
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
             {/* Previous */}
             {prevCard ? (

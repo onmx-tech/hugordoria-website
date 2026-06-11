@@ -67,7 +67,7 @@ function Section({
         paddingBottom: "clamp(64px, 9vh, 110px)",
       }}
     >
-      <div className="px-6 md:px-12 lg:px-16">{children}</div>
+      <div className="mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">{children}</div>
     </section>
   );
 }

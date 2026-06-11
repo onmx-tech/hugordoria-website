@@ -134,7 +134,7 @@ export default function SubPage({
       <section className="relative w-full">
         {/* Top bar */}
         <div
-          className="flex items-center justify-between px-6 md:px-12 lg:px-16"
+          className="flex items-center justify-between mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16"
           style={{ height: 72 }}
         >
           <button
@@ -159,13 +159,13 @@ export default function SubPage({
           </span>
         </div>
         <div
-          className="mx-6 md:mx-12 lg:mx-16"
-          style={{ height: 1, background: "rgba(26,41,63,0.15)" }}
-        />
+          className="mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">
+          <div style={{ height: 1, background: "rgba(26,41,63,0.15)" }} />
+        </div>
 
         {/* Hero split: texto à esquerda, imagem alta à direita; o título
             display avança sobre a coluna da imagem (overlap de revista) */}
-        <div className="relative px-6 md:px-12 lg:px-16">
+        <div className="relative mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
             <div
               className="lg:col-span-7 flex flex-col justify-center"
@@ -266,9 +266,9 @@ export default function SubPage({
           </div>
         </div>
         <div
-          className="mx-6 md:mx-12 lg:mx-16"
-          style={{ height: 1, background: "rgba(26,41,63,0.15)" }}
-        />
+          className="mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">
+          <div style={{ height: 1, background: "rgba(26,41,63,0.15)" }} />
+        </div>
       </section>
 
       {children}
