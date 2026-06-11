@@ -1,3 +1,22 @@
+import type { ComponentType } from "react";
+import {
+  Award,
+  BookOpen,
+  Boxes,
+  Brain,
+  Facebook,
+  Globe,
+  GraduationCap,
+  HeartPulse,
+  Instagram,
+  Linkedin,
+  MapPin,
+  Mic,
+  Microscope,
+  ScanLine,
+  Slice,
+  Stethoscope,
+} from "lucide-react";
 import SubPage from "../components/SubPage";
 import imgRetrato from "@/assets/e25bc4f66b4a426ccf342bc9c87ec2d3e73f4b1a.png";
 import imgPalestra from "@/assets/a375c45d2716fbbea43385fdee4485566a41cfa6.png";
@@ -19,8 +38,9 @@ const STATS = [
 ] as const;
 
 const HAIR = "rgba(26,41,63,0.14)";
+type Icon = ComponentType<{ size?: number | string; strokeWidth?: number | string; color?: string }>;
 
-// ── blocos compartilhados (miolo claro; navy é o momento pontual) ──
+// ── blocos compartilhados ──────────────────────────────────────────
 
 function Section({
   children,
@@ -28,15 +48,21 @@ function Section({
   first = false,
 }: {
   children: React.ReactNode;
-  tone?: "cream" | "navy";
+  tone?: "cream" | "navy" | "white";
   first?: boolean;
 }) {
+  const bg =
+    tone === "navy"
+      ? "var(--color-bg-deeper)"
+      : tone === "white"
+        ? "#FFFFFF"
+        : "var(--color-bg-cream)";
   return (
     <section
       data-section-reveal
       className="relative w-full"
       style={{
-        background: tone === "navy" ? "var(--color-bg-deeper)" : "var(--color-bg-cream)",
+        background: bg,
         paddingTop: first ? "clamp(64px, 9vh, 110px)" : "clamp(56px, 8vh, 100px)",
         paddingBottom: "clamp(64px, 9vh, 110px)",
       }}
@@ -46,48 +72,188 @@ function Section({
   );
 }
 
-function SectionHeader({
-  index,
-  label,
+/** Header de seção centrado (ritmo Relume): kicker + título serif + sublead */
+function CenterHeader({
+  kicker,
+  title,
+  em,
+  sub,
   dark = false,
 }: {
-  index: string;
-  label: string;
+  kicker: string;
+  title: string;
+  em?: string;
+  sub?: string;
   dark?: boolean;
 }) {
+  const words = title.split(" ");
   return (
     <div
-      data-reveal
-      className="flex items-baseline justify-between"
-      style={{ marginBottom: "clamp(36px, 5vh, 56px)" }}
+      className="mx-auto flex flex-col items-center text-center"
+      style={{ maxWidth: 720, marginBottom: "clamp(44px, 6vh, 72px)" }}
     >
       <span
-        className={`font-['Geist_Mono',sans-serif] uppercase tracking-[0.22em] whitespace-nowrap ${dark ? "text-gold-light/70" : "text-navy/50"}`}
+        data-reveal
+        className={`font-['Geist_Mono',sans-serif] uppercase tracking-[0.22em] ${dark ? "text-gold-light/70" : "text-navy/45"}`}
         style={{ fontSize: 11 }}
       >
-        [&nbsp;&nbsp;{index} — {label}&nbsp;&nbsp;]
+        [&nbsp;&nbsp;{kicker}&nbsp;&nbsp;]
       </span>
-      <span
-        aria-hidden
-        className="hidden md:block flex-1"
+      <h2
+        data-reveal
+        className={`font-['Arimo',sans-serif] ${dark ? "text-cream" : "text-navy"}`}
         style={{
-          height: 1,
-          background: dark ? "rgba(255,255,255,0.1)" : HAIR,
-          marginLeft: 32,
+          margin: 0,
+          marginTop: 20,
+          fontWeight: 400,
+          fontSize: "clamp(30px, 3.2vw, 48px)",
+          lineHeight: 1.12,
+          letterSpacing: "-0.02em",
         }}
-      />
+      >
+        {words.map((w, i) => {
+          const isEm = em
+            ?.toLowerCase()
+            .split(/\s+/)
+            .includes(w.toLowerCase().replace(/[^\p{L}\p{N}-]/gu, ""));
+          return (
+            <span key={i}>
+              {isEm ? (
+                <em style={{ color: dark ? "var(--color-accent-gold-light)" : "var(--color-accent-gold)" }}>
+                  {w}
+                </em>
+              ) : (
+                w
+              )}
+              {i < words.length - 1 ? " " : ""}
+            </span>
+          );
+        })}
+      </h2>
+      {sub && (
+        <p
+          data-reveal
+          className={`font-['Geist',sans-serif] ${dark ? "text-cream/55" : "text-navy/55"}`}
+          style={{ margin: 0, marginTop: 18, fontSize: "clamp(15px, 1.15vw, 18px)", lineHeight: 1.6 }}
+        >
+          {sub}
+        </p>
+      )}
     </div>
   );
 }
 
-function Paragraphs({ items, dark = false }: { items: readonly string[]; dark?: boolean }) {
+/** Badge de ícone — círculo cream com linha dourada */
+function IconBadge({ icon: I, dark = false }: { icon: Icon; dark?: boolean }) {
+  return (
+    <span
+      className="inline-flex items-center justify-center rounded-full shrink-0"
+      style={{
+        width: 52,
+        height: 52,
+        background: dark
+          ? "color-mix(in srgb, var(--color-accent-gold-light) 12%, transparent)"
+          : "var(--color-bg-cream)",
+        border: dark
+          ? "1px solid color-mix(in srgb, var(--color-accent-gold-light) 35%, transparent)"
+          : `1px solid ${HAIR}`,
+      }}
+    >
+      <I size={22} strokeWidth={1.5} color={dark ? "var(--color-accent-gold-light)" : "var(--color-accent-gold)"} />
+    </span>
+  );
+}
+
+/** Card branco com ícone, título e texto */
+function IconCard({
+  icon,
+  kicker,
+  title,
+  text,
+  foot,
+}: {
+  icon: Icon;
+  kicker?: string;
+  title: string;
+  text?: string;
+  foot?: string;
+}) {
+  return (
+    <div
+      data-reveal
+      className="group/ic flex flex-col bg-white"
+      style={{
+        padding: "30px 28px 28px",
+        borderRadius: 18,
+        border: `1px solid ${HAIR}`,
+        boxShadow: "0 16px 40px -28px rgba(26,41,63,0.3)",
+        transition:
+          "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.4s ease",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "translateY(-6px)";
+        e.currentTarget.style.borderColor =
+          "color-mix(in srgb, var(--color-accent-gold) 45%, transparent)";
+        e.currentTarget.style.boxShadow = "0 28px 56px -28px rgba(26,41,63,0.4)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "translateY(0)";
+        e.currentTarget.style.borderColor = HAIR;
+        e.currentTarget.style.boxShadow = "0 16px 40px -28px rgba(26,41,63,0.3)";
+      }}
+    >
+      <div className="flex items-center justify-between">
+        <IconBadge icon={icon} />
+        {kicker && (
+          <span
+            className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.18em] text-navy/35"
+            style={{ fontSize: 10 }}
+          >
+            {kicker}
+          </span>
+        )}
+      </div>
+      <h3
+        className="font-['Arimo',sans-serif] text-navy"
+        style={{
+          margin: 0,
+          marginTop: 24,
+          fontWeight: 400,
+          fontSize: "clamp(19px, 1.5vw, 23px)",
+          lineHeight: 1.25,
+          letterSpacing: "-0.01em",
+        }}
+      >
+        {title}
+      </h3>
+      {text && (
+        <p
+          className="font-['Geist',sans-serif] text-navy/60"
+          style={{ margin: 0, marginTop: 12, fontSize: 15, lineHeight: 1.65 }}
+        >
+          {text}
+        </p>
+      )}
+      {foot && (
+        <span
+          className="font-['Geist_Mono',sans-serif] text-gold"
+          style={{ fontSize: 12, marginTop: 18 }}
+        >
+          {foot}
+        </span>
+      )}
+    </div>
+  );
+}
+
+function Paragraphs({ items }: { items: readonly string[] }) {
   return (
     <div className="flex flex-col" style={{ gap: 22, maxWidth: 720 }}>
       {items.map((p, i) => (
         <p
           key={i}
           data-reveal
-          className={`font-['Geist',sans-serif] ${dark ? "text-cream/65" : "text-navy/70"}`}
+          className="font-['Geist',sans-serif] text-navy/70"
           style={{ margin: 0, fontSize: "clamp(15px, 1.1vw, 17px)", lineHeight: 1.8 }}
         >
           {p}
@@ -97,34 +263,7 @@ function Paragraphs({ items, dark = false }: { items: readonly string[]; dark?: 
   );
 }
 
-function LeadParagraph({ children }: { children: string }) {
-  return (
-    <p
-      data-reveal
-      className="font-['Arimo',sans-serif] text-navy"
-      style={{
-        margin: 0,
-        marginBottom: "clamp(32px, 5vh, 48px)",
-        fontSize: "clamp(21px, 2.1vw, 32px)",
-        lineHeight: 1.4,
-        letterSpacing: "-0.015em",
-        maxWidth: 860,
-      }}
-    >
-      {children}
-    </p>
-  );
-}
-
-function DocumentCard({
-  href,
-  kicker,
-  title,
-}: {
-  href: string;
-  kicker: string;
-  title: string;
-}) {
+function DocumentCard({ href, kicker, title }: { href: string; kicker: string; title: string }) {
   return (
     <a
       data-reveal
@@ -136,9 +275,9 @@ function DocumentCard({
         minHeight: 200,
         padding: "28px 28px 24px",
         border: `1px solid ${HAIR}`,
-        borderRadius: 16,
+        borderRadius: 18,
         textDecoration: "none",
-        boxShadow: "0 16px 40px -24px rgba(26,41,63,0.25)",
+        boxShadow: "0 16px 40px -24px rgba(26,41,63,0.35)",
         transition:
           "border-color 0.35s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease",
       }}
@@ -146,21 +285,14 @@ function DocumentCard({
         e.currentTarget.style.borderColor =
           "color-mix(in srgb, var(--color-accent-gold) 55%, transparent)";
         e.currentTarget.style.transform = "translateY(-4px)";
-        e.currentTarget.style.boxShadow = "0 24px 56px -24px rgba(26,41,63,0.35)";
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.borderColor = HAIR;
         e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.boxShadow = "0 16px 40px -24px rgba(26,41,63,0.25)";
       }}
     >
       <div className="flex items-start justify-between gap-6">
-        <span
-          className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.2em] text-navy/45"
-          style={{ fontSize: 10 }}
-        >
-          {kicker}
-        </span>
+        <IconBadge icon={BookOpen} />
         <span
           aria-hidden
           className="font-['Geist',sans-serif] text-navy/40 transition-all duration-300 group-hover/doc:text-gold group-hover/doc:translate-x-1 group-hover/doc:-translate-y-1"
@@ -169,65 +301,34 @@ function DocumentCard({
           ↗
         </span>
       </div>
-      <p
-        className="font-['Arimo',sans-serif] text-navy"
-        style={{
-          margin: 0,
-          marginTop: 36,
-          fontSize: "clamp(18px, 1.5vw, 24px)",
-          lineHeight: 1.3,
-          letterSpacing: "-0.01em",
-        }}
-      >
-        {title}
-      </p>
+      <div style={{ marginTop: 32 }}>
+        <span
+          className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.2em] text-navy/40"
+          style={{ fontSize: 10 }}
+        >
+          {kicker}
+        </span>
+        <p
+          className="font-['Arimo',sans-serif] text-navy"
+          style={{
+            margin: 0,
+            marginTop: 10,
+            fontSize: "clamp(18px, 1.5vw, 24px)",
+            lineHeight: 1.3,
+            letterSpacing: "-0.01em",
+          }}
+        >
+          {title}
+        </p>
+      </div>
     </a>
   );
 }
 
-function EventRows({ items }: { items: readonly string[] }) {
-  return (
-    <div className="flex flex-col" style={{ borderTop: `1px solid ${HAIR}` }}>
-      {items.map((item, i) => (
-        <div
-          key={i}
-          data-reveal
-          className="group/ev grid grid-cols-[auto_1fr_auto] items-center gap-6 lg:gap-10"
-          style={{ padding: "26px 0", borderBottom: `1px solid ${HAIR}` }}
-        >
-          <span
-            className="font-['Arimo',sans-serif] shrink-0"
-            style={{
-              fontSize: "clamp(28px, 3vw, 48px)",
-              lineHeight: 1,
-              letterSpacing: "-0.04em",
-              color: "transparent",
-              WebkitTextStroke: "1px rgba(26,41,63,0.3)",
-              width: "clamp(52px, 5vw, 84px)",
-            }}
-          >
-            {String(i + 1).padStart(2, "0")}
-          </span>
-          <span
-            className="font-['Geist',sans-serif] text-navy/75 transition-colors duration-300 group-hover/ev:text-navy"
-            style={{ fontSize: "clamp(16px, 1.25vw, 21px)", lineHeight: 1.45 }}
-          >
-            {item}
-          </span>
-          <span
-            aria-hidden
-            className="hidden md:inline font-['Geist',sans-serif] text-gold/0 transition-all duration-300 group-hover/ev:text-gold group-hover/ev:translate-x-1"
-            style={{ fontSize: 20 }}
-          >
-            →
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 // ── /sobre-mim ─────────────────────────────────────────────────────
+
+const PILAR_ICONS: Icon[] = [Stethoscope, BookOpen, Award];
+const EXP_ICONS: Icon[] = [Microscope, Brain, Globe, HeartPulse];
 
 export function SobreMimPage() {
   return (
@@ -240,7 +341,7 @@ export function SobreMimPage() {
       image={imgRetrato}
       imageCaption="Dr. Hugo Doria — São Paulo"
     >
-      {/* Quote + stats: o momento navy pontual da página */}
+      {/* Quote + stats — momento navy */}
       <Section tone="navy">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <blockquote className="lg:col-span-8" style={{ margin: 0 }}>
@@ -271,7 +372,7 @@ export function SobreMimPage() {
               [&nbsp;&nbsp;Dr. Hugo Leonardo Doria-Netto, MD PhD&nbsp;&nbsp;]
             </p>
           </blockquote>
-          <div className="lg:col-span-4 flex flex-col" style={{ gap: 0 }}>
+          <div className="lg:col-span-4 flex flex-col">
             {STATS.map((s, i) => (
               <div
                 key={s.label}
@@ -300,123 +401,116 @@ export function SobreMimPage() {
         </div>
       </Section>
 
-      {/* Pilares — colunas de revista com hairlines */}
+      {/* Pilares — header centrado + cards com ícone */}
       <Section>
-        <SectionHeader index="01" label="Pilares" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
+        <CenterHeader
+          kicker="01 — Pilares"
+          title="Três pilares de uma carreira dedicada à vida"
+          em="vida"
+          sub="Prática clínica de elite, produção científica constante e liderança na comunidade neurocirúrgica."
+        />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mx-auto" style={{ maxWidth: 1180 }}>
           {SOBRE_MIM.pilares.map((p, i) => (
-            <div key={p.titulo} data-reveal className="flex flex-col">
-              <span
-                className="font-['Arimo',sans-serif]"
-                style={{
-                  fontSize: 44,
-                  lineHeight: 1,
-                  letterSpacing: "-0.04em",
-                  color: "transparent",
-                  WebkitTextStroke: "1px rgba(178,141,58,0.55)",
-                }}
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div className="w-full" style={{ height: 1, background: HAIR, margin: "20px 0" }} />
-              <h3
-                className="font-['Arimo',sans-serif] text-navy"
-                style={{ margin: 0, fontWeight: 400, fontSize: 21, letterSpacing: "-0.01em" }}
-              >
-                {p.titulo}
-              </h3>
-              <p
-                className="font-['Geist',sans-serif] text-navy/60"
-                style={{ margin: 0, marginTop: 12, fontSize: 15, lineHeight: 1.7 }}
-              >
-                {p.texto}
-              </p>
-            </div>
+            <IconCard
+              key={p.titulo}
+              icon={PILAR_ICONS[i]}
+              kicker={String(i + 1).padStart(2, "0")}
+              title={p.titulo}
+              text={p.texto}
+            />
           ))}
         </div>
       </Section>
 
-      {/* Trajetória */}
-      <Section>
-        <SectionHeader index="02" label="Trajetória" />
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,300px)_1fr] gap-10 lg:gap-20 items-start">
-          <p
-            data-reveal
-            className="font-['Arimo',sans-serif] text-navy lg:sticky lg:top-24"
-            style={{
-              margin: 0,
-              fontSize: "clamp(22px, 2vw, 30px)",
-              lineHeight: 1.35,
-              letterSpacing: "-0.015em",
-            }}
-          >
-            Duas décadas dedicadas à microneurocirurgia de{" "}
-            <em style={{ color: "var(--color-accent-gold)" }}>alta complexidade</em>.
-          </p>
+      {/* Trajetória — editorial em duas colunas (contraponto ao grid) */}
+      <Section tone="white">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,320px)_1fr] gap-10 lg:gap-24 items-start">
+          <div className="lg:sticky lg:top-24 flex flex-col" data-reveal>
+            <span
+              className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.22em] text-navy/45"
+              style={{ fontSize: 11 }}
+            >
+              [&nbsp;&nbsp;02 — Trajetória&nbsp;&nbsp;]
+            </span>
+            <p
+              className="font-['Arimo',sans-serif] text-navy"
+              style={{
+                margin: 0,
+                marginTop: 24,
+                fontSize: "clamp(24px, 2.2vw, 34px)",
+                lineHeight: 1.3,
+                letterSpacing: "-0.015em",
+              }}
+            >
+              Duas décadas dedicadas à microneurocirurgia de{" "}
+              <em style={{ color: "var(--color-accent-gold)" }}>alta complexidade</em>.
+            </p>
+          </div>
           <Paragraphs items={SOBRE_MIM.bio} />
         </div>
       </Section>
 
-      {/* Experiência internacional */}
+      {/* Experiência internacional — grid 2×2 de cards com ícone */}
       <Section>
-        <SectionHeader index="03" label="Experiência Internacional" />
-        <div className="flex flex-col" style={{ borderTop: `1px solid ${HAIR}` }}>
-          {SOBRE_MIM.experienciaInternacional.map((e) => (
-            <div
+        <CenterHeader
+          kicker="03 — Experiência Internacional"
+          title="Formação nos maiores centros do mundo"
+          em="mundo"
+          sub="Barrow Neurological Institute, UCSF e Saint Louis University — fellowship, observership e treinamento avançado."
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mx-auto" style={{ maxWidth: 1080 }}>
+          {SOBRE_MIM.experienciaInternacional.map((e, i) => (
+            <IconCard
               key={e.titulo}
-              data-reveal
-              className="grid grid-cols-1 lg:grid-cols-[150px_1fr] gap-2 lg:gap-16 items-baseline"
-              style={{ padding: "28px 0", borderBottom: `1px solid ${HAIR}` }}
-            >
-              <span className="font-['Geist_Mono',sans-serif] text-gold" style={{ fontSize: 13 }}>
-                {e.periodo}
-              </span>
-              <div>
-                <p
-                  className="font-['Arimo',sans-serif] text-navy"
-                  style={{
-                    margin: 0,
-                    fontSize: "clamp(17px, 1.4vw, 23px)",
-                    lineHeight: 1.35,
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  {e.titulo}
-                </p>
-                <p
-                  className="font-['Geist',sans-serif] text-navy/50"
-                  style={{ margin: 0, marginTop: 8, fontSize: 14 }}
-                >
-                  {e.instituicao}
-                </p>
-              </div>
-            </div>
+              icon={EXP_ICONS[i] ?? Globe}
+              kicker={e.periodo}
+              title={e.titulo}
+              text={e.instituicao}
+            />
           ))}
         </div>
       </Section>
 
-      {/* Capítulos */}
+      {/* Capítulos — box branco com lista em 2 colunas */}
       <Section>
-        <SectionHeader index="04" label="Capítulos de Livros Publicados" />
-        <div className="flex flex-col" style={{ borderTop: `1px solid ${HAIR}` }}>
-          {SOBRE_MIM.capitulosDeLivros.map((c, i) => (
-            <div
-              key={i}
-              data-reveal
-              className="grid grid-cols-[auto_1fr] items-baseline gap-6 lg:gap-10"
-              style={{ padding: "18px 0", borderBottom: `1px solid ${HAIR}` }}
-            >
-              <span className="font-['Geist_Mono',sans-serif] text-navy/35" style={{ fontSize: 12, width: 28 }}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span
-                className="font-['Geist',sans-serif] text-navy/70"
-                style={{ fontSize: "clamp(14px, 1.05vw, 16px)", lineHeight: 1.6 }}
+        <CenterHeader
+          kicker="04 — Publicações em Livros"
+          title="Capítulos publicados na literatura médica"
+          em="literatura"
+        />
+        <div
+          data-reveal
+          className="mx-auto bg-white"
+          style={{
+            maxWidth: 1080,
+            padding: "clamp(28px, 3.5vw, 56px)",
+            borderRadius: 20,
+            border: `1px solid ${HAIR}`,
+            boxShadow: "0 24px 56px -32px rgba(26,41,63,0.35)",
+          }}
+        >
+          <div className="columns-1 lg:columns-2" style={{ columnGap: 56 }}>
+            {SOBRE_MIM.capitulosDeLivros.map((c, i) => (
+              <div
+                key={i}
+                className="grid grid-cols-[auto_1fr] items-baseline gap-4 break-inside-avoid"
+                style={{
+                  padding: "14px 0",
+                  borderBottom: i === SOBRE_MIM.capitulosDeLivros.length - 1 ? "none" : `1px solid ${HAIR}`,
+                }}
               >
-                {c}
-              </span>
-            </div>
-          ))}
+                <span className="font-['Geist_Mono',sans-serif] text-gold" style={{ fontSize: 12, width: 26 }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span
+                  className="font-['Geist',sans-serif] text-navy/70"
+                  style={{ fontSize: 14, lineHeight: 1.6 }}
+                >
+                  {c}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
     </SubPage>
@@ -424,6 +518,13 @@ export function SobreMimPage() {
 }
 
 // ── /doutorado ─────────────────────────────────────────────────────
+
+const ETAPAS = [
+  { icon: Brain, title: "Anatomia", text: "Estudo anatômico minucioso da região paraclinóidea e suas referências cirúrgicas." },
+  { icon: ScanLine, title: "Radiológica", text: "Protocolo de ressonância magnética reprodutível para distinção dos aneurismas." },
+  { icon: Boxes, title: "Biomodelos 3D", text: "Confirmação por impressão tridimensional de biomodelos dos casos estudados." },
+  { icon: Slice, title: "Cirúrgica", text: "Validação em pacientes submetidos a cirurgia, comprovando a tese." },
+] as const;
 
 export function DoutoradoPage() {
   return (
@@ -437,13 +538,60 @@ export function DoutoradoPage() {
       imageCaption="Pesquisa — Aneurismas Cerebrais"
     >
       <Section first>
-        <SectionHeader index="01" label="A Pesquisa" />
-        <LeadParagraph>{DOUTORADO.paragrafos[0]}</LeadParagraph>
-        <Paragraphs items={DOUTORADO.paragrafos.slice(1)} />
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,320px)_1fr] gap-10 lg:gap-24 items-start">
+          <div className="lg:sticky lg:top-24 flex flex-col" data-reveal>
+            <span
+              className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.22em] text-navy/45"
+              style={{ fontSize: 11 }}
+            >
+              [&nbsp;&nbsp;01 — A Pesquisa&nbsp;&nbsp;]
+            </span>
+            <p
+              className="font-['Arimo',sans-serif] text-navy"
+              style={{
+                margin: 0,
+                marginTop: 24,
+                fontSize: "clamp(24px, 2.2vw, 34px)",
+                lineHeight: 1.3,
+                letterSpacing: "-0.015em",
+              }}
+            >
+              Distinguir com exatidão para tratar com{" "}
+              <em style={{ color: "var(--color-accent-gold)" }}>precisão</em>.
+            </p>
+          </div>
+          <Paragraphs items={DOUTORADO.paragrafos} />
+        </div>
       </Section>
+
+      {/* As 4 etapas — grid de cards com ícone */}
+      <Section tone="white">
+        <CenterHeader
+          kicker="02 — Metodologia"
+          title="Uma descoberta construída em quatro etapas"
+          em="quatro"
+        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mx-auto" style={{ maxWidth: 1240 }}>
+          {ETAPAS.map((e, i) => (
+            <IconCard
+              key={e.title}
+              icon={e.icon}
+              kicker={`Etapa ${String(i + 1).padStart(2, "0")}`}
+              title={e.title}
+              text={e.text}
+            />
+          ))}
+        </div>
+      </Section>
+
       <Section tone="navy">
-        <SectionHeader index="02" label="Documentos" dark />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5" style={{ maxWidth: 860 }}>
+        <CenterHeader
+          kicker="03 — Documentos"
+          title="Leia a pesquisa completa"
+          em="completa"
+          dark
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mx-auto" style={{ maxWidth: 880 }}>
           <DocumentCard
             href={DOUTORADO.pdf}
             kicker="PDF — Documento completo"
@@ -473,48 +621,55 @@ export function PublicacoesPage() {
       imageCaption="World Neurosurgery — 2022"
     >
       <Section first>
-        <SectionHeader index="01" label="O Artigo" />
-        <LeadParagraph>{PUBLICACOES.intro}</LeadParagraph>
-        <Paragraphs items={DOUTORADO.paragrafos.slice(0, 4)} />
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-5"
-          style={{ marginTop: "clamp(48px, 7vh, 72px)", maxWidth: 860 }}
-        >
-          <DocumentCard
-            href={PUBLICACOES.pdfArtigo}
-            kicker="PDF — World Neurosurgery"
-            title="Ler o artigo científico (2022)"
-          />
-          <DocumentCard
-            href={DOUTORADO.pdf}
-            kicker="PDF — Documento completo"
-            title="Ler a tese de doutorado"
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,320px)_1fr] gap-10 lg:gap-24 items-start">
+          <div className="lg:sticky lg:top-24 flex flex-col" data-reveal>
+            <span
+              className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.22em] text-navy/45"
+              style={{ fontSize: 11 }}
+            >
+              [&nbsp;&nbsp;01 — O Artigo&nbsp;&nbsp;]
+            </span>
+            <p
+              className="font-['Arimo',sans-serif] text-navy"
+              style={{
+                margin: 0,
+                marginTop: 24,
+                fontSize: "clamp(24px, 2.2vw, 34px)",
+                lineHeight: 1.3,
+                letterSpacing: "-0.015em",
+              }}
+            >
+              Quatro anos de pesquisa numa revista de{" "}
+              <em style={{ color: "var(--color-accent-gold)" }}>referência mundial</em>.
+            </p>
+          </div>
+          <div>
+            <Paragraphs items={[PUBLICACOES.intro, ...DOUTORADO.paragrafos.slice(0, 4)]} />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5" style={{ marginTop: "clamp(40px, 6vh, 64px)" }}>
+              <DocumentCard
+                href={PUBLICACOES.pdfArtigo}
+                kicker="PDF — World Neurosurgery"
+                title="Ler o artigo científico (2022)"
+              />
+              <DocumentCard
+                href={DOUTORADO.pdf}
+                kicker="PDF — Documento completo"
+                title="Ler a tese de doutorado"
+              />
+            </div>
+          </div>
         </div>
       </Section>
-      <Section tone="navy">
-        <SectionHeader index="02" label="Palestras & Congressos" dark />
-        <div className="flex flex-col" style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-          {EVENTOS.map((item, i) => (
-            <div
-              key={i}
-              data-reveal
-              className="grid grid-cols-[auto_1fr] items-center gap-6 lg:gap-10"
-              style={{ padding: "24px 0", borderBottom: "1px solid rgba(255,255,255,0.1)" }}
-            >
-              <span
-                className="font-['Geist_Mono',sans-serif] text-gold-light/60"
-                style={{ fontSize: 12, width: 32 }}
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span
-                className="font-['Geist',sans-serif] text-cream/70"
-                style={{ fontSize: "clamp(15px, 1.2vw, 19px)", lineHeight: 1.5 }}
-              >
-                {item}
-              </span>
-            </div>
+
+      <Section tone="white">
+        <CenterHeader
+          kicker="02 — Palestras & Congressos"
+          title="Conhecimento compartilhado com a comunidade"
+          em="comunidade"
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto" style={{ maxWidth: 1080 }}>
+          {EVENTOS.map((ev, i) => (
+            <IconCard key={i} icon={Mic} kicker={String(i + 1).padStart(2, "0")} title={ev} />
           ))}
         </div>
       </Section>
@@ -536,8 +691,16 @@ export function EventosPage() {
       imageCaption="Palestras & Congressos"
     >
       <Section first>
-        <SectionHeader index="01" label="Participações" />
-        <EventRows items={EVENTOS} />
+        <CenterHeader
+          kicker="01 — Participações"
+          title="Congressos, simpósios e aulas magnas"
+          em="magnas"
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto" style={{ maxWidth: 1080 }}>
+          {EVENTOS.map((ev, i) => (
+            <IconCard key={i} icon={Mic} kicker={String(i + 1).padStart(2, "0")} title={ev} />
+          ))}
+        </div>
       </Section>
     </SubPage>
   );
@@ -579,13 +742,17 @@ export function MidiaPage() {
       meta="Nº 05 — Imprensa & TV"
     >
       <Section first>
-        <SectionHeader index="01" label="Em destaque" />
+        <CenterHeader
+          kicker="01 — Em Destaque"
+          title="Neurocirurgia explicada para todos"
+          em="todos"
+        />
         <div data-reveal className="mx-auto" style={{ maxWidth: 1080 }}>
           <VideoEmbed id={destaque} large />
         </div>
       </Section>
-      <Section>
-        <SectionHeader index="02" label="Todas as participações" />
+      <Section tone="white">
+        <CenterHeader kicker="02 — Todas as Participações" title="Entrevistas e programas" em="programas" />
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
           {resto.map((id, i) => (
             <div key={id} data-reveal className="flex flex-col gap-3">
@@ -613,7 +780,12 @@ export function DepoimentosPage() {
       meta="Nº 06 — + 9.500 casos de sucesso"
     >
       <Section first>
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 [&>*]:mb-6">
+        <CenterHeader
+          kicker="01 — Galeria"
+          title="Palavras que valem uma vida"
+          em="vida"
+        />
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 [&>*]:mb-6 mx-auto" style={{ maxWidth: 1240 }}>
           {DEPOIMENTOS_GALERIA.map((src) => (
             <figure
               key={src}
@@ -629,11 +801,9 @@ export function DepoimentosPage() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-6px)";
-                e.currentTarget.style.boxShadow = "0 28px 64px -20px rgba(26,41,63,0.3)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 18px 48px -20px rgba(26,41,63,0.2)";
               }}
             >
               <img
@@ -652,6 +822,13 @@ export function DepoimentosPage() {
 }
 
 // ── /contato e /localizacao ────────────────────────────────────────
+
+const SOCIAL_CARDS = [
+  { icon: Instagram, label: "Instagram", value: "@drhugodoria", href: SOCIAL.instagram },
+  { icon: Linkedin, label: "LinkedIn", value: "Hugo Doria", href: SOCIAL.linkedin },
+  { icon: Facebook, label: "Facebook", value: "hugoleonardo.dorianetto", href: SOCIAL.facebook },
+  { icon: MapPin, label: "Localização", value: "Bela Vista, São Paulo", href: CONTATO.mapsLink },
+] as const;
 
 function MapaBlock() {
   return (
@@ -703,80 +880,65 @@ export function ContatoPage() {
       lead="Clique no número para falar diretamente com a equipe do Dr. Hugo via WhatsApp."
       meta="Nº 07 — Atendimento, São Paulo"
     >
-      <Section first>
-        <SectionHeader index="01" label="WhatsApp" />
-        <a
-          data-reveal
-          href={CONTATO.whatsappLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group/wa inline-flex flex-wrap items-baseline gap-6"
-          style={{ textDecoration: "none" }}
-        >
+      {/* WhatsApp como peça central, centrado */}
+      <Section first tone="white">
+        <div className="flex flex-col items-center text-center">
           <span
-            className="font-['Arimo',sans-serif] text-navy transition-colors duration-300 group-hover/wa:text-gold"
-            style={{
-              fontSize: "clamp(36px, 5.5vw, 84px)",
-              lineHeight: 1.05,
-              letterSpacing: "-0.03em",
-            }}
+            data-reveal
+            className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.22em] text-navy/45"
+            style={{ fontSize: 11 }}
           >
-            {CONTATO.whatsapp}
+            [&nbsp;&nbsp;01 — WhatsApp&nbsp;&nbsp;]
           </span>
-          <span
-            aria-hidden
-            className="font-['Geist',sans-serif] text-gold transition-transform duration-300 group-hover/wa:translate-x-2"
-            style={{ fontSize: "clamp(24px, 3vw, 44px)" }}
+          <a
+            data-reveal
+            href={CONTATO.whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group/wa inline-flex items-baseline gap-5"
+            style={{ textDecoration: "none", marginTop: 28 }}
           >
-            →
-          </span>
-        </a>
+            <span
+              className="font-['Arimo',sans-serif] text-navy transition-colors duration-300 group-hover/wa:text-gold"
+              style={{
+                fontSize: "clamp(34px, 5.2vw, 80px)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.03em",
+              }}
+            >
+              {CONTATO.whatsapp}
+            </span>
+            <span
+              aria-hidden
+              className="font-['Geist',sans-serif] text-gold transition-transform duration-300 group-hover/wa:translate-x-2"
+              style={{ fontSize: "clamp(22px, 2.6vw, 40px)" }}
+            >
+              →
+            </span>
+          </a>
+          <p
+            data-reveal
+            className="font-['Geist',sans-serif] text-navy/50"
+            style={{ margin: 0, marginTop: 20, fontSize: 15 }}
+          >
+            Atendimento de segunda a sexta — equipe do Dr. Hugo Doria
+          </p>
+        </div>
 
         <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-px"
-          style={{
-            marginTop: "clamp(56px, 8vh, 88px)",
-            background: HAIR,
-            border: `1px solid ${HAIR}`,
-            borderRadius: 16,
-            overflow: "hidden",
-            maxWidth: 880,
-          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto"
+          style={{ marginTop: "clamp(56px, 8vh, 88px)", maxWidth: 1240 }}
         >
-          {[
-            { label: "Instagram", value: "@drhugodoria", href: SOCIAL.instagram },
-            { label: "LinkedIn", value: "Hugo Doria", href: SOCIAL.linkedin },
-            { label: "Facebook", value: "hugoleonardo.dorianetto", href: SOCIAL.facebook },
-            { label: "Localização", value: "Bela Vista, São Paulo", href: CONTATO.mapsLink },
-          ].map((c) => (
-            <a
-              key={c.label}
-              data-reveal
-              href={c.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group/soc flex flex-col gap-2 bg-white"
-              style={{ padding: "26px 28px", textDecoration: "none" }}
-            >
-              <span
-                className="font-['Geist_Mono',sans-serif] uppercase tracking-[0.2em] text-navy/40"
-                style={{ fontSize: 10 }}
-              >
-                {c.label}
-              </span>
-              <span
-                className="font-['Arimo',sans-serif] text-navy transition-colors duration-300 group-hover/soc:text-gold"
-                style={{ fontSize: "clamp(17px, 1.4vw, 22px)", letterSpacing: "-0.01em" }}
-              >
-                {c.value}
-              </span>
+          {SOCIAL_CARDS.map((c) => (
+            <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+              <IconCard icon={c.icon} kicker={c.label} title={c.value} />
             </a>
           ))}
         </div>
       </Section>
 
       <Section>
-        <SectionHeader index="02" label="Localização" />
+        <CenterHeader kicker="02 — Localização" title="Onde nos encontrar" em="encontrar" />
         <MapaBlock />
       </Section>
     </SubPage>
