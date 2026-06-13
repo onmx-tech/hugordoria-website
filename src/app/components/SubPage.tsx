@@ -196,7 +196,7 @@ export default function SubPage({
               <h1
                 data-sub-title
                 data-em={em}
-                className="relative z-10 font-['Fraunces',serif] text-navy"
+                className="relative z-10 font-['Geist',sans-serif] text-navy"
                 style={{
                   margin: 0,
                   marginTop: 32,
@@ -215,7 +215,7 @@ export default function SubPage({
               {lead && (
                 <p
                   data-hero-reveal
-                  className="font-['Geist',sans-serif] text-navy/60"
+                  className="font-['Arimo',sans-serif] text-navy/60"
                   style={{
                     margin: 0,
                     marginTop: "clamp(28px, 4vh, 44px)",

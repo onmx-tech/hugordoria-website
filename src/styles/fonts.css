@@ -1,23 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
 
-/* Display serif das subpáginas — self-hosted p/ evitar flash de Times (FOUT)
-   enquanto a fonte baixa de terceiros */
-@font-face {
-  font-family: 'Fraunces';
-  src: url('/fonts/Fraunces-Variable.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: block;
-}
-
-@font-face {
-  font-family: 'Fraunces';
-  src: url('/fonts/Fraunces-Italic-Variable.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: block;
-}
-
 @font-face {
   font-family: 'Geist';
   src: url('../../node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2') format('woff2');
