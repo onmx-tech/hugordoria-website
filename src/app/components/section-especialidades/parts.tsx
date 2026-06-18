@@ -49,13 +49,6 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
               }}
             />
             <div
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(26, 41, 63, 0.85) 0%, transparent 60%)",
-              }}
-            />
-            <div
               className="absolute"
               style={{ left: 20, top: 20, width: 28, height: 28, opacity: 0.85 }}
             >
@@ -179,13 +172,6 @@ export function CardMobile({ card }: { card: CardData }) {
             src={card.image}
             alt={card.title}
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to top, rgba(26, 41, 63, 0.7) 0%, transparent 50%)",
-            }}
           />
           <div
             className="absolute"

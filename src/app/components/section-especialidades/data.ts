@@ -30,8 +30,8 @@ export const CARD_W = 513;
 export const CARD_H = 509;
 export const CARD_START_X = 64;
 export const CARD_STEP_X = 547;
-export const CARD_Y_UP = 354;
-export const CARD_Y_DOWN = 464;
+export const CARD_Y_UP = 284;
+export const CARD_Y_DOWN = 394;
 export const END_PADDING = 80;
 
 export const cards: CardData[] = [
