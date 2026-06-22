@@ -9,6 +9,19 @@ import FloatingNav from "./FloatingNav";
 import { PageHero } from "./sub/PageHero";
 import { Eyebrow, SectionHeading, Divider, Button, Container } from "./sub/primitives";
 
+// Figuras médicas Magnific (navy). Escolhe por palavra-chave da legenda;
+// fallback rotativo pelo índice da seção pra variar entre as imagens.
+const FIGURAS = ["angiografia", "mri", "reconstrucao3d", "microscopio"] as const;
+function figuraFor(caption: string, idx: number): string {
+  const c = caption.toLowerCase();
+  let key: string = FIGURAS[idx % FIGURAS.length];
+  if (/angiograf|vascul|arteri|fluxo|bypass/.test(c)) key = "angiografia";
+  else if (/resson|rm\b|mri|tomograf|imagem|scan/.test(c)) key = "mri";
+  else if (/microcirurg|cirúrg|clipagem|microsc|intraoper/.test(c)) key = "microscopio";
+  else if (/3d|reconstru|anatom|lesão|tumor|nidus|represent/.test(c)) key = "reconstrucao3d";
+  return `/v4/figuras/${key}.jpg`;
+}
+
 export default function EspecialidadePage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -125,10 +138,19 @@ export default function EspecialidadePage() {
 
                     {/* figura */}
                     {s.figureCaption && (
-                      <div className="mt-2 flex aspect-[16/9] w-full flex-col items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.03]">
-                        <span className="font-mono uppercase tracking-[0.2em] text-gold-600 text-[11px]">[ Placeholder ]</span>
-                        <span className="font-mono text-mist text-[11px]">{s.figureCaption}</span>
-                      </div>
+                      <figure className="mt-2 m-0">
+                        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-navy-800 ring-1 ring-white/10">
+                          <img
+                            src={figuraFor(s.figureCaption, si)}
+                            alt={s.figureCaption}
+                            loading="lazy"
+                            className="absolute inset-0 size-full object-cover"
+                          />
+                        </div>
+                        <figcaption className="mt-3 font-mono uppercase tracking-[0.16em] text-mist text-[11px]">
+                          {s.figureCaption}
+                        </figcaption>
+                      </figure>
                     )}
 
                     {/* pull-quote */}

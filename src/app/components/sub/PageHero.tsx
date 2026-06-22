@@ -84,7 +84,7 @@ export function PageHero({
                 <ImageWithFallback
                   src={image}
                   alt={imageAlt ?? ""}
-                  className="size-full object-cover transition-transform duration-[1.2s] ease-out hover:scale-105"
+                  className="size-full object-cover object-top transition-transform duration-[1.2s] ease-out hover:scale-105"
                 />
               ) : (
                 <div className="flex size-full items-center justify-center bg-navy-800">

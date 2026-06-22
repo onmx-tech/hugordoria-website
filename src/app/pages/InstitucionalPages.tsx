@@ -148,10 +148,10 @@ export function SobreMimPage() {
             "/v4/photos/retrato-sentado.jpg",
             "/v4/photos/retrato-empe.jpg",
             "/v4/photos/retrato-bracos.jpg",
-            "/v4/photos/palestra-painel.jpg",
+            "/v4/photos/retrato-casual.jpg",
           ].map((src) => (
             <div key={src} className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-navy-800 ring-1 ring-white/10">
-              <img src={src} alt="Dr. Hugo Doria" loading="lazy" className="absolute inset-0 size-full object-cover transition-transform duration-[1.2s] ease-out hover:scale-105" />
+              <img src={src} alt="Dr. Hugo Doria" loading="lazy" className="absolute inset-0 size-full object-cover object-top transition-transform duration-[1.2s] ease-out hover:scale-105" />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-900/40 to-transparent" />
             </div>
           ))}
@@ -287,7 +287,7 @@ export function MidiaPage() {
         eyebrow="Mídia"
         title="Vídeos e aparições"
         intro="Entrevistas, aulas e conteúdos sobre neurocirurgia vascular, diagnóstico e tratamento das principais condições neurológicas."
-        image="/v4/photos/palestra-painel.jpg"
+        image="/v4/photos/palestra-podium.jpg"
         imageAlt="Mídia e vídeos"
         badge={{ value: String(MIDIA_VIDEOS.length).padStart(2, "0"), label: "vídeos" }}
       />
