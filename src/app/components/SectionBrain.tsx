@@ -2,7 +2,7 @@ import { useEffect, useRef, useCallback } from "react";
 import svgPaths from "../../imports/svg-nx92b0rij3";
 import { gsap, ScrollTrigger } from "../../lib/gsap";
 
-const FRAME_COUNT = 194;
+const FRAME_COUNT = 122;
 
 function buildFramePath(index: number) {
   return `/sequence/HD_BG_Menor_${String(index).padStart(5, "0")}.jpg`;
@@ -19,7 +19,9 @@ function drawCover(
   const scale = Math.max(cw / iw, ch / ih);
   const dw = iw * scale;
   const dh = ih * scale;
-  ctx.drawImage(img, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
+  // Ancora mais para o topo (≈0.15 em vez de 0.5): quando a imagem é mais alta
+  // que o canvas, mantém a cabeça/linhas no quadro e corta o pescoço embaixo.
+  ctx.drawImage(img, (cw - dw) / 2, (ch - dh) * 0.15, dw, dh);
 }
 
 export default function SectionBrain() {
@@ -118,6 +120,7 @@ export default function SectionBrain() {
           0.45,
         );
       }
+
 
       tl.fromTo(
         textEls[0] || [],
