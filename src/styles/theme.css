@@ -136,6 +136,27 @@
   --color-steel-dark: var(--color-icon-muted);
   --color-warm: var(--color-text-muted);
   --color-soft: var(--color-text-soft);
+
+  /* ── Sistema "Doria" das SUBPÁGINAS (Design System for Homepage) ──
+     Escala navy/gold + sand/ink/mist usada pelos componentes em
+     components/sub/ (bg-navy-800, text-gold-600, etc.). Escopo: subpáginas.
+     NÃO redefine --color-cream (a home depende dele). */
+  --color-navy-900: #0c102c;
+  --color-navy-800: #122136;
+  --color-navy-700: #152649;
+  --color-navy-600: #1a293f;
+  --color-navy-500: #316aa8;
+  --color-navy-400: #587baa;
+  --color-gold-700: #b78e30;
+  --color-gold-600: #c5a471;
+  --color-gold-500: #b28847;
+  --color-blue-brand: #3873b1;
+  --color-blue-soft: #57a8d4;
+  --color-sand: #eeebe4;
+  --color-ink: #1a293f;
+  --color-mist: #b7bdc4;
+  --font-display: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Arimo", system-ui, sans-serif;
 }
 
 @layer base {

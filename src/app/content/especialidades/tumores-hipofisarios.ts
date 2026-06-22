@@ -1,13 +1,74 @@
 import type { ArticleContent } from "./types";
 
+// Reestruturado no molde rico — o texto corrido original foi dividido nas
+// seções, sem novas afirmações médicas.
 export const article: ArticleContent = {
   slug: "tumores-hipofisarios",
+  category: "Tumoral",
+  readingTime: "4 min",
+  lead: "Tumores da região selar (hipófise) removidos preferencialmente por via endoscópica endonasal.",
+  heroMeta: [
+    { label: "Abordagem", value: "Endoscópica endonasal" },
+    { label: "Diagnóstico", value: "RM + estudo hormonal" },
+    { label: "Classificação", value: "Micro e macroadenoma" },
+  ],
+  quote: {
+    text: "O tratamento preferencial é o acesso trans-nasal endoscópico, com ressecção microcirúrgica da lesão.",
+    emphasis: "trans-nasal endoscópico",
+    afterSectionId: "tratamento",
+  },
   sections: [
     {
-      id: "definicao",
-      heading: "Definição",
+      id: "o-que-e",
+      tocLabel: "O que é",
+      heading: "Tumores da glândula mestra do corpo.",
+      emphasis: "glândula mestra",
+      figureCaption: "Fig. 01 — Região selar",
       paragraphs: [
-        "A região do crânio denominada selar compreende a sela turca ou sela túrcica, estrutura óssea em forma de sela, ou manjedoura, ou berço, dentro da qual encontra-se a glândula Hipófise. A glândula hipófise, também chamada glândula pituitária ou glândula mestra, é assim chamada tendo em vista sua enorme importância uma vez que produz ou armazena a maioria dos hormônios envolvidos no perfeito funcionamento do corpo humano. Os tumores da região selar compreendem principalmente os adenomas hipofisários, craniofaringeomas e meningeomas. São também encontrados nessa região cistos aracnóides, germinomas, hamartomas e cistos da fissura de Rathke. Os tumores hipofisários são divididos em tumores secretores e não secretores de hormônios. Quanto ao seu tamanho, são divididos em microadenomas, quando menores que 1 cm e macroadenomas, quando maiores que 1 cm. Quanto aos sintomas apresentados pelos portadores de tal doença, eles são dependentes das características do tumor. Quando trata-se de microadenomas. Os tumores são assintomáticos, quando não secretores. Quando os tumores secretam hormônios, os sintomas variam dependendo das características do hormônio secretado em excesso. Quando os tumores são maiores de 1 cm, os macroadenomas, os sintomas são decorrentes não só dos hormônios secretados, quando os tumores são secretores, mas também do aumento de volume tumoral com compressão de estruturas neurovasculares adjacentes ao tumor, mesmo quando trata-se de tumores não secretores de hormônios. Cefaléia (dor de cabeça) e alterações visuais por compressão tumoral dos nervos ópticos (visuais) são os sintomas mais comuns. Em alguns casos, ocorre hemorragia tumoral, chamada de apoplexia hipofisária. Esses casos compreendem grande gravidade pelo aumento imediato da pressão dentro da sela túrcica com potencial distúrbio hormonal grave podendo evoluir a perda da visão por compressão dos nervos ou quiasma óptico. O diagnóstico é realizado através da ressonância magnética para identificação da massa tumoral e do estudo dos hormônios do eixo hipotálamo-hipofisário. A tomografia computadorizada dos seios da face pode ser utilizada para programação do acesso cirúrgico. O tratamento preferencialmente é realizado mediante acesso trans-nasal endoscópico à região selar, com ressecção microcirúrgica da lesão tumoral, seja o macroadenoma ou o microadenoma secretor de hormônios. Mediante existência de grande voluma tumoral, com extensão para-selar (lateralmente a sela túrcica), supra-selar e compressão de estruturas cerebrais, o neurocirurgião pode optar por um acesso trans-craniano para ressecção dos tumores hipofisários e demais tumores da região selar como citados anteriormente.",
+        "A região selar compreende a sela túrcica, estrutura óssea em forma de sela dentro da qual se encontra a glândula hipófise — também chamada glândula pituitária ou glândula mestra, por produzir ou armazenar a maioria dos hormônios envolvidos no funcionamento do corpo.",
+        "Os tumores da região selar compreendem principalmente os adenomas hipofisários, craniofaringeomas e meningeomas. Os tumores hipofisários dividem-se em secretores e não secretores de hormônios e, quanto ao tamanho, em microadenomas (< 1 cm) e macroadenomas (> 1 cm).",
+      ],
+    },
+    {
+      id: "sintomas",
+      tocLabel: "Sintomas",
+      heading: "Como se manifestam",
+      paragraphs: [
+        "Os sintomas dependem das características do tumor. Microadenomas não secretores costumam ser assintomáticos; nos secretores, variam conforme o hormônio em excesso. Macroadenomas comprimem estruturas neurovasculares adjacentes — cefaleia e alterações visuais por compressão dos nervos ópticos são os sintomas mais comuns. Em alguns casos ocorre hemorragia tumoral (apoplexia hipofisária):",
+      ],
+      bullets: [
+        "Cefaleia",
+        "Alterações visuais",
+        "Distúrbios hormonais",
+        "Apoplexia hipofisária",
+      ],
+    },
+    {
+      id: "diagnostico",
+      tocLabel: "Diagnóstico",
+      heading: "Diagnóstico por imagem e hormonal",
+      paragraphs: [
+        "O diagnóstico é realizado pela ressonância magnética, para identificar a massa tumoral, e pelo estudo dos hormônios do eixo hipotálamo-hipofisário. A tomografia computadorizada dos seios da face pode ser utilizada para o planejamento do acesso cirúrgico.",
+      ],
+    },
+    {
+      id: "tratamento",
+      tocLabel: "Tratamento",
+      heading: "Conduta e tratamento",
+      paragraphs: [
+        "A escolha do acesso depende do volume e da extensão do tumor:",
+      ],
+      options: [
+        {
+          title: "Acesso trans-nasal endoscópico",
+          description:
+            "Via preferencial à região selar, com ressecção microcirúrgica da lesão — seja o macroadenoma ou o microadenoma secretor de hormônios — sem incisões externas.",
+        },
+        {
+          title: "Acesso trans-craniano",
+          description:
+            "Indicado em grandes volumes tumorais, com extensão para-selar ou supra-selar e compressão de estruturas cerebrais, para ressecção dos tumores da região selar.",
+        },
       ],
     },
   ],

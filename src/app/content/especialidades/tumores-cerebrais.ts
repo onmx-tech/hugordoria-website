@@ -1,13 +1,79 @@
 import type { ArticleContent } from "./types";
 
+// Reestruturado no molde rico — o texto corrido original foi dividido nas
+// seções, sem novas afirmações médicas.
 export const article: ArticleContent = {
   slug: "tumores-cerebrais",
+  category: "Tumoral",
+  readingTime: "4 min",
+  lead: "Lesões expansivas do sistema nervoso central tratadas por microcirurgia de precisão e terapias complementares.",
+  heroMeta: [
+    { label: "Abordagem", value: "Microcirurgia de precisão" },
+    { label: "Diagnóstico", value: "TC e ressonância" },
+    { label: "Complemento", value: "Radio/quimioterapia" },
+  ],
+  quote: {
+    text: "O objetivo é a retirada mais ampla possível, com o menor acometimento neurológico do paciente.",
+    emphasis: "menor acometimento neurológico",
+    afterSectionId: "tratamento",
+  },
   sections: [
     {
-      id: "definicao",
-      heading: "Definição",
+      id: "o-que-e",
+      tocLabel: "O que é",
+      heading: "Uma lesão expansiva dentro da caixa craniana.",
+      emphasis: "caixa craniana",
+      figureCaption: "Fig. 01 — Lesão expansiva supratentorial",
       paragraphs: [
-        "Os tumores cerebrais são doenças causadas pela multiplicação das células no sistema nervoso central de maneira desordenada, formando assim uma lesão expansiva dentro de um sistema fechado, a caixa craniana. As manifestações clínicas mais frequentes são dores de cabeça de forte intensidade ou mesmo mudança do padrão da dor de cabeça corriqueira; também podem surgir déficits progressivos como alterações motoras, sensitivas e visuais e até mesmo podem se manifestar com aparecimento de crises convulsivas. Todas as faixas etárias são acometidas por essa doença. Entretanto em crianças ocorre acometimento preferencial do andar inferior do crânio (fossa posterior) e em adultos ocorre maior comprometimento do andar superior do crânio (supra tentorial). Existem doenças herdadas geneticamente como neurofibromatose e esclerose tuberosa que favorecem o surgimento de tumores cerebrais. Essas lesões também são classificadas por suas características celulares como astrocitomas, oligodendrogliomas, oligoastrocitomas, ependimomas, meningeomas, neurinomas. Atualmente também ocorre caracterização molecular e genética desses tumores com o objetivo de fornecer tratamento individualizado e traçar prognostico. O diagnóstico inicial destas doenças inicia-se com investigação por exame de imagem como a tomografia e mais detalhadamente com a ressonância do crânio. O tratamento de toda essa gama de problemas inicia-se geralmente por procedimento cirúrgico com o objetivo de coleta de material tumoral para análise de laboratório e na grande maioria das vezes retirada mais ampla possível com menor acometimento neurológico do paciente. A evolução neurocirúrica na área oncológica é real e objetiva. Atualmente, contamos não somente com a acurada técnica microcirúrgica adquirida através de treinamento extensivo em laboratório, mas também com instrumentos tecnológicos utilizados durante as cirurgias tais como o neuronavegador, o aspirador ultrassônico, a monitorização neurofisiológica de potencial evocado sensitivo-motor, a eletrocorticografia para identificação de áreas cerebrais eloquentes e realizaçãoo de cirurgias com o paciente acordado, biópsias guiadas por estereotaxia ou neuronavegador, dentre outros. Após a análise do tecido retirado em cirurgia, o tratamento continua com observação neurológica e exames de ressonância seriada. Algumas vezes é necessária a complementação do tratamento com radioterapia e quimioterapia.",
+        "Os tumores cerebrais resultam da multiplicação desordenada de células no sistema nervoso central, formando uma lesão expansiva dentro de um sistema fechado, a caixa craniana. Todas as faixas etárias são acometidas — em crianças há predomínio do andar inferior do crânio (fossa posterior) e em adultos do andar superior (supratentorial).",
+        "Existem doenças herdadas geneticamente, como a neurofibromatose e a esclerose tuberosa, que favorecem o seu surgimento. As lesões são classificadas por suas características celulares — astrocitomas, oligodendrogliomas, ependimomas, meningeomas, neurinomas — e, hoje, também por caracterização molecular e genética, com o objetivo de individualizar o tratamento e traçar o prognóstico.",
+      ],
+    },
+    {
+      id: "sintomas",
+      tocLabel: "Sintomas",
+      heading: "Sinais de alerta",
+      paragraphs: [
+        "As manifestações mais frequentes são dores de cabeça de forte intensidade ou a mudança do padrão da cefaleia habitual; também podem surgir déficits progressivos e crises convulsivas:",
+      ],
+      bullets: [
+        "Cefaleia intensa ou mudança de padrão",
+        "Alterações motoras e sensitivas",
+        "Alterações visuais",
+        "Crises convulsivas",
+      ],
+    },
+    {
+      id: "diagnostico",
+      tocLabel: "Diagnóstico",
+      heading: "Diagnóstico por imagem",
+      paragraphs: [
+        "A investigação inicia-se com exame de imagem — a tomografia e, mais detalhadamente, a ressonância do crânio. Após a cirurgia, o tecido retirado é analisado e o acompanhamento segue com observação neurológica e ressonância seriada.",
+      ],
+    },
+    {
+      id: "tratamento",
+      tocLabel: "Tratamento",
+      heading: "Conduta e tratamento",
+      paragraphs: [
+        "O tratamento geralmente inicia-se por procedimento cirúrgico, com o objetivo de coletar material para análise e, na maioria das vezes, realizar a retirada mais ampla possível com o menor acometimento neurológico:",
+      ],
+      options: [
+        {
+          title: "Ressecção microcirúrgica",
+          description:
+            "Técnica microcirúrgica de precisão apoiada por neuronavegador, aspirador ultrassônico e monitorização neurofisiológica de potencial evocado sensitivo-motor para preservar áreas eloquentes.",
+        },
+        {
+          title: "Cirurgia acordada e biópsia guiada",
+          description:
+            "Eletrocorticografia para identificar áreas cerebrais eloquentes e cirurgia com o paciente acordado; biópsias guiadas por estereotaxia ou neuronavegador quando indicado.",
+        },
+        {
+          title: "Terapias complementares",
+          description:
+            "Após a análise do tecido, o tratamento pode ser complementado com radioterapia e quimioterapia, conforme o tipo tumoral.",
+        },
       ],
     },
   ],

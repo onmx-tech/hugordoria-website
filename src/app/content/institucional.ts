@@ -129,21 +129,8 @@ export const MIDIA_VIDEOS = [
   "lCG6AjhF6rg",
 ] as const;
 
-export const DEPOIMENTOS_GALERIA = [
-  "IMG_3540-e1733339887749.png",
-  "IMG_6338.jpg",
-  "IMG_6340.jpg",
-  "IMG_6341.jpg",
-  "IMG_6342.jpg",
-  "IMG_6343.jpg",
-  "IMG_6344.jpg",
-  "IMG_6345.jpg",
-  "IMG_6346.jpg",
-  "IMG_6347.jpg",
-  "IMG_6350.jpg",
-  "IMG_6355.jpg",
-  "IMG_6357.jpg",
-  "IMG_6358.jpg",
-  "IMG_6359.jpg",
-  "IMG_6360.jpg",
-].map((f) => `/images/depoimentos/${f}`);
+// 24 screenshots reais de avaliações (public/v4/depoimentos/depo-01..24.png).
+export const DEPOIMENTOS_GALERIA = Array.from(
+  { length: 24 },
+  (_, i) => `/v4/depoimentos/depo-${String(i + 1).padStart(2, "0")}.png`,
+);

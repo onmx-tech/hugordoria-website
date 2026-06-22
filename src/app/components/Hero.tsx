@@ -1,35 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import imgHeroDoria from "@/assets/figma-7258-548.png";
 import { gsap } from "../../lib/gsap";
-import { getLenis } from "../../lib/lenis";
-
-const NAV_ITEMS: Array<{ label: string; href: string; active?: boolean }> = [
-  { label: "Início", href: "#inicio", active: true },
-  { label: "Sobre mim", href: "#sobre-mim" },
-  { label: "Depoimentos", href: "#depoimentos" },
-  { label: "Especialidades", href: "#especialidades" },
-  { label: "Doutorado", href: "#doutorado" },
-  { label: "Eventos", href: "#eventos" },
-];
-
-function navigateTo(href: string) {
-  const lenis = getLenis();
-  if (href === "#inicio") {
-    lenis
-      ? lenis.scrollTo(0, { duration: 1.2 })
-      : window.scrollTo({ top: 0, behavior: "smooth" });
-    return;
-  }
-  const target = document.querySelector(href);
-  if (!target) return;
-  lenis
-    ? lenis.scrollTo(target as HTMLElement, { offset: -40, duration: 1.2 })
-    : (target as HTMLElement).scrollIntoView({ behavior: "smooth" });
-}
 
 export default function Hero() {
   const rootRef = useRef<HTMLElement | null>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -206,93 +180,8 @@ export default function Hero() {
         }}
       />
 
-      {/* Header */}
-      <header className="relative z-20 flex items-center justify-between px-6 md:px-8 pt-5">
-        <span
-          data-hero="brand"
-          className="font-['Geist',sans-serif] font-bold text-cream text-[10px] leading-[0.92] tracking-[-0.04em]"
-        >
-          DR. HUGO DORIA®
-        </span>
-        <nav
-          data-hero="nav"
-          className="hidden lg:flex items-center gap-4 font-['Geist',sans-serif] font-medium text-[14px] leading-[1.5]"
-        >
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={(e) => {
-                e.preventDefault();
-                navigateTo(item.href);
-              }}
-              className={item.active ? "text-gold-light" : "text-cream"}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-        <button
-          type="button"
-          onClick={() => setMenuOpen(true)}
-          aria-label="Abrir menu"
-          className="lg:hidden inline-flex items-center justify-center w-10 h-10 -mr-2 text-cream"
-        >
-          <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden>
-            <path d="M0 1H22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            <path d="M0 7H22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            <path d="M0 13H14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          </svg>
-        </button>
-      </header>
-
-      {/* Mobile nav overlay */}
-      <div
-        className="lg:hidden fixed inset-0 z-50 transition-opacity duration-300"
-        style={{
-          background: "rgba(13, 22, 38, 0.96)",
-          backdropFilter: "blur(20px) saturate(1.4)",
-          WebkitBackdropFilter: "blur(20px) saturate(1.4)",
-          opacity: menuOpen ? 1 : 0,
-          pointerEvents: menuOpen ? "auto" : "none",
-        }}
-        aria-hidden={!menuOpen}
-      >
-        <div className="flex items-center justify-between px-6 pt-5">
-          <span className="font-['Geist',sans-serif] font-bold text-cream text-[10px] leading-[0.92] tracking-[-0.04em]">
-            DR. HUGO DORIA®
-          </span>
-          <button
-            type="button"
-            onClick={() => setMenuOpen(false)}
-            aria-label="Fechar menu"
-            className="inline-flex items-center justify-center w-10 h-10 -mr-2 text-cream"
-          >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-              <path d="M2 2L18 18M18 2L2 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-          </button>
-        </div>
-        <nav className="flex flex-col gap-6 px-6 pt-16 font-['Geist',sans-serif] font-medium text-[24px] leading-[1.2] tracking-[-0.02em]">
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={(e) => {
-                e.preventDefault();
-                setMenuOpen(false);
-                setTimeout(() => navigateTo(item.href), 240);
-              }}
-              className={item.active ? "text-gold-light" : "text-cream"}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      </div>
-
-      {/* Content grid */}
-      <div className="relative z-10 flex-1 grid grid-cols-12 gap-x-6 gap-y-10 px-6 md:px-8 pt-14 sm:pt-20 lg:pt-[18vh] content-start">
+      {/* Content grid (header agora é o SiteHeader global, fixo no topo) */}
+      <div className="relative z-10 flex-1 grid grid-cols-12 gap-x-6 gap-y-10 px-6 md:px-8 pt-24 sm:pt-28 lg:pt-[18vh] content-start">
         {/* Left: eyebrow + title */}
         <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3">
           <p

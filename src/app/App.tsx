@@ -1,3 +1,4 @@
+import { SiteHeader } from "./components/SiteHeader";
 import Hero from "./components/Hero";
 import SectionSobre from "./components/SectionSobre";
 import SectionQuote from "./components/SectionQuote";
@@ -14,6 +15,7 @@ export default function App() {
 
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
+      <SiteHeader />
       <div id="inicio">
         <Hero />
       </div>

@@ -6,7 +6,8 @@ const IMAGE_H = 260;
 
 export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
   const Icon = card.icon;
-  const hasImage = !!card.image;
+  const hasImage = true;
+  const imgSrc = `/v4/procedimentos/${card.slug}.jpg`;
   const navigate = useNavigate();
 
   const handleOpen = () => {
@@ -40,7 +41,7 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
             style={{ height: IMAGE_H }}
           >
             <img
-              src={card.image}
+              src={imgSrc}
               alt={card.title}
               className="absolute inset-0 h-full w-full object-cover group-hover:scale-105"
               style={{
@@ -48,12 +49,6 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
                 transition: "scale 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
             />
-            <div
-              className="absolute"
-              style={{ left: 20, top: 20, width: 28, height: 28, opacity: 0.85 }}
-            >
-              <Icon />
-            </div>
           </div>
 
           <div
@@ -138,7 +133,8 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
 
 export function CardMobile({ card }: { card: CardData }) {
   const Icon = card.icon;
-  const hasImage = !!card.image;
+  const hasImage = true;
+  const imgSrc = `/v4/procedimentos/${card.slug}.jpg`;
   const navigate = useNavigate();
 
   const handleOpen = () => {
@@ -169,16 +165,10 @@ export function CardMobile({ card }: { card: CardData }) {
           style={{ aspectRatio: "16 / 11" }}
         >
           <img
-            src={card.image}
+            src={imgSrc}
             alt={card.title}
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          <div
-            className="absolute"
-            style={{ left: 16, top: 16, width: 24, height: 24, opacity: 0.9 }}
-          >
-            <Icon />
-          </div>
         </div>
       )}
 

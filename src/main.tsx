@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import { Retune } from "retune";
 import App from "./app/App.tsx";
 import EspecialidadePage from "./app/components/EspecialidadePage.tsx";
+import { EspecialidadesPage } from "./app/pages/Especialidades.tsx";
 import {
   ContatoPage,
   DepoimentosPage,
@@ -19,6 +20,7 @@ createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
+      <Route path="/especialidades" element={<EspecialidadesPage />} />
       <Route path="/especialidade/:slug" element={<EspecialidadePage />} />
       <Route path="/sobre-mim" element={<SobreMimPage />} />
       <Route path="/doutorado" element={<DoutoradoPage />} />

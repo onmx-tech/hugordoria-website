@@ -1,62 +1,81 @@
 import type { ArticleContent } from "./types";
 
+// Reestruturado no molde rico, reorganizando o conteúdo original sem novas
+// afirmações médicas.
 export const article: ArticleContent = {
   slug: "cavernomas",
+  category: "Vascular",
+  readingTime: "6 min",
+  lead: "Malformações vasculares de baixo fluxo do encéfalo e da medula, tratadas por microcirurgia quando sintomáticas.",
+  heroMeta: [
+    { label: "Abordagem", value: "Observação ou microcirurgia" },
+    { label: "Taxa de hemorragia", value: "0,8–3,8% ao ano" },
+    { label: "Localização", value: "60–80% supratentorial" },
+  ],
+  quote: {
+    text: "A ressecção microcirúrgica é o tratamento de escolha e o único definitivo e curativo.",
+    emphasis: "definitivo e curativo",
+    afterSectionId: "tratamento",
+  },
   sections: [
     {
-      id: "definicao",
-      heading: "Definição",
+      id: "o-que-e",
+      tocLabel: "O que é",
+      heading: "Malformações vasculares de baixo fluxo.",
+      emphasis: "baixo fluxo",
+      figureCaption: "Fig. 01 — Cavernoma encefálico",
       paragraphs: [
-        "As malformações cavernosas, também conhecidas como angiomas cavernosos ou simplesmente como cavernomas, são malformações vasculares de baixo fluxo localizadas no encéfalo e medula espinhal que consistem em um conglomerado de microscópicos canais sinusoidais dilatados revestidos por células endoteliais.",
-        "Os vasos sanguíneos envolvidos carecem de camadas musculares e elásticas, que normalmente os capilares sanguíneos apresentam, e o sangue que se encontra em vários estágios de trombose e organização frequentemente preenche essas cavernas vasculares.",
-        "Os cavernomas são claramente diferentes do parênquima adjacente e têm uma aparência multilobulada, às vezes comparada a uma amora, com uma cor vermelha escura característica.",
-        "A hemossiderina, que é um pigmento derivado da hemoglobina do sangue de cor amarelo-dourado, e a gliose frequentemente se encontram na periferia dos cavernomas do encéfalo e da medula espinhal.",
-        "Uma característica importante dos cavernomas é que não contém nenhum tecido neural no interior da lesão, e o seu tamanho pode oscilar entre alguns milímetros até vários centímetros.",
+        "As malformações cavernosas — também conhecidas como angiomas cavernosos ou cavernomas — são malformações vasculares de baixo fluxo localizadas no encéfalo e na medula espinhal, formadas por um conglomerado de canais sinusoidais dilatados revestidos por células endoteliais. Os vasos carecem das camadas musculares e elásticas normais, e não há tecido neural no interior da lesão.",
+        "Podem ser esporádicos ou familiares. Os familiares são hereditários, de padrão autossômico dominante, correspondem a 30%–50% dos casos e frequentemente com múltiplas lesões, ao contrário dos esporádicos, comumente únicos.",
+        "Depois dos aneurismas, são a lesão vascular mais frequente do sistema nervoso central (10%–15% das malformações neurovasculares). Não há preferência de gênero; entre 60% e 80% localizam-se no compartimento supratentorial. A apresentação clínica é bimodal, mais comum na terceira e quarta décadas da vida.",
       ],
     },
     {
-      id: "etiologia",
-      heading: "Etiologia",
+      id: "sintomas",
+      tocLabel: "Sintomas",
+      heading: "Um amplo espectro de manifestações",
       paragraphs: [
-        "Os cavernomas podem se apresentar de maneira esporádica ou de maneira familiar.",
-        "Os cavernomas familiares são hereditários, de maneira autossômica dominante, correspondem ao 30% até 50% dos casos e frequentemente com múltiplas lesões, diferente da maneira esporádica que comumente são únicas.",
-        "Esta forma particular de apresentação se caracteriza porque os genes mutantes herdados codificam proteínas que interagem com outras proteínas normais encargadas com a integridade microvascular das próprias lesões, as tornando ainda mais frágeis e suscetíveis a mais sangramentos.",
+        "Pela variabilidade em tamanho, localização e propensão ao sangramento, os cavernomas causam um amplo espectro de sintomas, que mudam ao longo do tempo. As crises epilépticas são o sintoma mais frequente, pelo potencial epileptogênico dos produtos de degradação do sangue; os déficits predominam nos cavernomas do tronco encefálico:",
       ],
-    },
-    {
-      id: "epidemiologia",
-      heading: "Epidemiologia",
-      paragraphs: [
-        "Depois dos aneurismas cerebrais, os cavernomas são a lesão vascular mais frequente dentro do sistema nervoso central, compreendendo 10% a 15% de todas as malformações neurovasculares com prevalência variando de 0,4% a 0,8%. A verdadeira prevalência ainda permanece desconhecida devido a que é uma patologia frequentemente silenciosa. Não existe uma relação com o gênero, sendo igual de prevalente em homens e mulheres. A apresentação clínica é bimodal, com a grande maioria dos casos em adolescentes e adultos de meia-idade (terceira e quarta década da vida).",
-        "Entre um 60% e 80% das lesões se localizam no compartimento supratentorial; destas, a maioria encontram-se na substância branca dos hemisférios cerebrais, e logo, em ordem decrescente de frequência, núcleos da base, periventriculares e tálamo. Dentro do compartimento infratentorial encontram-se na ponte, no cerebelo, mesencéfalo e bulbo.",
-        "Estudos prospectivos demonstraram uma taxa de hemorragia entre 0,8% e 3,8% por paciente por ano. Essa taxa aumenta nos pacientes que inicialmente já apresentaram pelo menos uma hemorragia : 7%–8,9% por paciente por ano. Ao comparar os cavernomas supratentoriais e infratentoriais, estas últimas têm um risco aumentado de hemorragia (3,8% por paciente por ano) em comparação com os supratentoriais (0,4% por paciente por ano). O risco é levemente maior no sexo feminino, sugerindo que fatores endócrinos podem influenciar a tendência ao sangramento.",
-      ],
-    },
-    {
-      id: "apresentacao-clinica",
-      heading: "Apresentação Clínica",
-      paragraphs: [
-        "Devido à variabilidade em tamanho, localização e propensão ao sangramento, os cavernomas podem causar um grande espectro de sintomas clínicos, mudando seu comportamento ao longo do tempo, como por exemplo exacerbações e períodos alternados de remissão. Classicamente as síndromes clínicas podem ser divididas em crises epilépticas, déficits neurológicos focais e hemorragias.",
-        "Os déficits neurológicos podem ser transitórios, progressivos, recorrentes ou fixos. Como os cavernomas infratentoriais localizam-se na grande maioria dos casos no tronco encefálico, essas lesões apresentam-se mais frequentemente com déficits. Por outro lado, como a maioria dos cavernomas localizam-se supratentorialmente e devido ao potencial epileptogênico dos produtos de degradação do sangue na área perilesional, as crises epilépticas constituem o sintoma clínico mais frequente. Às vezes, como sintoma infrequente, os cavernomas próximos aos sistema ventricular podem provocar obstrução do líquido cefalorraquidiano, levando a uma hidrocefalia.",
+      bullets: [
+        "Crises epilépticas",
+        "Déficits neurológicos focais",
+        "Hemorragias",
+        "Hidrocefalia (infrequente)",
       ],
     },
     {
       id: "diagnostico",
-      heading: "Diagnóstico",
+      tocLabel: "Diagnóstico",
+      heading: "Diagnóstico por imagem",
       paragraphs: [
-        "O diagnóstico de cavernoma é mais difícil do que outras doenças vasculares, uma vez que são malformações que não são evidentes na angiografia, um exame muito útil no resto de patologias vasculares, mas que só é capaz de detectar a existência de drenagem venosa anormal associada aos cavernomas e não à patologia em si; assim, outras técnicas de imagem são necessárias para fornecer um diagnóstico preciso.",
-        "A tomografia simples (TC) é o primeiro exame de imagem feito quando um sangramento é suspeito, já seja pelo antecedente prévio de um cavernoma conhecido, ou no caso de um foco neurológico em um paciente previamente saudável. A TC é útil mas é limitada para se aproximar a uma hipótese diagnóstica.",
-        "A ressonância magnética (RM) e suas sequências em T1 e T2, gradiente eco, RM de alto campo, imagens ponderadas por suscetibilidade, imagens por tensor de difusão e RM funcional são algumas das técnicas avançadas que estão sendo usadas para diagnóstico de cavernomas ou para navegação intraoperatória durante o tratamento de lesões localizadas em regiões profundas. A RM pode distinguir lesões em diferentes estádios de evolução no tempo de sangramento (agudas, subagudas e crônicas).",
-        "Devido à variabilidade morfológica dos cavernomas, várias outras lesões têm uma aparência semelhante na RM. Além disso, tais lesões também podem ter padrões clínicos semelhantes, mimetizando uma malformação cavernosa. Estes incluem neoplasias hemorrágicas como metástases cerebrais, meningiomas, gliomas de baixo ou alto grau, lesões inflamatórias como cisticercose ou granuloma crônico e lesões intracranianas raras como lipomas.",
+        "O diagnóstico é mais difícil do que o de outras doenças vasculares, pois os cavernomas não são evidentes na angiografia. A tomografia simples é o primeiro exame quando há suspeita de sangramento, mas é limitada.",
+        "A ressonância magnética — com sequências T1, T2, gradiente eco e imagens ponderadas por suscetibilidade — é a ferramenta central, capaz de distinguir lesões em diferentes estágios de sangramento (agudas, subagudas e crônicas) e de auxiliar a navegação intraoperatória em lesões profundas.",
       ],
     },
     {
       id: "tratamento",
-      heading: "Tratamento",
+      tocLabel: "Tratamento",
+      heading: "Conduta e tratamento",
       paragraphs: [
-        "A presença de sintomas e a localização são, além da idade e histórico de saúde, os determinantes mais importantes no momento da decisão do tratamento, que requer uma discussão multidisciplinar e uma avaliação completa do risco do paciente. O manejo conservador e a observação são favorecidos para todos os pacientes que são assintomáticos ou com risco pré-cirúrgico elevado.",
-        "Quando as condições são as adequadas, a ressecção microcirúrgica é o tratamento de escolha e o único definitivo e curativo. As indicações para cirurgia podem incluir hemorragias múltiplas, déficit neurológico e convulsões progressivas, a menos que o local apresente um risco cirúrgico inaceitavelmente alto. A técnica cirúrgica começa com o planejamento pré-operatório preciso da abordagem cirúrgica com base em a neuroanatomia, os exames de imagem e ferramentas técnicas como localização guiada por imagem em tempo real (neuronavegação) e métodos eletroneurofisiológicos, que adicionam segurança na ressecção. Com recursos como planejamento de rotas cirúrgicas, a identificação de estruturas e a facilitação do entendimento anatômico, os modernos sistemas de neuronavegação têm potencial para auxiliar na ressecção dessas malformações. A remoção completa da lesão é sempre o objetivo para evitar deixar restos da lesão que possam provocar sangramentos posteriores, além da ressecção do anel de hemossiderina e gliose ao redor, que são focos irritativos epileptogênicos.",
-        "A radiocirurgia estereotáxica é uma opção no caso de lesões supratentoriais em locais muito pouco favoráveis ou com um alto risco pré-cirúrgico. Como os danos induzidos pela radiação no tronco cerebral podem ser devastadores, não é recomendada como opção terapêutica para cavernomas do tronco cerebral.",
+        "A presença de sintomas, a localização, a idade e o histórico de saúde são os determinantes mais importantes da conduta, que requer discussão multidisciplinar:",
+      ],
+      options: [
+        {
+          title: "Observação",
+          description:
+            "Manejo conservador favorecido para pacientes assintomáticos ou com risco pré-cirúrgico elevado.",
+        },
+        {
+          title: "Ressecção microcirúrgica",
+          description:
+            "Tratamento de escolha e o único definitivo e curativo. Indicada em hemorragias múltiplas, déficit neurológico ou convulsões progressivas, com planejamento por neuronavegação e métodos eletroneurofisiológicos. A remoção completa, com o anel de hemossiderina, evita sangramentos e focos epileptogênicos.",
+        },
+        {
+          title: "Radiocirurgia estereotáxica",
+          description:
+            "Opção para lesões supratentoriais em locais desfavoráveis ou de alto risco cirúrgico. Não é recomendada para cavernomas do tronco cerebral.",
+        },
       ],
     },
   ],
