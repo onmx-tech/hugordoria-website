@@ -46,6 +46,7 @@ export default function SectionSobreMim() {
               src={imgMedicalRoom}
               alt="Dr. Hugo Doria em seu consultório"
               className="absolute inset-0 h-full w-full object-cover"
+              style={{ objectPosition: "58% 22%" }}
             />
           </div>
 
