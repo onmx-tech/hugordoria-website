@@ -56,6 +56,9 @@ export function EspecialidadesPage() {
                   </Link>
                 );
               })}
+              {/* fecha a grade (11 cards → 1 célula órfã no grid de 2/3 col);
+                  sem isto, o gap-px deixa um retângulo claro do fundo aparecendo */}
+              <div aria-hidden className="hidden bg-navy-800 sm:block" />
             </div>
           </Container>
         </section>

@@ -159,13 +159,16 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Gradient scrim — keeps text readable over the photo on mobile */}
+      {/* Gradient scrim — mantém o texto legível sobre a foto no mobile.
+          Estendido (64% no phone) e com o trecho sólido mais longo para que
+          a descrição não caia sobre o rosto do Dr. com baixo contraste; o
+          fade termina já no torso, então a cabeça não fica encoberta. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[55%] sm:h-[45%] lg:hidden"
+        className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[64%] sm:h-[52%] lg:hidden"
         style={{
           background:
-            "linear-gradient(180deg, var(--color-bg-deeper) 0%, var(--color-bg-deeper) 30%, transparent 100%)",
+            "linear-gradient(180deg, var(--color-bg-deeper) 0%, var(--color-bg-deeper) 44%, transparent 100%)",
         }}
       />
 

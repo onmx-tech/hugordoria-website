@@ -1,7 +1,11 @@
-import imgMedicalRoom from "@/assets/e25bc4f66b4a426ccf342bc9c87ec2d3e73f4b1a.png";
 import imgPalestra from "@/assets/a375c45d2716fbbea43385fdee4485566a41cfa6.png";
-import imgScrubsBlue from "@/assets/6c18cf7f306c9df025d6a7f74b408d318276b82c.png";
 import imgScrubsGreen from "@/assets/1237b2795956579d89da3b7db4b78c58db67e687.png";
+
+// Fotos reais do cliente (public/v4/photos), referenciadas por path.
+// As antigas e25b (Dr. em escritório, gerada) e 6c18 (cirurgião de banco de
+// imagens) foram trocadas por fotografias reais do Dr.
+const imgRetratoBracos = "/v4/photos/retrato-bracos.jpg";
+const imgConsultorio = "/v4/photos/contato-portrait.jpg";
 
 // Canvas do trilho horizontal. 4 colunas (foto grande + legenda), fotos e
 // textos ampliados. Altura mantida para preservar a escala.
@@ -64,19 +68,19 @@ const TEXT_H = CANVAS_H - TEXT_Y - 60; // altura disponível p/ a legenda
 
 // Cada coluna é um par foto + texto.
 export const cells: Cell[] = [
-  // Col 1 — Consultório / Atuação
-  { kind: "image", x: cols[0], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgMedicalRoom, alt: "Consultório" },
+  // Col 1 — Retrato profissional / Atuação Profissional
+  { kind: "image", x: cols[0], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgRetratoBracos, alt: "Dr. Hugo Doria" },
   { kind: "caption", x: cols[0], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "Atuação Profissional", text: texts.hospitals },
 
   // Col 2 — Palestra / Coordenação
   { kind: "image", x: cols[1], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgPalestra, alt: "Palestra no Congresso Brasileiro de Neurocirurgia" },
   { kind: "caption", x: cols[1], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "Coordenação e Liderança", text: texts.coordination },
 
-  // Col 3 — Cirurgia / Atuação cirúrgica
-  { kind: "image", x: cols[2], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgScrubsBlue, alt: "Dr. Hugo Doria em ambiente cirúrgico" },
+  // Col 3 — Centro cirúrgico / Atuação cirúrgica
+  { kind: "image", x: cols[2], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgScrubsGreen, alt: "Dr. Hugo Doria em ambiente cirúrgico" },
   { kind: "caption", x: cols[2], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "Atuação Cirúrgica", text: texts.surgery },
 
-  // Col 4 — Dr. Hugo / Publicações
-  { kind: "image", x: cols[3], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgScrubsGreen, alt: "Dr. Hugo Doria" },
+  // Col 4 — Consultório / Publicações
+  { kind: "image", x: cols[3], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgConsultorio, alt: "Dr. Hugo Doria em seu consultório" },
   { kind: "caption", x: cols[3], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "Publicações & Pesquisa", text: texts.publications },
 ];

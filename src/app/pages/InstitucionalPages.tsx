@@ -16,6 +16,8 @@ import FloatingNav from "../components/FloatingNav";
 import { PageHero } from "../components/sub/PageHero";
 import { Eyebrow, SectionHeading, Divider, Button, Container, Stat } from "../components/sub/primitives";
 import { VideoFeature } from "../components/sub/VideoFeature";
+import { VideoCard } from "../components/sub/VideoCard";
+import { Reveal } from "../components/sub/Reveal";
 import { ScrollRevealManifesto } from "../components/sub/ScrollRevealManifesto";
 import { cards } from "../components/section-especialidades/data";
 import {
@@ -293,19 +295,10 @@ export function MidiaPage() {
       />
       <Section>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {MIDIA_VIDEOS.map((id) => (
-            <div key={id} className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
-              <div className="aspect-video w-full">
-                <iframe
-                  className="h-full w-full"
-                  src={`https://www.youtube.com/embed/${id}`}
-                  title={`Vídeo ${id}`}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
+          {MIDIA_VIDEOS.map((id, i) => (
+            <Reveal key={id} delay={(i % 3) * 0.08}>
+              <VideoCard id={id} />
+            </Reveal>
           ))}
         </div>
       </Section>

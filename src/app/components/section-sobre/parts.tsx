@@ -1,9 +1,11 @@
 import type { ReactNode, CSSProperties } from "react";
 import { cells, texts, HEADER } from "./data";
-import imgMedicalRoom from "@/assets/e25bc4f66b4a426ccf342bc9c87ec2d3e73f4b1a.png";
 import imgVideo from "@/assets/a375c45d2716fbbea43385fdee4485566a41cfa6.png";
-import imgScrubsBlue from "@/assets/6c18cf7f306c9df025d6a7f74b408d318276b82c.png";
 import imgScrubsGreen from "@/assets/1237b2795956579d89da3b7db4b78c58db67e687.png";
+
+// Fotos reais do cliente (public/v4/photos) — substituem as imagens geradas.
+const imgRetratoBracos = "/v4/photos/retrato-bracos.jpg";
+const imgConsultorio = "/v4/photos/contato-portrait.jpg";
 
 export function Box({
   x, y, w, h, children, className, style,
@@ -287,7 +289,7 @@ export function SobreContentMobile() {
         </h2>
       </header>
 
-      <MobileFrame src={imgMedicalRoom} alt="Consultório" ratio="4 / 5" />
+      <MobileFrame src={imgRetratoBracos} alt="Dr. Hugo Doria" ratio="4 / 5" />
 
       <section className="flex flex-col gap-3">
         <MobileLabel>Atuação Profissional</MobileLabel>
@@ -302,8 +304,8 @@ export function SobreContentMobile() {
       </section>
 
       <MobileFrame
-        src={imgScrubsBlue}
-        alt="Dr. Hugo Doria em ambiente cirúrgico"
+        src={imgConsultorio}
+        alt="Dr. Hugo Doria em seu consultório"
         ratio="4 / 5"
       />
 
