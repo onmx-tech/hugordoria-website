@@ -238,10 +238,12 @@ function MobileFrame({
   src,
   alt,
   ratio = "4 / 3",
+  objectPosition = "center",
 }: {
   src: string;
   alt: string;
   ratio?: string;
+  objectPosition?: string;
 }) {
   return (
     <div
@@ -253,6 +255,7 @@ function MobileFrame({
         alt={alt}
         draggable={false}
         className="block h-full w-full select-none object-cover"
+        style={{ objectPosition }}
       />
     </div>
   );
@@ -289,7 +292,12 @@ export function SobreContentMobile() {
         </h2>
       </header>
 
-      <MobileFrame src={imgRetratoBracos} alt="Dr. Hugo Doria" ratio="4 / 5" />
+      <MobileFrame
+        src={imgRetratoBracos}
+        alt="Dr. Hugo Doria"
+        ratio="4 / 5"
+        objectPosition="50% 12%"
+      />
 
       <section className="flex flex-col gap-3">
         <MobileLabel>Atuação Profissional</MobileLabel>
