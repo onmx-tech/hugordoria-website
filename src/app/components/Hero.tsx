@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import imgHeroDoria from "@/assets/hero-doria-casual.png";
+import imgHeroDoria from "@/assets/hero-doria-bracos.png";
 import { gsap } from "../../lib/gsap";
 
 export default function Hero() {
