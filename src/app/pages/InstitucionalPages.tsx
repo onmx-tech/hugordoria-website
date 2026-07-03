@@ -150,7 +150,7 @@ export function SobreMimPage() {
             "/v4/photos/retrato-sentado.jpg",
             "/v4/photos/retrato-empe.jpg",
             "/v4/photos/retrato-bracos.jpg",
-            "/v4/photos/retrato-casual.jpg",
+            "/v4/photos/retrato-sentado-sorrindo.jpg",
           ].map((src) => (
             <div key={src} className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-navy-800 ring-1 ring-white/10">
               <img src={src} alt="Dr. Hugo Doria" loading="lazy" className="absolute inset-0 size-full object-cover object-top transition-transform duration-[1.2s] ease-out hover:scale-105" />
@@ -450,7 +450,7 @@ export function LocalizacaoPage() {
         eyebrow="Localização"
         title="Onde me encontrar"
         intro={CONTATO.endereco}
-        image="/v4/photos/retrato-casual.jpg"
+        image="/v4/photos/retrato-empe.jpg"
         imageAlt="Dr. Hugo Doria"
         badge={{ value: "SP", label: "Bela Vista" }}
       />

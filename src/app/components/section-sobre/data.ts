@@ -4,7 +4,7 @@ import imgScrubsGreen from "@/assets/1237b2795956579d89da3b7db4b78c58db67e687.pn
 // Fotos reais do cliente (public/v4/photos), referenciadas por path.
 // As antigas e25b (Dr. em escritório, gerada) e 6c18 (cirurgião de banco de
 // imagens) foram trocadas por fotografias reais do Dr.
-const imgAtuacao = "/v4/photos/retrato-casual.jpg";
+const imgAtuacao = "/v4/photos/retrato-sentado.jpg";
 const imgConsultorio = "/v4/photos/contato-portrait.jpg";
 
 // Canvas do trilho horizontal. 4 colunas (foto grande + legenda), fotos e

@@ -4,7 +4,7 @@ import imgVideo from "@/assets/a375c45d2716fbbea43385fdee4485566a41cfa6.png";
 import imgScrubsGreen from "@/assets/1237b2795956579d89da3b7db4b78c58db67e687.png";
 
 // Fotos reais do cliente (public/v4/photos) — substituem as imagens geradas.
-const imgAtuacao = "/v4/photos/retrato-casual.jpg";
+const imgAtuacao = "/v4/photos/retrato-sentado.jpg";
 const imgConsultorio = "/v4/photos/contato-portrait.jpg";
 
 export function Box({
