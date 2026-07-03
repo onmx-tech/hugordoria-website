@@ -50,6 +50,7 @@ export type ImageCell = {
   h: number;
   src: string;
   alt: string;
+  objectPosition?: string;
 };
 
 export type CaptionCell = {
@@ -69,7 +70,7 @@ const TEXT_H = CANVAS_H - TEXT_Y - 60; // altura disponível p/ a legenda
 // Cada coluna é um par foto + texto.
 export const cells: Cell[] = [
   // Col 1 — Retrato profissional / Atuação Profissional
-  { kind: "image", x: cols[0], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgAtuacao, alt: "Dr. Hugo Doria" },
+  { kind: "image", x: cols[0], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgAtuacao, alt: "Dr. Hugo Doria", objectPosition: "50% 8%" },
   { kind: "caption", x: cols[0], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "Atuação Profissional", text: texts.hospitals },
 
   // Col 2 — Palestra / Coordenação

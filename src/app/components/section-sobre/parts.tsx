@@ -24,13 +24,15 @@ export function Box({
 }
 
 export function ImageFrame({
-  x, y, w, h, src, alt,
+  x, y, w, h, src, alt, objectPosition = "center",
 }: {
   x: number; y: number; w: number; h: number;
-  src: string; alt: string;
+  src: string; alt: string; objectPosition?: string;
 }) {
   // object-cover centralizado. A imagem interna tem overscan (120% de largura,
   // left -10%) para que o parallax horizontal (±6%) nunca exponha as bordas.
+  // objectPosition permite ancorar o crop vertical por foto (ex.: retratos com a
+  // cabeça no alto precisam de "50% ~10%" para não decapitar no frame ~quadrado).
   return (
     <div
       className="absolute overflow-hidden"
@@ -44,7 +46,7 @@ export function ImageFrame({
         alt={alt}
         draggable={false}
         className="absolute top-0 block max-w-none select-none object-cover"
-        style={{ left: "-10%", width: "120%", height: "100%" }}
+        style={{ left: "-10%", width: "120%", height: "100%", objectPosition }}
       />
     </div>
   );
@@ -190,7 +192,7 @@ export function SobreContent() {
       {/* Grid de fotos + legendas (2 linhas × 4 colunas, alinhado) */}
       {cells.map((cell, i) =>
         cell.kind === "image" ? (
-          <ImageFrame key={i} x={cell.x} y={cell.y} w={cell.w} h={cell.h} src={cell.src} alt={cell.alt} />
+          <ImageFrame key={i} x={cell.x} y={cell.y} w={cell.w} h={cell.h} src={cell.src} alt={cell.alt} objectPosition={cell.objectPosition} />
         ) : (
           <CaptionCell key={i} x={cell.x} y={cell.y} w={cell.w} h={cell.h} label={cell.label} text={cell.text} />
         )
