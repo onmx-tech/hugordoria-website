@@ -4,7 +4,7 @@ import imgScrubsGreen from "@/assets/1237b2795956579d89da3b7db4b78c58db67e687.pn
 // Fotos reais do cliente (public/v4/photos), referenciadas por path.
 // As antigas e25b (Dr. em escritório, gerada) e 6c18 (cirurgião de banco de
 // imagens) foram trocadas por fotografias reais do Dr.
-const imgRetratoBracos = "/v4/photos/retrato-bracos.jpg";
+const imgAtuacao = "/v4/photos/retrato-casual.jpg";
 const imgConsultorio = "/v4/photos/contato-portrait.jpg";
 
 // Canvas do trilho horizontal. 4 colunas (foto grande + legenda), fotos e
@@ -69,7 +69,7 @@ const TEXT_H = CANVAS_H - TEXT_Y - 60; // altura disponível p/ a legenda
 // Cada coluna é um par foto + texto.
 export const cells: Cell[] = [
   // Col 1 — Retrato profissional / Atuação Profissional
-  { kind: "image", x: cols[0], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgRetratoBracos, alt: "Dr. Hugo Doria" },
+  { kind: "image", x: cols[0], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgAtuacao, alt: "Dr. Hugo Doria" },
   { kind: "caption", x: cols[0], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "Atuação Profissional", text: texts.hospitals },
 
   // Col 2 — Palestra / Coordenação

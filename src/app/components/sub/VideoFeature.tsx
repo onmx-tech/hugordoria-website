@@ -38,7 +38,7 @@ export function VideoFeature({
         )}
 
         <figure className="m-0">
-          <div className="relative aspect-video w-full overflow-hidden rounded-[24px] bg-navy-800 ring-1 ring-white/15">
+          <div className="relative aspect-video w-full overflow-hidden rounded-none bg-navy-800 ring-1 ring-white/15">
             {playing && src ? (
               src.endsWith(".mp4") || src.startsWith("/") ? (
                 <video

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import imgMedicalRoom from "@/assets/e25bc4f66b4a426ccf342bc9c87ec2d3e73f4b1a.png";
+const imgMedicalRoom = "/v4/photos/sobre-portrait.jpg";
 import { gsap } from "../../lib/gsap";
 
 const STATS = [
@@ -39,14 +39,14 @@ export default function SectionSobreMim() {
           {/* Foto */}
           <div
             data-reveal
-            className="relative w-full overflow-hidden rounded-[28px] ring-1 ring-navy/10"
+            className="relative w-full overflow-hidden ring-1 ring-navy/10"
             style={{ aspectRatio: "5 / 6" }}
           >
             <img
               src={imgMedicalRoom}
               alt="Dr. Hugo Doria em seu consultório"
               className="absolute inset-0 h-full w-full object-cover"
-              style={{ objectPosition: "58% 22%" }}
+              style={{ objectPosition: "50% 28%" }}
             />
           </div>
 

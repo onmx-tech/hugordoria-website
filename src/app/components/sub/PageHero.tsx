@@ -79,7 +79,7 @@ export function PageHero({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.12, ease }}
           >
-            <div className="relative aspect-square overflow-hidden rounded-[28px] ring-1 ring-white/15">
+            <div className="relative aspect-square overflow-hidden rounded-none ring-1 ring-white/15">
               {image ? (
                 <ImageWithFallback
                   src={image}
@@ -92,7 +92,7 @@ export function PageHero({
                 </div>
               )}
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-900/55 via-transparent to-transparent" />
-              <div className="pointer-events-none absolute inset-0 rounded-[28px] ring-1 ring-inset ring-white/10" />
+              <div className="pointer-events-none absolute inset-0 rounded-none ring-1 ring-inset ring-white/10" />
             </div>
           </motion.div>
         </div>
