@@ -12,6 +12,20 @@ Site institucional do Dr. Hugo Doria, neurocirurgião vascular. **Vite 6 + React
 
 **As SUBPÁGINAS usam o "Design System Doria"** (kit aprovado, ex-"Design System for Homepage"): mesmo navy/gold/cream da home, fontes **Geist** (display) / **Arimo** (corpo) / **Geist Mono** (labels), **sem gradientes radiais/glows**, **sem sombras**. Componentes em `src/app/components/sub/` (PageHero, primitives — Eyebrow/SectionHeading/Divider/Button/Stat/Container —, VideoFeature, ScrollRevealManifesto, etc.).
 
+## Cantos RETOS em todo o site
+
+O site inteiro usa **cantos retos** (cards/frames/imagens). No `theme.css` o `--radius` e TODAS as escalas (`--radius-xs/sm/md/lg/xl/2xl/3xl`) estão **zeradas** — isso mata as classes `rounded-*` de bloco de uma vez (telas + UI kit shadcn), sem caçar classe por classe. **NÃO reintroduzir** radius nesses tokens. Raios arbitrários (`rounded-[Npx]`) não passam pelo token — se aparecerem em bloco, usar `rounded-none`. **`rounded-full` é preservado de propósito** (pills de CTA, avatares, dots, botões de play, badges) — são formas, não "cantos", e existem inclusive na home.
+
+## Hero da home (`Hero.tsx`) = foto recortada sobre o navy
+
+O hero do topo (`Hero.tsx`, ≠ `SectionBrain`) mostra um **retrato do Dr. recortado** (PNG transparente, `@/assets/hero-doria-*.png`) que "flutua"/funde no gradiente navy. Trocar a foto = pegar uma real de `public/v4/photos/*.jpg`, **recortar o fundo** (Magnific `images_remove_background`: `creations_request_upload` → `curl PUT` do arquivo → `creations_finalize_upload` → `images_remove_background` → `creations_wait` → baixar o `render.png`), salvar em `src/assets/hero-doria-<pose>.png` e trocar o `import imgHeroDoria`. As fotos de `public/v4/photos` são JPGs COM fundo (usadas direto nas seções/subpáginas dentro de frames); só o hero precisa do recorte. ⚠️ A foto **`retrato-casual` foi rejeitada pelo cliente e ELIMINADA** — não reutilizar.
+
+## Pegadinhas de screenshot (puppeteer)
+
+- **Lenis intercepta `scrollIntoView`/`window.scrollTo`** — o scroll programático "cai" no hero e nunca chega na seção. Alternativas: `page.mouse.wheel()` (o Lenis respeita o wheel real), ou `elementHandle.screenshot()` mirando o elemento por seletor (ex.: `[data-component="sobre-mobile"]`) — captura o elemento independente do scroll.
+- `isMobile: true` **desabilita o wheel**. Para testar o layout mobile com wheel, use viewport de **largura estreita SEM `isMobile`** (o breakpoint `lg` decide o layout pela largura, não por `isMobile`).
+- **`SectionSobre` (desktop):** o frame é ~quadrado (640×720) mas os retratos são verticais (1000×1500); o `object-cover` central corta o topo (decapita). A `ImageFrame` aceita `objectPosition` **por célula** (`data.ts`) — retratos com a cabeça no alto usam `"50% ~8%"`.
+
 Páginas:
 - `EspecialidadePage.tsx` (`/especialidade/:slug`) — hero PageHero + corpo navy + "Outras especialidades".
 - `pages/Especialidades.tsx` (`/especialidades`) — listagem em grid.
