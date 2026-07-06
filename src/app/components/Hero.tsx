@@ -159,16 +159,28 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Gradient scrim — mantém o texto legível sobre a foto no mobile.
-          Estendido (64% no phone) e com o trecho sólido mais longo para que
-          a descrição não caia sobre o rosto do Dr. com baixo contraste; o
-          fade termina já no torso, então a cabeça não fica encoberta. */}
+      {/* Scrim do topo — protege o eyebrow + título sobre a foto no mobile.
+          Encurtado para o fade terminar ACIMA da cabeça do Dr., sem cortar
+          o rosto com uma faixa de gradiente. A descrição não fica mais aqui
+          (foi para o rodapé, sobre o terno), então não precisa de cobertura
+          até a região da cabeça. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[64%] sm:h-[52%] lg:hidden"
+        className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[40%] sm:h-[46%] lg:hidden"
         style={{
           background:
-            "linear-gradient(180deg, var(--color-bg-deeper) 0%, var(--color-bg-deeper) 44%, transparent 100%)",
+            "linear-gradient(180deg, var(--color-bg-deeper) 0%, var(--color-bg-deeper) 55%, transparent 100%)",
+        }}
+      />
+
+      {/* Scrim do rodapé — leve, garante contraste da descrição mobile e do
+          wordmark sobre a base da foto (terno escuro). */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[38%] lg:hidden"
+        style={{
+          background:
+            "linear-gradient(0deg, var(--color-bg-deeper) 0%, color-mix(in srgb, var(--color-bg-deeper) 70%, transparent) 45%, transparent 100%)",
         }}
       />
 
@@ -206,8 +218,9 @@ export default function Hero() {
           </h1>
         </div>
 
-        {/* Right: description */}
-        <div className="col-span-12 md:col-start-7 md:col-span-6 lg:col-start-10 lg:col-span-3 md:justify-self-end lg:justify-self-end w-full max-w-[420px]">
+        {/* Right: description — tablet/desktop (no mobile vai para o rodapé,
+            para não cair sobre o rosto do Dr.). */}
+        <div className="hidden md:block md:col-start-7 md:col-span-6 lg:col-start-10 lg:col-span-3 md:justify-self-end lg:justify-self-end w-full max-w-[420px]">
           <div
             data-hero="divider"
             className="h-px w-full bg-white/24"
@@ -222,8 +235,21 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Wordmark — full width at baseline */}
-      <div className="relative z-10 w-full px-6 md:px-8 pb-4 md:pb-6 mt-auto overflow-hidden">
+      {/* Rodapé — descrição (só mobile, sobre o terno) + wordmark */}
+      <div className="relative z-10 mt-auto w-full">
+        {/* Descrição no mobile: cai sobre o terno/braços (área escura),
+            não sobre o rosto do Dr. */}
+        <div className="md:hidden px-6 mb-7">
+          <div data-hero="divider" className="h-px w-full max-w-[440px] bg-white/24" />
+          <p
+            data-hero="description"
+            className="mt-5 max-w-[440px] font-['Geist',sans-serif] font-normal text-cream leading-[1.41] text-[16px]"
+          >
+            Transformando vidas com inovação, pesquisa avançada e precisão em tratamentos Neurológicos Complexos, proporcionando qualidade e segurança aos pacientes.
+          </p>
+        </div>
+
+        <div className="w-full px-6 md:px-8 pb-4 md:pb-6 overflow-hidden">
         <svg
           data-hero="wordmark"
           viewBox="0 0 1858 238"
@@ -242,6 +268,7 @@ export default function Hero() {
           <path d="M1604.08 232.32V5.11999H1638.64V232.32H1604.08Z" fill="var(--color-accent-gold-light)" />
           <path d="M1650.32 232.32L1732.24 5.11999H1776.08L1858 232.32H1821.2L1800.4 173.12H1707.6L1687.12 232.32H1650.32ZM1718.48 141.76H1789.84L1754 38.08L1718.48 141.76Z" fill="var(--color-accent-gold-light)" />
         </svg>
+        </div>
       </div>
     </section>
   );
