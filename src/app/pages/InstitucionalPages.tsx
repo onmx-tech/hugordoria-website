@@ -261,8 +261,8 @@ export function EventosPage() {
         eyebrow="Eventos"
         title="Presença na comunidade neurocirúrgica"
         intro="20 anos de experiência compartilhados em congressos nacionais e internacionais, aulas para residentes e simpósios de neurocirurgia vascular."
-        image="/v4/photos/palestra-podium.jpg"
-        imageAlt="Palestra em congresso"
+        image="/v4/photos/palestra-painel.jpg"
+        imageAlt="Dr. Hugo Doria palestrando em congresso"
         badge={{ value: String(EVENTOS.length).padStart(2, "0"), label: "palestras e congressos" }}
       />
       <Section>

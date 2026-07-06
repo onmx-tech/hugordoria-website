@@ -27,8 +27,8 @@ export function EspecialidadesPage() {
           eyebrow="Serviços de Neurocirurgia"
           title="Minhas Especialidades"
           intro="Tratamentos avançados em neurocirurgia vascular e oncológica, do diagnóstico à reabilitação, sempre aliando tecnologia de ponta ao cuidado humanizado."
-          image={HERO_IMG.specialties}
-          imageAlt="Tecnologia de neurocirurgia de precisão"
+          image="/v4/photos/retrato-empe.jpg"
+          imageAlt="Dr. Hugo Doria, neurocirurgião"
           badge={{ value: String(cards.length).padStart(2, "0"), label: "Áreas de especialidade" }}
         />
 

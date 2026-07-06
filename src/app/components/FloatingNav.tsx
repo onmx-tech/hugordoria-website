@@ -24,19 +24,40 @@ export default function FloatingNav() {
   };
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > SHOW_THRESHOLD);
+    let lastY = window.scrollY;
+    let ticking = false;
+    const update = () => {
+      const y = window.scrollY;
+      const goingDown = y > lastY + 4;
+      const goingUp = y < lastY - 4;
+      // Some depois do threshold; enquanto rola PRA BAIXO (lendo) esconde para
+      // não cobrir o conteúdo; reaparece ao rolar PRA CIMA (intenção de agir).
+      if (y <= SHOW_THRESHOLD) setVisible(false);
+      else if (goingDown) setVisible(false);
+      else if (goingUp) setVisible(true);
+      lastY = y;
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    update();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // A página de contato JÁ é o CTA de agendamento (formulário + canais):
+  // a nav flutuante fica redundante e, no mobile, colide com o botão de envio.
+  if (pathname.startsWith("/contato")) return null;
 
   return (
     <nav
       ref={navRef}
       aria-label="Navegação flutuante"
-      className="fixed bottom-6 left-1/2 z-50 flex items-center rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] gap-1 px-1.5 py-1.5"
+      // Mobile: FAB no canto inferior-direito (não cobre o texto/rosto ao rolar).
+      // Desktop (md+): pill de navegação centralizado embaixo.
+      className={`fixed bottom-6 right-5 z-50 flex items-center rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] gap-1 px-1.5 py-1.5 md:right-auto md:left-1/2 md:-translate-x-1/2 ${visible ? "translate-y-0" : "translate-y-[calc(100%+2.5rem)]"}`}
       style={{
-        transform: visible ? "translate(-50%, 0)" : "translate(-50%, calc(100% + 40px))",
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? "auto" : "none",
         background: "rgba(18, 33, 54, 0.75)",
