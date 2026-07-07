@@ -1,0 +1,147 @@
+<title>Aprovação · Imagens de Procedimentos — Dr. Hugo Doria</title>
+<style>
+  :root{
+    --deeper:#091524; --deep:#0c1a2e; --mid:#122136; --card:#15263d;
+    --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.16);
+    --cream:#f3efe6; --soft:rgba(243,239,230,.66); --faint:rgba(243,239,230,.42);
+    --gold:#c5a471; --gold-deep:#b78e30; --reject:#e0a08a; --ok:#8fb98a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0}
+  .wrap{
+    min-height:100vh; background:
+      radial-gradient(1200px 600px at 78% -8%, rgba(197,164,113,.10), transparent 60%),
+      linear-gradient(180deg,var(--deeper),var(--deep) 40%,var(--mid));
+    color:var(--cream);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding:clamp(28px,5vw,72px) clamp(20px,5vw,64px) 96px;
+  }
+  .inner{max-width:1200px;margin:0 auto}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;text-transform:uppercase}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.16em;color:var(--cream)}
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold)}
+  h1{font-size:clamp(30px,4.4vw,52px);line-height:1.06;letter-spacing:-.03em;font-weight:600;margin:22px 0 0;max-width:16ch;text-wrap:balance}
+  .lede{margin:20px 0 0;max-width:62ch;font-size:clamp(16px,1.5vw,19px);line-height:1.55;color:var(--soft)}
+  .rule{height:1px;background:var(--line);margin:clamp(30px,5vw,52px) 0}
+
+  .note{display:grid;grid-template-columns:1fr;gap:18px;border:1px solid var(--line);border-left:2px solid var(--gold);background:rgba(255,255,255,.02);padding:22px 24px;margin-bottom:clamp(34px,5vw,56px)}
+  @media(min-width:760px){.note{grid-template-columns:1fr 1fr 1fr}}
+  .note h3{margin:0 0 6px;font-size:13px;font-weight:600;letter-spacing:-.01em}
+  .note p{margin:0;font-size:14px;line-height:1.5;color:var(--soft)}
+  .note .k{font-size:11px;letter-spacing:.12em;color:var(--gold);display:block;margin-bottom:8px}
+
+  .proc{margin-bottom:clamp(40px,6vw,68px)}
+  .proc-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+  .proc-head .n{font-size:12px;letter-spacing:.12em;color:var(--faint)}
+  .proc-head h2{font-size:clamp(22px,2.6vw,30px);font-weight:600;letter-spacing:-.02em;margin:0}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:20px}
+  @media(min-width:720px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+  .card{border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;overflow:hidden;margin:0}
+  .card.pick{border-color:rgba(197,164,113,.55);box-shadow:0 0 0 1px rgba(197,164,113,.25)}
+  .thumb{aspect-ratio:1/1;overflow:hidden;background:#0a1220;position:relative}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* Tag legível sobre QUALQUER imagem: fundo navy sólido + blur */
+  .badge{
+    position:absolute;top:12px;left:12px;
+    font-size:11px;font-weight:600;letter-spacing:.05em;
+    padding:6px 11px;border-radius:3px;
+    background:rgba(9,21,36,.82);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,.14);
+    display:inline-flex;align-items:center;gap:7px;line-height:1;
+  }
+  .badge::before{content:"";width:6px;height:6px;border-radius:50%}
+  .badge.rej{color:var(--reject)} .badge.rej::before{background:var(--reject)}
+  .badge.pk{color:var(--gold);border-color:rgba(197,164,113,.5)} .badge.pk::before{background:var(--gold)}
+  .badge.neu{color:var(--soft)} .badge.neu::before{background:var(--soft)}
+
+  .meta{padding:16px 18px 20px;display:flex;flex-direction:column;gap:7px;flex:1}
+  .meta .lbl{font-size:11px;letter-spacing:.08em;color:var(--gold-deep)}
+  .meta .ttl{font-size:16px;font-weight:600;letter-spacing:-.01em}
+  .meta .ttl.rejttl{color:var(--soft)}
+  .meta p{margin:2px 0 0;font-size:13px;line-height:1.5;color:var(--soft)}
+  .tag-ok{margin-top:auto;padding-top:12px;font-size:11px;color:var(--ok);display:flex;align-items:center;gap:7px}
+  .tag-ok::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ok);flex:none}
+
+  .foot{margin-top:clamp(20px,4vw,40px);border-top:1px solid var(--line);padding-top:28px;display:flex;flex-direction:column;gap:8px}
+  .foot .k{font-size:11px;letter-spacing:.12em;color:var(--gold)}
+  .foot p{margin:0;font-size:14px;line-height:1.55;color:var(--soft);max-width:72ch}
+  .pill{display:inline-block;margin-top:14px;font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--deep);background:var(--gold);padding:9px 16px}
+</style>
+
+<div class="wrap"><div class="inner">
+  <span class="eyebrow mono">Aprovação · Imagens de procedimentos</span>
+  <h1>Novas imagens — mais realistas e claras</h1>
+  <p class="lede">O cliente apontou que os renders atuais parecem ilustração 3D, escura e pouco realista. Trouxemos <strong style="color:var(--cream)">duas direções mais reais e claras</strong> para escolher. Abaixo, <strong style="color:var(--cream)">3 procedimentos de exemplo</strong> lado a lado, para travar a linha antes de gerar os 11.</p>
+
+  <div class="rule"></div>
+
+  <div class="note">
+    <div><span class="k mono">Antes</span><h3>O que foi rejeitado</h3><p>Render CGI dramático, fundo navy escuro e luz dourada. Bonito, mas “parece ilustração”, não real.</p></div>
+    <div><span class="k mono">Opção A</span><h3>Anatomia da condição</h3><p>A condição em si (aneurisma, tumor, MAV) fotorrealista e clara. Mostra <em>o problema</em> que o Dr. resolve.</p></div>
+    <div><span class="k mono">Opção B</span><h3>O procedimento</h3><p>A cirurgia em andamento — microscópio, neuronavegação, precisão. 100% real e sem peso; mostra <em>a expertise</em>.</p></div>
+  </div>
+
+  <section class="proc">
+    <div class="proc-head"><span class="n mono">01 / 11</span><h2>Aneurisma Cerebral</h2></div>
+    <div class="grid">
+      <figure class="card">
+        <div class="thumb"><span class="badge rej mono">Atual · rejeitada</span><img src="./img/aneurisma-atual-web.jpg" alt="Aneurisma Cerebral — imagem atual (rejeitada)"></div>
+        <figcaption class="meta"><span class="lbl mono">Antes</span><span class="ttl rejttl">Render escuro (CGI)</span><p>Fundo navy, luz dourada, aspecto de ilustração — o que sai hoje.</p></figcaption>
+      </figure>
+      <figure class="card pick">
+        <div class="thumb"><span class="badge pk mono">Opção A · anatomia</span><img src="./img/aneurisma-A-web.jpg" alt="Aneurisma Cerebral — anatomia"></div>
+        <figcaption class="meta"><span class="lbl mono">Anatomia da condição</span><span class="ttl">A condição em si, clara</span><p>Aneurisma sacular nítido na bifurcação da artéria. Realista, claro e premium.</p><span class="tag-ok">Mostra o problema — realista e acolhedor</span></figcaption>
+      </figure>
+      <figure class="card pick">
+        <div class="thumb"><span class="badge pk mono">Opção B · procedimento</span><img src="./img/proc-aneurisma-web.jpg" alt="Aneurisma Cerebral — procedimento"></div>
+        <figcaption class="meta"><span class="lbl mono">O procedimento sendo feito</span><span class="ttl">A cirurgia em andamento</span><p>O procedimento em si: microscópio cirúrgico e neuronavegação vascular. Real, sem peso.</p><span class="tag-ok">100% real, sem peso — mostra a expertise</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="proc">
+    <div class="proc-head"><span class="n mono">02 / 11</span><h2>Tumores Cerebrais</h2></div>
+    <div class="grid">
+      <figure class="card">
+        <div class="thumb"><span class="badge rej mono">Atual · rejeitada</span><img src="./img/tumor-atual-web.jpg" alt="Tumores Cerebrais — imagem atual (rejeitada)"></div>
+        <figcaption class="meta"><span class="lbl mono">Antes</span><span class="ttl rejttl">Render escuro (CGI)</span><p>Fundo navy, luz dourada, aspecto de ilustração — o que sai hoje.</p></figcaption>
+      </figure>
+      <figure class="card pick">
+        <div class="thumb"><span class="badge pk mono">Opção A · anatomia</span><img src="./img/tumor-A-web.jpg" alt="Tumores Cerebrais — anatomia"></div>
+        <figcaption class="meta"><span class="lbl mono">Anatomia da condição</span><span class="ttl">A condição em si, clara</span><p>Massa tumoral vascularizada sobre o córtex, isolada em fundo claro.</p><span class="tag-ok">Mostra o problema — realista e acolhedor</span></figcaption>
+      </figure>
+      <figure class="card pick">
+        <div class="thumb"><span class="badge pk mono">Opção B · procedimento</span><img src="./img/proc-tumor-web.jpg" alt="Tumores Cerebrais — procedimento"></div>
+        <figcaption class="meta"><span class="lbl mono">O procedimento sendo feito</span><span class="ttl">A cirurgia em andamento</span><p>Cirurgia guiada por ressonância na neuronavegação. Ambiente clínico, sem sangue.</p><span class="tag-ok">100% real, sem peso — mostra a expertise</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="proc">
+    <div class="proc-head"><span class="n mono">03 / 11</span><h2>MAVs — Malformação Arteriovenosa</h2></div>
+    <div class="grid">
+      <figure class="card">
+        <div class="thumb"><span class="badge rej mono">Atual · rejeitada</span><img src="./img/mav-atual-web.jpg" alt="MAVs — Malformação Arteriovenosa — imagem atual (rejeitada)"></div>
+        <figcaption class="meta"><span class="lbl mono">Antes</span><span class="ttl rejttl">Render escuro (CGI)</span><p>Fundo navy, luz dourada, aspecto de ilustração — o que sai hoje.</p></figcaption>
+      </figure>
+      <figure class="card pick">
+        <div class="thumb"><span class="badge pk mono">Opção A · anatomia</span><img src="./img/mav-A-web.jpg" alt="MAVs — Malformação Arteriovenosa — anatomia"></div>
+        <figcaption class="meta"><span class="lbl mono">Anatomia da condição</span><span class="ttl">A condição em si, clara</span><p>Emaranhado arteriovenoso (nidus) em vermelho e azul, fundo neutro. Distinto e legível.</p><span class="tag-ok">Mostra o problema — realista e acolhedor</span></figcaption>
+      </figure>
+      <figure class="card pick">
+        <div class="thumb"><span class="badge pk mono">Opção B · procedimento</span><img src="./img/proc-mav-web.jpg" alt="MAVs — Malformação Arteriovenosa — procedimento"></div>
+        <figcaption class="meta"><span class="lbl mono">O procedimento sendo feito</span><span class="ttl">A cirurgia em andamento</span><p>Microcirurgia sob microscópio com angiografia na tela. High-tech e tranquilizador.</p><span class="tag-ok">100% real, sem peso — mostra a expertise</span></figcaption>
+      </figure>
+    </div>
+  </section>
+  <div class="foot">
+    <span class="k mono">Próximo passo</span>
+    <p>Escolhida a direção — <strong style="color:var(--cream)">Anatomia</strong> ou <strong style="color:var(--cream)">Procedimento</strong> —, gero a linha para os <strong style="color:var(--cream)">11 procedimentos</strong> e atualizo esta mesma página com todos lado a lado para a aprovação final do cliente. As duas são 100% mais realistas e claras que o render atual; a escolha é de mensagem: mostrar <em>a condição</em> ou <em>a cirurgia</em>.</p>
+    <span class="pill">Aguardando aprovação da direção</span>
+  </div>
+</div></div>
