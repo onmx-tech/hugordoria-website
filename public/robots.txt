@@ -1,0 +1,8 @@
+# https://hugodoria.com.br
+User-agent: *
+Allow: /
+
+# Ferramenta interna de aprovação de imagens — fora do índice.
+Disallow: /aprovacao/
+
+Sitemap: https://hugodoria.com.br/sitemap.xml

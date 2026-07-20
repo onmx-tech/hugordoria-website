@@ -8,6 +8,8 @@ import { Footer } from "./sub/Footer";
 import FloatingNav from "./FloatingNav";
 import { PageHero } from "./sub/PageHero";
 import { Eyebrow, SectionHeading, Divider, Button, Container } from "./sub/primitives";
+import { useSeo } from "../seo/useSeo";
+import { breadcrumbSchema, medicalPageSchema } from "../seo/schema";
 
 // Figuras médicas Magnific (navy). Escolhe por palavra-chave da legenda;
 // fallback rotativo pelo índice da seção pra variar entre as imagens.
@@ -32,6 +34,38 @@ export default function EspecialidadePage() {
   const others = cards.filter((c) => c.slug !== slug).slice(0, 7);
 
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
+
+  // SEO por especialidade — cada uma é a landing page de uma busca real
+  // ("tratamento de aneurisma cerebral em São Paulo"). Chamado antes do early
+  // return para manter a ordem dos hooks estável.
+  useSeo(
+    card
+      ? {
+          title: `${card.title} — tratamento com Dr. Hugo Doria`,
+          description: article?.lead ?? card.description,
+          image: `/v4/procedimentos/${card.slug}.jpg`,
+          type: "article",
+          // Especialidade sem artigo clínico ainda é só hero + CTA. Página
+          // rasa indexada derruba a autoridade do domínio inteiro — fica fora
+          // do índice até o texto existir (e volta sozinha quando existir).
+          noindex: !article,
+          jsonLd: [
+            medicalPageSchema({
+              name: card.title,
+              description: article?.lead ?? card.description,
+              path: `/especialidade/${card.slug}`,
+              image: `/v4/procedimentos/${card.slug}.jpg`,
+              conditionName: card.title,
+            }),
+            breadcrumbSchema([
+              { name: "Início", path: "/" },
+              { name: "Especialidades", path: "/especialidades" },
+              { name: card.title, path: `/especialidade/${card.slug}` },
+            ]),
+          ],
+        }
+      : { title: "Especialidade não encontrada", noindex: true },
+  );
 
   if (!card) {
     return (

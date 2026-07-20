@@ -18,6 +18,8 @@ import { Eyebrow, SectionHeading, Divider, Button, Container, Stat } from "../co
 import { VideoFeature } from "../components/sub/VideoFeature";
 import { VideoCard } from "../components/sub/VideoCard";
 import { Reveal } from "../components/sub/Reveal";
+import { useSeo } from "../seo/useSeo";
+import { breadcrumbSchema } from "../seo/schema";
 import { ScrollRevealManifesto } from "../components/sub/ScrollRevealManifesto";
 import { cards } from "../components/section-especialidades/data";
 import {
@@ -59,6 +61,19 @@ function Section({ children, tone = "navy" }: { children: ReactNode; tone?: "nav
 
 // ───────────────────────── /sobre-mim ─────────────────────────
 export function SobreMimPage() {
+  useSeo({
+    title: "Sobre o Dr. Hugo Doria — neurocirurgião MD PhD",
+    description:
+      "Trajetória, formação e atuação do Dr. Hugo Leonardo Doria-Netto: neurocirurgia vascular com precisão técnica, pesquisa avançada e cuidado humano.",
+    image: "/v4/photos/sobre-portrait.jpg",
+    jsonLd: [
+      breadcrumbSchema([
+        { name: "Início", path: "/" },
+        { name: "Sobre mim", path: "/sobre-mim" },
+      ]),
+    ],
+  });
+
   return (
     <Shell>
       <PageHero
@@ -178,6 +193,19 @@ export function SobreMimPage() {
 
 // ───────────────────────── /doutorado ─────────────────────────
 export function DoutoradoPage() {
+  useSeo({
+    title: "Doutorado — tese sobre aneurismas paraclinóideos",
+    description:
+      "Tese de doutorado em Neurociência (UNIFESP): protocolo inédito, em quatro etapas, para distinguir quais aneurismas cerebrais paraclinóideos exigem tratamento.",
+    image: "/v4/photos/doutorado-portrait.jpg",
+    jsonLd: [
+      breadcrumbSchema([
+        { name: "Início", path: "/" },
+        { name: "Doutorado", path: "/doutorado" },
+      ]),
+    ],
+  });
+
   return (
     <Shell>
       <PageHero
@@ -217,6 +245,19 @@ export function DoutoradoPage() {
 
 // ───────────────────────── /publicacoes ─────────────────────────
 export function PublicacoesPage() {
+  useSeo({
+    title: "Publicações científicas",
+    description:
+      "Produção científica do Dr. Hugo Doria em neurocirurgia vascular — artigos, capítulos e pesquisa publicada em periódicos internacionais.",
+    image: "/v4/photos/retrato-bracos.jpg",
+    jsonLd: [
+      breadcrumbSchema([
+        { name: "Início", path: "/" },
+        { name: "Publicações", path: "/publicacoes" },
+      ]),
+    ],
+  });
+
   return (
     <Shell>
       <PageHero
@@ -255,6 +296,19 @@ export function PublicacoesPage() {
 
 // ───────────────────────── /eventos ─────────────────────────
 export function EventosPage() {
+  useSeo({
+    title: "Eventos e congressos",
+    description:
+      "Vinte anos de participação em congressos nacionais e internacionais, aulas para residentes e simpósios de neurocirurgia vascular.",
+    image: "/v4/photos/palestra-painel.jpg",
+    jsonLd: [
+      breadcrumbSchema([
+        { name: "Início", path: "/" },
+        { name: "Eventos", path: "/eventos" },
+      ]),
+    ],
+  });
+
   return (
     <Shell>
       <PageHero
@@ -283,6 +337,19 @@ export function EventosPage() {
 
 // ───────────────────────── /midia ─────────────────────────
 export function MidiaPage() {
+  useSeo({
+    title: "Mídia — vídeos e aparições",
+    description:
+      "Entrevistas, aulas e conteúdos do Dr. Hugo Doria sobre neurocirurgia vascular, diagnóstico e tratamento das principais condições neurológicas.",
+    image: "/v4/photos/palestra-podium.jpg",
+    jsonLd: [
+      breadcrumbSchema([
+        { name: "Início", path: "/" },
+        { name: "Mídia", path: "/midia" },
+      ]),
+    ],
+  });
+
   return (
     <Shell>
       <PageHero
@@ -308,6 +375,19 @@ export function MidiaPage() {
 
 // ───────────────────────── /depoimentos ─────────────────────────
 export function DepoimentosPage() {
+  useSeo({
+    title: "Depoimentos de pacientes",
+    description:
+      "Mensagens reais de pacientes e familiares ao longo de duas décadas de neurocirurgia — o maior reconhecimento do trabalho.",
+    image: "/v4/photos/retrato-sentado-sorrindo.jpg",
+    jsonLd: [
+      breadcrumbSchema([
+        { name: "Início", path: "/" },
+        { name: "Depoimentos", path: "/depoimentos" },
+      ]),
+    ],
+  });
+
   return (
     <Shell>
       <PageHero
@@ -345,6 +425,19 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
 }
 
 export function ContatoPage() {
+  useSeo({
+    title: "Contato e agendamento de consulta",
+    description:
+      "Agende sua avaliação com o Dr. Hugo Doria. Consultório na Bela Vista, São Paulo — atendimento por WhatsApp, telefone ou formulário.",
+    image: "/v4/photos/contato-portrait.jpg",
+    jsonLd: [
+      breadcrumbSchema([
+        { name: "Início", path: "/" },
+        { name: "Contato", path: "/contato" },
+      ]),
+    ],
+  });
+
   const [nome, setNome] = useState("");
   const [telefone, setTelefone] = useState("");
   const [email, setEmail] = useState("");
@@ -444,6 +537,19 @@ export function ContatoPage() {
 
 // ───────────────────────── /localizacao ─────────────────────────
 export function LocalizacaoPage() {
+  useSeo({
+    title: "Localização do consultório — Bela Vista, São Paulo",
+    description:
+      "Consultório do Dr. Hugo Doria na R. Teixeira da Silva, 54 — sala 73, Bela Vista, São Paulo. Como chegar e canais de contato.",
+    image: "/v4/photos/retrato-empe.jpg",
+    jsonLd: [
+      breadcrumbSchema([
+        { name: "Início", path: "/" },
+        { name: "Localização", path: "/localizacao" },
+      ]),
+    ],
+  });
+
   return (
     <Shell>
       <PageHero

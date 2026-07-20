@@ -8,6 +8,8 @@ import { Eyebrow, SectionHeading, Divider, Button, Container } from "../componen
 import { HERO_IMG } from "../components/sub/heroImages";
 import { cards } from "../components/section-especialidades/data";
 import FloatingNav from "../components/FloatingNav";
+import { useSeo } from "../seo/useSeo";
+import { breadcrumbSchema } from "../seo/schema";
 
 const PROCESS = [
   { step: "01", title: "Avaliação", text: "Consulta detalhada, análise de exames e escuta atenta da sua história clínica." },
@@ -18,6 +20,18 @@ const PROCESS = [
 
 export function EspecialidadesPage() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  useSeo({
+    title: "Especialidades — neurocirurgia vascular e oncológica",
+    description:
+      "Aneurisma cerebral, MAVs, moyamoya, tumores cerebrais, hipofisários e medulares, schwannoma, cavernomas, neuralgia do trigêmeo e espasmo hemifacial.",
+    image: "/v4/photos/retrato-empe.jpg",
+    jsonLd: [
+      breadcrumbSchema([
+        { name: "Início", path: "/" },
+        { name: "Especialidades", path: "/especialidades" },
+      ]),
+    ],
+  });
 
   return (
     <div className="flex min-h-screen flex-col bg-navy-600 font-body">

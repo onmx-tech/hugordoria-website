@@ -56,7 +56,28 @@ Servidos estáticos (referenciar por path string, ex.: `image="/v4/photos/sobre-
 
 ⚠️ A foto antiga `aneurisma.jpg` (e similares genéricas) era um **coração/asset errado** — nunca usar. `brain.png` do kit, apesar do nome, é o **retrato do Dr.**.
 
+## SEO — o site é uma SPA, o `<head>` é escrito em runtime
+
+São **21 rotas** servindo o mesmo `index.html`. Sem intervenção, todas compartilham um único título/descrição — o Google e o WhatsApp leem o site inteiro como uma página só. O módulo `src/app/seo/` resolve isso:
+
+- **`site.config.json` (raiz)** — o domínio canônico mora aqui e **em nenhum outro lugar**. O `index.html` usa o marcador `%SITE_URL%` (injetado na build pelo `vite.config.ts`), o app lê via `seo/site.ts` e o sitemap via `scripts/gen-sitemap.mjs`. ⚠️ O domínio de produção **ainda não foi confirmado pelo cliente** — quando for, trocar essa única linha. Canonical apontando para o endereço errado divide o ranqueamento entre dois sites.
+- **`site.ts`** — nome, endereço estruturado e imagem OG padrão, além de reexportar o `SITE_URL`. Não espalhar essas strings pelo código.
+- **`useSeo.ts`** — hook chamado **uma vez por página**, no topo do componente de rota. Escreve title, description, canonical, Open Graph, Twitter Card e injeta o JSON-LD da rota (removido no cleanup, para não acumular entre navegações).
+- **`schema.ts`** — builders de schema.org: `physicianSchema` (perfil + consultório), `websiteSchema`, `breadcrumbSchema`, `medicalPageSchema` (páginas de especialidade).
+
+Regras:
+- **`Physician` só existe no `index.html` estático** — crawlers sem JS (WhatsApp, LinkedIn) leem de lá. Não repetir o bloco nas rotas; o `@id` (`/#physician`) é referenciado pelos outros schemas.
+- **Página nova = `useSeo` obrigatório**, com título e descrição próprios. Título duplicado entre rotas é regressão.
+- **Especialidade sem artigo clínico** (`content/especialidades/<slug>.ts`) é hero + CTA = *thin content*: recebe `noindex` automático e fica fora do sitemap. Não é hard-code — quando o arquivo de conteúdo existir, ela entra sozinha. Hoje falta a de **`revascularizacao-cerebral`**.
+- **`sitemap.xml` e `robots.txt` são gerados**, nunca editados à mão: `npm run sitemap` (roda sozinho no `prebuild`). O script lê os slugs de `section-especialidades/data.ts` e avisa no console o que ficou de fora.
+- **Imagem de compartilhamento**: `public/og/og-default.jpg` (1200×630, navy + retrato + Geist). Ícones: `favicon-32.png`, `icon-512.png`, `apple-touch-icon.png` na raiz de `public/`.
+
+## Retune fica fora do bundle de produção
+
+O overlay de edição visual é importado com `lazy()` sob `import.meta.env.DEV` no `main.tsx`. Ele não faz nada em produção, mas ia inteiro no bundle — o import dinâmico cortou **1.204 kB → 680 kB** (375 → 233 kB gzip). **Não voltar para o import estático.**
+
 ## Verificação
 
-- Após mudanças: `npx tsc --noEmit -p tsconfig.json 2>&1 | grep -c "error TS"` deve ser `0`.
+- **Não existe `tsconfig.json` nem TypeScript instalado neste projeto** — o Vite transpila com esbuild, sem checagem de tipos. A verificação real é `npm run build` (deve terminar com `✓ built`). Ignore instruções antigas mandando rodar `npx tsc --noEmit`.
 - Validar visualmente com puppeteer-core (a home é scroll-pinado; subpáginas têm hero + corpo). Confirmar a porta certa pelo `<title>`.
+- Ao mexer em SEO, conferir no navegador o `<head>` **depois** do React montar (o `index.html` cru não reflete a rota).

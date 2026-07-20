@@ -9,9 +9,20 @@ import SectionBrain from "./components/SectionBrain";
 import Footer from "./components/Footer";
 import FloatingNav from "./components/FloatingNav";
 import { useLenis } from "../hooks/useLenis";
+import { useSeo } from "./seo/useSeo";
+import { websiteSchema } from "./seo/schema";
 
 export default function App() {
   useLenis();
+  useSeo({
+    title: "Dr. Hugo Doria — Neurocirurgião vascular em São Paulo",
+    description:
+      "Neurocirurgião MD PhD com atuação no BP, Santa Catarina, Albert Einstein e Sírio-Libanês. Tratamento de aneurismas, MAVs, tumores cerebrais e doenças neurológicas complexas.",
+    canonicalPath: "/",
+    // O perfil Physician já vai estático no index.html (crawlers sem JS);
+    // aqui só o WebSite, que referencia aquele @id.
+    jsonLd: [websiteSchema()],
+  });
 
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>

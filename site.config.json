@@ -1,0 +1,4 @@
+{
+  "_comment": "Domínio canônico do site. TROCAR AQUI e em lugar nenhum mais: o index.html recebe por injeção (vite.config.ts), o app lê em src/app/seo/site.ts e o sitemap em scripts/gen-sitemap.mjs. Canonical errado divide o ranqueamento entre dois endereços.",
+  "siteUrl": "https://hugodoria.com.br"
+}

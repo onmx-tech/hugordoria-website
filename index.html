@@ -1,23 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Dr. Hugo Doria - MD PhD - Neurocirurgião</title>
-      <meta name="description" content="Dr. Hugo Doria - MD PhD - Neurocirurgião. Tratamentos avançados em neurocirurgia vascular, aneurismas, malformações, tumores cerebrais e doenças neurológicas complexas." />
-      <meta property="og:title" content="Dr. Hugo Doria - MD PhD - Neurocirurgião" />
-      <meta property="og:description" content="Neurocirurgião em hospitais renomados como BP, Santa Catarina, Albert Einstein e Sírio Libanês." />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Dr. Hugo Doria - MD PhD - Neurocirurgião" />
-      <meta name="twitter:description" content="Neurocirurgião em hospitais renomados como BP, Santa Catarina, Albert Einstein e Sírio Libanês." />
-      <style>html, body { height: 100%; margin: 0; background-color: #1a293f; } #root { height: 100%; }</style>
-    </head>
+    <title>Dr. Hugo Doria — Neurocirurgião vascular em São Paulo</title>
+    <meta
+      name="description"
+      content="Neurocirurgião MD PhD com atuação no BP, Santa Catarina, Albert Einstein e Sírio-Libanês. Tratamento de aneurismas, MAVs, tumores cerebrais e doenças neurológicas complexas."
+    />
+    <link rel="canonical" href="%SITE_URL%/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Dr. Hugo Doria" />
+    <meta name="theme-color" content="#1a293f" />
 
-    <body>
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-    </body>
-  </html>
-  
+    <!-- Ícones -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Compartilhamento (WhatsApp, LinkedIn, Facebook) -->
+    <meta property="og:site_name" content="Dr. Hugo Doria" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta
+      property="og:title"
+      content="Dr. Hugo Doria — Neurocirurgião vascular em São Paulo"
+    />
+    <meta
+      property="og:description"
+      content="Neurocirurgião MD PhD. Tratamento de aneurismas, MAVs, tumores cerebrais e doenças neurológicas complexas."
+    />
+    <meta
+      property="og:image"
+      content="%SITE_URL%/og/og-default.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dr. Hugo Doria, neurocirurgião" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Dr. Hugo Doria — Neurocirurgião vascular em São Paulo"
+    />
+    <meta
+      name="twitter:description"
+      content="Neurocirurgião MD PhD. Tratamento de aneurismas, MAVs, tumores cerebrais e doenças neurológicas complexas."
+    />
+    <meta
+      name="twitter:image"
+      content="%SITE_URL%/og/og-default.jpg"
+    />
+
+    <!--
+      Dados estruturados no HTML estático: crawlers que não executam JS
+      (WhatsApp, LinkedIn, bots de preview) leem daqui. As rotas internas
+      reescrevem título/OG/JSON-LD em runtime via src/app/seo/useSeo.ts.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Physician",
+        "@id": "%SITE_URL%/#physician",
+        "name": "Dr. Hugo Doria",
+        "alternateName": "Hugo Leonardo Doria-Netto",
+        "url": "%SITE_URL%",
+        "image": "%SITE_URL%/og/og-default.jpg",
+        "medicalSpecialty": "Neurologic",
+        "description": "Neurocirurgião MD PhD — neurocirurgia vascular.",
+        "telephone": "+55 (11) 97162-2777",
+        "email": "contato@hugodoria.com.br",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "R. Teixeira da Silva, 54 — sala 73",
+          "addressLocality": "São Paulo",
+          "addressRegion": "SP",
+          "postalCode": "04002-030",
+          "addressCountry": "BR"
+        },
+        "areaServed": { "@type": "City", "name": "São Paulo" },
+        "sameAs": [
+          "https://www.instagram.com/drhugodoria/",
+          "https://www.facebook.com/hugoleonardo.dorianetto/",
+          "https://www.linkedin.com/in/hugo-doria-107b834b/"
+        ]
+      }
+    </script>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background-color: #1a293f;
+      }
+      #root {
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
