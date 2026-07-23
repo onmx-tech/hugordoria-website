@@ -134,3 +134,143 @@ export const DEPOIMENTOS_GALERIA = Array.from(
   { length: 24 },
   (_, i) => `/v4/depoimentos/depo-${String(i + 1).padStart(2, "0")}.png`,
 );
+
+// ─────────────────────────── Segunda opinião ───────────────────────────
+// Segundo caminho de conversão do site (o primeiro é agendar consulta).
+// ⚠️ Nada aqui pode prometer resultado, prazo ou preço: Resolução CFM
+// 2.336/2023. Onde falta informação real do cliente, há um TODO explícito —
+// preencher com o dado confirmado, não com estimativa.
+export const SEGUNDA_OPINIAO = {
+  heroIntro:
+    "Uma leitura independente do seu caso, feita sobre os mesmos exames que você já tem em mãos — para que a decisão sobre o seu tratamento seja tomada com clareza.",
+
+  abertura: [
+    "Receber um diagnóstico neurológico complexo — um aneurisma cerebral, uma malformação arteriovenosa, um tumor — costuma vir acompanhado de uma decisão difícil e de pouco tempo para entendê-la. Procurar uma segunda opinião não é desconfiar do seu médico: é uma prática reconhecida na medicina e um direito do paciente.",
+    "Aqui, a segunda opinião é uma análise do material que você já possui — exames de imagem, laudos e o relatório do seu médico assistente — para revisar o quadro e discutir com você as condutas possíveis, seus critérios e o que costuma pesar em cada escolha.",
+  ],
+
+  quemDevePedir: [
+    "Você recebeu o diagnóstico de aneurisma cerebral, malformação arteriovenosa, cavernoma ou tumor cerebral e uma cirurgia foi indicada.",
+    "Você foi orientado a apenas acompanhar uma lesão encontrada em exame e quer entender os critérios dessa conduta.",
+    "Você recebeu indicações diferentes de dois profissionais e precisa comparar os argumentos de cada uma.",
+    "Você convive com sintomas — como neuralgia do trigêmeo ou espasmo hemifacial — que ainda não têm uma conduta definida.",
+    "Você é familiar ou responsável e está reunindo informação para decidir junto com o paciente.",
+  ],
+
+  // O coração da página: lista objetiva do que enviar.
+  documentos: [
+    {
+      icone: "imagem",
+      titulo: "Exames de imagem",
+      texto:
+        "Ressonância magnética, angiorressonância, tomografia, angiotomografia ou angiografia digital (cateterismo). O ideal é o arquivo DICOM original — o CD do exame, o link do serviço de radiologia ou a pasta completa. É nele que está a informação que o laudo resume.",
+      nota: "Se você não tiver o DICOM, envie o laudo e as imagens que possuir.",
+    },
+    {
+      icone: "laudo",
+      titulo: "Laudos dos exames",
+      texto:
+        "O laudo em PDF de cada exame enviado, ou uma foto legível do documento impresso — incluindo a data de realização e o serviço onde foi feito.",
+    },
+    {
+      icone: "relatorio",
+      titulo: "Relatório do médico assistente",
+      texto:
+        "O documento com a hipótese diagnóstica e a conduta proposta pelo profissional que acompanha você. É o que permite comparar as leituras em vez de repeti-las.",
+    },
+    {
+      icone: "historico",
+      titulo: "Histórico clínico",
+      texto:
+        "Quando os sintomas começaram, como evoluíram, cirurgias e internações anteriores, doenças em acompanhamento e casos semelhantes na família.",
+    },
+    {
+      icone: "medicacao",
+      titulo: "Medicações em uso",
+      texto:
+        "A lista com nomes e doses, com atenção especial a anticoagulantes e antiagregantes plaquetários — eles mudam o planejamento de qualquer procedimento.",
+    },
+    {
+      icone: "laboratorio",
+      titulo: "Exames laboratoriais recentes",
+      texto:
+        "Se houver: hemograma, coagulograma e demais exames de sangue solicitados na investigação.",
+      nota: "Opcional.",
+    },
+  ],
+
+  documentosNota:
+    "Não é preciso ter tudo para iniciar. Envie o que já tem em mãos — minha equipe indica o que ainda falta.",
+
+  comoFunciona: [
+    {
+      titulo: "Você envia o pedido",
+      texto:
+        "Preencha o formulário desta página. Ele abre uma conversa direta no WhatsApp da minha equipe, já identificada como um pedido de segunda opinião.",
+    },
+    {
+      titulo: "A equipe confirma o recebimento",
+      texto:
+        "Você recebe a confirmação de que o pedido chegou e a orientação de como enviar os exames e documentos com segurança.",
+    },
+    {
+      titulo: "Eu analiso o material",
+      texto:
+        "Reviso pessoalmente as imagens, os laudos e o relatório do seu médico assistente, à luz do seu histórico clínico.",
+    },
+    {
+      titulo: "Conversamos sobre o caso",
+      texto:
+        "O retorno acontece em uma conversa — presencial no consultório ou por videochamada, conforme a sua possibilidade. Nela reviso o quadro com você, apresento as condutas descritas na literatura para casos como o seu e explico os critérios que pesam em cada escolha.",
+    },
+  ],
+
+  // Compliance: delimita o que a segunda opinião não é.
+  oQueNaoE: [
+    "Não é um diagnóstico à distância. Nenhuma conclusão diagnóstica é firmada apenas com base em arquivos enviados pela internet.",
+    "Não substitui a consulta presencial. O exame neurológico e a avaliação clínica direta continuam sendo indispensáveis para qualquer indicação de tratamento.",
+    "Não rompe a sua relação com o médico assistente. A segunda opinião existe para somar informação à decisão, não para transferir o seu acompanhamento.",
+    "Não é um canal de urgência. Diante de dor de cabeça súbita e intensa, perda de força, alteração da fala, da visão ou da consciência, procure imediatamente um pronto-socorro ou ligue 192 (SAMU).",
+    "Não há promessa de resultado. Nenhuma análise garante desfecho, cura ou ausência de complicações — o que existe é informação clara para decidir melhor.",
+  ],
+
+  faq: [
+    {
+      pergunta: "Preciso já ter feito exames de imagem?",
+      resposta:
+        "Sim. A segunda opinião é uma leitura sobre exames já realizados. Sem imagem, não há material para analisar — nesse caso, o caminho é uma consulta de avaliação, em que a investigação é solicitada.",
+    },
+    {
+      pergunta: "Posso solicitar em nome de outra pessoa?",
+      resposta:
+        "Pode. Familiares e responsáveis costumam iniciar o contato. Informe seu grau de parentesco e o nome do paciente — o material clínico é protegido por sigilo médico e só é discutido com o paciente ou com quem ele autorizar.",
+    },
+    {
+      pergunta: "Meus exames foram feitos em outra cidade ou país. Serve?",
+      resposta:
+        "Serve. A análise é feita sobre os arquivos digitais dos exames, independentemente de onde foram realizados. Laudos em outro idioma podem ser enviados no original.",
+    },
+    {
+      pergunta: "Como meus dados são tratados?",
+      resposta:
+        "Exames, laudos e informações clínicas são protegidos pelo sigilo médico e tratados conforme a Lei Geral de Proteção de Dados (LGPD). O material é usado exclusivamente para a análise do seu caso.",
+    },
+    {
+      pergunta: "A segunda opinião tem custo?",
+      // TODO(cliente): confirmar se a segunda opinião é cobrada, o valor e se
+      // há atendimento por convênio. Enquanto não houver o dado real, a
+      // resposta remete à equipe — não invente valor.
+      resposta:
+        "As condições de atendimento, formatos disponíveis e valores são informados pela minha equipe no primeiro contato, antes de qualquer envio de material.",
+    },
+    {
+      pergunta: "Em quanto tempo recebo um retorno?",
+      // TODO(cliente): o briefing fixa a meta interna de resposta mediana em
+      // menos de 5 minutos, mas isso é meta operacional da equipe — não pode
+      // virar promessa pública sem o cliente confirmar. Ajustar quando houver
+      // um compromisso formal de prazo.
+      resposta:
+        "A confirmação de recebimento é enviada pela minha equipe assim que o pedido chega. O prazo da análise em si depende do volume e do tipo de material enviado, e é informado a você junto com essa confirmação.",
+    },
+  ],
+} as const;

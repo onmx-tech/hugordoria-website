@@ -14,7 +14,11 @@ import {
   PublicacoesPage,
   SobreMimPage,
 } from "./app/pages/InstitucionalPages.tsx";
+import { SegundaOpiniaoPage } from "./app/pages/SegundaOpiniao.tsx";
 import { NotFoundPage } from "./app/pages/NotFound.tsx";
+import { RouteTracker } from "./app/analytics/RouteTracker.tsx";
+import { captureUtmParams } from "./app/analytics/utm.ts";
+import { initWhatsAppTracking } from "./app/analytics/whatsappTracking.ts";
 import "./styles/index.css";
 
 // Overlay de edição visual — só existe em dev. O import dinâmico mantém a
@@ -23,8 +27,17 @@ const Retune = import.meta.env.DEV
   ? lazy(() => import("retune").then((m) => ({ default: m.Retune })))
   : null;
 
+// Mensuração: captura utm_* da URL de entrada (sessionStorage) e liga o
+// listener delegado de cliques em wa.me. Ambas as chamadas são NO-OP se o
+// GTM ainda não tiver ID real (src/app/analytics/config.ts) — custo zero
+// em produção antes do container existir.
+captureUtmParams();
+initWhatsAppTracking();
+
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
+    {/* Pageview por rota — fora de App.tsx de propósito (home intocável). */}
+    <RouteTracker />
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/especialidades" element={<EspecialidadesPage />} />
@@ -37,6 +50,7 @@ createRoot(document.getElementById("root")!).render(
       <Route path="/depoimentos" element={<DepoimentosPage />} />
       <Route path="/contato" element={<ContatoPage />} />
       <Route path="/localizacao" element={<LocalizacaoPage />} />
+      <Route path="/segunda-opiniao" element={<SegundaOpiniaoPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
     {/* Alt+D / Option+D alterna o overlay de edição visual (dev). */}

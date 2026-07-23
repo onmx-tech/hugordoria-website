@@ -67,6 +67,21 @@ export function breadcrumbSchema(
   };
 }
 
+/** Bloco de perguntas frequentes de uma página (ex.: /segunda-opiniao). */
+export function faqSchema(
+  items: readonly { question: string; answer: string }[],
+): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+}
+
 /**
  * Página de especialidade. `MedicalWebPage` sinaliza conteúdo de saúde
  * revisado por profissional — o autor é o próprio Dr. Hugo Doria.

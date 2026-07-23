@@ -20,6 +20,8 @@ const STATIC_ROUTES = [
   { path: "/especialidades", priority: "0.9", changefreq: "monthly" },
   { path: "/sobre-mim", priority: "0.8", changefreq: "yearly" },
   { path: "/contato", priority: "0.8", changefreq: "yearly" },
+  // Segundo caminho de conversão do site, ao lado de /contato.
+  { path: "/segunda-opiniao", priority: "0.8", changefreq: "yearly" },
   { path: "/localizacao", priority: "0.7", changefreq: "yearly" },
   { path: "/depoimentos", priority: "0.7", changefreq: "monthly" },
   { path: "/doutorado", priority: "0.6", changefreq: "yearly" },

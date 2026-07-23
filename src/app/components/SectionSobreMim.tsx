@@ -2,10 +2,14 @@ import { useEffect, useRef } from "react";
 const imgMedicalRoom = "/v4/photos/sobre-portrait.jpg";
 import { gsap } from "../../lib/gsap";
 
+// ⚠️ COMPLIANCE (CFM 2.336/2023): "casos de sucesso" afirma DESFECHO e é
+// vedado — trocado por um dado de volume, que é factual. Os três números
+// ainda dependem de BASE DOCUMENTAL do consultório; se algum não puder ser
+// comprovado, ele sai daqui (não se estima número em publicidade médica).
 const STATS = [
   { value: "+20", label: "Anos de Experiência" },
   { value: "+100", label: "Artigos Publicados" },
-  { value: "+9.500", label: "Casos de Sucesso" },
+  { value: "+9.500", label: "Pacientes Atendidos" },
 ] as const;
 
 export default function SectionSobreMim() {

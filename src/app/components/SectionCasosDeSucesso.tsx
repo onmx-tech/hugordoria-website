@@ -204,14 +204,15 @@ export default function SectionCasosDeSucesso() {
             className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.18] tracking-[-0.02em]"
             style={{ fontSize: "clamp(28px, 3.2vw, 40px)" }}
           >
-            Casos de Sucesso
+            Avaliações de pacientes
           </h2>
           <p
             className="font-['Arimo',sans-serif] font-normal text-navy/70 leading-[1.13] max-w-[380px]"
             style={{ fontSize: "clamp(16px, 1.2vw, 20px)" }}
           >
-            Veja como transformamos vidas com nossos tratamentos inovadores e
-            especializados em neurocirurgia.
+            Avaliações publicadas por pacientes em plataformas públicas. São
+            relatos individuais: cada caso é único e nenhum resultado pode ser
+            garantido.
           </p>
         </div>
 

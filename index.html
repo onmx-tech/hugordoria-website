@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+    <!--
+      GTM (GA4) — injetado aqui pelo vite.config.ts a partir de
+      src/app/analytics/config.ts. Vira comentário vazio enquanto o ID
+      for o placeholder: zero script, zero request, zero ruído.
+    -->
+    %GTM_HEAD%
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -103,6 +109,8 @@
   </head>
 
   <body>
+    <!-- Fallback do GTM sem JS — mesmo marcador, mesma regra de no-op. -->
+    %GTM_BODY%
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

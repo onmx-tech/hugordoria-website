@@ -10,6 +10,8 @@ import {
   Phone,
   Quote,
 } from "lucide-react";
+import { track } from "../analytics/track";
+import { appendUtmToUrl } from "../analytics/utm";
 import { Navbar } from "../components/sub/Navbar";
 import { Footer } from "../components/sub/Footer";
 import FloatingNav from "../components/FloatingNav";
@@ -39,7 +41,9 @@ const STATS = [
 ];
 
 // Casca compartilhada — navy + Navbar/Footer + scroll-to-top.
-function Shell({ children }: { children: ReactNode }) {
+// Exportada para as demais páginas institucionais (ex.: SegundaOpiniao.tsx)
+// usarem exatamente a mesma casca, sem clonar a estrutura.
+export function Shell({ children }: { children: ReactNode }) {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
     <div className="flex min-h-screen flex-col bg-navy-600 font-body">
@@ -51,7 +55,7 @@ function Shell({ children }: { children: ReactNode }) {
   );
 }
 
-function Section({ children, tone = "navy" }: { children: ReactNode; tone?: "navy" | "navy-800" }) {
+export function Section({ children, tone = "navy" }: { children: ReactNode; tone?: "navy" | "navy-800" }) {
   return (
     <section className={`${tone === "navy-800" ? "bg-navy-800" : "bg-navy-600"} py-20 md:py-28`}>
       <Container>{children}</Container>
@@ -412,10 +416,10 @@ export function DepoimentosPage() {
 }
 
 // ───────────────────────── /contato ─────────────────────────
-const fieldClass =
+export const fieldClass =
   "w-full rounded-xl border border-white/15 bg-white/[0.06] px-4 py-3 font-body text-[16px] text-white placeholder:text-white/40 outline-none transition-colors focus:border-gold-600";
 
-function Field({ label, children }: { label: string; children: ReactNode }) {
+export function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
     <label className="flex flex-col gap-2">
       <span className="font-display text-white/80 text-[14px]" style={{ fontWeight: 500 }}>{label}</span>
@@ -454,7 +458,16 @@ export function ContatoPage() {
       assunto && `Assunto: ${assunto}`,
       mensagem && `Mensagem: ${mensagem}`,
     ].filter(Boolean).join("\n");
-    window.open(`${CONTATO.whatsappLink}?text=${encodeURIComponent(texto)}`, "_blank", "noopener,noreferrer");
+
+    // Evento de conversão — só página de origem e especialidade (o "assunto"
+    // do select), nunca nome/telefone/e-mail/mensagem (dado pessoal do lead).
+    track("lead_formulario", {
+      origem_pagina: "/contato",
+      especialidade: assunto || undefined,
+    });
+
+    const url = appendUtmToUrl(`${CONTATO.whatsappLink}?text=${encodeURIComponent(texto)}`);
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
   const INFO = [

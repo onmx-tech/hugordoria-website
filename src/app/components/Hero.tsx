@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router";
 import imgHeroDoria from "@/assets/hero-doria-bracos.png";
 import { gsap } from "../../lib/gsap";
+import { CONTATO } from "../content/institucional";
 
 export default function Hero() {
   const rootRef = useRef<HTMLElement | null>(null);
@@ -52,6 +54,7 @@ export default function Hero() {
       });
       if (titleWords.length) gsap.set(titleWords, { yPercent: 110 });
       gsap.set("[data-hero='description']", { autoAlpha: 0, y: 24 });
+      gsap.set("[data-hero='cta'] > *", { autoAlpha: 0, y: 18 });
       gsap.set("[data-hero='wordmark']", {
         clipPath: "inset(100% 0% 0% 0%)",
         yPercent: 20,
@@ -117,6 +120,13 @@ export default function Hero() {
         "[data-hero='description']",
         { autoAlpha: 1, y: 0, duration: 1.0 },
         "<0.3"
+      );
+
+      // 7b. Os dois caminhos de ação sobem logo atrás do título
+      tl.to(
+        "[data-hero='cta'] > *",
+        { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.08 },
+        "<0.1"
       );
 
       // 8. Wordmark reveals from the baseline
@@ -198,12 +208,13 @@ export default function Hero() {
       {/* Content grid (header agora é o SiteHeader global, fixo no topo) */}
       <div className="relative z-10 flex-1 grid grid-cols-12 gap-x-6 gap-y-10 px-6 md:px-8 pt-24 sm:pt-28 lg:pt-[18vh] content-start">
         {/* Left: eyebrow + title */}
-        <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3">
+        <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-4">
           <p
             data-hero="eyebrow"
             className="font-['Geist_Mono',sans-serif] font-medium uppercase text-soft text-[14px] sm:text-[16px] lg:text-[20px] leading-[0.92] tracking-[0.07em]"
           >
             MD PhD – Neurocirurgião
+            <span className="block text-cream/55">São Paulo</span>
           </p>
           <div
             data-hero="divider"
@@ -211,11 +222,42 @@ export default function Hero() {
           />
           <h1
             data-hero="title"
-            className="mt-5 lg:mt-[22px] font-['Geist',sans-serif] font-normal text-cream leading-[1.1] tracking-[-0.04em] max-w-[375px]"
+            className="mt-5 lg:mt-[22px] font-['Geist',sans-serif] font-normal text-cream leading-[1.1] tracking-[-0.04em] max-w-[420px]"
             style={{ fontSize: "clamp(28px, 3.2vw, 48px)" }}
           >
-            A Neurocirurgia é uma arte. A maior honra é poder exercê-la
+            Neurocirurgia vascular e craniana de alta complexidade
           </h1>
+
+          {/* Dois caminhos de ação — consulta e segunda opinião */}
+          <div
+            data-hero="cta"
+            className="mt-6 lg:mt-9 flex flex-wrap items-center gap-2 sm:gap-3"
+          >
+            <a
+              href={CONTATO.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full px-4 py-2.5 sm:px-5 sm:py-3 text-[13px] sm:text-[14px] lg:text-[15px] font-medium leading-none tracking-[-0.01em] transition-colors duration-300 whitespace-nowrap"
+              style={{
+                fontFamily: "'Geist', sans-serif",
+                color: "var(--color-bg-deeper)",
+                background: "var(--color-accent-gold-light)",
+              }}
+            >
+              Agendar consulta
+            </a>
+            <Link
+              to="/segunda-opiniao"
+              className="rounded-full border px-4 py-2.5 sm:px-5 sm:py-3 text-[13px] sm:text-[14px] lg:text-[15px] font-medium leading-none tracking-[-0.01em] transition-colors duration-300 whitespace-nowrap"
+              style={{
+                fontFamily: "'Geist', sans-serif",
+                color: "var(--color-bg-cream)",
+                borderColor: "color-mix(in srgb, var(--color-bg-cream) 34%, transparent)",
+              }}
+            >
+              Solicitar segunda opinião
+            </Link>
+          </div>
         </div>
 
         {/* Right: description — tablet/desktop (no mobile vai para o rodapé,
@@ -230,7 +272,7 @@ export default function Hero() {
             className="mt-5 lg:mt-[22px] font-['Geist',sans-serif] font-normal text-cream leading-[1.41]"
             style={{ fontSize: "clamp(15px, 1.4vw, 24px)" }}
           >
-            Transformando vidas com inovação, pesquisa avançada e precisão em tratamentos Neurológicos Complexos, proporcionando qualidade e segurança aos pacientes.
+            Avaliação especializada de aneurismas cerebrais, malformações arteriovenosas, cavernomas, doença de Moyamoya, revascularização cerebral e tumores cranianos complexos.
           </p>
         </div>
       </div>
@@ -245,7 +287,7 @@ export default function Hero() {
             data-hero="description"
             className="mt-5 max-w-[440px] font-['Geist',sans-serif] font-normal text-cream leading-[1.41] text-[16px]"
           >
-            Transformando vidas com inovação, pesquisa avançada e precisão em tratamentos Neurológicos Complexos, proporcionando qualidade e segurança aos pacientes.
+            Avaliação especializada de aneurismas cerebrais, malformações arteriovenosas, cavernomas, doença de Moyamoya, revascularização cerebral e tumores cranianos complexos.
           </p>
         </div>
 
