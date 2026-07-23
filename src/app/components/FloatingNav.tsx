@@ -84,6 +84,27 @@ export default function FloatingNav() {
         );
       })}
 
+      {/* Segundo caminho de conversão, presente em todas as páginas.
+          No mobile a barra é um FAB e só cabe a ação primária — lá o acesso
+          à segunda opinião fica no hero e no rodapé. */}
+      <Link
+        to="/segunda-opiniao"
+        className="relative hidden md:inline-block rounded-full border px-4 py-2 text-[13px] font-medium leading-none tracking-[-0.01em] transition-all duration-300 whitespace-nowrap"
+        style={{
+          fontFamily: "'Geist', sans-serif",
+          textDecoration: "none",
+          color: isActive("/segunda-opiniao")
+            ? "var(--color-bg-deep)"
+            : "var(--color-bg-cream)",
+          background: isActive("/segunda-opiniao")
+            ? "var(--color-accent-gold-light)"
+            : "transparent",
+          borderColor: "color-mix(in srgb, var(--color-bg-cream) 30%, transparent)",
+        }}
+      >
+        Segunda opinião
+      </Link>
+
       <a
         href="https://wa.me/5511971622777"
         target="_blank"

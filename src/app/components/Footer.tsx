@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: "Eventos", to: "/eventos" },
   { label: "Mídia", to: "/midia" },
   { label: "Depoimentos", to: "/depoimentos" },
+  { label: "Segunda opinião", to: "/segunda-opiniao" },
   { label: "Contato", to: "/contato" },
 ] as const;
 
