@@ -1,0 +1,158 @@
+{
+  "forms": {
+    "stats": {
+      "experiencia": "Years of experience",
+      "artigos": "Published articles",
+      "casos": "Successful cases"
+    },
+    "sobre": {
+      "heroEyebrow": "About",
+      "heroIntro": "MD, PhD — a neurosurgeon devoted to vascular neurosurgery, combining technical precision, advanced research and deeply human care.",
+      "heroBadgeLabel": "years of experience",
+      "videoEyebrow": "Get to know my career",
+      "videoTitle": "A conversation about technique, judgment and the care given to each patient.",
+      "videoCaption": "Video · Dr. Hugo Doria",
+      "trajetoriaEyebrow": "Career",
+      "trajetoriaHeading": "Two decades devoted to highly complex microneurosurgery.",
+      "pilaresEyebrow": "Pillars",
+      "pilaresHeading": "A practice on three fronts",
+      "formacaoEyebrow": "International training",
+      "formacaoHeading": "Training at the world's leading centers",
+      "retratosEyebrow": "Portraits",
+      "retratosHeading": "The professional behind every surgery"
+    },
+    "doutorado": {
+      "heroEyebrow": "Doctorate",
+      "heroTitle": "Doctoral Thesis in Neuroscience",
+      "heroIntro": "Paraclinoid cerebral aneurysms: an unprecedented protocol to distinguish, with precision, which ones require treatment — developed in four stages.",
+      "videoEyebrow": "About the research",
+      "videoTitle": "The thesis in four stages, explained.",
+      "videoCaption": "Video · PhD — UNIFESP",
+      "pesquisaEyebrow": "The research",
+      "pesquisaHeading": "Distinguishing with precision to treat with precision.",
+      "lerTese": "Read the thesis (PDF)"
+    },
+    "publicacoes": {
+      "heroEyebrow": "Publications",
+      "heroTitle": "Scientific output",
+      "heroImageAlt": "Scientific publications",
+      "artigoEyebrow": "Featured article",
+      "artigoHeading": "Four years of research in a world-reference journal.",
+      "lerArtigo": "Read the scientific article",
+      "capitulosEyebrow": "Book chapters",
+      "capitulosHeading": "Contributions to reference works"
+    },
+    "eventos": {
+      "heroEyebrow": "Events",
+      "heroTitle": "A presence in the neurosurgical community",
+      "heroIntro": "20 years of experience shared at national and international congresses, lectures for residents and vascular neurosurgery symposia.",
+      "heroImageAlt": "Dr. Hugo Doria speaking at a congress",
+      "heroBadgeLabel": "lectures and congresses",
+      "palestrasEyebrow": "Lectures & congresses"
+    },
+    "midia": {
+      "heroEyebrow": "Media",
+      "heroTitle": "Videos and appearances",
+      "heroIntro": "Interviews, lectures and content on vascular neurosurgery, diagnosis and treatment of the main neurological conditions.",
+      "heroImageAlt": "Media and videos",
+      "heroBadgeLabel": "videos"
+    },
+    "depoimentos": {
+      "heroEyebrow": "Testimonials",
+      "heroTitle": "Words that are worth a life",
+      "heroIntro": "Real messages from patients and families over two decades — the greatest recognition of this work.",
+      "heroBadgeLabel": "successful cases",
+      "itemAlt": "Testimonial {{n}}"
+    },
+    "contato": {
+      "heroEyebrow": "Contact",
+      "heroTitle": "Let's take care of your neurological health",
+      "heroIntro": "Fill out the form or use one of the channels below. My team will respond as soon as possible to schedule your evaluation.",
+      "heroBadgeLabel": "Response time",
+      "canaisEyebrow": "Contact channels",
+      "canaisHeading": "Talk to me directly",
+      "infoWhatsapp": "WhatsApp",
+      "infoEmail": "E-mail",
+      "infoEndereco": "Address",
+      "infoAtendimento": "Hours",
+      "atendimentoHorario": "Mon. to Fri. — 8 a.m. to 6 p.m.",
+      "labelNome": "Full name",
+      "labelTelefone": "Phone",
+      "labelEmail": "E-mail",
+      "labelAssunto": "Subject",
+      "labelMensagem": "Message",
+      "phNome": "Your name",
+      "phTelefone": "(00) 00000-0000",
+      "phEmail": "you@email.com",
+      "phMensagem": "Briefly describe your case",
+      "selectAssuntoDefault": "Select the specialty",
+      "selectAssuntoOutro": "Other subject",
+      "enviar": "Send message",
+      "wa": {
+        "saudacao": "Hello, Dr. Hugo Doria! I would like to schedule an evaluation.",
+        "nome": "Name",
+        "telefone": "Phone",
+        "email": "E-mail",
+        "assunto": "Subject",
+        "mensagem": "Message"
+      }
+    },
+    "localizacao": {
+      "heroEyebrow": "Location",
+      "heroTitle": "Where to find me",
+      "consultorioEyebrow": "Office",
+      "consultorioHeading": "Bela Vista, São Paulo",
+      "atendimentoHorario": "Mon. to Fri. — 8 a.m. to 6 p.m.",
+      "abrirMaps": "Open in Google Maps",
+      "mapaTitle": "Office map"
+    },
+    "segundaOpiniao": {
+      "heroEyebrow": "Second opinion",
+      "heroTitle": "Specialized second opinion",
+      "ctaSolicitar": "Request a second opinion",
+      "aberturaEyebrow": "About this service",
+      "aberturaHeading": "Deciding on brain surgery calls for more than one reading.",
+      "quemEyebrow": "Who should request it",
+      "quemHeading": "Situations in which a second opinion usually makes a difference",
+      "enviarEyebrow": "What to send",
+      "enviarHeading": "Exams and documents for the analysis",
+      "comoEyebrow": "How it works",
+      "comoHeading": "From first contact to response",
+      "limitesEyebrow": "Important",
+      "limitesHeading": "What a second opinion is not",
+      "solicitacaoEyebrow": "Request",
+      "solicitacaoHeading": "Send your request",
+      "solicitacaoIntro": "The form opens a conversation on my team's WhatsApp, already identified as a second-opinion request. That is where you receive confirmation of receipt and guidance to send the exams securely.",
+      "waEquipeLabel": "Team WhatsApp",
+      "labelNome": "Full name",
+      "labelContato": "Phone or WhatsApp",
+      "labelCondicao": "Condition or suspected diagnosis",
+      "labelExames": "Do you already have the exams?",
+      "labelResumo": "Case summary (optional)",
+      "phNome": "Patient's or caregiver's name",
+      "phContato": "(00) 00000-0000",
+      "phResumo": "In a few lines: the diagnosis received and the course of action proposed so far",
+      "selectCondicaoDefault": "Select, if applicable",
+      "selectCondicaoSemDiagnostico": "No defined diagnosis yet",
+      "selectCondicaoOutra": "Other condition",
+      "selectExamesDefault": "Select",
+      "examesOpcoes": [
+        "I have the exams as digital files (DICOM/CD)",
+        "I only have the reports",
+        "I don't have the exams in hand yet"
+      ],
+      "enviarPedido": "Send request via WhatsApp",
+      "formNota": "Do not send exams through this form. The team will guide you on sending the files in the conversation, after confirming receipt of the request.",
+      "faqEyebrow": "Frequently asked questions",
+      "faqHeading": "Common questions",
+      "wa": {
+        "saudacao": "Hello! I would like to request a specialized SECOND OPINION with Dr. Hugo Doria.",
+        "nome": "Name",
+        "contato": "Contact",
+        "condicao": "Condition or suspicion",
+        "exames": "Exams",
+        "resumo": "Case summary"
+      }
+    }
+  }
+}

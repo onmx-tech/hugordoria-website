@@ -1,18 +1,21 @@
 // LocaleLink como Link: mantém os links do rodapé no idioma ativo (drop-in;
 // âncoras e URLs externas passam intactas). Rótulos ainda serão i18n-izados.
 import { LocaleLink as Link, useLocale } from "../i18n/LocaleProvider";
+import { useTranslation } from "react-i18next";
 import svgPaths from "../../imports/svg-nx92b0rij3";
 import { getCards } from "./section-especialidades/cards-i18n";
 
+// labelKey aponta para o i18n (namespace "sub": sub.footer.nav.*); o texto é
+// resolvido com t() no render. `to` continua sendo o path base em PT.
 const NAV_LINKS = [
-  { label: "Sobre mim", to: "/sobre-mim" },
-  { label: "Doutorado", to: "/doutorado" },
-  { label: "Publicações", to: "/publicacoes" },
-  { label: "Eventos", to: "/eventos" },
-  { label: "Mídia", to: "/midia" },
-  { label: "Depoimentos", to: "/depoimentos" },
-  { label: "Segunda opinião", to: "/segunda-opiniao" },
-  { label: "Contato", to: "/contato" },
+  { labelKey: "sub.footer.nav.sobreMim", to: "/sobre-mim" },
+  { labelKey: "sub.footer.nav.doutorado", to: "/doutorado" },
+  { labelKey: "sub.footer.nav.publicacoes", to: "/publicacoes" },
+  { labelKey: "sub.footer.nav.eventos", to: "/eventos" },
+  { labelKey: "sub.footer.nav.midia", to: "/midia" },
+  { labelKey: "sub.footer.nav.depoimentos", to: "/depoimentos" },
+  { labelKey: "sub.footer.nav.segundaOpiniao", to: "/segunda-opiniao" },
+  { labelKey: "sub.footer.nav.contato", to: "/contato" },
 ] as const;
 
 const ADDRESS =
@@ -121,6 +124,7 @@ function SocialFacebook() {
 
 export default function Footer() {
   const { locale } = useLocale();
+  const { t } = useTranslation("sub");
   const cards = getCards(locale);
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -137,16 +141,16 @@ export default function Footer() {
             {/* Navigate */}
             <div className="flex flex-col gap-4">
               <h3 className="font-['Geist',sans-serif] font-medium text-cream leading-normal">
-                Navegue
+                {t("sub.footer.navegue")}
               </h3>
               <nav className="flex flex-col gap-2">
                 {NAV_LINKS.map((link) => (
                   <Link
-                    key={link.label}
+                    key={link.to}
                     to={link.to}
                     className="font-['Geist',sans-serif] font-normal text-cream/50 leading-normal transition-colors duration-200 hover:text-cream"
                   >
-                    {link.label}
+                    {t(link.labelKey)}
                   </Link>
                 ))}
               </nav>
@@ -155,7 +159,7 @@ export default function Footer() {
             {/* Specialties */}
             <div className="flex flex-col gap-4">
               <h3 className="font-['Geist',sans-serif] font-medium text-cream leading-normal">
-                Especialidades
+                {t("sub.footer.especialidades")}
               </h3>
               <nav className="flex flex-col gap-2">
                 {cards.map((card) => (
@@ -173,7 +177,7 @@ export default function Footer() {
             {/* Contact */}
             <div className="flex flex-col gap-4 col-span-2 sm:col-span-1">
               <h3 className="font-['Geist',sans-serif] font-medium text-cream leading-normal">
-                Contato
+                {t("sub.footer.contato")}
               </h3>
               <div className="flex flex-col gap-2">
                 <a
@@ -188,7 +192,7 @@ export default function Footer() {
                   to="/localizacao"
                   className="font-['Geist',sans-serif] font-normal text-cream/50 leading-normal transition-colors duration-200 hover:text-cream"
                 >
-                  Localização
+                  {t("sub.footer.localizacao")}
                 </Link>
               </div>
             </div>
@@ -206,7 +210,7 @@ export default function Footer() {
           </div>
 
           <p className="hidden md:block font-['Geist',sans-serif] font-normal text-silver text-sm leading-normal whitespace-nowrap">
-            Copyright © 2026 Hugo Doria. Todos os direitos reservados
+            {t("sub.footer.copyright")}
           </p>
 
           <button
@@ -214,7 +218,7 @@ export default function Footer() {
             onClick={scrollToTop}
             className="flex items-center gap-2 font-['Geist',sans-serif] font-medium text-silver text-sm leading-[1.5] transition-colors duration-200 hover:text-cream"
           >
-            Voltar ao topo
+            {t("sub.footer.voltarAoTopo")}
             <svg
               className="size-6 -rotate-90"
               viewBox="0 0 24 24"

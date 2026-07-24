@@ -12,16 +12,15 @@ const imgConsultorio = "/v4/photos/contato-portrait.jpg";
 export const CANVAS_W = 3520;
 export const CANVAS_H = 1299;
 
+// Valores agora são CHAVES i18n (namespace "home") — o texto vive em
+// locales/<locale>/home.json e é resolvido com t() no render (parts.tsx),
+// porque este módulo roda fora do React (sem acesso a hook).
 export const texts = {
-  hospitals:
-    "Neurocirurgião em hospitais renomados como BP, Santa Catarina, Albert Einstein e Sírio Libanês.",
-  coordination:
-    "Coordenador do Departamento de Neurocirurgia Vascular da Sociedade Brasileira de Neurocirurgia.",
-  publications:
-    "Extensa lista de publicações em revistas renomadas internacionais e nacionais, revisor de periódicos importantes e formador de opinião pela vasta experiência de 20 anos na área neurocirúrgica.",
+  hospitals: "home.sobre.texts.hospitals",
+  coordination: "home.sobre.texts.coordination",
+  publications: "home.sobre.texts.publications",
   // Legenda PROVISÓRIA — confirmar/ajustar com o cliente.
-  surgery:
-    "Atuação cirúrgica em casos de alta complexidade vascular e neurológica, com técnicas microcirúrgicas modernas.",
+  surgery: "home.sobre.texts.surgery",
 };
 
 // ── Geometria do grid ──────────────────────────────────────────────
@@ -67,21 +66,22 @@ export type Cell = ImageCell | CaptionCell;
 
 const TEXT_H = CANVAS_H - TEXT_Y - 60; // altura disponível p/ a legenda
 
-// Cada coluna é um par foto + texto.
+// Cada coluna é um par foto + texto. label/alt/text guardam CHAVES i18n
+// (namespace "home"); parts.tsx resolve com t() no render.
 export const cells: Cell[] = [
   // Col 1 — Retrato profissional / Atuação Profissional
-  { kind: "image", x: cols[0], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgAtuacao, alt: "Dr. Hugo Doria", objectPosition: "50% 8%" },
-  { kind: "caption", x: cols[0], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "Atuação Profissional", text: texts.hospitals },
+  { kind: "image", x: cols[0], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgAtuacao, alt: "home.sobre.alts.retrato", objectPosition: "50% 8%" },
+  { kind: "caption", x: cols[0], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "home.sobre.labels.atuacao", text: texts.hospitals },
 
   // Col 2 — Palestra / Coordenação
-  { kind: "image", x: cols[1], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgPalestra, alt: "Palestra no Congresso Brasileiro de Neurocirurgia" },
-  { kind: "caption", x: cols[1], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "Coordenação e Liderança", text: texts.coordination },
+  { kind: "image", x: cols[1], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgPalestra, alt: "home.sobre.alts.palestra" },
+  { kind: "caption", x: cols[1], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "home.sobre.labels.coordenacao", text: texts.coordination },
 
   // Col 3 — Centro cirúrgico / Atuação cirúrgica
-  { kind: "image", x: cols[2], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgScrubsGreen, alt: "Dr. Hugo Doria em ambiente cirúrgico" },
-  { kind: "caption", x: cols[2], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "Atuação Cirúrgica", text: texts.surgery },
+  { kind: "image", x: cols[2], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgScrubsGreen, alt: "home.sobre.alts.cirurgia" },
+  { kind: "caption", x: cols[2], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "home.sobre.labels.cirurgica", text: texts.surgery },
 
   // Col 4 — Consultório / Publicações
-  { kind: "image", x: cols[3], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgConsultorio, alt: "Dr. Hugo Doria em seu consultório" },
-  { kind: "caption", x: cols[3], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "Publicações & Pesquisa", text: texts.publications },
+  { kind: "image", x: cols[3], y: PHOTO_Y, w: COL_W, h: PHOTO_H, src: imgConsultorio, alt: "home.sobre.alts.consultorio" },
+  { kind: "caption", x: cols[3], y: TEXT_Y, w: COL_W, h: TEXT_H, label: "home.sobre.labels.publicacoes", text: texts.publications },
 ];

@@ -1,12 +1,10 @@
 import { useEffect, useRef } from "react";
-import {
-  ATTRIBUTION,
-  QUOTE_TEXT,
-  SIGNATURE_PATHS,
-} from "./section-quote/data";
+import { useTranslation } from "react-i18next";
+import { SIGNATURE_PATHS } from "./section-quote/data";
 import { initQuoteAnimation } from "./section-quote/animations";
 
 export default function SectionQuote() {
+  const { t } = useTranslation("home");
   const sectionRef = useRef<HTMLDivElement>(null);
   const groupRef = useRef<HTMLDivElement>(null);
   const markRef = useRef<HTMLSpanElement>(null);
@@ -55,7 +53,7 @@ export default function SectionQuote() {
             letterSpacing: "-0.04em",
           }}
         >
-          {QUOTE_TEXT}
+          {t("home.quote.text")}
         </p>
 
         <svg
@@ -76,7 +74,7 @@ export default function SectionQuote() {
           ref={attributionRef}
           className="mt-[clamp(16px,2.5vh,24px)] max-w-[433px] text-center font-['Arimo',sans-serif] text-[clamp(14px,1.1vw,18px)] leading-[1.32] text-cream/70"
         >
-          {ATTRIBUTION}
+          {t("home.quote.attribution")}
         </p>
       </div>
     </section>

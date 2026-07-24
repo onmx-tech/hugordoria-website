@@ -1,10 +1,7 @@
 import svgPaths from "../../../imports/svg-nx92b0rij3";
 
-export const QUOTE_TEXT =
-  "A Neurocirurgia é uma arte e é uma honra poder exercê-la. Atuar em uma área de extrema importância para resgatar a vida dos pacientes é muito mais que uma profissão, é um grande privilégio.";
-
-export const ATTRIBUTION =
-  "Assim define Dr. Hugo Leonardo Doria-Netto, MD, PhD, seu dom na medicina é reconhecido como uma dádiva de Deus.";
+// A citação e a atribuição foram para o i18n (namespace "home": home.quote.*)
+// e são resolvidas com t() em SectionQuote.tsx.
 
 export const SIGNATURE_PATHS: string[] = [
   svgPaths.p1fc81800,

@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Check,
   ChevronDown,
@@ -19,7 +20,8 @@ import { Reveal } from "../components/sub/Reveal";
 import { useSeo } from "../seo/useSeo";
 import { breadcrumbSchema, faqSchema } from "../seo/schema";
 import { cards } from "../components/section-especialidades/data";
-import { CONTATO, SEGUNDA_OPINIAO } from "../content/institucional";
+import { useLocale } from "../i18n/LocaleProvider";
+import { CONTATO, getInstitucional } from "../content/institucional";
 // Mesma casca e mesmos campos das outras institucionais — a página é irmã
 // delas, não um corpo estranho.
 import { Shell, Section, Field, fieldClass } from "./InstitucionalPages";
@@ -33,13 +35,11 @@ const DOC_ICONS = {
   laboratorio: FlaskConical,
 } as const;
 
-const EXAMES_OPCOES = [
-  "Tenho os exames em arquivo digital (DICOM/CD)",
-  "Tenho apenas os laudos",
-  "Ainda não tenho os exames em mãos",
-] as const;
-
 export function SegundaOpiniaoPage() {
+  const { locale } = useLocale();
+  const { t } = useTranslation("forms");
+  const { SEGUNDA_OPINIAO } = getInstitucional(locale);
+
   useSeo({
     title: "Segunda opinião em neurocirurgia",
     description:
@@ -56,6 +56,10 @@ export function SegundaOpiniaoPage() {
     ],
   });
 
+  const examesOpcoes = t("forms.segundaOpiniao.examesOpcoes", {
+    returnObjects: true,
+  }) as string[];
+
   const formRef = useRef<HTMLDivElement>(null);
 
   const [nome, setNome] = useState("");
@@ -67,12 +71,12 @@ export function SegundaOpiniaoPage() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const texto = [
-      "Olá! Gostaria de solicitar uma SEGUNDA OPINIÃO especializada com o Dr. Hugo Doria.",
-      `Nome: ${nome}`,
-      `Contato: ${contato}`,
-      condicao && `Condição ou suspeita: ${condicao}`,
-      exames && `Exames: ${exames}`,
-      resumo && `Resumo do caso: ${resumo}`,
+      t("forms.segundaOpiniao.wa.saudacao"),
+      `${t("forms.segundaOpiniao.wa.nome")}: ${nome}`,
+      `${t("forms.segundaOpiniao.wa.contato")}: ${contato}`,
+      condicao && `${t("forms.segundaOpiniao.wa.condicao")}: ${condicao}`,
+      exames && `${t("forms.segundaOpiniao.wa.exames")}: ${exames}`,
+      resumo && `${t("forms.segundaOpiniao.wa.resumo")}: ${resumo}`,
     ]
       .filter(Boolean)
       .join("\n");
@@ -92,8 +96,8 @@ export function SegundaOpiniaoPage() {
   return (
     <Shell>
       <PageHero
-        eyebrow="Segunda opinião"
-        title="Segunda opinião especializada"
+        eyebrow={t("forms.segundaOpiniao.heroEyebrow")}
+        title={t("forms.segundaOpiniao.heroTitle")}
         intro={SEGUNDA_OPINIAO.heroIntro}
         image="/v4/photos/retrato-sentado.jpg"
         imageAlt="Dr. Hugo Doria"
@@ -103,7 +107,7 @@ export function SegundaOpiniaoPage() {
           icon="arrow"
           onClick={() => formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
         >
-          Solicitar segunda opinião
+          {t("forms.segundaOpiniao.ctaSolicitar")}
         </Button>
       </PageHero>
 
@@ -111,9 +115,9 @@ export function SegundaOpiniaoPage() {
       <Section tone="navy-800">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div className="flex flex-col gap-5 lg:sticky lg:top-24 lg:self-start">
-            <Eyebrow>Sobre este atendimento</Eyebrow>
+            <Eyebrow>{t("forms.segundaOpiniao.aberturaEyebrow")}</Eyebrow>
             <SectionHeading tone="light">
-              Decidir sobre uma cirurgia no cérebro exige mais de uma leitura.
+              {t("forms.segundaOpiniao.aberturaHeading")}
             </SectionHeading>
           </div>
           <div className="flex flex-col gap-5">
@@ -132,9 +136,9 @@ export function SegundaOpiniaoPage() {
 
       {/* 2. Quem deve pedir */}
       <Section>
-        <Eyebrow>Quem deve pedir</Eyebrow>
+        <Eyebrow>{t("forms.segundaOpiniao.quemEyebrow")}</Eyebrow>
         <SectionHeading tone="light" className="mt-5 max-w-[860px]">
-          Situações em que uma segunda opinião costuma fazer diferença
+          {t("forms.segundaOpiniao.quemHeading")}
         </SectionHeading>
         <Divider tone="light" className="mt-8" />
         <div className="mt-10 flex flex-col overflow-hidden rounded-2xl bg-white/[0.04]">
@@ -151,9 +155,9 @@ export function SegundaOpiniaoPage() {
 
       {/* 3. O coração da página — exames e documentos */}
       <Section tone="navy-800">
-        <Eyebrow>O que enviar</Eyebrow>
+        <Eyebrow>{t("forms.segundaOpiniao.enviarEyebrow")}</Eyebrow>
         <SectionHeading tone="light" className="mt-5 max-w-[860px]">
-          Exames e documentos para a análise
+          {t("forms.segundaOpiniao.enviarHeading")}
         </SectionHeading>
         <Divider tone="light" className="mt-8" />
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -194,9 +198,9 @@ export function SegundaOpiniaoPage() {
 
       {/* 4. Como funciona */}
       <Section>
-        <Eyebrow>Como funciona</Eyebrow>
+        <Eyebrow>{t("forms.segundaOpiniao.comoEyebrow")}</Eyebrow>
         <SectionHeading tone="light" className="mt-5 max-w-[860px]">
-          Do primeiro contato ao retorno
+          {t("forms.segundaOpiniao.comoHeading")}
         </SectionHeading>
         <Divider tone="light" className="mt-8" />
         <ol className="mt-10 flex flex-col overflow-hidden rounded-2xl bg-white/[0.04]">
@@ -228,9 +232,9 @@ export function SegundaOpiniaoPage() {
       <Section tone="navy-800">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div className="flex flex-col gap-5 lg:sticky lg:top-24 lg:self-start">
-            <Eyebrow>Importante</Eyebrow>
+            <Eyebrow>{t("forms.segundaOpiniao.limitesEyebrow")}</Eyebrow>
             {/* nbsp: evita o "é" sozinho na quebra de linha */}
-            <SectionHeading tone="light">{"O que a segunda opinião não\u00A0é"}</SectionHeading>
+            <SectionHeading tone="light">{t("forms.segundaOpiniao.limitesHeading")}</SectionHeading>
           </div>
           <div className="flex flex-col">
             {SEGUNDA_OPINIAO.oQueNaoE.map((item, i) => (
@@ -250,17 +254,15 @@ export function SegundaOpiniaoPage() {
         <Section>
           <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr]">
             <div className="flex flex-col gap-6">
-              <Eyebrow>Solicitação</Eyebrow>
-              <SectionHeading tone="light">Envie o seu pedido</SectionHeading>
+              <Eyebrow>{t("forms.segundaOpiniao.solicitacaoEyebrow")}</Eyebrow>
+              <SectionHeading tone="light">{t("forms.segundaOpiniao.solicitacaoHeading")}</SectionHeading>
               <p className="font-body text-white/70 text-[17px]" style={{ lineHeight: 1.7 }}>
-                O formulário abre uma conversa no WhatsApp da minha equipe já identificada como um
-                pedido de segunda opinião. É por lá que você recebe a confirmação de recebimento e a
-                orientação para enviar os exames com segurança.
+                {t("forms.segundaOpiniao.solicitacaoIntro")}
               </p>
               <Divider tone="light" className="my-2" />
               <div className="flex flex-col gap-3">
                 <span className="font-mono uppercase tracking-[0.14em] text-[12px] text-cream">
-                  WhatsApp da equipe
+                  {t("forms.segundaOpiniao.waEquipeLabel")}
                 </span>
                 <a
                   href={CONTATO.whatsappLink}
@@ -277,35 +279,35 @@ export function SegundaOpiniaoPage() {
             <div className="rounded-3xl bg-white/[0.04] p-8 md:p-10">
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <div className="grid gap-5 sm:grid-cols-2">
-                  <Field label="Nome completo">
+                  <Field label={t("forms.segundaOpiniao.labelNome")}>
                     <input
                       required
                       type="text"
                       value={nome}
                       onChange={(e) => setNome(e.target.value)}
-                      placeholder="Nome do paciente ou responsável"
+                      placeholder={t("forms.segundaOpiniao.phNome")}
                       className={fieldClass}
                     />
                   </Field>
-                  <Field label="Telefone ou WhatsApp">
+                  <Field label={t("forms.segundaOpiniao.labelContato")}>
                     <input
                       required
                       type="tel"
                       value={contato}
                       onChange={(e) => setContato(e.target.value)}
-                      placeholder="(00) 00000-0000"
+                      placeholder={t("forms.segundaOpiniao.phContato")}
                       className={fieldClass}
                     />
                   </Field>
                 </div>
-                <Field label="Condição ou suspeita diagnóstica">
+                <Field label={t("forms.segundaOpiniao.labelCondicao")}>
                   <select
                     value={condicao}
                     onChange={(e) => setCondicao(e.target.value)}
                     className={`${fieldClass} appearance-none`}
                   >
                     <option value="" className="bg-navy-800">
-                      Selecione, se já houver
+                      {t("forms.segundaOpiniao.selectCondicaoDefault")}
                     </option>
                     {cards.map((c) => (
                       <option key={c.slug} value={c.title} className="bg-navy-800">
@@ -313,44 +315,43 @@ export function SegundaOpiniaoPage() {
                       </option>
                     ))}
                     <option value="Ainda sem diagnóstico definido" className="bg-navy-800">
-                      Ainda sem diagnóstico definido
+                      {t("forms.segundaOpiniao.selectCondicaoSemDiagnostico")}
                     </option>
                     <option value="Outra condição" className="bg-navy-800">
-                      Outra condição
+                      {t("forms.segundaOpiniao.selectCondicaoOutra")}
                     </option>
                   </select>
                 </Field>
-                <Field label="Você já tem os exames?">
+                <Field label={t("forms.segundaOpiniao.labelExames")}>
                   <select
                     value={exames}
                     onChange={(e) => setExames(e.target.value)}
                     className={`${fieldClass} appearance-none`}
                   >
                     <option value="" className="bg-navy-800">
-                      Selecione
+                      {t("forms.segundaOpiniao.selectExamesDefault")}
                     </option>
-                    {EXAMES_OPCOES.map((o) => (
+                    {examesOpcoes.map((o) => (
                       <option key={o} value={o} className="bg-navy-800">
                         {o}
                       </option>
                     ))}
                   </select>
                 </Field>
-                <Field label="Resumo do caso (opcional)">
+                <Field label={t("forms.segundaOpiniao.labelResumo")}>
                   <textarea
                     rows={4}
                     value={resumo}
                     onChange={(e) => setResumo(e.target.value)}
-                    placeholder="Em poucas linhas: o diagnóstico recebido e a conduta proposta até aqui"
+                    placeholder={t("forms.segundaOpiniao.phResumo")}
                     className={`${fieldClass} resize-none`}
                   />
                 </Field>
                 <Button type="submit" variant="gold" icon="chat" className="mt-2 w-full">
-                  Enviar pedido pelo WhatsApp
+                  {t("forms.segundaOpiniao.enviarPedido")}
                 </Button>
                 <p className="font-body text-white/45 text-[13px]" style={{ lineHeight: 1.55 }}>
-                  Não envie exames por este formulário. A equipe orienta o envio dos arquivos na
-                  conversa, após a confirmação do recebimento do pedido.
+                  {t("forms.segundaOpiniao.formNota")}
                 </p>
               </form>
             </div>
@@ -360,9 +361,9 @@ export function SegundaOpiniaoPage() {
 
       {/* 7. FAQ */}
       <Section tone="navy-800">
-        <Eyebrow>Perguntas frequentes</Eyebrow>
+        <Eyebrow>{t("forms.segundaOpiniao.faqEyebrow")}</Eyebrow>
         <SectionHeading tone="light" className="mt-5">
-          Dúvidas comuns
+          {t("forms.segundaOpiniao.faqHeading")}
         </SectionHeading>
         <Divider tone="light" className="mt-8" />
         <div className="mt-10 flex flex-col overflow-hidden rounded-2xl bg-white/[0.04]">

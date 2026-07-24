@@ -21,7 +21,40 @@
       "titulo": "Patient reviews",
       "descricao": "Reviews published by patients on public platforms. These are individual accounts: each case is unique and no outcome can be guaranteed.",
       "voltar": "Previous",
-      "proximo": "Next"
+      "proximo": "Next",
+      "roles": {
+        "paciente": "Patient",
+        "aneurisma": "Patient — Aneurysm Surgery",
+        "tumores": "Patient — Brain Tumors",
+        "schwannoma": "Patient — Schwannoma",
+        "meningioma": "Patient — Meningioma"
+      }
+    },
+    "sobre": {
+      "eyebrow": "MD PhD — Neurosurgeon",
+      "heading": "Specialist in Vascular Neurosurgery",
+      "labels": {
+        "atuacao": "Professional Practice",
+        "coordenacao": "Coordination & Leadership",
+        "cirurgica": "Surgical Practice",
+        "publicacoes": "Publications & Research"
+      },
+      "texts": {
+        "hospitals": "Neurosurgeon at renowned hospitals such as BP, Santa Catarina, Albert Einstein and Sírio Libanês.",
+        "coordination": "Coordinator of the Vascular Neurosurgery Department of the Brazilian Society of Neurosurgery.",
+        "publications": "An extensive list of publications in leading international and national journals, reviewer for major periodicals and a thought leader shaped by 20 years of experience in the neurosurgical field.",
+        "surgery": "Surgical practice in cases of high vascular and neurological complexity, using modern microsurgical techniques."
+      },
+      "alts": {
+        "retrato": "Dr. Hugo Doria",
+        "palestra": "Lecture at the Brazilian Congress of Neurosurgery",
+        "cirurgia": "Dr. Hugo Doria in a surgical setting",
+        "consultorio": "Dr. Hugo Doria in his office"
+      }
+    },
+    "quote": {
+      "text": "Neurosurgery is an art, and it is an honor to be able to practice it. To work in a field of such profound importance — giving patients back their lives — is far more than a profession; it is a great privilege.",
+      "attribution": "So says Dr. Hugo Leonardo Doria-Netto, MD, PhD, whose gift in medicine is recognized as a blessing from God."
     },
     "brain": {
       "heading": "Essential Care for Your Neurological Health",

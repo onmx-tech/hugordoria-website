@@ -7,30 +7,29 @@ import { Eyebrow, SectionHeading, Divider, Button, Container } from "../componen
 import { HERO_IMG } from "../components/sub/heroImages";
 import { getCards } from "../components/section-especialidades/cards-i18n";
 import { LocaleLink as Link, useLocale } from "../i18n/LocaleProvider";
+import { useTranslation } from "react-i18next";
 import FloatingNav from "../components/FloatingNav";
 import { useSeo } from "../seo/useSeo";
 import { breadcrumbSchema } from "../seo/schema";
 
-const PROCESS = [
-  { step: "01", title: "Avaliação", text: "Consulta detalhada, análise de exames e escuta atenta da sua história clínica." },
-  { step: "02", title: "Diagnóstico", text: "Investigação precisa com tecnologia de imagem avançada e discussão multidisciplinar." },
-  { step: "03", title: "Tratamento", text: "Plano individualizado — microcirurgia, endovascular ou radiocirurgia conforme o caso." },
-  { step: "04", title: "Acompanhamento", text: "Reabilitação e seguimento próximo para garantir a melhor recuperação possível." },
-];
+type ProcessStep = { step: string; title: string; text: string };
 
 export function EspecialidadesPage() {
   const { locale } = useLocale();
+  const { t } = useTranslation("sub");
   const cards = getCards(locale);
+  const process = t("sub.especialidades.processo.steps", {
+    returnObjects: true,
+  }) as ProcessStep[];
   useEffect(() => { window.scrollTo(0, 0); }, []);
   useSeo({
-    title: "Especialidades — neurocirurgia vascular e oncológica",
-    description:
-      "Aneurisma cerebral, MAVs, moyamoya, tumores cerebrais, hipofisários e medulares, schwannoma, cavernomas, neuralgia do trigêmeo e espasmo hemifacial.",
+    title: t("sub.especialidades.seo.title"),
+    description: t("sub.especialidades.seo.description"),
     image: "/v4/photos/retrato-empe.jpg",
     jsonLd: [
       breadcrumbSchema([
-        { name: "Início", path: "/" },
-        { name: "Especialidades", path: "/especialidades" },
+        { name: t("sub.especialidades.breadcrumb.inicio"), path: "/" },
+        { name: t("sub.especialidades.breadcrumb.especialidades"), path: "/especialidades" },
       ]),
     ],
   });
@@ -40,12 +39,12 @@ export function EspecialidadesPage() {
       <Navbar />
       <main className="flex-1">
         <PageHero
-          eyebrow="Serviços de Neurocirurgia"
-          title="Minhas Especialidades"
-          intro="Tratamentos avançados em neurocirurgia vascular e oncológica, do diagnóstico à reabilitação, sempre aliando tecnologia de ponta ao cuidado humanizado."
+          eyebrow={t("sub.especialidades.hero.eyebrow")}
+          title={t("sub.especialidades.hero.title")}
+          intro={t("sub.especialidades.hero.intro")}
           image="/v4/photos/retrato-empe.jpg"
-          imageAlt="Dr. Hugo Doria, neurocirurgião"
-          badge={{ value: String(cards.length).padStart(2, "0"), label: "Áreas de especialidade" }}
+          imageAlt={t("sub.especialidades.hero.imageAlt")}
+          badge={{ value: String(cards.length).padStart(2, "0"), label: t("sub.especialidades.hero.badgeLabel") }}
         />
 
         {/* Grid de especialidades */}
@@ -66,7 +65,7 @@ export function EspecialidadesPage() {
                       <p className="font-body text-white/70 text-[16px]" style={{ lineHeight: 1.55 }}>{s.description}</p>
                     </div>
                     <span className="mt-auto inline-flex items-center gap-2 font-display text-white text-[14px]" style={{ fontWeight: 600 }}>
-                      Saiba mais
+                      {t("sub.common.saibaMais")}
                       <ArrowRight className="size-5 text-gold-600 transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
                     </span>
                   </Link>
@@ -82,11 +81,11 @@ export function EspecialidadesPage() {
         {/* Processo */}
         <section className="bg-navy-600 py-20 md:py-28">
           <Container>
-            <Eyebrow>Como funciona</Eyebrow>
-            <SectionHeading tone="light" className="mt-5">Um processo de cuidado completo</SectionHeading>
+            <Eyebrow>{t("sub.especialidades.processo.eyebrow")}</Eyebrow>
+            <SectionHeading tone="light" className="mt-5">{t("sub.especialidades.processo.heading")}</SectionHeading>
             <Divider tone="light" className="mt-8" />
             <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-              {PROCESS.map((p) => (
+              {process.map((p) => (
                 <div key={p.step} className="flex flex-col gap-4">
                   <span className="font-display text-gold-600 text-[40px] tracking-[-0.03em]" style={{ fontWeight: 400 }}>{p.step}</span>
                   <h3 className="font-display text-white text-[20px]" style={{ fontWeight: 500 }}>{p.title}</h3>
@@ -100,11 +99,11 @@ export function EspecialidadesPage() {
         {/* CTA */}
         <section className="bg-gradient-to-b from-navy-800 to-navy-900 py-20 md:py-28">
           <Container className="flex flex-col items-center text-center">
-            <SectionHeading tone="light" className="max-w-[720px]">Não encontrou a sua condição? Fale comigo.</SectionHeading>
+            <SectionHeading tone="light" className="max-w-[720px]">{t("sub.especialidades.cta.heading")}</SectionHeading>
             <p className="mt-5 max-w-[520px] font-display text-white/70 text-[19px]" style={{ lineHeight: 1.4 }}>
-              Cada caso é único. Agende uma avaliação para discutirmos o tratamento ideal para a sua saúde neurológica.
+              {t("sub.especialidades.cta.text")}
             </p>
-            <Button to="/contato" variant="gold" icon="chat" className="mt-8">Entre em Contato</Button>
+            <Button to="/contato" variant="gold" icon="chat" className="mt-8">{t("sub.especialidades.cta.button")}</Button>
           </Container>
         </section>
       </main>

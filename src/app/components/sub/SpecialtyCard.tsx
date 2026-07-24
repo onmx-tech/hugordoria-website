@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 import { ArrowRight, type LucideIcon } from "lucide-react";
 
 /**
@@ -16,6 +17,7 @@ export function SpecialtyCard({
   description: string;
   to?: string;
 }) {
+  const { t } = useTranslation("sub");
   return (
     <Link
       to={to}
@@ -32,7 +34,7 @@ export function SpecialtyCard({
           </p>
         </div>
         <span className="inline-flex items-center gap-2 font-display text-white text-[14px]" style={{ fontWeight: 600 }}>
-          Saiba mais
+          {t("sub.common.saibaMais")}
           <ArrowRight className="size-5 text-gold-600 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
         </span>
       </div>

@@ -1,0 +1,96 @@
+{
+  "sub": {
+    "common": {
+      "saibaMais": "Learn more"
+    },
+    "video": {
+      "play": "Play video",
+      "playNamed": "Play video: {{title}}",
+      "title": "Video",
+      "comingSoonInline": "Video coming soon",
+      "comingSoon": "Coming soon",
+      "inProduction": "Video in production"
+    },
+    "manifesto": {
+      "eyebrow": "In the first person",
+      "lines": [
+        "Excellence is not revealed in the final outcome alone. It is revealed in the preparation, grounded in the details.",
+        "In decades devoted to study, in published scientific research, in thousands of cases examined in depth, and in the discernment that only time and experience can bring.",
+        "When I step into surgery, everything around me ceases to matter.",
+        "The focus becomes absolute.",
+        "Because, in that moment, knowledge, experience and decision-making must act in perfect harmony.",
+        "Neurosurgery demands technical precision, but it also demands something beyond technique: the maturity to weigh complex scenarios, make difficult choices and assume the responsibility that each decision carries.",
+        "Perhaps that is the profession's greatest mission.",
+        "To draw on everything we have learned over a lifetime to offer the patient what they need most in that instant: safety, care and the best chance of regaining their health and moving forward.",
+        "In the end, each procedure represents far more than a medical act.",
+        "It represents the chance to restore quality of life, preserve stories, reclaim interrupted plans and allow someone to return to their family, their routine and their plans for the future.",
+        "And so, at the end of every surgery, my gratitude is always shared — with the patient and their family, for the trust placed in our work.",
+        "With the team that walks beside me every day, for the competence, commitment and dedication at every stage of this process.",
+        "Neurosurgery is built on knowledge, but results are only possible when there is trust."
+      ]
+    },
+    "especialidades": {
+      "seo": {
+        "title": "Specialties — vascular and oncological neurosurgery",
+        "description": "Cerebral aneurysm, AVMs, moyamoya, brain, pituitary and spinal tumors, schwannoma, cavernomas, trigeminal neuralgia and hemifacial spasm."
+      },
+      "breadcrumb": {
+        "inicio": "Home",
+        "especialidades": "Specialties"
+      },
+      "hero": {
+        "eyebrow": "Neurosurgery Services",
+        "title": "My Specialties",
+        "intro": "Advanced treatments in vascular and oncological neurosurgery, from diagnosis to rehabilitation, always pairing state-of-the-art technology with humanized care.",
+        "imageAlt": "Dr. Hugo Doria, neurosurgeon",
+        "badgeLabel": "Areas of specialty"
+      },
+      "processo": {
+        "eyebrow": "How it works",
+        "heading": "A complete continuum of care",
+        "steps": [
+          { "step": "01", "title": "Assessment", "text": "A detailed consultation, review of your exams and attentive listening to your clinical history." },
+          { "step": "02", "title": "Diagnosis", "text": "Precise investigation with advanced imaging technology and multidisciplinary discussion." },
+          { "step": "03", "title": "Treatment", "text": "An individualized plan — microsurgery, endovascular or radiosurgery, according to each case." },
+          { "step": "04", "title": "Follow-up", "text": "Rehabilitation and close monitoring to ensure the best possible recovery." }
+        ]
+      },
+      "cta": {
+        "heading": "Didn't find your condition? Talk to me.",
+        "text": "Every case is unique. Schedule an assessment so we can discuss the ideal treatment for your neurological health.",
+        "button": "Get in Touch"
+      }
+    },
+    "notFound": {
+      "seo": {
+        "title": "Page not found",
+        "description": "The page you were looking for doesn't exist or has moved. Explore the specialties or reach out to Dr. Hugo Doria's team."
+      },
+      "eyebrow": "Error 404",
+      "heading": "This page doesn't exist",
+      "text": "The address may have changed or the link may be incomplete. Return home, browse the specialties or contact the team directly to schedule an assessment.",
+      "btnHome": "Back to home",
+      "btnTeam": "Talk to the team",
+      "suggestEyebrow": "You may be looking for",
+      "btnAll": "See all specialties"
+    },
+    "footer": {
+      "navegue": "Navigate",
+      "especialidades": "Specialties",
+      "contato": "Contact",
+      "localizacao": "Location",
+      "voltarAoTopo": "Back to top",
+      "copyright": "Copyright © 2026 Hugo Doria. All rights reserved",
+      "nav": {
+        "sobreMim": "About me",
+        "doutorado": "Doctorate",
+        "publicacoes": "Publications",
+        "eventos": "Events",
+        "midia": "Media",
+        "depoimentos": "Testimonials",
+        "segundaOpiniao": "Second opinion",
+        "contato": "Contact"
+      }
+    }
+  }
+}

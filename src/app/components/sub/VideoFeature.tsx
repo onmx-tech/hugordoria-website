@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Play } from "lucide-react";
 import { Eyebrow, SectionHeading, Container } from "./primitives";
 
@@ -21,6 +22,7 @@ export function VideoFeature({
   caption?: string;
   src?: string;
 }) {
+  const { t } = useTranslation("sub");
   const [playing, setPlaying] = useState(false);
 
   return (
@@ -44,7 +46,7 @@ export function VideoFeature({
                 <video
                   src={src}
                   poster={poster}
-                  title={title ?? "Vídeo"}
+                  title={title ?? t("sub.video.title")}
                   className="absolute inset-0 size-full bg-black object-contain"
                   controls
                   autoPlay
@@ -53,7 +55,7 @@ export function VideoFeature({
               ) : (
                 <iframe
                   src={src}
-                  title={title ?? "Vídeo"}
+                  title={title ?? t("sub.video.title")}
                   className="absolute inset-0 size-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -73,14 +75,14 @@ export function VideoFeature({
                 <button
                   type="button"
                   onClick={() => setPlaying(true)}
-                  aria-label="Reproduzir vídeo"
+                  aria-label={t("sub.video.play")}
                   className="group absolute inset-0 flex flex-col items-center justify-center gap-5"
                 >
                   <span className="flex size-[84px] items-center justify-center rounded-full bg-gold-600 transition-transform duration-300 group-hover:scale-105">
                     <Play className="size-8 translate-x-0.5 text-navy-900" strokeWidth={2} fill="currentColor" />
                   </span>
                   {playing && !src && (
-                    <span className="font-mono uppercase tracking-[0.2em] text-cream text-[12px]">Vídeo em breve</span>
+                    <span className="font-mono uppercase tracking-[0.2em] text-cream text-[12px]">{t("sub.video.comingSoonInline")}</span>
                   )}
                 </button>
 
@@ -88,8 +90,8 @@ export function VideoFeature({
                 {playing && !src && (
                   <div className="absolute inset-0 flex items-center justify-center bg-navy-900/80">
                     <div className="flex flex-col items-center gap-3 text-center">
-                      <span className="font-mono uppercase tracking-[0.22em] text-gold-600 text-[12px]">Em breve</span>
-                      <span className="font-display text-white text-[20px]" style={{ fontWeight: 500 }}>Vídeo em produção</span>
+                      <span className="font-mono uppercase tracking-[0.22em] text-gold-600 text-[12px]">{t("sub.video.comingSoon")}</span>
+                      <span className="font-display text-white text-[20px]" style={{ fontWeight: 500 }}>{t("sub.video.inProduction")}</span>
                     </div>
                   </div>
                 )}

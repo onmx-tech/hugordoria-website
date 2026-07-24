@@ -5,67 +5,69 @@ import { gsap } from "../../lib/gsap";
 
 // Depoimentos reais de pacientes — excertos das avaliações verificadas no
 // Doctoralia (perfil do Dr. Hugo Doria-Netto), levemente encurtados.
-type Testimonial = { quote: string; name: string; role: string; photo?: string | null };
+// `roleKey` aponta para o i18n (home.casos.roles.*); quote e name são a fala e
+// o nome reais do paciente e NÃO se traduzem.
+type Testimonial = { quote: string; name: string; roleKey: string; photo?: string | null };
 const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "Com muita competência, atenção e sensibilidade, conduziu minha cirurgia de forma impecável, sempre me transmitindo segurança, calma e confiança desde o primeiro contato.",
     name: "Rita Cássia Nogueira",
-    role: "Paciente — Cirurgia de Aneurisma",
+    roleKey: "home.casos.roles.aneurisma",
   },
   {
     quote:
       "Não há palavras que possam expressar minha sincera gratidão e admiração pelo Dr. Hugo! É evidente a capacidade dele como profissional. Mas é a forma como trata os pacientes, com respeito e dedicação, que o transforma em um ser humano único.",
     name: "Marjouri Garcia",
-    role: "Paciente — Tumores Cerebrais",
+    roleKey: "home.casos.roles.tumores",
   },
   {
     quote:
       "Excelente profissional. Atendimento humanizado, muito empático. Dr. Hugo e sua equipe salvaram minha vida. A cirurgia foi um sucesso e me recupero muito bem.",
     name: "Rita de Cássia de Jesus Silva",
-    role: "Paciente — Schwannoma",
+    roleKey: "home.casos.roles.schwannoma",
   },
   {
     quote:
       "Dr. Hugo demonstra muito domínio técnico e conhecimento científico em sua área de atuação; mas possui um diferencial: respeitar os momentos humanos que passamos como pacientes de cirurgias tão delicadas.",
     name: "Rebecca F. A. Silva",
-    role: "Paciente — Meningioma",
+    roleKey: "home.casos.roles.meningioma",
   },
   {
     quote:
       "Eu só tenho a agradecer a Deus, ao meu anjo da guarda Dr. Hugo Doria e toda equipe médica, que esteve ao meu lado durante todo o período que estive hospitalizada. Eterna gratidão!",
     name: "Maria José da Silva Barbosa",
-    role: "Paciente — Cirurgia de Aneurisma",
+    roleKey: "home.casos.roles.aneurisma",
   },
   {
     quote:
       "Neurocirurgião com expertise de nível internacional. Médico de altíssimo conhecimento científico e alma iluminada.",
     name: "Reginaldo Queiroz",
-    role: "Paciente",
+    roleKey: "home.casos.roles.paciente",
   },
   {
     quote:
       "Desde a primeira consulta me passou total confiança, foi muito atencioso e prestativo. Faz 5 anos que fiz a cirurgia e estou totalmente curada.",
     name: "Marli de Fátima Pereira Viana",
-    role: "Paciente — Cirurgia de Aneurisma",
+    roleKey: "home.casos.roles.aneurisma",
   },
   {
     quote:
       "Dr. Hugo e sua equipe, com a graça de Deus, conseguiram me livrar dessa angústia — hoje estou curado e minha gratidão é eterna!",
     name: "James Cássio de Miranda",
-    role: "Paciente — Cirurgia de Aneurisma",
+    roleKey: "home.casos.roles.aneurisma",
   },
   {
     quote:
       "Ótimo profissional, muito atencioso antes, durante e após o procedimento. Tratamento super eficaz! Sou grato por tudo!",
     name: "Renato Santos",
-    role: "Paciente",
+    roleKey: "home.casos.roles.paciente",
   },
   {
     quote:
       "Na minha primeira consulta fui muito bem recebida, com muita atenção e carinho. Me senti totalmente segura e confiante. Minha recuperação tem sido rápida e tranquila graças à atenção e profissionalismo do Dr. Hugo e toda sua equipe.",
     name: "Ana Maria Rosini",
-    role: "Paciente — Meningioma",
+    roleKey: "home.casos.roles.meningioma",
   },
 ];
 
@@ -227,7 +229,7 @@ export default function SectionCasosDeSucesso() {
           ref={cardsRef}
           className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6"
         >
-          {visibleCards.map((t, i) => (
+          {visibleCards.map((item, i) => (
             <article
               key={`${page}-${i}`}
               data-card
@@ -239,21 +241,21 @@ export default function SectionCasosDeSucesso() {
                   className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.18] tracking-[-0.02em]"
                   style={{ fontSize: "clamp(18px, 2vw, 32px)" }}
                 >
-                  {t.quote}
+                  {item.quote}
                 </p>
               </div>
               <div className="flex items-center gap-3 mt-8 md:mt-10 pt-6 border-t border-navy/[0.08]">
-                {t.photo ? (
+                {item.photo ? (
                   <img
-                    src={t.photo}
-                    alt={t.name}
+                    src={item.photo}
+                    alt={item.name}
                     referrerPolicy="no-referrer"
                     className="size-10 rounded-full object-cover"
                   />
                 ) : (
                   <div className="size-10 rounded-full bg-navy/[0.06] flex items-center justify-center">
                     <span className="font-['Geist',sans-serif] font-medium text-navy/40 text-sm">
-                      {t.name.charAt(0)}
+                      {item.name.charAt(0)}
                     </span>
                   </div>
                 )}
@@ -262,13 +264,13 @@ export default function SectionCasosDeSucesso() {
                     className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.3]"
                     style={{ fontSize: "clamp(14px, 1vw, 18px)" }}
                   >
-                    {t.name}
+                    {item.name}
                   </span>
                   <span
                     className="font-['Arimo',sans-serif] font-normal text-navy/40 leading-[1.3]"
                     style={{ fontSize: "clamp(12px, 0.9vw, 15px)" }}
                   >
-                    {t.role}
+                    {t(item.roleKey)}
                   </span>
                 </div>
               </div>

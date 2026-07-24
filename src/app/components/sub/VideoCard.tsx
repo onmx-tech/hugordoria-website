@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Play } from "lucide-react";
 
 /**
@@ -12,6 +13,7 @@ import { Play } from "lucide-react";
  * estética de uma vez; o player só entra quando o usuário decide assistir.
  */
 export function VideoCard({ id, title }: { id: string; title?: string }) {
+  const { t } = useTranslation("sub");
   const [playing, setPlaying] = useState(false);
   // maxresdefault (1280×720, 16:9) é o mais nítido, mas só existe se o vídeo foi
   // enviado em HD. Quando falta, o YouTube responde 200 com um placeholder cinza
@@ -28,7 +30,7 @@ export function VideoCard({ id, title }: { id: string; title?: string }) {
         <iframe
           className="absolute inset-0 size-full"
           src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
-          title={title ?? `Vídeo ${id}`}
+          title={title ?? `${t("sub.video.title")} ${id}`}
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -41,7 +43,7 @@ export function VideoCard({ id, title }: { id: string; title?: string }) {
     <button
       type="button"
       onClick={() => setPlaying(true)}
-      aria-label={title ? `Reproduzir vídeo: ${title}` : "Reproduzir vídeo"}
+      aria-label={title ? t("sub.video.playNamed", { title }) : t("sub.video.play")}
       className="group relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-navy-900 text-left transition-colors duration-300 hover:border-gold-600/40"
     >
       <img

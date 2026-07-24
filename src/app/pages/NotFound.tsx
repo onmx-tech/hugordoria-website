@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
 import { Navbar } from "../components/sub/Navbar";
 import { Footer } from "../components/sub/Footer";
@@ -14,11 +15,11 @@ import { useSeo } from "../seo/useSeo";
  * ou de busca. Aqui o visitante sempre encontra um caminho de volta.
  */
 export function NotFoundPage() {
+  const { t } = useTranslation("sub");
   useEffect(() => { window.scrollTo(0, 0); }, []);
   useSeo({
-    title: "Página não encontrada",
-    description:
-      "A página que você procurava não existe ou mudou de endereço. Veja as especialidades ou fale com a equipe do Dr. Hugo Doria.",
+    title: t("sub.notFound.seo.title"),
+    description: t("sub.notFound.seo.description"),
     noindex: true,
   });
 
@@ -31,7 +32,7 @@ export function NotFoundPage() {
         <section className="bg-navy-800 pt-28 pb-20 md:pt-36 md:pb-28">
           <Container>
             <div className="max-w-[720px]">
-              <Eyebrow>Erro 404</Eyebrow>
+              <Eyebrow>{t("sub.notFound.eyebrow")}</Eyebrow>
               <h1
                 className="font-display mt-6 text-white"
                 style={{
@@ -41,24 +42,22 @@ export function NotFoundPage() {
                   letterSpacing: "-0.04em",
                 }}
               >
-                Essa página não existe
+                {t("sub.notFound.heading")}
                 <span className="text-gold-600">.</span>
               </h1>
               <p
                 className="mt-7 text-white/65"
                 style={{ fontSize: 19, lineHeight: 1.65, maxWidth: 560 }}
               >
-                O endereço pode ter mudado ou o link estar incompleto. Volte ao
-                início, veja as especialidades ou fale diretamente com a equipe
-                para agendar uma avaliação.
+                {t("sub.notFound.text")}
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
                 <Button to="/" variant="gold" icon="arrow">
-                  Voltar ao início
+                  {t("sub.notFound.btnHome")}
                 </Button>
                 <Button to="/contato" variant="outline-light">
-                  Falar com a equipe
+                  {t("sub.notFound.btnTeam")}
                 </Button>
               </div>
             </div>
@@ -67,7 +66,7 @@ export function NotFoundPage() {
 
         <section className="bg-navy-600 py-20 md:py-24">
           <Container>
-            <Eyebrow>Talvez você procure</Eyebrow>
+            <Eyebrow>{t("sub.notFound.suggestEyebrow")}</Eyebrow>
             <Divider />
             <ul className="mt-10 grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
               {atalhos.map((c) => (
@@ -92,7 +91,7 @@ export function NotFoundPage() {
             </ul>
             <div className="mt-10">
               <Button to="/especialidades" variant="outline-light" icon="arrow">
-                Ver todas as especialidades
+                {t("sub.notFound.btnAll")}
               </Button>
             </div>
           </Container>

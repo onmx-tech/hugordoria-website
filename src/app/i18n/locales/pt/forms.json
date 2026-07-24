@@ -1,0 +1,158 @@
+{
+  "forms": {
+    "stats": {
+      "experiencia": "Anos de experiência",
+      "artigos": "Artigos publicados",
+      "casos": "Casos de sucesso"
+    },
+    "sobre": {
+      "heroEyebrow": "Sobre",
+      "heroIntro": "MD, PhD — Neurocirurgião dedicado à neurocirurgia vascular, unindo precisão técnica, pesquisa avançada e um cuidado profundamente humano.",
+      "heroBadgeLabel": "anos de experiência",
+      "videoEyebrow": "Conheça minha trajetória",
+      "videoTitle": "Uma conversa sobre técnica, decisão e o cuidado com cada paciente.",
+      "videoCaption": "Vídeo · Dr. Hugo Doria",
+      "trajetoriaEyebrow": "Trajetória",
+      "trajetoriaHeading": "Duas décadas dedicadas à microneurocirurgia de alta complexidade.",
+      "pilaresEyebrow": "Pilares",
+      "pilaresHeading": "Uma atuação em três frentes",
+      "formacaoEyebrow": "Formação internacional",
+      "formacaoHeading": "Treinamento nos maiores centros do mundo",
+      "retratosEyebrow": "Retratos",
+      "retratosHeading": "O profissional por trás de cada cirurgia"
+    },
+    "doutorado": {
+      "heroEyebrow": "Doutorado",
+      "heroTitle": "Tese de Doutorado em Neurociência",
+      "heroIntro": "Aneurismas cerebrais paraclinóideos: um protocolo inédito para distinguir, com exatidão, quais exigem tratamento — desenvolvido em quatro etapas.",
+      "videoEyebrow": "Sobre a pesquisa",
+      "videoTitle": "A tese em quatro etapas, explicada.",
+      "videoCaption": "Vídeo · Doutorado — UNIFESP",
+      "pesquisaEyebrow": "A pesquisa",
+      "pesquisaHeading": "Distinguir com exatidão para tratar com precisão.",
+      "lerTese": "Ler a tese (PDF)"
+    },
+    "publicacoes": {
+      "heroEyebrow": "Publicações",
+      "heroTitle": "Produção científica",
+      "heroImageAlt": "Publicações científicas",
+      "artigoEyebrow": "Artigo em destaque",
+      "artigoHeading": "Quatro anos de pesquisa em uma revista de referência mundial.",
+      "lerArtigo": "Ler o artigo científico",
+      "capitulosEyebrow": "Capítulos de livros",
+      "capitulosHeading": "Contribuições em obras de referência"
+    },
+    "eventos": {
+      "heroEyebrow": "Eventos",
+      "heroTitle": "Presença na comunidade neurocirúrgica",
+      "heroIntro": "20 anos de experiência compartilhados em congressos nacionais e internacionais, aulas para residentes e simpósios de neurocirurgia vascular.",
+      "heroImageAlt": "Dr. Hugo Doria palestrando em congresso",
+      "heroBadgeLabel": "palestras e congressos",
+      "palestrasEyebrow": "Palestras & congressos"
+    },
+    "midia": {
+      "heroEyebrow": "Mídia",
+      "heroTitle": "Vídeos e aparições",
+      "heroIntro": "Entrevistas, aulas e conteúdos sobre neurocirurgia vascular, diagnóstico e tratamento das principais condições neurológicas.",
+      "heroImageAlt": "Mídia e vídeos",
+      "heroBadgeLabel": "vídeos"
+    },
+    "depoimentos": {
+      "heroEyebrow": "Depoimentos",
+      "heroTitle": "Palavras que valem uma vida",
+      "heroIntro": "Mensagens reais de pacientes e familiares ao longo de duas décadas — o maior reconhecimento do trabalho.",
+      "heroBadgeLabel": "casos de sucesso",
+      "itemAlt": "Depoimento {{n}}"
+    },
+    "contato": {
+      "heroEyebrow": "Contato",
+      "heroTitle": "Vamos cuidar da sua saúde neurológica",
+      "heroIntro": "Preencha o formulário ou utilize um dos canais abaixo. Minha equipe responderá o mais breve possível para agendar a sua avaliação.",
+      "heroBadgeLabel": "Retorno do contato",
+      "canaisEyebrow": "Canais de atendimento",
+      "canaisHeading": "Fale diretamente comigo",
+      "infoWhatsapp": "WhatsApp",
+      "infoEmail": "E-mail",
+      "infoEndereco": "Endereço",
+      "infoAtendimento": "Atendimento",
+      "atendimentoHorario": "Seg. a Sex. — 08h às 18h",
+      "labelNome": "Nome completo",
+      "labelTelefone": "Telefone",
+      "labelEmail": "E-mail",
+      "labelAssunto": "Assunto",
+      "labelMensagem": "Mensagem",
+      "phNome": "Seu nome",
+      "phTelefone": "(00) 00000-0000",
+      "phEmail": "voce@email.com",
+      "phMensagem": "Descreva brevemente o seu caso",
+      "selectAssuntoDefault": "Selecione a especialidade",
+      "selectAssuntoOutro": "Outro assunto",
+      "enviar": "Enviar mensagem",
+      "wa": {
+        "saudacao": "Olá, Dr. Hugo Doria! Gostaria de agendar uma avaliação.",
+        "nome": "Nome",
+        "telefone": "Telefone",
+        "email": "E-mail",
+        "assunto": "Assunto",
+        "mensagem": "Mensagem"
+      }
+    },
+    "localizacao": {
+      "heroEyebrow": "Localização",
+      "heroTitle": "Onde me encontrar",
+      "consultorioEyebrow": "Consultório",
+      "consultorioHeading": "Bela Vista, São Paulo",
+      "atendimentoHorario": "Seg. a Sex. — 08h às 18h",
+      "abrirMaps": "Abrir no Google Maps",
+      "mapaTitle": "Mapa do consultório"
+    },
+    "segundaOpiniao": {
+      "heroEyebrow": "Segunda opinião",
+      "heroTitle": "Segunda opinião especializada",
+      "ctaSolicitar": "Solicitar segunda opinião",
+      "aberturaEyebrow": "Sobre este atendimento",
+      "aberturaHeading": "Decidir sobre uma cirurgia no cérebro exige mais de uma leitura.",
+      "quemEyebrow": "Quem deve pedir",
+      "quemHeading": "Situações em que uma segunda opinião costuma fazer diferença",
+      "enviarEyebrow": "O que enviar",
+      "enviarHeading": "Exames e documentos para a análise",
+      "comoEyebrow": "Como funciona",
+      "comoHeading": "Do primeiro contato ao retorno",
+      "limitesEyebrow": "Importante",
+      "limitesHeading": "O que a segunda opinião não é",
+      "solicitacaoEyebrow": "Solicitação",
+      "solicitacaoHeading": "Envie o seu pedido",
+      "solicitacaoIntro": "O formulário abre uma conversa no WhatsApp da minha equipe já identificada como um pedido de segunda opinião. É por lá que você recebe a confirmação de recebimento e a orientação para enviar os exames com segurança.",
+      "waEquipeLabel": "WhatsApp da equipe",
+      "labelNome": "Nome completo",
+      "labelContato": "Telefone ou WhatsApp",
+      "labelCondicao": "Condição ou suspeita diagnóstica",
+      "labelExames": "Você já tem os exames?",
+      "labelResumo": "Resumo do caso (opcional)",
+      "phNome": "Nome do paciente ou responsável",
+      "phContato": "(00) 00000-0000",
+      "phResumo": "Em poucas linhas: o diagnóstico recebido e a conduta proposta até aqui",
+      "selectCondicaoDefault": "Selecione, se já houver",
+      "selectCondicaoSemDiagnostico": "Ainda sem diagnóstico definido",
+      "selectCondicaoOutra": "Outra condição",
+      "selectExamesDefault": "Selecione",
+      "examesOpcoes": [
+        "Tenho os exames em arquivo digital (DICOM/CD)",
+        "Tenho apenas os laudos",
+        "Ainda não tenho os exames em mãos"
+      ],
+      "enviarPedido": "Enviar pedido pelo WhatsApp",
+      "formNota": "Não envie exames por este formulário. A equipe orienta o envio dos arquivos na conversa, após a confirmação do recebimento do pedido.",
+      "faqEyebrow": "Perguntas frequentes",
+      "faqHeading": "Dúvidas comuns",
+      "wa": {
+        "saudacao": "Olá! Gostaria de solicitar uma SEGUNDA OPINIÃO especializada com o Dr. Hugo Doria.",
+        "nome": "Nome",
+        "contato": "Contato",
+        "condicao": "Condição ou suspeita",
+        "exames": "Exames",
+        "resumo": "Resumo do caso"
+      }
+    }
+  }
+}

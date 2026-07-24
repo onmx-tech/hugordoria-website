@@ -1,0 +1,96 @@
+{
+  "sub": {
+    "common": {
+      "saibaMais": "Saiba mais"
+    },
+    "video": {
+      "play": "Reproduzir vídeo",
+      "playNamed": "Reproduzir vídeo: {{title}}",
+      "title": "Vídeo",
+      "comingSoonInline": "Vídeo em breve",
+      "comingSoon": "Em breve",
+      "inProduction": "Vídeo em produção"
+    },
+    "manifesto": {
+      "eyebrow": "Em primeira pessoa",
+      "lines": [
+        "A excelência não se revela apenas no resultado final. Ela se revela na preparação baseada nos detalhes.",
+        "Em décadas dedicadas ao estudo, em pesquisas científicas publicadas, em milhares de casos analisados com profundidade e na construção de um discernimento que só o tempo e a experiência são capazes de proporcionar.",
+        "Quando entro em uma cirurgia, tudo o que existe ao redor deixa de importar.",
+        "O foco passa a ser absoluto.",
+        "Porque, naquele momento, conhecimento, experiência e capacidade de decisão precisam atuar em perfeita harmonia.",
+        "A neurocirurgia exige precisão técnica, mas exige também algo que vai além da técnica: a maturidade para avaliar cenários complexos, fazer escolhas difíceis e assumir a responsabilidade que cada decisão carrega.",
+        "Talvez essa seja a maior missão da profissão.",
+        "Utilizar tudo o que aprendemos ao longo de uma vida para oferecer ao paciente aquilo que ele mais precisa naquele instante: segurança, cuidado e a melhor oportunidade de recuperar sua saúde e seguir em frente.",
+        "No fim, cada procedimento representa muito mais do que um ato médico.",
+        "Representa a possibilidade de devolver qualidade de vida, preservar histórias, reencontrar projetos interrompidos e permitir que alguém retorne à sua família, à sua rotina e aos seus planos para o futuro.",
+        "E por isso, ao final de cada cirurgia, minha gratidão é sempre compartilhada, com o paciente e à sua família, pela confiança depositada em nosso trabalho.",
+        "À equipe que caminha ao meu lado diariamente, pela competência, comprometimento e dedicação em cada etapa desse processo.",
+        "A neurocirurgia é construída por conhecimento, mas os resultados só são possíveis quando existe confiança."
+      ]
+    },
+    "especialidades": {
+      "seo": {
+        "title": "Especialidades — neurocirurgia vascular e oncológica",
+        "description": "Aneurisma cerebral, MAVs, moyamoya, tumores cerebrais, hipofisários e medulares, schwannoma, cavernomas, neuralgia do trigêmeo e espasmo hemifacial."
+      },
+      "breadcrumb": {
+        "inicio": "Início",
+        "especialidades": "Especialidades"
+      },
+      "hero": {
+        "eyebrow": "Serviços de Neurocirurgia",
+        "title": "Minhas Especialidades",
+        "intro": "Tratamentos avançados em neurocirurgia vascular e oncológica, do diagnóstico à reabilitação, sempre aliando tecnologia de ponta ao cuidado humanizado.",
+        "imageAlt": "Dr. Hugo Doria, neurocirurgião",
+        "badgeLabel": "Áreas de especialidade"
+      },
+      "processo": {
+        "eyebrow": "Como funciona",
+        "heading": "Um processo de cuidado completo",
+        "steps": [
+          { "step": "01", "title": "Avaliação", "text": "Consulta detalhada, análise de exames e escuta atenta da sua história clínica." },
+          { "step": "02", "title": "Diagnóstico", "text": "Investigação precisa com tecnologia de imagem avançada e discussão multidisciplinar." },
+          { "step": "03", "title": "Tratamento", "text": "Plano individualizado — microcirurgia, endovascular ou radiocirurgia conforme o caso." },
+          { "step": "04", "title": "Acompanhamento", "text": "Reabilitação e seguimento próximo para garantir a melhor recuperação possível." }
+        ]
+      },
+      "cta": {
+        "heading": "Não encontrou a sua condição? Fale comigo.",
+        "text": "Cada caso é único. Agende uma avaliação para discutirmos o tratamento ideal para a sua saúde neurológica.",
+        "button": "Entre em Contato"
+      }
+    },
+    "notFound": {
+      "seo": {
+        "title": "Página não encontrada",
+        "description": "A página que você procurava não existe ou mudou de endereço. Veja as especialidades ou fale com a equipe do Dr. Hugo Doria."
+      },
+      "eyebrow": "Erro 404",
+      "heading": "Essa página não existe",
+      "text": "O endereço pode ter mudado ou o link estar incompleto. Volte ao início, veja as especialidades ou fale diretamente com a equipe para agendar uma avaliação.",
+      "btnHome": "Voltar ao início",
+      "btnTeam": "Falar com a equipe",
+      "suggestEyebrow": "Talvez você procure",
+      "btnAll": "Ver todas as especialidades"
+    },
+    "footer": {
+      "navegue": "Navegue",
+      "especialidades": "Especialidades",
+      "contato": "Contato",
+      "localizacao": "Localização",
+      "voltarAoTopo": "Voltar ao topo",
+      "copyright": "Copyright © 2026 Hugo Doria. Todos os direitos reservados",
+      "nav": {
+        "sobreMim": "Sobre mim",
+        "doutorado": "Doutorado",
+        "publicacoes": "Publicações",
+        "eventos": "Eventos",
+        "midia": "Mídia",
+        "depoimentos": "Depoimentos",
+        "segundaOpiniao": "Segunda opinião",
+        "contato": "Contato"
+      }
+    }
+  }
+}

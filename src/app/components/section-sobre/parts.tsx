@@ -1,4 +1,5 @@
 import type { ReactNode, CSSProperties } from "react";
+import { useTranslation } from "react-i18next";
 import { cells, texts, HEADER } from "./data";
 import imgVideo from "@/assets/a375c45d2716fbbea43385fdee4485566a41cfa6.png";
 import imgScrubsGreen from "@/assets/1237b2795956579d89da3b7db4b78c58db67e687.png";
@@ -155,6 +156,7 @@ function CaptionCell({
 }
 
 export function SobreContent() {
+  const { t } = useTranslation("home");
   return (
     <>
       {/* Header fixo à esquerda */}
@@ -169,7 +171,7 @@ export function SobreContent() {
             color: "var(--color-text-muted)",
           }}
         >
-          MD PhD - Neurocirurgião
+          {t("home.sobre.eyebrow")}
         </span>
       </Box>
 
@@ -185,16 +187,16 @@ export function SobreContent() {
             margin: 0,
           }}
         >
-          Especialista em Neurocirurgia Vascular
+          {t("home.sobre.heading")}
         </h2>
       </Box>
 
       {/* Grid de fotos + legendas (2 linhas × 4 colunas, alinhado) */}
       {cells.map((cell, i) =>
         cell.kind === "image" ? (
-          <ImageFrame key={i} x={cell.x} y={cell.y} w={cell.w} h={cell.h} src={cell.src} alt={cell.alt} objectPosition={cell.objectPosition} />
+          <ImageFrame key={i} x={cell.x} y={cell.y} w={cell.w} h={cell.h} src={cell.src} alt={t(cell.alt)} objectPosition={cell.objectPosition} />
         ) : (
-          <CaptionCell key={i} x={cell.x} y={cell.y} w={cell.w} h={cell.h} label={cell.label} text={cell.text} />
+          <CaptionCell key={i} x={cell.x} y={cell.y} w={cell.w} h={cell.h} label={t(cell.label)} text={t(cell.text)} />
         )
       )}
     </>
@@ -264,6 +266,7 @@ function MobileFrame({
 }
 
 export function SobreContentMobile() {
+  const { t } = useTranslation("home");
   return (
     <div className="flex flex-col gap-10 px-6 py-16">
       <header className="flex flex-col gap-4">
@@ -277,7 +280,7 @@ export function SobreContentMobile() {
             color: "var(--color-text-muted)",
           }}
         >
-          MD PhD — Neurocirurgião
+          {t("home.sobre.eyebrow")}
         </span>
         <h2
           style={{
@@ -290,41 +293,41 @@ export function SobreContentMobile() {
             margin: 0,
           }}
         >
-          Especialista em Neurocirurgia Vascular
+          {t("home.sobre.heading")}
         </h2>
       </header>
 
       <MobileFrame
         src={imgAtuacao}
-        alt="Dr. Hugo Doria"
+        alt={t("home.sobre.alts.retrato")}
         ratio="4 / 5"
         objectPosition="50% 12%"
       />
 
       <section className="flex flex-col gap-3">
-        <MobileLabel>Atuação Profissional</MobileLabel>
-        <MobileCaption>{texts.hospitals}</MobileCaption>
+        <MobileLabel>{t("home.sobre.labels.atuacao")}</MobileLabel>
+        <MobileCaption>{t(texts.hospitals)}</MobileCaption>
       </section>
 
-      <MobileFrame src={imgVideo} alt="Palestra" ratio="16 / 11" />
+      <MobileFrame src={imgVideo} alt={t("home.sobre.alts.palestra")} ratio="16 / 11" />
 
       <section className="flex flex-col gap-3">
-        <MobileLabel>Coordenação e Liderança</MobileLabel>
-        <MobileCaption>{texts.coordination}</MobileCaption>
+        <MobileLabel>{t("home.sobre.labels.coordenacao")}</MobileLabel>
+        <MobileCaption>{t(texts.coordination)}</MobileCaption>
       </section>
 
       <MobileFrame
         src={imgConsultorio}
-        alt="Dr. Hugo Doria em seu consultório"
+        alt={t("home.sobre.alts.consultorio")}
         ratio="4 / 5"
       />
 
       <section className="flex flex-col gap-3">
-        <MobileLabel>Publicações & Pesquisa</MobileLabel>
-        <MobileCaption>{texts.publicationsA}</MobileCaption>
+        <MobileLabel>{t("home.sobre.labels.publicacoes")}</MobileLabel>
+        <MobileCaption>{t(texts.publications)}</MobileCaption>
       </section>
 
-      <MobileFrame src={imgScrubsGreen} alt="Dr. Hugo Doria" ratio="4 / 5" />
+      <MobileFrame src={imgScrubsGreen} alt={t("home.sobre.alts.cirurgia")} ratio="4 / 5" />
     </div>
   );
 }
