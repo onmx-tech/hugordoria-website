@@ -20,6 +20,10 @@ O site inteiro usa **cantos retos** (cards/frames/imagens). No `theme.css` o `--
 
 O hero do topo (`Hero.tsx`, ≠ `SectionBrain`) mostra um **retrato do Dr. recortado** (PNG transparente, `@/assets/hero-doria-*.png`) que "flutua"/funde no gradiente navy. Trocar a foto = pegar uma real de `public/v4/photos/*.jpg`, **recortar o fundo** (Magnific `images_remove_background`: `creations_request_upload` → `curl PUT` do arquivo → `creations_finalize_upload` → `images_remove_background` → `creations_wait` → baixar o `render.png`), salvar em `src/assets/hero-doria-<pose>.png` e trocar o `import imgHeroDoria`. As fotos de `public/v4/photos` são JPGs COM fundo (usadas direto nas seções/subpáginas dentro de frames); só o hero precisa do recorte. ⚠️ A foto **`retrato-casual` foi rejeitada pelo cliente e ELIMINADA** — não reutilizar.
 
+## `FloatingNav` some ao rolar para baixo — é de propósito
+
+A nav flutuante **não** aparece só por passar do threshold de 480px: ela esconde enquanto o usuário rola **para baixo** (para não cobrir a leitura) e reaparece ao rolar **para cima** (intenção de agir). Um teste automatizado que só faz `mouse.wheel({deltaY: +N})` vai encontrar `opacity: 0` e parecer um bug — role para cima antes de medir. Em **`/contato`** o componente retorna `null` de propósito: a página inteira já é o CTA.
+
 ## Pegadinhas de screenshot (puppeteer)
 
 - **Lenis intercepta `scrollIntoView`/`window.scrollTo`** — o scroll programático "cai" no hero e nunca chega na seção. Alternativas: `page.mouse.wheel()` (o Lenis respeita o wheel real), ou `elementHandle.screenshot()` mirando o elemento por seletor (ex.: `[data-component="sobre-mobile"]`) — captura o elemento independente do scroll.
