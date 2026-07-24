@@ -209,15 +209,11 @@ export default function Hero() {
       <div className="relative z-10 flex-1 grid grid-cols-12 gap-x-6 gap-y-10 px-6 md:px-8 pt-24 sm:pt-28 lg:pt-[18vh] content-start">
         {/* Left: eyebrow + title */}
         <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-4">
-          {/* Credencial e praça dividem a MESMA linha, ancoradas nas duas
-              pontas da régua do divisor — some o "São Paulo" órfão e o bloco
-              passa a ter a largura do título. */}
           <p
             data-hero="eyebrow"
-            className="flex items-baseline justify-between gap-3 w-full max-w-[440px] font-['Geist_Mono',sans-serif] font-medium uppercase text-soft text-[13px] sm:text-[15px] lg:text-[17px] leading-[1] tracking-[0.07em]"
+            className="w-full max-w-[440px] font-['Geist_Mono',sans-serif] font-medium uppercase text-soft text-[13px] sm:text-[15px] lg:text-[17px] leading-[1] tracking-[0.07em]"
           >
-            <span>MD PhD – Neurocirurgião</span>
-            <span className="text-cream/60 whitespace-nowrap">São Paulo</span>
+            MD PhD – Neurocirurgião
           </p>
           <div
             data-hero="divider"
