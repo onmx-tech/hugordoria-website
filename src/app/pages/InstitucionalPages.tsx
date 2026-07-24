@@ -59,12 +59,12 @@ export function Section({ children, tone = "navy" }: { children: ReactNode; tone
 export function SobreMimPage() {
   const { locale } = useLocale();
   const { t } = useTranslation("forms");
+  const { t: tSeo } = useTranslation("seo");
   const { SOBRE_MIM } = getInstitucional(locale);
 
   useSeo({
-    title: "Sobre o Dr. Hugo Doria — neurocirurgião MD PhD",
-    description:
-      "Trajetória, formação e atuação do Dr. Hugo Leonardo Doria-Netto: neurocirurgia vascular com precisão técnica, pesquisa avançada e cuidado humano.",
+    title: tSeo("seo.sobre.title"),
+    description: tSeo("seo.sobre.description"),
     image: "/v4/photos/sobre-portrait.jpg",
     jsonLd: [
       breadcrumbSchema([
@@ -201,12 +201,12 @@ export function SobreMimPage() {
 export function DoutoradoPage() {
   const { locale } = useLocale();
   const { t } = useTranslation("forms");
+  const { t: tSeo } = useTranslation("seo");
   const { DOUTORADO } = getInstitucional(locale);
 
   useSeo({
-    title: "Doutorado — tese sobre aneurismas paraclinóideos",
-    description:
-      "Tese de doutorado em Neurociência (UNIFESP): protocolo inédito, em quatro etapas, para distinguir quais aneurismas cerebrais paraclinóideos exigem tratamento.",
+    title: tSeo("seo.doutorado.title"),
+    description: tSeo("seo.doutorado.description"),
     image: "/v4/photos/doutorado-portrait.jpg",
     jsonLd: [
       breadcrumbSchema([
@@ -257,12 +257,12 @@ export function DoutoradoPage() {
 export function PublicacoesPage() {
   const { locale } = useLocale();
   const { t } = useTranslation("forms");
+  const { t: tSeo } = useTranslation("seo");
   const { PUBLICACOES, SOBRE_MIM } = getInstitucional(locale);
 
   useSeo({
-    title: "Publicações científicas",
-    description:
-      "Produção científica do Dr. Hugo Doria em neurocirurgia vascular — artigos, capítulos e pesquisa publicada em periódicos internacionais.",
+    title: tSeo("seo.publicacoes.title"),
+    description: tSeo("seo.publicacoes.description"),
     image: "/v4/photos/retrato-bracos.jpg",
     jsonLd: [
       breadcrumbSchema([
@@ -312,12 +312,12 @@ export function PublicacoesPage() {
 export function EventosPage() {
   const { locale } = useLocale();
   const { t } = useTranslation("forms");
+  const { t: tSeo } = useTranslation("seo");
   const { EVENTOS } = getInstitucional(locale);
 
   useSeo({
-    title: "Eventos e congressos",
-    description:
-      "Vinte anos de participação em congressos nacionais e internacionais, aulas para residentes e simpósios de neurocirurgia vascular.",
+    title: tSeo("seo.eventos.title"),
+    description: tSeo("seo.eventos.description"),
     image: "/v4/photos/palestra-painel.jpg",
     jsonLd: [
       breadcrumbSchema([
@@ -357,12 +357,12 @@ export function EventosPage() {
 export function MidiaPage() {
   const { locale } = useLocale();
   const { t } = useTranslation("forms");
+  const { t: tSeo } = useTranslation("seo");
   const { MIDIA_VIDEOS } = getInstitucional(locale);
 
   useSeo({
-    title: "Mídia — vídeos e aparições",
-    description:
-      "Entrevistas, aulas e conteúdos do Dr. Hugo Doria sobre neurocirurgia vascular, diagnóstico e tratamento das principais condições neurológicas.",
+    title: tSeo("seo.midia.title"),
+    description: tSeo("seo.midia.description"),
     image: "/v4/photos/palestra-podium.jpg",
     jsonLd: [
       breadcrumbSchema([
@@ -398,11 +398,11 @@ export function MidiaPage() {
 // ───────────────────────── /depoimentos ─────────────────────────
 export function DepoimentosPage() {
   const { t } = useTranslation("forms");
+  const { t: tSeo } = useTranslation("seo");
 
   useSeo({
-    title: "Depoimentos de pacientes",
-    description:
-      "Mensagens reais de pacientes e familiares ao longo de duas décadas de neurocirurgia — o maior reconhecimento do trabalho.",
+    title: tSeo("seo.depoimentos.title"),
+    description: tSeo("seo.depoimentos.description"),
     image: "/v4/photos/retrato-sentado-sorrindo.jpg",
     jsonLd: [
       breadcrumbSchema([
@@ -450,11 +450,11 @@ export function Field({ label, children }: { label: string; children: ReactNode 
 
 export function ContatoPage() {
   const { t } = useTranslation("forms");
+  const { t: tSeo } = useTranslation("seo");
 
   useSeo({
-    title: "Contato e agendamento de consulta",
-    description:
-      "Agende sua avaliação com o Dr. Hugo Doria. Consultório na Bela Vista, São Paulo — atendimento por WhatsApp, telefone ou formulário.",
+    title: tSeo("seo.contato.title"),
+    description: tSeo("seo.contato.description"),
     image: "/v4/photos/contato-portrait.jpg",
     jsonLd: [
       breadcrumbSchema([
@@ -573,11 +573,11 @@ export function ContatoPage() {
 // ───────────────────────── /localizacao ─────────────────────────
 export function LocalizacaoPage() {
   const { t } = useTranslation("forms");
+  const { t: tSeo } = useTranslation("seo");
 
   useSeo({
-    title: "Localização do consultório — Bela Vista, São Paulo",
-    description:
-      "Consultório do Dr. Hugo Doria na R. Teixeira da Silva, 54 — sala 73, Bela Vista, São Paulo. Como chegar e canais de contato.",
+    title: tSeo("seo.localizacao.title"),
+    description: tSeo("seo.localizacao.description"),
     image: "/v4/photos/retrato-empe.jpg",
     jsonLd: [
       breadcrumbSchema([

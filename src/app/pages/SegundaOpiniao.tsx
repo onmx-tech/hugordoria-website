@@ -38,12 +38,12 @@ const DOC_ICONS = {
 export function SegundaOpiniaoPage() {
   const { locale } = useLocale();
   const { t } = useTranslation("forms");
+  const { t: tSeo } = useTranslation("seo");
   const { SEGUNDA_OPINIAO } = getInstitucional(locale);
 
   useSeo({
-    title: "Segunda opinião em neurocirurgia",
-    description:
-      "Solicite uma segunda opinião especializada com o Dr. Hugo Doria: veja quais exames e documentos enviar, como funciona a análise e o que esperar do retorno.",
+    title: tSeo("seo.segundaOpiniao.title"),
+    description: tSeo("seo.segundaOpiniao.description"),
     image: "/v4/photos/retrato-sentado.jpg",
     jsonLd: [
       breadcrumbSchema([

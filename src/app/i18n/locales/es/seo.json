@@ -1,0 +1,47 @@
+{
+  "seo": {
+    "home": {
+      "title": "Dr. Hugo Doria — Neurocirujano vascular en São Paulo",
+      "description": "Neurocirujano MD PhD con actuación en BP, Santa Catarina, Albert Einstein y Sírio-Libanês. Tratamiento de aneurismas, MAV, tumores cerebrales y enfermedades neurológicas complejas."
+    },
+    "sobre": {
+      "title": "Sobre el Dr. Hugo Doria — neurocirujano MD PhD",
+      "description": "Trayectoria, formación y actuación del Dr. Hugo Leonardo Doria-Netto: neurocirugía vascular con precisión técnica, investigación avanzada y cuidado humano."
+    },
+    "doutorado": {
+      "title": "Doctorado — tesis sobre aneurismas paraclinoideos",
+      "description": "Tesis de doctorado en Neurociencia (UNIFESP): un protocolo inédito, en cuatro etapas, para distinguir qué aneurismas cerebrales paraclinoideos requieren tratamiento."
+    },
+    "publicacoes": {
+      "title": "Publicaciones científicas",
+      "description": "Producción científica del Dr. Hugo Doria en neurocirugía vascular — artículos, capítulos e investigación publicada en revistas internacionales."
+    },
+    "eventos": {
+      "title": "Eventos y congresos",
+      "description": "Veinte años de participación en congresos nacionales e internacionales, clases para residentes y simposios de neurocirugía vascular."
+    },
+    "midia": {
+      "title": "Medios — videos y apariciones",
+      "description": "Entrevistas, clases y contenidos del Dr. Hugo Doria sobre neurocirugía vascular, diagnóstico y tratamiento de las principales condiciones neurológicas."
+    },
+    "depoimentos": {
+      "title": "Testimonios de pacientes",
+      "description": "Mensajes reales de pacientes y familiares a lo largo de dos décadas de neurocirugía — el mayor reconocimiento del trabajo."
+    },
+    "contato": {
+      "title": "Contacto y agendamiento de consulta",
+      "description": "Agende su evaluación con el Dr. Hugo Doria. Consultorio en Bela Vista, São Paulo — atención por WhatsApp, teléfono o formulario."
+    },
+    "localizacao": {
+      "title": "Ubicación del consultorio — Bela Vista, São Paulo",
+      "description": "Consultorio del Dr. Hugo Doria en R. Teixeira da Silva, 54 — sala 73, Bela Vista, São Paulo. Cómo llegar y canales de contacto."
+    },
+    "segundaOpiniao": {
+      "title": "Segunda opinión en neurocirugía",
+      "description": "Solicite una segunda opinión especializada con el Dr. Hugo Doria: vea qué exámenes y documentos enviar, cómo funciona el análisis y qué esperar de la respuesta."
+    },
+    "especialidade": {
+      "titleSuffix": " — tratamiento con el Dr. Hugo Doria"
+    }
+  }
+}

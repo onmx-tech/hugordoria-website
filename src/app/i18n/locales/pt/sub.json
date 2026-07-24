@@ -49,10 +49,26 @@
         "eyebrow": "Como funciona",
         "heading": "Um processo de cuidado completo",
         "steps": [
-          { "step": "01", "title": "Avaliação", "text": "Consulta detalhada, análise de exames e escuta atenta da sua história clínica." },
-          { "step": "02", "title": "Diagnóstico", "text": "Investigação precisa com tecnologia de imagem avançada e discussão multidisciplinar." },
-          { "step": "03", "title": "Tratamento", "text": "Plano individualizado — microcirurgia, endovascular ou radiocirurgia conforme o caso." },
-          { "step": "04", "title": "Acompanhamento", "text": "Reabilitação e seguimento próximo para garantir a melhor recuperação possível." }
+          {
+            "step": "01",
+            "title": "Avaliação",
+            "text": "Consulta detalhada, análise de exames e escuta atenta da sua história clínica."
+          },
+          {
+            "step": "02",
+            "title": "Diagnóstico",
+            "text": "Investigação precisa com tecnologia de imagem avançada e discussão multidisciplinar."
+          },
+          {
+            "step": "03",
+            "title": "Tratamento",
+            "text": "Plano individualizado — microcirurgia, endovascular ou radiocirurgia conforme o caso."
+          },
+          {
+            "step": "04",
+            "title": "Acompanhamento",
+            "text": "Reabilitação e seguimento próximo para garantir a melhor recuperação possível."
+          }
         ]
       },
       "cta": {
@@ -91,6 +107,21 @@
         "segundaOpiniao": "Segunda opinião",
         "contato": "Contato"
       }
+    },
+    "especialidadeDetalhe": {
+      "eyebrow": "Especialidade",
+      "todasEspecialidades": "Todas as especialidades",
+      "badgeLabel": "de {{total}} especialidades",
+      "visaoGeral": "Visão geral",
+      "naoEncontrada": "Especialidade não encontrada",
+      "voltarInicio": "Voltar ao início",
+      "breadcrumbInicio": "Início",
+      "breadcrumbEspecialidades": "Especialidades",
+      "ctaHeading": "Tem dúvidas sobre o seu caso?",
+      "ctaText": "Agende uma avaliação para discutirmos o diagnóstico e o melhor caminho de tratamento.",
+      "ctaButton": "Entre em Contato",
+      "fichaRapida": "Ficha rápida",
+      "outrasEspecialidades": "Outras especialidades"
     }
   }
 }

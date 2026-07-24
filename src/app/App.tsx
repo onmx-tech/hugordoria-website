@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { SiteHeader } from "./components/SiteHeader";
 import Hero from "./components/Hero";
 import SectionSobre from "./components/SectionSobre";
@@ -14,10 +15,10 @@ import { websiteSchema } from "./seo/schema";
 
 export default function App() {
   useLenis();
+  const { t } = useTranslation("seo");
   useSeo({
-    title: "Dr. Hugo Doria — Neurocirurgião vascular em São Paulo",
-    description:
-      "Neurocirurgião MD PhD com atuação no BP, Santa Catarina, Albert Einstein e Sírio-Libanês. Tratamento de aneurismas, MAVs, tumores cerebrais e doenças neurológicas complexas.",
+    title: t("seo.home.title"),
+    description: t("seo.home.description"),
     canonicalPath: "/",
     // O perfil Physician já vai estático no index.html (crawlers sem JS);
     // aqui só o WebSite, que referencia aquele @id.

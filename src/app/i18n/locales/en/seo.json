@@ -1,0 +1,47 @@
+{
+  "seo": {
+    "home": {
+      "title": "Dr. Hugo Doria — Vascular neurosurgeon in São Paulo",
+      "description": "MD PhD neurosurgeon practicing at BP, Santa Catarina, Albert Einstein and Sírio-Libanês. Treatment of aneurysms, AVMs, brain tumors and complex neurological conditions."
+    },
+    "sobre": {
+      "title": "About Dr. Hugo Doria — MD PhD neurosurgeon",
+      "description": "The path, training and practice of Dr. Hugo Leonardo Doria-Netto: vascular neurosurgery with technical precision, advanced research and humane care."
+    },
+    "doutorado": {
+      "title": "Doctorate — thesis on paraclinoid aneurysms",
+      "description": "Doctoral thesis in Neuroscience (UNIFESP): an original four-step protocol to determine which paraclinoid cerebral aneurysms require treatment."
+    },
+    "publicacoes": {
+      "title": "Scientific publications",
+      "description": "Dr. Hugo Doria's scientific output in vascular neurosurgery — articles, chapters and research published in international journals."
+    },
+    "eventos": {
+      "title": "Events and congresses",
+      "description": "Twenty years taking part in national and international congresses, lectures for residents and vascular neurosurgery symposia."
+    },
+    "midia": {
+      "title": "Media — videos and appearances",
+      "description": "Interviews, lectures and content from Dr. Hugo Doria on vascular neurosurgery, diagnosis and treatment of the main neurological conditions."
+    },
+    "depoimentos": {
+      "title": "Patient testimonials",
+      "description": "Genuine messages from patients and families across two decades of neurosurgery — the greatest recognition of the work."
+    },
+    "contato": {
+      "title": "Contact and appointment scheduling",
+      "description": "Schedule your evaluation with Dr. Hugo Doria. Practice in Bela Vista, São Paulo — reach out by WhatsApp, phone or form."
+    },
+    "localizacao": {
+      "title": "Practice location — Bela Vista, São Paulo",
+      "description": "Dr. Hugo Doria's practice at R. Teixeira da Silva, 54 — suite 73, Bela Vista, São Paulo. How to get there and how to get in touch."
+    },
+    "segundaOpiniao": {
+      "title": "Second opinion in neurosurgery",
+      "description": "Request a specialist second opinion from Dr. Hugo Doria: see which exams and documents to send, how the review works and what to expect from the reply."
+    },
+    "especialidade": {
+      "titleSuffix": " — treatment with Dr. Hugo Doria"
+    }
+  }
+}

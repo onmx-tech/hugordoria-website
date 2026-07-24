@@ -49,10 +49,26 @@
         "eyebrow": "How it works",
         "heading": "A complete continuum of care",
         "steps": [
-          { "step": "01", "title": "Assessment", "text": "A detailed consultation, review of your exams and attentive listening to your clinical history." },
-          { "step": "02", "title": "Diagnosis", "text": "Precise investigation with advanced imaging technology and multidisciplinary discussion." },
-          { "step": "03", "title": "Treatment", "text": "An individualized plan — microsurgery, endovascular or radiosurgery, according to each case." },
-          { "step": "04", "title": "Follow-up", "text": "Rehabilitation and close monitoring to ensure the best possible recovery." }
+          {
+            "step": "01",
+            "title": "Assessment",
+            "text": "A detailed consultation, review of your exams and attentive listening to your clinical history."
+          },
+          {
+            "step": "02",
+            "title": "Diagnosis",
+            "text": "Precise investigation with advanced imaging technology and multidisciplinary discussion."
+          },
+          {
+            "step": "03",
+            "title": "Treatment",
+            "text": "An individualized plan — microsurgery, endovascular or radiosurgery, according to each case."
+          },
+          {
+            "step": "04",
+            "title": "Follow-up",
+            "text": "Rehabilitation and close monitoring to ensure the best possible recovery."
+          }
         ]
       },
       "cta": {
@@ -91,6 +107,21 @@
         "segundaOpiniao": "Second opinion",
         "contato": "Contact"
       }
+    },
+    "especialidadeDetalhe": {
+      "eyebrow": "Specialty",
+      "todasEspecialidades": "All specialties",
+      "badgeLabel": "of {{total}} specialties",
+      "visaoGeral": "Overview",
+      "naoEncontrada": "Specialty not found",
+      "voltarInicio": "Back to home",
+      "breadcrumbInicio": "Home",
+      "breadcrumbEspecialidades": "Specialties",
+      "ctaHeading": "Questions about your case?",
+      "ctaText": "Book an evaluation so we can discuss your diagnosis and the best treatment path.",
+      "ctaButton": "Get in touch",
+      "fichaRapida": "Quick facts",
+      "outrasEspecialidades": "Other specialties"
     }
   }
 }

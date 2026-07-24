@@ -49,10 +49,26 @@
         "eyebrow": "Cómo funciona",
         "heading": "Un proceso de cuidado completo",
         "steps": [
-          { "step": "01", "title": "Evaluación", "text": "Consulta detallada, análisis de exámenes y una escucha atenta de su historia clínica." },
-          { "step": "02", "title": "Diagnóstico", "text": "Investigación precisa con tecnología de imagen avanzada y discusión multidisciplinaria." },
-          { "step": "03", "title": "Tratamiento", "text": "Plan individualizado — microcirugía, endovascular o radiocirugía según el caso." },
-          { "step": "04", "title": "Seguimiento", "text": "Rehabilitación y acompañamiento cercano para garantizar la mejor recuperación posible." }
+          {
+            "step": "01",
+            "title": "Evaluación",
+            "text": "Consulta detallada, análisis de exámenes y una escucha atenta de su historia clínica."
+          },
+          {
+            "step": "02",
+            "title": "Diagnóstico",
+            "text": "Investigación precisa con tecnología de imagen avanzada y discusión multidisciplinaria."
+          },
+          {
+            "step": "03",
+            "title": "Tratamiento",
+            "text": "Plan individualizado — microcirugía, endovascular o radiocirugía según el caso."
+          },
+          {
+            "step": "04",
+            "title": "Seguimiento",
+            "text": "Rehabilitación y acompañamiento cercano para garantizar la mejor recuperación posible."
+          }
         ]
       },
       "cta": {
@@ -75,7 +91,7 @@
       "btnAll": "Ver todas las especialidades"
     },
     "footer": {
-      "navegue": "Navegue",
+      "navegue": "Navegación",
       "especialidades": "Especialidades",
       "contato": "Contacto",
       "localizacao": "Ubicación",
@@ -91,6 +107,21 @@
         "segundaOpiniao": "Segunda opinión",
         "contato": "Contacto"
       }
+    },
+    "especialidadeDetalhe": {
+      "eyebrow": "Especialidad",
+      "todasEspecialidades": "Todas las especialidades",
+      "badgeLabel": "de {{total}} especialidades",
+      "visaoGeral": "Visión general",
+      "naoEncontrada": "Especialidad no encontrada",
+      "voltarInicio": "Volver al inicio",
+      "breadcrumbInicio": "Inicio",
+      "breadcrumbEspecialidades": "Especialidades",
+      "ctaHeading": "¿Dudas sobre su caso?",
+      "ctaText": "Agende una evaluación para analizar el diagnóstico y el mejor camino de tratamiento.",
+      "ctaButton": "Póngase en contacto",
+      "fichaRapida": "Ficha rápida",
+      "outrasEspecialidades": "Otras especialidades"
     }
   }
 }

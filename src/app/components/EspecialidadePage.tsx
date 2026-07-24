@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useParams, useNavigate, Link } from "react-router";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { cards } from "./section-especialidades/data";
@@ -29,6 +30,8 @@ function figuraFor(caption: string, idx: number): string {
 export default function EspecialidadePage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const { t } = useTranslation("seo");
+  const { t: ts } = useTranslation("sub");
   const { locale } = useLocale();
   const card = slug ? getCard(slug, locale) : undefined;
   const article = slug ? getArticle(slug, locale) : undefined;
@@ -46,7 +49,7 @@ export default function EspecialidadePage() {
   useSeo(
     card
       ? {
-          title: `${card.title} — tratamento com Dr. Hugo Doria`,
+          title: `${card.title}${t("seo.especialidade.titleSuffix")}`,
           description: article?.lead ?? card.description,
           image: `/v4/procedimentos/${card.slug}.jpg`,
           type: "article",
@@ -63,13 +66,13 @@ export default function EspecialidadePage() {
               conditionName: card.title,
             }),
             breadcrumbSchema([
-              { name: "Início", path: "/" },
-              { name: "Especialidades", path: "/especialidades" },
+              { name: ts("sub.especialidadeDetalhe.breadcrumbInicio"), path: "/" },
+              { name: ts("sub.especialidadeDetalhe.breadcrumbEspecialidades"), path: "/especialidades" },
               { name: card.title, path: `/especialidade/${card.slug}` },
             ]),
           ],
         }
-      : { title: "Especialidade não encontrada", noindex: true },
+      : { title: ts("sub.especialidadeDetalhe.naoEncontrada"), noindex: true },
   );
 
   if (!card) {
@@ -77,8 +80,8 @@ export default function EspecialidadePage() {
       <div className="flex min-h-screen flex-col bg-navy-600 font-body">
         <Navbar />
         <main className="flex flex-1 flex-col items-center justify-center gap-6 py-32">
-          <p className="font-display text-white/70" style={{ fontSize: 18 }}>Especialidade não encontrada.</p>
-          <Button to="/" variant="outline-light">Voltar ao início</Button>
+          <p className="font-display text-white/70" style={{ fontSize: 18 }}>{ts("sub.especialidadeDetalhe.naoEncontrada")}</p>
+          <Button to="/" variant="outline-light">{ts("sub.especialidadeDetalhe.voltarInicio")}</Button>
         </main>
         <Footer />
       </div>
@@ -94,12 +97,12 @@ export default function EspecialidadePage() {
       <Navbar />
       <main className="flex-1">
         <PageHero
-          eyebrow="Especialidade"
+          eyebrow={ts("sub.especialidadeDetalhe.eyebrow")}
           title={card.title}
           intro={lead}
           image={`/v4/procedimentos/${card.slug}.jpg`}
           imageAlt={card.title}
-          badge={article?.readingTime ? { value: String(currentIndex + 1).padStart(2, "0"), label: `de ${String(cards.length).padStart(2, "0")} especialidades` } : undefined}
+          badge={article?.readingTime ? { value: String(currentIndex + 1).padStart(2, "0"), label: ts("sub.especialidadeDetalhe.badgeLabel", { total: String(cards.length).padStart(2, "0") }) } : undefined}
         >
           <button
             type="button"
@@ -108,7 +111,7 @@ export default function EspecialidadePage() {
             style={{ fontWeight: 500, background: "none", border: "none", cursor: "pointer", padding: 0 }}
           >
             <ArrowLeft className="size-4" strokeWidth={1.7} />
-            Todas as especialidades
+            {ts("sub.especialidadeDetalhe.todasEspecialidades")}
           </button>
         </PageHero>
 
@@ -123,7 +126,7 @@ export default function EspecialidadePage() {
                 {/* Fallback quando não há artigo estruturado */}
                 {sections.length === 0 && (
                   <div className="flex flex-col gap-4">
-                    <Eyebrow>Visão geral</Eyebrow>
+                    <Eyebrow>{ts("sub.especialidadeDetalhe.visaoGeral")}</Eyebrow>
                     <p className="font-body text-white/80 text-[clamp(18px,2vw,22px)]" style={{ lineHeight: 1.55 }}>
                       {card.detailedDescription || card.description}
                     </p>
@@ -211,11 +214,11 @@ export default function EspecialidadePage() {
 
                 {/* CTA */}
                 <div className="rounded-2xl bg-white/[0.05] p-8 md:p-10">
-                  <SectionHeading tone="light" className="text-[clamp(22px,2.2vw,26px)]">Tem dúvidas sobre o seu caso?</SectionHeading>
+                  <SectionHeading tone="light" className="text-[clamp(22px,2.2vw,26px)]">{ts("sub.especialidadeDetalhe.ctaHeading")}</SectionHeading>
                   <p className="mt-3 max-w-[460px] font-body text-white/70 text-[17px]" style={{ lineHeight: 1.5 }}>
-                    Agende uma avaliação para discutirmos o diagnóstico e o melhor caminho de tratamento.
+                    {ts("sub.especialidadeDetalhe.ctaText")}
                   </p>
-                  <Button href="https://wa.me/5511971622777" variant="gold" icon="chat" className="mt-6">Entre em Contato</Button>
+                  <Button href="https://wa.me/5511971622777" variant="gold" icon="chat" className="mt-6">{ts("sub.especialidadeDetalhe.ctaButton")}</Button>
                 </div>
               </div>
 
@@ -223,7 +226,7 @@ export default function EspecialidadePage() {
               <aside className="flex flex-col gap-10 lg:sticky lg:top-24 lg:self-start">
                 {article?.heroMeta && article.heroMeta.length > 0 && (
                   <div className="flex flex-col gap-5">
-                    <Eyebrow>Ficha rápida</Eyebrow>
+                    <Eyebrow>{ts("sub.especialidadeDetalhe.fichaRapida")}</Eyebrow>
                     <div className="flex flex-col overflow-hidden rounded-2xl bg-white/[0.04]">
                       {article.heroMeta.map((m) => (
                         <div key={m.label} className="border-b border-white/10 px-5 py-4 last:border-b-0">
@@ -236,7 +239,7 @@ export default function EspecialidadePage() {
                 )}
 
                 <div className="flex flex-col gap-5">
-                  <Eyebrow>Outras especialidades</Eyebrow>
+                  <Eyebrow>{ts("sub.especialidadeDetalhe.outrasEspecialidades")}</Eyebrow>
                   <div className="flex flex-col overflow-hidden rounded-2xl bg-white/[0.04]">
                     {others.map((c) => {
                       const OIcon = c.icon;
