@@ -14,6 +14,19 @@ const SITE_URL = JSON.parse(
   fs.readFileSync(path.join(root, "site.config.json"), "utf8"),
 ).siteUrl.replace(/\/$/, "");
 
+// Idiomas do site (espelha src/app/i18n/config.ts). PT na raiz, EN/ES com
+// prefixo. Cada rota entra no sitemap uma vez por idioma, com os alternates
+// hreflang das 3 versões + x-default.
+const LOCALES = ["pt", "en", "es"];
+const DEFAULT_LOCALE = "pt";
+const HREFLANG = { pt: "pt-BR", en: "en", es: "es" };
+const localePrefix = (loc) => (loc === DEFAULT_LOCALE ? "" : `/${loc}`);
+const localizedLoc = (routePath, loc) => {
+  const prefix = localePrefix(loc);
+  if (routePath === "/") return `${SITE_URL}${prefix || "/"}`;
+  return `${SITE_URL}${prefix}${routePath}`;
+};
+
 /** Rotas fixas com prioridade e frequência de mudança. */
 const STATIC_ROUTES = [
   { path: "/", priority: "1.0", changefreq: "monthly" },
@@ -48,7 +61,9 @@ function readSpecialtySlugs() {
   // a página é hero + CTA (thin content) — indexar isso derruba a autoridade
   // do domínio. Assim que o arquivo de conteúdo existir, ela entra sozinha.
   const comArtigo = unique.filter((slug) =>
-    fs.existsSync(path.join(root, `src/app/content/especialidades/${slug}.ts`)),
+    fs.existsSync(
+      path.join(root, `src/app/content/especialidades/pt/${slug}.ts`),
+    ),
   );
   const semArtigo = unique.filter((s) => !comArtigo.includes(s));
   if (semArtigo.length) {
@@ -70,12 +85,40 @@ const urls = [
   })),
 ];
 
+// Bloco de alternates hreflang, idêntico para as 3 variantes de idioma de uma
+// mesma rota (Google recomenda cada versão listar todas as outras + x-default).
+function alternatesFor(routePath) {
+  const links = LOCALES.map(
+    (loc) =>
+      `    <xhtml:link rel="alternate" hreflang="${HREFLANG[loc]}" href="${localizedLoc(routePath, loc)}"/>`,
+  );
+  links.push(
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${localizedLoc(routePath, DEFAULT_LOCALE)}"/>`,
+  );
+  return links.join("\n");
+}
+
+// Uma entrada <url> por (rota × idioma).
+const entries = urls.flatMap((u) =>
+  LOCALES.map((loc) => ({
+    loc: localizedLoc(u.path, loc),
+    alternates: alternatesFor(u.path),
+    changefreq: u.changefreq,
+    // A raiz PT é a página mais forte; as variantes de idioma um degrau abaixo.
+    priority:
+      loc === DEFAULT_LOCALE
+        ? u.priority
+        : (Math.max(0.1, parseFloat(u.priority) - 0.1)).toFixed(1),
+  })),
+);
+
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${entries
   .map(
     (u) => `  <url>
-    <loc>${SITE_URL}${u.path}</loc>
+    <loc>${u.loc}</loc>
+${u.alternates}
     <lastmod>${today}</lastmod>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
@@ -97,4 +140,6 @@ Sitemap: ${SITE_URL}/sitemap.xml
 
 fs.writeFileSync(path.join(root, "public/sitemap.xml"), xml);
 fs.writeFileSync(path.join(root, "public/robots.txt"), robots);
-console.log(`sitemap.xml: ${urls.length} URLs · robots.txt gerado`);
+console.log(
+  `sitemap.xml: ${entries.length} URLs (${urls.length} rotas × ${LOCALES.length} idiomas, com hreflang) · robots.txt gerado`,
+);
