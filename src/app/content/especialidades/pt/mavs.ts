@@ -1,4 +1,4 @@
-import type { ArticleContent } from "./types";
+import type { ArticleContent } from "../types";
 
 // Reestruturado no molde rico (O que é / Sintomas / Diagnóstico / Tratamento).
 // Texto reorganizado do conteúdo original, sem novas afirmações médicas.

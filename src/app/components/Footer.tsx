@@ -1,8 +1,8 @@
 // LocaleLink como Link: mantém os links do rodapé no idioma ativo (drop-in;
 // âncoras e URLs externas passam intactas). Rótulos ainda serão i18n-izados.
-import { LocaleLink as Link } from "../i18n/LocaleProvider";
+import { LocaleLink as Link, useLocale } from "../i18n/LocaleProvider";
 import svgPaths from "../../imports/svg-nx92b0rij3";
-import { cards } from "./section-especialidades/data";
+import { getCards } from "./section-especialidades/cards-i18n";
 
 const NAV_LINKS = [
   { label: "Sobre mim", to: "/sobre-mim" },
@@ -120,6 +120,8 @@ function SocialFacebook() {
 }
 
 export default function Footer() {
+  const { locale } = useLocale();
+  const cards = getCards(locale);
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

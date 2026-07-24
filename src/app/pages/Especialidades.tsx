@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { Link } from "react-router";
 import { ArrowRight } from "lucide-react";
 import { Navbar } from "../components/sub/Navbar";
 import { Footer } from "../components/sub/Footer";
 import { PageHero } from "../components/sub/PageHero";
 import { Eyebrow, SectionHeading, Divider, Button, Container } from "../components/sub/primitives";
 import { HERO_IMG } from "../components/sub/heroImages";
-import { cards } from "../components/section-especialidades/data";
+import { getCards } from "../components/section-especialidades/cards-i18n";
+import { LocaleLink as Link, useLocale } from "../i18n/LocaleProvider";
 import FloatingNav from "../components/FloatingNav";
 import { useSeo } from "../seo/useSeo";
 import { breadcrumbSchema } from "../seo/schema";
@@ -19,6 +19,8 @@ const PROCESS = [
 ];
 
 export function EspecialidadesPage() {
+  const { locale } = useLocale();
+  const cards = getCards(locale);
   useEffect(() => { window.scrollTo(0, 0); }, []);
   useSeo({
     title: "Especialidades — neurocirurgia vascular e oncológica",

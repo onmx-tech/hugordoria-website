@@ -16,12 +16,16 @@ import {
   HeaderMobile,
 } from "./section-especialidades/parts";
 import { initEspecialidadesAnimation } from "./section-especialidades/animations";
+import { getCards } from "./section-especialidades/cards-i18n";
+import { useLocale } from "../i18n/LocaleProvider";
 
 export default function SectionEspecialidades() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const headerWrapRef = useRef<HTMLDivElement>(null);
+  const { locale } = useLocale();
+  const localizedCards = getCards(locale);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -56,7 +60,7 @@ export default function SectionEspecialidades() {
             className="absolute left-0 top-0 will-change-transform"
             style={{ width: TRACK_W, height: CANVAS_H }}
           >
-            {cards.map((card, i) => (
+            {localizedCards.map((card, i) => (
               <Card
                 key={i}
                 x={CARD_START_X + i * CARD_STEP_X}
@@ -83,7 +87,7 @@ export default function SectionEspecialidades() {
         <div className="flex flex-col gap-12 py-16">
           <HeaderMobile />
           <div className="flex flex-col gap-4 px-6">
-            {cards.map((card) => (
+            {localizedCards.map((card) => (
               <CardMobile key={card.slug} card={card} />
             ))}
           </div>

@@ -1,4 +1,4 @@
-import type { ArticleContent } from "./types";
+import type { ArticleContent } from "../types";
 
 // Reestruturado no molde rico, reorganizando o conteúdo original sem novas
 // afirmações médicas.

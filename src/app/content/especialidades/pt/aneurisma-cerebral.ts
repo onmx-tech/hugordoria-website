@@ -1,4 +1,4 @@
-import type { ArticleContent } from "./types";
+import type { ArticleContent } from "../types";
 
 // Reestruturado no molde do Design System v3 (O que é / Sintomas / Diagnóstico /
 // Tratamento / Recuperação). Todo o texto clínico vem do conteúdo migrado do

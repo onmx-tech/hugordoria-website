@@ -1,4 +1,4 @@
-import type { ArticleContent } from "./types";
+import type { ArticleContent } from "../types";
 
 // Reestruturado no molde rico — o texto corrido original foi dividido nas
 // seções, sem novas afirmações médicas.

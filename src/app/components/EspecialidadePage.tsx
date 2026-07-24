@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
-import { findCardBySlug, cards } from "./section-especialidades/data";
-import { findArticleBySlug } from "../content/especialidades";
+import { cards } from "./section-especialidades/data";
+import { getCard, getCards } from "./section-especialidades/cards-i18n";
+import { getArticle } from "../content/especialidades";
+import { useLocale } from "../i18n/LocaleProvider";
 import { Navbar } from "./sub/Navbar";
 import { Footer } from "./sub/Footer";
 import FloatingNav from "./FloatingNav";
@@ -27,11 +29,14 @@ function figuraFor(caption: string, idx: number): string {
 export default function EspecialidadePage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const card = slug ? findCardBySlug(slug) : undefined;
-  const article = slug ? findArticleBySlug(slug) : undefined;
+  const { locale } = useLocale();
+  const card = slug ? getCard(slug, locale) : undefined;
+  const article = slug ? getArticle(slug, locale) : undefined;
 
   const currentIndex = cards.findIndex((c) => c.slug === slug);
-  const others = cards.filter((c) => c.slug !== slug).slice(0, 7);
+  const others = getCards(locale)
+    .filter((c) => c.slug !== slug)
+    .slice(0, 7);
 
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
 

@@ -5,10 +5,6 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import ptCommon from "./locales/pt/common.json";
-import enCommon from "./locales/en/common.json";
-import esCommon from "./locales/es/common.json";
-
 export const LOCALES = ["pt", "en", "es"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "pt";
@@ -84,17 +80,35 @@ export function localizedPath(basePath: string, locale: Locale): string {
   return `${prefix}${clean}`;
 }
 
-const resources = {
-  pt: { common: ptCommon },
-  en: { common: enCommon },
-  es: { common: esCommon },
-} as const;
+// Carrega TODOS os namespaces de todos os idiomas via glob. Cada arquivo
+// locales/<locale>/<ns>.json vira o namespace <ns> daquele idioma. Adicionar
+// um namespace (ex.: home.json, sub.json) = soltar o arquivo; nada aqui muda
+// (agentes de tradução não colidem neste arquivo compartilhado).
+const jsonModules = import.meta.glob<Record<string, unknown>>(
+  "./locales/*/*.json",
+  { eager: true, import: "default" },
+);
+
+const resources: Record<string, Record<string, Record<string, unknown>>> = {
+  pt: {},
+  en: {},
+  es: {},
+};
+
+for (const [path, data] of Object.entries(jsonModules)) {
+  const m = path.match(/\.\/locales\/(pt|en|es)\/(.+)\.json$/);
+  if (!m) continue;
+  const [, locale, ns] = m;
+  resources[locale][ns] = data;
+}
 
 i18n.use(initReactI18next).init({
   resources,
   lng: DEFAULT_LOCALE,
   fallbackLng: DEFAULT_LOCALE,
   defaultNS: "common",
+  // Namespaces existentes hoje; novos entram pelo glob sem listar aqui.
+  ns: ["common"],
   interpolation: { escapeValue: false }, // React já escapa
   returnNull: false,
 });
