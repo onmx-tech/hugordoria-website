@@ -25,6 +25,29 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+    <!-- Arimo (corpo) self-served pelo Google, mas descoberto cedo no HTML com
+         preconnect — em vez do @import render-blocking dentro do CSS. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
+    />
+
+    <!-- LCP da home: o retrato do hero é renderizado pelo React (o scanner de
+         preload não o enxerga no HTML). Este preload o descobre cedo, em
+         paralelo com o JS, e derruba o LCP. Responsivo = baixa só o tamanho
+         certo. (Na home é o LCP; nas subpáginas é um custo pequeno de ~30KB.) -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="/hero/hero-doria-750.webp"
+      imagesrcset="/hero/hero-doria-500.webp 500w, /hero/hero-doria-750.webp 750w, /hero/hero-doria-1000.webp 1000w"
+      imagesizes="(max-width: 640px) 360px, (max-width: 1024px) 480px, 640px"
+      fetchpriority="high"
+    />
+
     <!-- Compartilhamento (WhatsApp, LinkedIn, Facebook) -->
     <meta property="og:site_name" content="Dr. Hugo Doria" />
     <meta property="og:locale" content="pt_BR" />

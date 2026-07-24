@@ -1,5 +1,5 @@
-import imgPalestra from "@/assets/a375c45d2716fbbea43385fdee4485566a41cfa6.png";
-import imgScrubsGreen from "@/assets/1237b2795956579d89da3b7db4b78c58db67e687.png";
+import imgPalestra from "@/assets/a375c45d2716fbbea43385fdee4485566a41cfa6.webp";
+import imgScrubsGreen from "@/assets/1237b2795956579d89da3b7db4b78c58db67e687.webp";
 
 // Fotos reais do cliente (public/v4/photos), referenciadas por path.
 // As antigas e25b (Dr. em escritório, gerada) e 6c18 (cirurgião de banco de

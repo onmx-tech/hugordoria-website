@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
+/* Arimo carrega via <link> no index.html (com preconnect) — o @import aqui
+   criava uma cadeia render-blocking (CSS → @import → CSS do Google → fonte). */
 
 @font-face {
   font-family: 'Geist';

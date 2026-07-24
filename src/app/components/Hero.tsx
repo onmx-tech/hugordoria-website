@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
-import imgHeroDoria from "@/assets/hero-doria-bracos.png";
 import { gsap } from "../../lib/gsap";
 import { CONTATO } from "../content/institucional";
 
@@ -163,8 +162,15 @@ export default function Hero() {
       >
         <div data-hero="photo-inner" className="will-change-[clip-path,transform]">
           <img
-            src={imgHeroDoria}
+            src="/hero/hero-doria-1000.webp"
+            srcSet="/hero/hero-doria-500.webp 500w, /hero/hero-doria-750.webp 750w, /hero/hero-doria-1000.webp 1000w"
+            sizes="(max-width: 640px) 360px, (max-width: 1024px) 480px, 640px"
+            width={1000}
+            height={1500}
             alt="Dr. Hugo Doria"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
             className="h-[65vh] sm:h-[88vh] lg:h-[96vh] max-h-none min-h-[420px] sm:min-h-[480px] lg:min-h-[520px] w-auto max-w-none object-contain object-bottom select-none block"
             draggable={false}
           />
