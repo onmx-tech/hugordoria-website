@@ -1,4 +1,6 @@
-import { Link } from "react-router";
+// LocaleLink como Link: mantém os links do rodapé no idioma ativo (drop-in;
+// âncoras e URLs externas passam intactas). Rótulos ainda serão i18n-izados.
+import { LocaleLink as Link } from "../i18n/LocaleProvider";
 import svgPaths from "../../imports/svg-nx92b0rij3";
 import { cards } from "./section-especialidades/data";
 

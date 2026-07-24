@@ -1,49 +1,57 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router";
+import { useTranslation } from "react-i18next";
 import { Monogram } from "./sub/Logo";
+import { LocaleLink, useLocale } from "../i18n/LocaleProvider";
+import { LanguageSwitcher } from "../i18n/LanguageSwitcher";
 
 // Header full do site (home + subpáginas): largura cheia, transparente sobre o
 // hero, rola junto com a página (não fixo). A navegação persistente fica na
-// FloatingNav fixa embaixo. Links por rotas; ativo conforme a rota atual.
-const NAV_ITEMS: Array<{ label: string; to: string }> = [
-  { label: "Início", to: "/" },
-  { label: "Sobre mim", to: "/sobre-mim" },
-  { label: "Depoimentos", to: "/depoimentos" },
-  { label: "Especialidades", to: "/especialidades" },
-  { label: "Doutorado", to: "/doutorado" },
-  { label: "Eventos", to: "/eventos" },
+// FloatingNav fixa embaixo. Links por rotas (cientes de idioma); ativo conforme
+// o path base (sem o prefixo de locale). Rótulos vêm do i18n (namespace nav).
+const NAV_ITEMS: Array<{ key: string; to: string }> = [
+  { key: "inicio", to: "/" },
+  { key: "sobreMim", to: "/sobre-mim" },
+  { key: "depoimentos", to: "/depoimentos" },
+  { key: "especialidades", to: "/especialidades" },
+  { key: "doutorado", to: "/doutorado" },
+  { key: "eventos", to: "/eventos" },
 ];
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { pathname } = useLocation();
+  const { t } = useTranslation();
+  const { basePath } = useLocale();
 
   const isActive = (to: string) => {
-    if (to === "/") return pathname === "/";
-    if (to === "/especialidades") return pathname.startsWith("/especialidade");
-    return pathname.startsWith(to);
+    if (to === "/") return basePath === "/";
+    if (to === "/especialidades") return basePath.startsWith("/especialidade");
+    return basePath.startsWith(to);
   };
 
   return (
     <>
       <header className="absolute inset-x-0 top-0 z-30">
         <div className="flex h-[72px] w-full items-center justify-between px-6 md:px-8">
-          <Link to="/" onClick={() => setMenuOpen(false)} className="text-[15px]" style={{ textDecoration: "none" }}>
+          <LocaleLink to="/" onClick={() => setMenuOpen(false)} className="text-[15px]" style={{ textDecoration: "none" }}>
             <Monogram tone="light" />
-          </Link>
+          </LocaleLink>
 
-          <nav className="hidden lg:flex items-center gap-7 font-display font-medium text-[14px] leading-[1.5]">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.label}
-                to={item.to}
-                className={isActive(item.to) ? "text-gold-600" : "text-cream/90 transition-colors hover:text-gold-600"}
-                style={{ textDecoration: "none" }}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="hidden lg:flex items-center gap-7">
+            <nav className="flex items-center gap-7 font-display font-medium text-[14px] leading-[1.5]">
+              {NAV_ITEMS.map((item) => (
+                <LocaleLink
+                  key={item.key}
+                  to={item.to}
+                  className={isActive(item.to) ? "text-gold-600" : "text-cream/90 transition-colors hover:text-gold-600"}
+                  style={{ textDecoration: "none" }}
+                >
+                  {t(`nav.${item.key}`)}
+                </LocaleLink>
+              ))}
+            </nav>
+            <span className="h-4 w-px bg-cream/20" aria-hidden />
+            <LanguageSwitcher variant="header" />
+          </div>
 
           <button
             type="button"
@@ -87,17 +95,20 @@ export function SiteHeader() {
         </div>
         <nav className="flex flex-col gap-6 px-6 pt-12 font-display font-medium text-[26px] leading-[1.2] tracking-[-0.02em]">
           {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.label}
+            <LocaleLink
+              key={item.key}
               to={item.to}
               onClick={() => setMenuOpen(false)}
               className={isActive(item.to) ? "text-gold-600" : "text-cream"}
               style={{ textDecoration: "none" }}
             >
-              {item.label}
-            </Link>
+              {t(`nav.${item.key}`)}
+            </LocaleLink>
           ))}
         </nav>
+        <div className="px-6 pt-12">
+          <LanguageSwitcher variant="overlay" onSelect={() => setMenuOpen(false)} />
+        </div>
       </div>
     </>
   );

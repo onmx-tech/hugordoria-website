@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "inicio": "Início",
+    "sobreMim": "Sobre mim",
+    "depoimentos": "Depoimentos",
+    "especialidades": "Especialidades",
+    "doutorado": "Doutorado",
+    "eventos": "Eventos",
+    "publicacoes": "Publicações",
+    "midia": "Mídia",
+    "contato": "Contato",
+    "segundaOpiniao": "Segunda opinião"
+  },
+  "cta": {
+    "agendar": "Agendar consulta",
+    "segundaOpiniao": "Solicitar segunda opinião",
+    "whatsapp": "Falar no WhatsApp",
+    "saibaMais": "Saiba mais",
+    "voltar": "Voltar"
+  },
+  "language": {
+    "label": "Idioma",
+    "pt": "Português",
+    "en": "English",
+    "es": "Español"
+  }
+}

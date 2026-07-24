@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "inicio": "Home",
+    "sobreMim": "About",
+    "depoimentos": "Reviews",
+    "especialidades": "Specialties",
+    "doutorado": "Doctorate",
+    "eventos": "Events",
+    "publicacoes": "Publications",
+    "midia": "Media",
+    "contato": "Contact",
+    "segundaOpiniao": "Second opinion"
+  },
+  "cta": {
+    "agendar": "Book an appointment",
+    "segundaOpiniao": "Request a second opinion",
+    "whatsapp": "Chat on WhatsApp",
+    "saibaMais": "Learn more",
+    "voltar": "Back"
+  },
+  "language": {
+    "label": "Language",
+    "pt": "Português",
+    "en": "English",
+    "es": "Español"
+  }
+}

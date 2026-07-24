@@ -5,10 +5,17 @@ import {
   DEFAULT_OG_IMAGE,
   OG_IMAGE_H,
   OG_IMAGE_W,
-  SITE_LOCALE,
   SITE_NAME,
   absoluteUrl,
 } from "./site";
+import { useLocale } from "../i18n/LocaleProvider";
+import {
+  HREFLANG,
+  LOCALES,
+  OG_LOCALE,
+  localizedPath,
+  parseLocalePath,
+} from "../i18n/config";
 
 export type SeoInput = {
   /** Título da página SEM o sufixo da marca (ele é acrescentado aqui). */
@@ -53,6 +60,49 @@ function setLink(rel: string, href: string) {
   el.setAttribute("href", href);
 }
 
+const ALT_MARK = "data-seo-alt";
+
+/**
+ * Reescreve os <link rel="alternate" hreflang> da rota. Remove os antigos
+ * (marcados) e recria um por locale + x-default. `basePath` é o path SEM
+ * prefixo de idioma; cada alternate aponta para a versão localizada dele.
+ */
+function setHreflangAlternates(basePath: string) {
+  document.head
+    .querySelectorAll(`link[${ALT_MARK}]`)
+    .forEach((el) => el.remove());
+
+  const add = (hreflang: string, path: string) => {
+    const el = document.createElement("link");
+    el.setAttribute("rel", "alternate");
+    el.setAttribute("hreflang", hreflang);
+    el.setAttribute("href", absoluteUrl(path));
+    el.setAttribute(ALT_MARK, "");
+    document.head.appendChild(el);
+  };
+
+  for (const loc of LOCALES) add(HREFLANG[loc], localizedPath(basePath, loc));
+  // x-default aponta para o idioma padrão (PT, na raiz).
+  add("x-default", localizedPath(basePath, "pt"));
+}
+
+const OGLOC_MARK = "data-seo-ogloc";
+
+/** Reescreve os og:locale:alternate (um por idioma diferente do ativo). */
+function setOgLocaleAlternates(active: string, alternates: string[]) {
+  document.head
+    .querySelectorAll(`meta[${OGLOC_MARK}]`)
+    .forEach((el) => el.remove());
+  for (const loc of alternates) {
+    if (loc === active) continue;
+    const el = document.createElement("meta");
+    el.setAttribute("property", "og:locale:alternate");
+    el.setAttribute("content", loc);
+    el.setAttribute(OGLOC_MARK, "");
+    document.head.appendChild(el);
+  }
+}
+
 /**
  * Aplica título, descrição, canônico, Open Graph, Twitter Card e JSON-LD da
  * rota atual. O site é uma SPA: sem isso, as 21 rotas compartilham o mesmo
@@ -60,6 +110,7 @@ function setLink(rel: string, href: string) {
  */
 export function useSeo(seo: SeoInput) {
   const { pathname } = useLocation();
+  const { locale } = useLocale();
   const {
     title,
     description = DEFAULT_DESCRIPTION,
@@ -76,7 +127,11 @@ export function useSeo(seo: SeoInput) {
     const fullTitle = title.includes(SITE_NAME)
       ? title
       : `${title} | ${SITE_NAME}`;
-    const url = absoluteUrl(canonicalPath ?? pathname);
+    // Path base (sem prefixo de idioma): do canonicalPath explícito, ou
+    // derivado do pathname atual. O canonical/og apontam para a versão
+    // localizada dele; os alternates cobrem os 3 idiomas.
+    const basePath = canonicalPath ?? parseLocalePath(pathname).basePath;
+    const url = absoluteUrl(localizedPath(basePath, locale));
     const imageUrl = absoluteUrl(image);
 
     document.title = fullTitle;
@@ -85,8 +140,21 @@ export function useSeo(seo: SeoInput) {
     setMeta("name", "robots", noindex ? "noindex, nofollow" : "index, follow");
     setLink("canonical", url);
 
+    // Alternates hreflang — só em páginas indexáveis (não no 404).
+    if (!noindex) {
+      setHreflangAlternates(basePath);
+    } else {
+      document.head
+        .querySelectorAll(`link[${ALT_MARK}]`)
+        .forEach((el) => el.remove());
+    }
+
     setMeta("property", "og:site_name", SITE_NAME);
-    setMeta("property", "og:locale", SITE_LOCALE);
+    setMeta("property", "og:locale", OG_LOCALE[locale]);
+    setOgLocaleAlternates(
+      OG_LOCALE[locale],
+      LOCALES.map((l) => OG_LOCALE[l]),
+    );
     setMeta("property", "og:type", type);
     setMeta("property", "og:title", fullTitle);
     setMeta("property", "og:description", description);
@@ -122,6 +190,7 @@ export function useSeo(seo: SeoInput) {
     canonicalPath,
     noindex,
     pathname,
+    locale,
     jsonLdKey,
   ]);
 }

@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router";
+import { useLocation } from "react-router";
+import { useTranslation } from "react-i18next";
+import { LocaleLink, useLocale } from "../i18n/LocaleProvider";
 
 // Navegação flutuante fixa embaixo — aparece ao rolar, em TODAS as páginas.
-// Links de navegação do site (rotas); ativo conforme a rota atual.
+// Links de navegação do site (rotas cientes de idioma); ativo pelo path base.
 const NAV_LINKS = [
-  { label: "Início", to: "/" },
-  { label: "Especialidades", to: "/especialidades" },
-  { label: "Sobre mim", to: "/sobre-mim" },
-  { label: "Depoimentos", to: "/depoimentos" },
+  { key: "inicio", to: "/" },
+  { key: "especialidades", to: "/especialidades" },
+  { key: "sobreMim", to: "/sobre-mim" },
+  { key: "depoimentos", to: "/depoimentos" },
 ] as const;
 
 const SHOW_THRESHOLD = 480;
@@ -16,11 +18,13 @@ export default function FloatingNav() {
   const [visible, setVisible] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const { pathname } = useLocation();
+  const { t } = useTranslation();
+  const { basePath } = useLocale();
 
   const isActive = (to: string) => {
-    if (to === "/") return pathname === "/";
-    if (to === "/especialidades") return pathname.startsWith("/especialidade");
-    return pathname.startsWith(to);
+    if (to === "/") return basePath === "/";
+    if (to === "/especialidades") return basePath.startsWith("/especialidade");
+    return basePath.startsWith(to);
   };
 
   useEffect(() => {
@@ -48,7 +52,7 @@ export default function FloatingNav() {
 
   // A página de contato JÁ é o CTA de agendamento (formulário + canais):
   // a nav flutuante fica redundante e, no mobile, colide com o botão de envio.
-  if (pathname.startsWith("/contato")) return null;
+  if (basePath.startsWith("/contato")) return null;
 
   return (
     <nav
@@ -68,7 +72,7 @@ export default function FloatingNav() {
       {NAV_LINKS.map((link) => {
         const active = isActive(link.to);
         return (
-          <Link
+          <LocaleLink
             key={link.to}
             to={link.to}
             className="relative hidden md:inline-block rounded-full px-4 py-2 text-[13px] font-medium leading-none tracking-[-0.01em] transition-all duration-300 whitespace-nowrap"
@@ -79,15 +83,15 @@ export default function FloatingNav() {
               background: active ? "var(--color-accent-gold-light)" : "transparent",
             }}
           >
-            {link.label}
-          </Link>
+            {t(`nav.${link.key}`)}
+          </LocaleLink>
         );
       })}
 
       {/* Segundo caminho de conversão, presente em todas as páginas.
           No mobile a barra é um FAB e só cabe a ação primária — lá o acesso
           à segunda opinião fica no hero e no rodapé. */}
-      <Link
+      <LocaleLink
         to="/segunda-opiniao"
         className="relative hidden md:inline-block rounded-full border px-4 py-2 text-[13px] font-medium leading-none tracking-[-0.01em] transition-all duration-300 whitespace-nowrap"
         style={{
@@ -102,8 +106,8 @@ export default function FloatingNav() {
           borderColor: "color-mix(in srgb, var(--color-bg-cream) 30%, transparent)",
         }}
       >
-        Segunda opinião
-      </Link>
+        {t("nav.segundaOpiniao")}
+      </LocaleLink>
 
       <a
         href="https://wa.me/5511971622777"

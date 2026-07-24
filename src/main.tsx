@@ -1,6 +1,9 @@
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
 import { lazy, Suspense } from "react";
+import "./app/i18n/config.ts"; // inicializa o i18next (efeito colateral)
+import { LocaleLayout } from "./app/i18n/LocaleProvider.tsx";
+import { PREFIXED_LOCALES } from "./app/i18n/config.ts";
 import App from "./app/App.tsx";
 import EspecialidadePage from "./app/components/EspecialidadePage.tsx";
 import { EspecialidadesPage } from "./app/pages/Especialidades.tsx";
@@ -34,24 +37,42 @@ const Retune = import.meta.env.DEV
 captureUtmParams();
 initWhatsAppTracking();
 
+// Árvore de rotas compartilhada pelos 3 idiomas. Paths RELATIVOS (sem "/"): o
+// grupo de idioma que a envolve define o prefixo (raiz=pt, /en, /es). Chamada
+// como função para gerar elementos novos por grupo (evita reuso de instância).
+function appRoutes() {
+  return (
+    <>
+      <Route index element={<App />} />
+      <Route path="especialidades" element={<EspecialidadesPage />} />
+      <Route path="especialidade/:slug" element={<EspecialidadePage />} />
+      <Route path="sobre-mim" element={<SobreMimPage />} />
+      <Route path="doutorado" element={<DoutoradoPage />} />
+      <Route path="publicacoes" element={<PublicacoesPage />} />
+      <Route path="eventos" element={<EventosPage />} />
+      <Route path="midia" element={<MidiaPage />} />
+      <Route path="depoimentos" element={<DepoimentosPage />} />
+      <Route path="contato" element={<ContatoPage />} />
+      <Route path="localizacao" element={<LocalizacaoPage />} />
+      <Route path="segunda-opiniao" element={<SegundaOpiniaoPage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </>
+  );
+}
+
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     {/* Pageview por rota — fora de App.tsx de propósito (home intocável). */}
     <RouteTracker />
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/especialidades" element={<EspecialidadesPage />} />
-      <Route path="/especialidade/:slug" element={<EspecialidadePage />} />
-      <Route path="/sobre-mim" element={<SobreMimPage />} />
-      <Route path="/doutorado" element={<DoutoradoPage />} />
-      <Route path="/publicacoes" element={<PublicacoesPage />} />
-      <Route path="/eventos" element={<EventosPage />} />
-      <Route path="/midia" element={<MidiaPage />} />
-      <Route path="/depoimentos" element={<DepoimentosPage />} />
-      <Route path="/contato" element={<ContatoPage />} />
-      <Route path="/localizacao" element={<LocalizacaoPage />} />
-      <Route path="/segunda-opiniao" element={<SegundaOpiniaoPage />} />
-      <Route path="*" element={<NotFoundPage />} />
+      {/* PT na raiz (sem prefixo) — preserva todas as URLs já indexadas. */}
+      <Route element={<LocaleLayout locale="pt" />}>{appRoutes()}</Route>
+      {/* EN e ES sob prefixo. */}
+      {PREFIXED_LOCALES.map((loc) => (
+        <Route key={loc} path={loc} element={<LocaleLayout locale={loc} />}>
+          {appRoutes()}
+        </Route>
+      ))}
     </Routes>
     {/* Alt+D / Option+D alterna o overlay de edição visual (dev). */}
     {Retune && (
