@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 const imgMedicalRoom = "/v4/photos/sobre-portrait.jpg";
 import { gsap } from "../../lib/gsap";
+import { isPrerender } from "../../lib/prerender";
 
 // ⚠️ COMPLIANCE (CFM 2.336/2023): "casos de sucesso" afirma DESFECHO e é
 // vedado — trocado por um dado de volume, que é factual. Os três números
@@ -18,6 +19,8 @@ export default function SectionSobreMim() {
   const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
+    // Snapshot de pré-render captura o DOM estático (sem pin-spacers/canvas).
+    if (isPrerender()) return;
     const root = sectionRef.current;
     if (!root) return;
     const ctx = gsap.context(() => {

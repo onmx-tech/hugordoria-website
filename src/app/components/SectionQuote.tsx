@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { SIGNATURE_PATHS } from "./section-quote/data";
 import { initQuoteAnimation } from "./section-quote/animations";
+import { isPrerender } from "../../lib/prerender";
 
 export default function SectionQuote() {
   const { t } = useTranslation("home");
@@ -13,6 +14,8 @@ export default function SectionQuote() {
   const attributionRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
+    // Snapshot de pré-render: DOM estático (sem os gsap.set de esconder).
+    if (isPrerender()) return;
     const section = sectionRef.current;
     const group = groupRef.current;
     const mark = markRef.current;

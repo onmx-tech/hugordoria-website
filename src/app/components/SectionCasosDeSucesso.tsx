@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import svgPaths from "../../imports/svg-nx92b0rij3";
 import { gsap } from "../../lib/gsap";
+import { isPrerender } from "../../lib/prerender";
 
 // Depoimentos reais de pacientes — excertos das avaliações verificadas no
 // Doctoralia (perfil do Dr. Hugo Doria-Netto), levemente encurtados.
@@ -117,6 +118,8 @@ export default function SectionCasosDeSucesso() {
   );
 
   useEffect(() => {
+    // Snapshot de pré-render captura o DOM estático (sem pin-spacers/canvas).
+    if (isPrerender()) return;
     const root = sectionRef.current;
     if (!root) return;
     const ctx = gsap.context(() => {
@@ -140,6 +143,8 @@ export default function SectionCasosDeSucesso() {
 
   // Entrada dos cards: direcional quando vem da paginação, vertical na carga
   useEffect(() => {
+    // Snapshot de pré-render captura o DOM estático (sem pin-spacers/canvas).
+    if (isPrerender()) return;
     if (!cardsRef.current) return;
     const cards = cardsRef.current.querySelectorAll("[data-card]");
     const dir = dirRef.current;

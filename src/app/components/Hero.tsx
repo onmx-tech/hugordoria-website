@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import { gsap } from "../../lib/gsap";
 import { CONTATO } from "../content/institucional";
+import { skipEntranceAnimation } from "../../lib/prerender";
 
 export default function Hero() {
   const { t } = useTranslation("home");
@@ -11,6 +12,11 @@ export default function Hero() {
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
+
+    // Primeira carga pré-renderizada (ou snapshot): o conteúdo já está pintado
+    // e no idioma certo — não rodar a intro de entrada (re-esconder pra reanimar
+    // causaria flash e atrasaria o first paint). A vida vem dos scroll-reveals.
+    if (skipEntranceAnimation()) return;
 
     // Split the title into word spans for per-word reveal
     const titleEl = root.querySelector<HTMLElement>("[data-hero='title']");
@@ -39,107 +45,65 @@ export default function Hero() {
       titleEl.dataset.split = "done";
     }
 
+    // Intro "first-paint priority": o conteúdo crítico (foto do hero = LCP,
+    // H1 = FCP) aparece QUASE imediato — nada de cortina nem de reveal longo
+    // segurando o first paint. A foto não é escondida (só um scale sutil, que
+    // não afeta LCP); os elementos secundários mantêm um toque de vida com
+    // durações curtas. A intro inteira dura ~1s em vez de ~4s. (Trade-off de
+    // sensação aprovado: priorizar velocidade mobile na home.)
     const ctx = gsap.context(() => {
-      // Initial states
-      gsap.set("[data-hero='curtain']", { autoAlpha: 1 });
-      gsap.set("[data-hero='photo-inner']", {
-        clipPath: "inset(100% 0% 0% 0%)",
-        scale: 1.12,
-      });
-      gsap.set("[data-hero='brand']", { autoAlpha: 0, y: -16 });
-      gsap.set("[data-hero='nav'] > *", { autoAlpha: 0, y: -16 });
-      gsap.set("[data-hero='eyebrow']", { autoAlpha: 0, x: -24 });
+      // A foto NÃO parte escondida — só um leve zoom-out que assenta rápido.
+      gsap.set("[data-hero='photo-inner']", { scale: 1.04 });
+      gsap.set("[data-hero='brand']", { autoAlpha: 0, y: -12 });
+      gsap.set("[data-hero='nav'] > *", { autoAlpha: 0, y: -12 });
+      gsap.set("[data-hero='eyebrow']", { autoAlpha: 0, x: -18 });
       gsap.set("[data-hero='divider']", {
         scaleX: 0,
         transformOrigin: "left center",
       });
       if (titleWords.length) gsap.set(titleWords, { yPercent: 110 });
-      gsap.set("[data-hero='description']", { autoAlpha: 0, y: 24 });
-      gsap.set("[data-hero='cta'] > *", { autoAlpha: 0, y: 18 });
+      gsap.set("[data-hero='description']", { autoAlpha: 0, y: 16 });
+      gsap.set("[data-hero='cta'] > *", { autoAlpha: 0, y: 12 });
       gsap.set("[data-hero='wordmark']", {
         clipPath: "inset(100% 0% 0% 0%)",
         yPercent: 20,
       });
 
-      const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      // 1. Curtain dissolves
-      tl.to("[data-hero='curtain']", {
-        autoAlpha: 0,
-        duration: 1.0,
-        ease: "power2.inOut",
-      });
+      // Foto assenta o zoom (visível o tempo todo — não bloqueia o LCP).
+      tl.to("[data-hero='photo-inner']", { scale: 1, duration: 0.9 });
 
-      // 2. Photo reveals from the ground, scaling down to rest
-      tl.to(
-        "[data-hero='photo-inner']",
-        {
-          clipPath: "inset(0% 0% 0% 0%)",
-          scale: 1,
-          duration: 1.6,
-          ease: "expo.out",
-        },
-        "<0.1"
-      );
-
-      // 3. Header crawls down
-      tl.to(
-        "[data-hero='brand']",
-        { autoAlpha: 1, y: 0, duration: 0.9 },
-        "<0.15"
-      ).to(
-        "[data-hero='nav'] > *",
-        { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.06 },
-        "<0.05"
-      );
-
-      // 4. Eyebrow slides in from the left
-      tl.to(
-        "[data-hero='eyebrow']",
-        { autoAlpha: 1, x: 0, duration: 1.0 },
-        "<0.2"
-      );
-
-      // 5. Dividers draw
-      tl.to(
-        "[data-hero='divider']",
-        { scaleX: 1, duration: 1.0, stagger: 0.08 },
-        "<0.1"
-      );
-
-      // 6. Title words rise from a mask
+      // H1 sobe da máscara logo de cara — rápido, é o FCP.
       if (titleWords.length) {
-        tl.to(
-          titleWords,
-          { yPercent: 0, duration: 1.1, stagger: 0.05 },
-          "<0.05"
-        );
+        tl.to(titleWords, { yPercent: 0, duration: 0.6, stagger: 0.04 }, 0);
       }
 
-      // 7. Description fades up
-      tl.to(
-        "[data-hero='description']",
-        { autoAlpha: 1, y: 0, duration: 1.0 },
-        "<0.3"
-      );
+      // Header desce.
+      tl.to("[data-hero='brand']", { autoAlpha: 1, y: 0, duration: 0.5 }, 0.05)
+        .to(
+          "[data-hero='nav'] > *",
+          { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.04 },
+          0.05
+        );
 
-      // 7b. Os dois caminhos de ação sobem logo atrás do título
-      tl.to(
-        "[data-hero='cta'] > *",
-        { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.08 },
-        "<0.1"
-      );
+      // Eyebrow + divisores.
+      tl.to("[data-hero='eyebrow']", { autoAlpha: 1, x: 0, duration: 0.5 }, 0.1)
+        .to("[data-hero='divider']", { scaleX: 1, duration: 0.6, stagger: 0.06 }, 0.15);
 
-      // 8. Wordmark reveals from the baseline
+      // Descrição + CTAs.
+      tl.to("[data-hero='description']", { autoAlpha: 1, y: 0, duration: 0.5 }, 0.25)
+        .to(
+          "[data-hero='cta'] > *",
+          { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.06 },
+          0.3
+        );
+
+      // Wordmark grande no rodapé (abaixo da dobra — não é crítico).
       tl.to(
         "[data-hero='wordmark']",
-        {
-          clipPath: "inset(0% 0% 0% 0%)",
-          yPercent: 0,
-          duration: 1.4,
-          ease: "expo.out",
-        },
-        "<0.05"
+        { clipPath: "inset(0% 0% 0% 0%)", yPercent: 0, duration: 0.9, ease: "expo.out" },
+        0.2
       );
     }, root);
 
@@ -202,16 +166,6 @@ export default function Hero() {
         }}
       />
 
-      {/* Entrance curtain — dissolves on load */}
-      <div
-        data-hero="curtain"
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-30"
-        style={{
-          background:
-            "linear-gradient(180deg, var(--color-bg-deeper) 0%, var(--color-bg-deeper) 60%, var(--color-bg-deep) 100%)",
-        }}
-      />
 
       {/* Content grid (header agora é o SiteHeader global, fixo no topo) */}
       <div className="relative z-10 flex-1 grid grid-cols-12 gap-x-6 gap-y-10 px-6 md:px-8 pt-24 sm:pt-28 lg:pt-[18vh] content-start">

@@ -2,12 +2,15 @@ import { useEffect, useRef } from "react";
 import { CANVAS_H, CANVAS_W } from "./section-sobre/data";
 import { SobreContent, SobreContentMobile } from "./section-sobre/parts";
 import { initSobreAnimation } from "./section-sobre/animations";
+import { isPrerender } from "../../lib/prerender";
 
 export default function SectionSobre() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Snapshot de pré-render: DOM estático (sem os gsap.set de esconder).
+    if (isPrerender()) return;
     const section = sectionRef.current;
     const track = trackRef.current;
     if (!section || !track) return;

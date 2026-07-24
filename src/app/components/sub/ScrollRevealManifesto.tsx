@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { gsap, ScrollTrigger } from "../../../lib/gsap";
 import { Eyebrow, Container } from "./primitives";
+import { isPrerender } from "../../../lib/prerender";
 
 // O texto do manifesto vive no i18n (sub.manifesto.lines). Aqui ficam apenas os
 // flags de destaque, na MESMA ordem das linhas: `true` = linha realçada em
@@ -16,6 +17,8 @@ export function ScrollRevealManifesto() {
   const rootRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
+    // Snapshot de pré-render captura o DOM estático (sem pin-spacers/canvas).
+    if (isPrerender()) return;
     const root = rootRef.current;
     if (!root) return;
     const ctx = gsap.context(() => {

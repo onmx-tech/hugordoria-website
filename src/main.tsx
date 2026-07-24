@@ -1,9 +1,10 @@
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
 import { lazy, Suspense } from "react";
-import "./app/i18n/config.ts"; // inicializa o i18next (efeito colateral)
+import i18n from "./app/i18n/config.ts"; // inicializa o i18next (efeito colateral)
 import { LocaleLayout } from "./app/i18n/LocaleProvider.tsx";
-import { PREFIXED_LOCALES } from "./app/i18n/config.ts";
+import { PREFIXED_LOCALES, parseLocalePath } from "./app/i18n/config.ts";
+import { markPrerendered } from "./lib/prerender.ts";
 import App from "./app/App.tsx";
 // Rotas secundárias em lazy(): saem do bundle inicial da home (que é o LCP),
 // cada uma vira um chunk carregado só quando a rota é acessada. A home (App)
@@ -65,7 +66,16 @@ function appRoutes() {
   );
 }
 
-createRoot(document.getElementById("root")!).render(
+// i18n no idioma da URL ANTES do primeiro render. Sem isto, uma rota /en|/es
+// renderizaria em PT no primeiro passe (a init do i18n usa o default) e só
+// trocaria no effect do LocaleLayout — o que causaria mismatch de hidratação
+// com o HTML pré-renderizado (que já vem no idioma certo).
+const bootLocale = parseLocalePath(window.location.pathname).locale;
+if (i18n.language !== bootLocale) i18n.changeLanguage(bootLocale);
+
+const rootEl = document.getElementById("root")!;
+
+const tree = (
   <BrowserRouter>
     {/* Pageview por rota — fora de App.tsx de propósito (home intocável). */}
     <RouteTracker />
@@ -87,5 +97,15 @@ createRoot(document.getElementById("root")!).render(
         <Retune />
       </Suspense>
     )}
-  </BrowserRouter>,
+  </BrowserRouter>
 );
+
+// Se o HTML já vem pré-renderizado (SSG), hidrata em vez de recriar do zero —
+// preserva o first paint estático (FCP/LCP instantâneos) e só liga a
+// interatividade por cima. Fallback para createRoot em dev/SPA puro.
+if (rootEl.firstElementChild) {
+  markPrerendered(true);
+  hydrateRoot(rootEl, tree);
+} else {
+  createRoot(rootEl).render(tree);
+}

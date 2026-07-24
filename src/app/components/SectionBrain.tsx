@@ -1,6 +1,7 @@
 import { useEffect, useRef, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { gsap, ScrollTrigger } from "../../lib/gsap";
+import { isPrerender } from "../../lib/prerender";
 
 const FRAME_COUNT = 122;
 
@@ -43,6 +44,8 @@ export default function SectionBrain() {
   }, []);
 
   useEffect(() => {
+    // Snapshot de pré-render captura o DOM estático (sem pin-spacers/canvas).
+    if (isPrerender()) return;
     const trigger = triggerRef.current;
     const canvas = canvasRef.current;
     if (!trigger || !canvas) return;

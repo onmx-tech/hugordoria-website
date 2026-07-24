@@ -18,6 +18,7 @@ import {
 import { initEspecialidadesAnimation } from "./section-especialidades/animations";
 import { getCards } from "./section-especialidades/cards-i18n";
 import { useLocale } from "../i18n/LocaleProvider";
+import { isPrerender } from "../../lib/prerender";
 
 export default function SectionEspecialidades() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -28,6 +29,8 @@ export default function SectionEspecialidades() {
   const localizedCards = getCards(locale);
 
   useEffect(() => {
+    // Snapshot de pré-render captura o DOM estático (sem pin-spacers/canvas).
+    if (isPrerender()) return;
     const section = sectionRef.current;
     const content = contentRef.current;
     const track = trackRef.current;

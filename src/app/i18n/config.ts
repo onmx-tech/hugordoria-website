@@ -111,6 +111,11 @@ i18n.use(initReactI18next).init({
   ns: ["common"],
   interpolation: { escapeValue: false }, // React já escapa
   returnNull: false,
+  // Sem Suspense: os recursos já vêm eager (glob), então useTranslation deve
+  // resolver síncrono no primeiro render. Com Suspense ligado (padrão), um
+  // primeiro render antes da init concluir renderiza o fallback (null) e quebra
+  // a hidratação do HTML pré-renderizado (mismatch de Suspense → React #418).
+  react: { useSuspense: false },
 });
 
 export default i18n;
