@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 const imgMedicalRoom = "/v4/photos/sobre-portrait.jpg";
 import { gsap } from "../../lib/gsap";
 
@@ -7,12 +8,13 @@ import { gsap } from "../../lib/gsap";
 // ainda dependem de BASE DOCUMENTAL do consultório; se algum não puder ser
 // comprovado, ele sai daqui (não se estima número em publicidade médica).
 const STATS = [
-  { value: "+20", label: "Anos de Experiência" },
-  { value: "+100", label: "Artigos Publicados" },
-  { value: "+9.500", label: "Pacientes Atendidos" },
+  { value: "+20", labelKey: "home.sobreMim.stats.experiencia" },
+  { value: "+100", labelKey: "home.sobreMim.stats.artigos" },
+  { value: "+9.500", labelKey: "home.sobreMim.stats.pacientes" },
 ] as const;
 
 export default function SectionSobreMim() {
+  const { t } = useTranslation("home");
   const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export default function SectionSobreMim() {
           >
             <img
               src={imgMedicalRoom}
-              alt="Dr. Hugo Doria em seu consultório"
+              alt={t("home.sobreMim.fotoAlt")}
               className="absolute inset-0 h-full w-full object-cover"
               style={{ objectPosition: "50% 28%" }}
             />
@@ -61,7 +63,7 @@ export default function SectionSobreMim() {
               className="font-['Geist',sans-serif] font-medium text-navy leading-[1.08] tracking-[-0.035em]"
               style={{ fontSize: "clamp(30px, 3.4vw, 52px)" }}
             >
-              Melhor Neurocirurgia e Cuidados Neurológicos
+              {t("home.sobreMim.heading")}
             </h2>
 
             <p
@@ -69,15 +71,13 @@ export default function SectionSobreMim() {
               className="font-['Arimo',sans-serif] font-normal text-navy/70 leading-[1.55] max-w-[560px]"
               style={{ fontSize: "clamp(16px, 1.3vw, 20px)" }}
             >
-              Confie em mim, para proporcionar o melhor tratamento e transformar
-              sua vida com excelência e dedicação, de forma humana e exclusiva —
-              meu maior compromisso com meus pacientes e suas famílias.
+              {t("home.sobreMim.paragraph")}
             </p>
 
             <div className="flex flex-col">
               {STATS.map((stat) => (
                 <div
-                  key={stat.label}
+                  key={stat.labelKey}
                   data-reveal
                   className="flex items-baseline gap-5 border-t border-navy/12 py-5 md:py-6"
                 >
@@ -91,7 +91,7 @@ export default function SectionSobreMim() {
                     className="font-['Geist',sans-serif] font-normal uppercase tracking-[0.06em] text-navy/50"
                     style={{ fontSize: "clamp(12px, 0.95vw, 15px)" }}
                   >
-                    {stat.label}
+                    {t(stat.labelKey)}
                   </span>
                 </div>
               ))}

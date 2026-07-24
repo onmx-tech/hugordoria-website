@@ -1,0 +1,38 @@
+{
+  "home": {
+    "hero": {
+      "eyebrow": "MD PhD – Neurocirujano",
+      "title": "Neurocirugía vascular y craneal de alta complejidad",
+      "ctaAgendar": "Agendar consulta",
+      "ctaSegundaOpiniao": "Solicitar segunda opinión",
+      "description": "Evaluación especializada de aneurismas cerebrales, malformaciones arteriovenosas, cavernomas, enfermedad de Moyamoya, revascularización cerebral y tumores craneales complejos."
+    },
+    "sobreMim": {
+      "heading": "La Mejor Neurocirugía y Cuidados Neurológicos",
+      "paragraph": "Confía en mí para brindarte el mejor tratamiento y transformar tu vida con excelencia y dedicación, de forma humana y exclusiva — mi mayor compromiso con mis pacientes y sus familias.",
+      "fotoAlt": "El Dr. Hugo Doria en su consultorio",
+      "stats": {
+        "experiencia": "Años de Experiencia",
+        "artigos": "Artículos Publicados",
+        "pacientes": "Pacientes Atendidos"
+      }
+    },
+    "casos": {
+      "titulo": "Valoraciones de pacientes",
+      "descricao": "Valoraciones publicadas por pacientes en plataformas públicas. Son relatos individuales: cada caso es único y ningún resultado puede garantizarse.",
+      "voltar": "Anterior",
+      "proximo": "Siguiente"
+    },
+    "brain": {
+      "heading": "Cuidados Esenciales para tu Salud Neurológica",
+      "paragraph": "Experimenta tratamientos neurológicos de excelencia mundial, combinados con el cuidado humanizado, exclusivo y personalizado que son la marca registrada del Dr. Hugo Doria.",
+      "cta": "Ponte en Contacto"
+    },
+    "especialidades": {
+      "eyebrow": "Servicios de Neurocirugía",
+      "heading": "Mis Especialidades",
+      "description": "El Dr. Hugo Doria ofrece tratamientos avanzados en neurocirugía, incluyendo aneurismas cerebrales, malformaciones arteriovenosas, tumores cerebrales y medulares, enfermedad de Moyamoya, neuralgia del trigémino, espasmo hemifacial y revascularización cerebral.",
+      "saibaMais": "Saber más"
+    }
+  }
+}

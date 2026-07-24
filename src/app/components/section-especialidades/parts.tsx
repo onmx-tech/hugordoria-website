@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router";
+import { useTranslation } from "react-i18next";
 import { CardArrow } from "./icons";
 import { CARD_H, CARD_W, HEADER_W, CANVAS_H, type CardData } from "./data";
 
 const IMAGE_H = 260;
 
 export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
+  const { t } = useTranslation("home");
   const Icon = card.icon;
   const hasImage = true;
   const imgSrc = `/v4/procedimentos/${card.slug}.jpg`;
@@ -79,7 +81,7 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
                 className="font-['Geist',sans-serif]"
                 style={{ fontWeight: 600, fontSize: 14, lineHeight: "18px", color: "var(--color-bg-cream)" }}
               >
-                Saiba mais
+                {t("home.especialidades.saibaMais")}
               </span>
               <CardArrow />
             </button>
@@ -119,7 +121,7 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
                 className="font-['Geist',sans-serif]"
                 style={{ fontWeight: 600, fontSize: 14, lineHeight: "18px", color: "var(--color-bg-cream)" }}
               >
-                Saiba mais
+                {t("home.especialidades.saibaMais")}
               </span>
               <CardArrow />
             </button>
@@ -132,6 +134,7 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
 }
 
 export function CardMobile({ card }: { card: CardData }) {
+  const { t } = useTranslation("home");
   const Icon = card.icon;
   const hasImage = true;
   const imgSrc = `/v4/procedimentos/${card.slug}.jpg`;
@@ -221,7 +224,7 @@ export function CardMobile({ card }: { card: CardData }) {
               color: "var(--color-bg-cream)",
             }}
           >
-            Saiba mais
+            {t("home.especialidades.saibaMais")}
           </span>
           <CardArrow />
         </div>
@@ -231,6 +234,7 @@ export function CardMobile({ card }: { card: CardData }) {
 }
 
 export function HeaderMobile() {
+  const { t } = useTranslation("home");
   return (
     <header className="flex flex-col gap-5 px-6">
       <span
@@ -242,7 +246,7 @@ export function HeaderMobile() {
           color: "var(--color-text-muted)",
         }}
       >
-        Serviços de Neurocirurgia
+        {t("home.especialidades.eyebrow")}
       </span>
       <h2
         className="font-['Arimo',sans-serif]"
@@ -255,7 +259,7 @@ export function HeaderMobile() {
           color: "var(--color-bg-cream)",
         }}
       >
-        Minhas Especialidades
+        {t("home.especialidades.heading")}
       </h2>
       <p
         className="font-['Arimo',sans-serif]"
@@ -267,16 +271,14 @@ export function HeaderMobile() {
           color: "color-mix(in srgb, var(--color-bg-cream) 70%, transparent)",
         }}
       >
-        Dr. Hugo Doria oferece tratamentos avançados em neurocirurgia, incluindo
-        aneurismas cerebrais, malformações arteriovenosas, tumores cerebrais e
-        medulares, doença de Moyamoya, neuralgia do trigêmeo, espasmo hemifacial
-        e revascularização cerebral.
+        {t("home.especialidades.description")}
       </p>
     </header>
   );
 }
 
 export function Header() {
+  const { t } = useTranslation("home");
   return (
     <div
       className="pointer-events-none absolute left-0 top-0 z-10"
@@ -299,7 +301,7 @@ export function Header() {
           color: "var(--color-text-muted)",
         }}
       >
-        Serviços de Neurocirurgia
+        {t("home.especialidades.eyebrow")}
       </span>
       <h2
         className="absolute font-['Arimo',sans-serif]"
@@ -315,7 +317,7 @@ export function Header() {
           color: "var(--color-bg-cream)",
         }}
       >
-        Minhas Especialidades
+        {t("home.especialidades.heading")}
       </h2>
       <p
         className="absolute font-['Arimo',sans-serif]"
@@ -330,10 +332,7 @@ export function Header() {
           color: "color-mix(in srgb, var(--color-bg-cream) 70%, transparent)",
         }}
       >
-        Dr. Hugo Doria oferece tratamentos avançados em neurocirurgia,
-        incluindo aneurismas cerebrais, malformações arteriovenosas, tumores
-        cerebrais e medulares, doença de Moyamoya, neuralgia do trigêmeo,
-        espasmo hemifacial e revascularização cerebral.
+        {t("home.especialidades.description")}
       </p>
     </div>
   );

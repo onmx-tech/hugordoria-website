@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import svgPaths from "../../imports/svg-nx92b0rij3";
 import { gsap } from "../../lib/gsap";
 
@@ -94,6 +95,7 @@ function ArrowIcon({ flipped }: { flipped?: boolean }) {
 }
 
 export default function SectionCasosDeSucesso() {
+  const { t } = useTranslation("home");
   const [page, setPage] = useState(0);
   const sectionRef = useRef<HTMLElement | null>(null);
   const cardsRef = useRef<HTMLDivElement | null>(null);
@@ -204,15 +206,13 @@ export default function SectionCasosDeSucesso() {
             className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.18] tracking-[-0.02em]"
             style={{ fontSize: "clamp(28px, 3.2vw, 40px)" }}
           >
-            Avaliações de pacientes
+            {t("home.casos.titulo")}
           </h2>
           <p
             className="font-['Arimo',sans-serif] font-normal text-navy/70 leading-[1.13] max-w-[380px]"
             style={{ fontSize: "clamp(16px, 1.2vw, 20px)" }}
           >
-            Avaliações publicadas por pacientes em plataformas públicas. São
-            relatos individuais: cada caso é único e nenhum resultado pode ser
-            garantido.
+            {t("home.casos.descricao")}
           </p>
         </div>
 
@@ -298,7 +298,7 @@ export default function SectionCasosDeSucesso() {
               style={{ fontSize: "clamp(16px, 1.2vw, 24px)" }}
             >
               <ArrowIcon flipped />
-              Voltar
+              {t("home.casos.voltar")}
             </button>
             <button
               type="button"
@@ -307,7 +307,7 @@ export default function SectionCasosDeSucesso() {
               className="inline-flex items-center gap-3 rounded-full border border-navy px-5 py-3 font-['Arimo',sans-serif] font-normal text-navy transition-opacity duration-200 disabled:opacity-30"
               style={{ fontSize: "clamp(16px, 1.2vw, 24px)" }}
             >
-              Próximo
+              {t("home.casos.proximo")}
               <ArrowIcon />
             </button>
           </div>

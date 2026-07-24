@@ -1,0 +1,38 @@
+{
+  "home": {
+    "hero": {
+      "eyebrow": "MD PhD – Neurocirurgião",
+      "title": "Neurocirurgia vascular e craniana de alta complexidade",
+      "ctaAgendar": "Agendar consulta",
+      "ctaSegundaOpiniao": "Solicitar segunda opinião",
+      "description": "Avaliação especializada de aneurismas cerebrais, malformações arteriovenosas, cavernomas, doença de Moyamoya, revascularização cerebral e tumores cranianos complexos."
+    },
+    "sobreMim": {
+      "heading": "Melhor Neurocirurgia e Cuidados Neurológicos",
+      "paragraph": "Confie em mim, para proporcionar o melhor tratamento e transformar sua vida com excelência e dedicação, de forma humana e exclusiva — meu maior compromisso com meus pacientes e suas famílias.",
+      "fotoAlt": "Dr. Hugo Doria em seu consultório",
+      "stats": {
+        "experiencia": "Anos de Experiência",
+        "artigos": "Artigos Publicados",
+        "pacientes": "Pacientes Atendidos"
+      }
+    },
+    "casos": {
+      "titulo": "Avaliações de pacientes",
+      "descricao": "Avaliações publicadas por pacientes em plataformas públicas. São relatos individuais: cada caso é único e nenhum resultado pode ser garantido.",
+      "voltar": "Voltar",
+      "proximo": "Próximo"
+    },
+    "brain": {
+      "heading": "Cuidados Essenciais para Sua Saúde Neurológica",
+      "paragraph": "Experimente tratamentos neurológicos de excelência mundial, associados ao cuidado humanizado, exclusivo e personalizado que são a marca registrada do Dr. Hugo Doria.",
+      "cta": "Entre em Contato"
+    },
+    "especialidades": {
+      "eyebrow": "Serviços de Neurocirurgia",
+      "heading": "Minhas Especialidades",
+      "description": "Dr. Hugo Doria oferece tratamentos avançados em neurocirurgia, incluindo aneurismas cerebrais, malformações arteriovenosas, tumores cerebrais e medulares, doença de Moyamoya, neuralgia do trigêmeo, espasmo hemifacial e revascularização cerebral.",
+      "saibaMais": "Saiba mais"
+    }
+  }
+}

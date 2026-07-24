@@ -1,0 +1,38 @@
+{
+  "home": {
+    "hero": {
+      "eyebrow": "MD PhD – Neurosurgeon",
+      "title": "Vascular and cranial neurosurgery of high complexity",
+      "ctaAgendar": "Book a consultation",
+      "ctaSegundaOpiniao": "Request a second opinion",
+      "description": "Specialized evaluation of cerebral aneurysms, arteriovenous malformations, cavernomas, Moyamoya disease, cerebral revascularization, and complex cranial tumors."
+    },
+    "sobreMim": {
+      "heading": "The Best Neurosurgery and Neurological Care",
+      "paragraph": "Trust me to provide the best treatment and transform your life with excellence and dedication, in a humane and exclusive way — my greatest commitment to my patients and their families.",
+      "fotoAlt": "Dr. Hugo Doria in his office",
+      "stats": {
+        "experiencia": "Years of Experience",
+        "artigos": "Published Articles",
+        "pacientes": "Patients Seen"
+      }
+    },
+    "casos": {
+      "titulo": "Patient reviews",
+      "descricao": "Reviews published by patients on public platforms. These are individual accounts: each case is unique and no outcome can be guaranteed.",
+      "voltar": "Previous",
+      "proximo": "Next"
+    },
+    "brain": {
+      "heading": "Essential Care for Your Neurological Health",
+      "paragraph": "Experience world-class neurological treatments combined with the humane, exclusive, and personalized care that is Dr. Hugo Doria's hallmark.",
+      "cta": "Get in Touch"
+    },
+    "especialidades": {
+      "eyebrow": "Neurosurgery Services",
+      "heading": "My Specialties",
+      "description": "Dr. Hugo Doria offers advanced neurosurgical treatments, including cerebral aneurysms, arteriovenous malformations, brain and spinal tumors, Moyamoya disease, trigeminal neuralgia, hemifacial spasm, and cerebral revascularization.",
+      "saibaMais": "Learn more"
+    }
+  }
+}

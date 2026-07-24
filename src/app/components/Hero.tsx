@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import imgHeroDoria from "@/assets/hero-doria-bracos.png";
 import { gsap } from "../../lib/gsap";
 import { CONTATO } from "../content/institucional";
 
 export default function Hero() {
+  const { t } = useTranslation("home");
   const rootRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -213,7 +215,7 @@ export default function Hero() {
             data-hero="eyebrow"
             className="w-full max-w-[440px] font-['Geist_Mono',sans-serif] font-medium uppercase text-soft text-[13px] sm:text-[15px] lg:text-[17px] leading-[1] tracking-[0.07em]"
           >
-            MD PhD – Neurocirurgião
+            {t("home.hero.eyebrow")}
           </p>
           <div
             data-hero="divider"
@@ -224,7 +226,7 @@ export default function Hero() {
             className="mt-5 lg:mt-[22px] font-['Geist',sans-serif] font-normal text-cream leading-[1.06] tracking-[-0.04em] max-w-[440px]"
             style={{ fontSize: "clamp(30px, 3.05vw, 44px)", textWrap: "balance" }}
           >
-            Neurocirurgia vascular e craniana de alta complexidade
+            {t("home.hero.title")}
           </h1>
 
           {/* Dois caminhos de ação — consulta e segunda opinião */}
@@ -243,7 +245,7 @@ export default function Hero() {
                 background: "var(--color-accent-gold-light)",
               }}
             >
-              Agendar consulta
+              {t("home.hero.ctaAgendar")}
             </a>
             <Link
               to="/segunda-opiniao"
@@ -254,7 +256,7 @@ export default function Hero() {
                 borderColor: "color-mix(in srgb, var(--color-bg-cream) 34%, transparent)",
               }}
             >
-              Solicitar segunda opinião
+              {t("home.hero.ctaSegundaOpiniao")}
             </Link>
           </div>
         </div>
@@ -271,7 +273,7 @@ export default function Hero() {
             className="mt-5 lg:mt-[22px] font-['Geist',sans-serif] font-normal text-cream leading-[1.41]"
             style={{ fontSize: "clamp(15px, 1.4vw, 24px)" }}
           >
-            Avaliação especializada de aneurismas cerebrais, malformações arteriovenosas, cavernomas, doença de Moyamoya, revascularização cerebral e tumores cranianos complexos.
+            {t("home.hero.description")}
           </p>
         </div>
       </div>
@@ -286,7 +288,7 @@ export default function Hero() {
             data-hero="description"
             className="mt-5 max-w-[440px] font-['Geist',sans-serif] font-normal text-cream leading-[1.41] text-[16px]"
           >
-            Avaliação especializada de aneurismas cerebrais, malformações arteriovenosas, cavernomas, doença de Moyamoya, revascularização cerebral e tumores cranianos complexos.
+            {t("home.hero.description")}
           </p>
         </div>
 
