@@ -29,10 +29,20 @@
          preconnect — em vez do @import render-blocking dentro do CSS. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Arimo NÃO-render-blocking: carrega como print e vira all no onload, para
+         não segurar o first paint (o hero usa Geist, self-hosted). -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
 
     <!-- LCP da home: o retrato do hero é renderizado pelo React (o scanner de
          preload não o enxerga no HTML). Este preload o descobre cedo, em
