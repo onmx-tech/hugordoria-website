@@ -1,5 +1,34 @@
-/* Arimo carrega via <link> no index.html (com preconnect) — o @import aqui
-   criava uma cadeia render-blocking (CSS → @import → CSS do Google → fonte). */
+/* Arimo (corpo) SELF-HOSTED via @fontsource — sem Google Fonts. Elimina o
+   render-block, o DNS/conexão externa e a pegadinha do onload no snapshot de
+   pré-render (o puppeteer disparava o onload e "assava" media=all no HTML). */
+@font-face {
+  font-family: 'Arimo';
+  src: url('../../node_modules/@fontsource/arimo/files/arimo-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Arimo';
+  src: url('../../node_modules/@fontsource/arimo/files/arimo-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Arimo';
+  src: url('../../node_modules/@fontsource/arimo/files/arimo-latin-600-normal.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Arimo';
+  src: url('../../node_modules/@fontsource/arimo/files/arimo-latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @font-face {
   font-family: 'Geist';

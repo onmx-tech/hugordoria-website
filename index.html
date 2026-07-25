@@ -25,24 +25,9 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Arimo (corpo) self-served pelo Google, mas descoberto cedo no HTML com
-         preconnect — em vez do @import render-blocking dentro do CSS. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Arimo NÃO-render-blocking: carrega como print e vira all no onload, para
-         não segurar o first paint (o hero usa Geist, self-hosted). -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
-      />
-    </noscript>
+    <!-- Fontes (Geist + Arimo) são SELF-HOSTED via @font-face em
+         styles/fonts.css. Sem Google Fonts no critical path — nada de
+         render-block nem DNS externo. -->
 
     <!-- LCP da home: o retrato do hero é renderizado pelo React (o scanner de
          preload não o enxerga no HTML). Este preload o descobre cedo, em
