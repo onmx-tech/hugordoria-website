@@ -4,8 +4,9 @@
   /* ─────────────────────────────────────────────────────────────────────
      Sistema MERINNO para documento de cliente.
      Creme #F1F1F1 + painéis brancos arredondados + preto. Destaque se faz
-     com PRETO, nunca com roxo/lilás (dois vetos do Thalyson). Capa com o
-     gradiente-céu do merinno.com. Labels em mono uppercase nos cantos.
+     com PRETO, nunca com roxo/lilás (dois vetos do Thalyson). Abre direto no
+     creme, sem capa: é papel timbrado, não capa de deck. Labels em mono
+     uppercase nos cantos.
      Compromisso deliberado com o mundo claro: é papel timbrado, não UI —
      por isso não há tema escuro.
      ───────────────────────────────────────────────────────────────────── */
@@ -15,8 +16,7 @@
     --preto:   #0a0a0a;
     --quente:  #e7e6e4;
     --grafite: #6c6a67;
-    --ceu:     #2b68de;
-    --areia:   #f4d8b0;
+    --ceu:     #2b68de;   /* só no anel de foco */
 
     --sans: system-ui, -apple-system, "Segoe UI", Inter, sans-serif;
     --serif: "Iowan Old Style", Georgia, "Times New Roman", serif;
@@ -48,37 +48,31 @@
     color: var(--grafite);
   }
 
-  /* ── Capa: painel céu ────────────────────────────────────────────── */
+  /* ── Abertura ────────────────────────────────────────────────────
+     Sem capa: o documento abre direto no creme, com o título assumindo o
+     papel que o painel-céu fazia. Papel timbrado, não capa de deck. */
 
-  .capa {
-    border-radius: var(--r);
-    background: linear-gradient(175deg, var(--ceu) 0%, #6f92dd 48%, var(--areia) 100%);
-    padding: 54px 46px 46px;
-    color: var(--branco);
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-    min-height: 460px;
+  .abertura { padding: 46px 46px 40px; }
+  .abertura .topo {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 16px; padding-bottom: 26px; border-bottom: 1px solid var(--quente);
   }
-  .capa .topo { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
-  .capa .lbl { color: rgba(255,255,255,0.85); }
-  .capa h1 {
+  .abertura h1 {
     font-family: var(--sans);
     font-weight: 500;
-    font-size: clamp(2.3rem, 6.4vw, 4.4rem);
-    line-height: 0.98;
+    font-size: clamp(2rem, 5.4vw, 3.5rem);
+    line-height: 1.0;
     letter-spacing: -0.035em;
     text-wrap: balance;
-    margin: 0;
-    max-width: 17ch;
+    margin: 34px 0 0;
+    max-width: 18ch;
   }
-  .capa .sub {
-    font-family: var(--serif);
-    font-size: 1.08rem;
+  .abertura .sub {
+    font-size: 1.1rem;
     line-height: 1.5;
-    max-width: 46ch;
-    margin: 20px 0 0;
-    color: rgba(255,255,255,0.92);
+    max-width: 52ch;
+    margin: 24px 0 0;
+    color: var(--grafite);
   }
 
   /* ── Painel branco ───────────────────────────────────────────────── */
@@ -204,8 +198,9 @@
   @media print {
     body { background: var(--branco); font-size: 10.5pt; line-height: 1.5; }
     .wrap { max-width: 100%; padding: 0; }
-    .capa { min-height: 0; gap: 46px; padding: 34px 30px; border-radius: 14px; break-after: page; }
-    .capa h1 { font-size: 30pt; }
+    .abertura { padding: 0 0 24px; }
+    .abertura h1 { font-size: 26pt; margin-top: 22px; }
+    .abertura .sub { font-size: 11pt; }
     .painel, section, .estado, .fecho { border-radius: 14px; padding: 24px 26px; margin-top: 10px; }
     .estados { gap: 10px; margin-top: 10px; }
     section { break-inside: auto; }
@@ -220,7 +215,7 @@
   @media (max-width: 760px) {
     body { font-size: 16px; }
     .wrap { padding: 14px 14px 80px; }
-    .capa { padding: 34px 26px; gap: 60px; min-height: 0; }
+    .abertura { padding: 26px 26px 30px; }
     .painel, section, .fecho { padding: 30px 26px; }
     .cab { flex-direction: column; gap: 6px; }
   }
@@ -228,20 +223,18 @@
 
 <div class="wrap">
 
-  <!-- ── Capa ─────────────────────────────────────────────────────── -->
-  <header class="capa">
+  <!-- ── Abertura ─────────────────────────────────────────────────── -->
+  <header class="abertura">
     <div class="topo">
       <span class="lbl">Merinno® · Parecer técnico</span>
       <span class="lbl">N.001 · 27.07.2026</span>
     </div>
-    <div>
-      <h1>resposta ao briefing executivo do site</h1>
-      <p class="sub">
-        Vocês pediram uma opinião sincera antes de publicar, para não terem que refazer depois.
-        É assim que respondemos: com o que já está medido, um ponto que vale decidir antes,
-        e o que ainda depende de vocês.
-      </p>
-    </div>
+    <h1>resposta ao briefing executivo do site</h1>
+    <p class="sub">
+      Vocês pediram uma opinião sincera antes de publicar, para não terem que refazer depois.
+      É assim que respondemos: com o que já está medido, um ponto que vale decidir antes,
+      e o que ainda depende de vocês.
+    </p>
   </header>
 
   <!-- ── Ficha ────────────────────────────────────────────────────── -->
