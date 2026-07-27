@@ -52,7 +52,11 @@ Páginas:
 
 ## Assets reais do cliente — `public/v4/`
 
-Servidos estáticos (referenciar por path string, ex.: `image="/v4/photos/sobre-portrait.jpg"`):
+Servidos estáticos (referenciar por path string, ex.: `image="/v4/photos/sobre-portrait.jpg"`).
+
+⚠️ **Nenhum `<img>` serve o JPG/PNG original.** `scripts/optimize-images.mjs` (roda no `prebuild`, ou `npm run images`) deriva `<nome>-{480,960}.webp` de todas as pastas de `public/v4`, e `responsiveImg()` (`src/lib/img.ts`) troca o path no ponto do `<img>` + monta o `srcSet`. **Asset novo em `public/v4` = só soltar o arquivo; o prebuild gera os derivados.** Regra que não pode voltar a ser quebrada: **imagem below-fold é `loading="lazy"`** — a home é pré-renderizada, então o preload scanner enxerga TODAS as imagens do HTML e as baixa de uma vez, afogando a banda do hero (foi isso que derrubou o PageSpeed de 88 para 68 em jul/26; com WebP+lazy foi a 100).
+
+
 - `videos/` — `sobre.mp4` (32MB) e `doutorado.mp4` (11MB), 720p H.264 + posters. `VideoFeature` toca `.mp4` local (`<video>`) ou embed (iframe) conforme o `src`. **Vídeos foram comprimidos com um ffmpeg estático** (brew/ffmpeg ausentes na máquina); baixar de evermeet.cx se precisar reprocessar. Considerar Git LFS/CDN se crescerem.
 - `photos/` — retratos e fotos de palestra do cliente (heroes das institucionais + galeria da Sobre).
 - `procedimentos/<slug>.jpg` — 11 imagens 3D médicas geradas no **Magnific**, 1100×1100. Usadas nos heroes de especialidade **e** nos cards "Minhas Especialidades" da home. **Direção de arte da série (medido, não "navy"):** anatomia **orgânica/carnal FOTORREALISTA** (tecido cerebral real, vasos vermelhos carnudos, superfície úmida), **fundo preto**, luz/**glow dourado-âmbar no ponto focal** (o aneurisma, o tumor, a anastomose). Macro no assunto. **NÃO** é escultura de vidro/cristal, **NÃO** tem borda creme/círculo/vinheta, e **NÃO** pode ter aquele *outline dourado neon contornando* (vira cara de cartoon/CGI — pedir luz difusa natural + negativar `glowing outline/neon rim/cartoon edges/plastic`). Ao gerar/refinar uma: **ler 3-4 irmãs primeiro** e usar como `style`-ref (a `revascularizacao-cerebral` já foi retrabalhada assim, jul/2026, com o desenho aprovado pelo Dr. via WhatsApp = cabeça de perfil translúcida + craniotomia + árvore vascular + glow central).
