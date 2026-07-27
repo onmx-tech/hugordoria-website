@@ -1,0 +1,582 @@
+<title>Parecer — Resposta ao briefing do Dr. Hugo Doria</title>
+
+<style>
+  :root {
+    --ink:      #15191e;
+    --paper:    #f3f5f6;
+    --surface:  #fdfefe;
+    --rule:     #ccd4d8;
+    --muted:    #66727b;
+    --accent:   #16566e;
+    --alert:    #97331e;
+    --done:     #26604c;
+    --shade:    #e7ecee;
+
+    --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+    --col: 63ch;
+    --gutter: 15ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:     #dde4e8;
+      --paper:   #0f1418;
+      --surface: #161c21;
+      --rule:    #2b353c;
+      --muted:   #8b98a2;
+      --accent:  #66b3cd;
+      --alert:   #dd8168;
+      --done:    #6cb193;
+      --shade:   #1a2229;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink:     #dde4e8;
+    --paper:   #0f1418;
+    --surface: #161c21;
+    --rule:    #2b353c;
+    --muted:   #8b98a2;
+    --accent:  #66b3cd;
+    --alert:   #dd8168;
+    --done:    #6cb193;
+    --shade:   #1a2229;
+  }
+  :root[data-theme="light"] {
+    --ink:     #15191e;
+    --paper:   #f3f5f6;
+    --surface: #fdfefe;
+    --rule:    #ccd4d8;
+    --muted:   #66727b;
+    --accent:  #16566e;
+    --alert:   #97331e;
+    --done:    #26604c;
+    --shade:   #e7ecee;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: calc(var(--gutter) + var(--col) + 10ch);
+    margin: 0 auto;
+    padding: 0 5vw 10rem;
+  }
+
+  /* ─── Cabeçalho ────────────────────────────────────────────── */
+
+  .doc-head { padding: 5rem 0 2.25rem; border-bottom: 1px solid var(--ink); }
+
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.75rem;
+  }
+
+  .doc-head h1 {
+    font-weight: 400;
+    font-size: clamp(2rem, 5.5vw, 3.1rem);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    margin: 0 0 1.5rem;
+    max-width: 22ch;
+  }
+
+  .standfirst {
+    max-width: var(--col);
+    font-size: 1.06rem;
+    color: var(--muted);
+    margin: 0 0 2.5rem;
+  }
+
+  dl.meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1.25rem 2rem;
+    margin: 0;
+  }
+  dl.meta dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.35rem;
+  }
+  dl.meta dd { margin: 0; font-size: 0.94rem; line-height: 1.4; }
+
+  /* ─── Veredito ─────────────────────────────────────────────── */
+
+  .verdict {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 3.5rem 0 1rem;
+  }
+  .verdict > div { background: var(--surface); padding: 1.5rem 1.4rem 1.6rem; }
+  .verdict .n {
+    font-family: var(--mono);
+    font-size: 2rem;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    display: block;
+    margin-bottom: 0.7rem;
+  }
+  .verdict .lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .verdict p { margin: 0; font-size: 0.9rem; color: var(--muted); line-height: 1.45; }
+  .v-risk .n, .v-risk .lbl { color: var(--alert); }
+  .v-done .n, .v-done .lbl { color: var(--done); }
+  .v-wait .n, .v-wait .lbl { color: var(--accent); }
+
+  /* ─── Corpo ────────────────────────────────────────────────── */
+
+  section.finding {
+    display: grid;
+    grid-template-columns: var(--gutter) minmax(0, var(--col));
+    gap: 0 4ch;
+    padding: 3.5rem 0;
+    border-top: 1px solid var(--rule);
+    margin-top: 2.5rem;
+  }
+
+  .gutter .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    display: block;
+    padding-top: 0.5rem;
+  }
+  .risk .gutter .num { color: var(--alert); }
+
+  .body h2 {
+    font-weight: 400;
+    font-size: clamp(1.45rem, 3.2vw, 1.85rem);
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+    margin: 0 0 1.5rem;
+  }
+
+  .body p { margin: 0 0 1.15rem; }
+  .body p:last-child { margin-bottom: 0; }
+  .body em { font-style: italic; color: var(--muted); }
+
+  ul.cites {
+    margin: 1.75rem 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--rule);
+    border-block: 1px solid var(--rule);
+  }
+  ul.cites li {
+    background: var(--surface);
+    padding: 1rem 1.2rem;
+    list-style: none;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .cites .art {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .risk .cites .art { color: var(--alert); }
+
+  .pull {
+    border-left: 2px solid var(--accent);
+    padding: 0.2rem 0 0.2rem 1.5rem;
+    margin: 1.75rem 0;
+    font-size: 1.02rem;
+  }
+  .risk .pull { border-left-color: var(--alert); }
+
+  .scroll { overflow-x: auto; margin: 1.75rem 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.92rem; min-width: 30rem; }
+  th, td {
+    text-align: left;
+    padding: 0.75rem 1.25rem 0.75rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+  thead th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+    border-bottom-color: var(--ink);
+  }
+  td:last-child, th:last-child { padding-right: 0; }
+  .ok { color: var(--done); font-weight: 700; }
+
+  ol.needs { margin: 1.5rem 0 0; padding-left: 1.4rem; }
+  ol.needs li { margin-bottom: 1.1rem; padding-left: 0.4rem; }
+  ol.needs li::marker { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); }
+
+  ul.plain { margin: 1.25rem 0; padding-left: 1.2rem; }
+  ul.plain li { margin-bottom: 0.6rem; }
+
+  code { font-family: var(--mono); font-size: 0.87em; background: var(--shade); padding: 0.1em 0.4em; }
+
+  .exhibit {
+    background: var(--shade);
+    padding: 1.6rem 1.7rem;
+    margin: 1.75rem 0;
+    border-left: 2px solid var(--muted);
+  }
+  .exhibit .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--alert);
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+  .exhibit q { font-style: italic; font-size: 1.02rem; }
+
+  .closing {
+    margin: 3.5rem 0 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--ink);
+    max-width: var(--col);
+  }
+  .closing .lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+  .closing p { margin: 0; font-size: 1.05rem; }
+
+  a { color: var(--accent); text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+
+  /* ─── Impressão / PDF ──────────────────────────────────────────
+     O PDF vai para o cliente: força o tema claro (o gerador herda
+     o esquema do sistema e sairia preto), tira o scroll horizontal
+     da tabela e impede quebra no meio de citação ou de seção. */
+  @media print {
+    :root {
+      --ink: #15191e; --paper: #ffffff; --surface: #ffffff;
+      --rule: #c8d0d4; --muted: #5d686f; --accent: #16566e;
+      --alert: #8d2f1c; --done: #22563f; --shade: #eef2f3;
+      --gutter: 0ch; --col: 100%;
+    }
+    body { font-size: 10.5pt; line-height: 1.5; background: #fff; }
+    .sheet { max-width: 100%; padding: 0; }
+    .doc-head { padding-top: 0; }
+    .doc-head h1 { font-size: 24pt; }
+    .standfirst { font-size: 11pt; }
+    section.finding {
+      grid-template-columns: minmax(0, 1fr);
+      padding: 1.6rem 0;
+      margin-top: 0;
+      break-inside: auto;
+    }
+    .body h2 { font-size: 14pt; break-after: avoid; }
+    .gutter .num { padding-top: 0; margin-bottom: 0.6rem; }
+    .verdict { break-inside: avoid; }
+    .cites li, .pull, .exhibit, .closing { break-inside: avoid; }
+    tr, li { break-inside: avoid; }
+    .scroll { overflow: visible; }
+    table { min-width: 0; font-size: 9.5pt; }
+    a { color: var(--accent); text-decoration: none; }
+  }
+
+  @media (max-width: 880px) {
+    :root { --gutter: 0ch; }
+    body { font-size: 16px; }
+    section.finding { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .gutter .num { padding-top: 0; margin-bottom: 1rem; }
+    .closing { margin-left: 0; }
+  }
+</style>
+
+<div class="sheet">
+
+  <header class="doc-head">
+    <p class="kicker">Merinno · Parecer técnico</p>
+    <h1>Resposta ao briefing executivo do site</h1>
+    <p class="standfirst">
+      Obrigado pelo documento. O senhor pediu uma opinião sincera antes de publicar, para não ter que
+      refazer depois — e é assim que respondemos: com o que já está medido, um ponto que vale decidir
+      antes, e o que ainda depende do senhor.
+    </p>
+    <dl class="meta">
+      <div><dt>Destinatário</dt><dd>Dr. Hugo Leonardo Doria-Netto</dd></div>
+      <div><dt>Objeto</dt><dd>Briefing executivo de readequação, 7 páginas</dd></div>
+      <div><dt>Data das medições</dt><dd>27 de julho de 2026</dd></div>
+      <div><dt>Fonte conferida</dt><dd>Resolução CFM 2.336/2023, artigo por artigo, no PDF oficial</dd></div>
+    </dl>
+  </header>
+
+  <div class="verdict">
+    <div class="v-risk">
+      <span class="n">01</span>
+      <span class="lbl">Para decidir</span>
+      <p>Um ponto de compliance que vale resolver antes de publicar no domínio oficial.</p>
+    </div>
+    <div class="v-done">
+      <span class="n">09</span>
+      <span class="lbl">Já entregue</span>
+      <p>Itens do briefing que já estavam construídos e medidos, com os números ao lado.</p>
+    </div>
+    <div class="v-wait">
+      <span class="n">05</span>
+      <span class="lbl">Com o senhor</span>
+      <p>Entradas que nenhuma agência produz — é o que falta para publicar.</p>
+    </div>
+  </div>
+
+  <section class="finding risk">
+    <div class="gutter"><span class="num">01 / Decisão</span></div>
+    <div class="body">
+      <h2>Um ponto para decidir antes de publicar</h2>
+
+      <p>
+        O site publica hoje cerca de <strong>26 depoimentos de pacientes</strong>: uma galeria com 24 prints
+        de avaliações, mais citações nominais na home e nas páginas clínicas, com nome completo e a condição
+        tratada (<em>“Paciente — Cirurgia de Aneurisma”</em>, <em>“Paciente — Schwannoma”</em>), incluindo
+        frases como <em>“salvaram minha vida”</em>, <em>“a cirurgia foi um sucesso”</em> e
+        <em>“minha recuperação tem sido rápida”</em>.
+      </p>
+
+      <p>
+        A Resolução CFM 2.336/2023 não proíbe depoimento — ela pede uma forma específica, e é aí
+        que está a diferença:
+      </p>
+
+      <ul class="cites">
+        <li>
+          <span class="art">Art. 14, II, “g”</span>
+          Depoimentos sobre a atuação do médico “devem ser <strong>sóbrios, sem adjetivos que denotem
+          superioridade ou induzam a promessa de resultado</strong>”. Alguns dos publicados hoje trazem
+          as duas coisas — <em>“expertise de nível internacional”</em>, <em>“a cirurgia foi um sucesso”</em>.
+        </li>
+        <li>
+          <span class="art">Art. 14, II, “i”, 3</span>
+          É preciso “<strong>garantir o anonimato do paciente que cedeu as imagens, mesmo que tenha recebido
+          autorização</strong>”. Consentimento não basta. Hoje eles aparecem com nome completo e o
+          procedimento a que foram submetidos.
+        </li>
+        <li>
+          <span class="art">Art. 8º, §3º</span>
+          Publicações de pacientes que o médico compartilha ou reposta “passam a ser consideradas
+          publicações suas” — os prints deixam de ser palavra do paciente para efeito da norma.
+        </li>
+        <li>
+          <span class="art">Art. 8º, §4º</span>
+          Elogios à técnica e ao resultado são analisados pela Codame quando ocorrem de modo
+          <strong>reiterado ou sistemático</strong>.
+        </li>
+        <li>
+          <span class="art">Art. 11, XII</span>
+          É vedado “garantir, prometer ou <strong>insinuar</strong> bons resultados do tratamento”.
+        </li>
+      </ul>
+
+      <p>
+        A leitura é sempre caso a caso, e o material está hoje num endereço de trabalho, não no domínio
+        público. Como a publicação no domínio oficial muda esse contexto, achamos que vale o senhor decidir
+        sobre isso com calma, e não no meio do lançamento.
+      </p>
+
+      <div class="pull">
+        <strong>Nossa recomendação segue o que a própria norma pede:</strong> manter as avaliações, porém
+        <strong>anonimizadas</strong> (primeiro nome e inicial, sem identificar o procedimento) e
+        <strong>filtradas</strong> — deixando de fora as que trazem adjetivo de superioridade ou menção a
+        resultado. Sobram menos depoimentos, e sobra o que costuma pesar mais na decisão do paciente:
+        o relato do cuidado.
+        Podemos preparar essa versão para o senhor comparar lado a lado com a atual.
+        <strong>A decisão é sua, e é a única do pacote que preferimos não tomar sozinhos.</strong>
+      </div>
+
+      <p>
+        No mesmo capítulo, os <strong>Art. 4º e 6º</strong> pedem que o site traga,
+        <strong>na página principal</strong>, seu nome, o número do CRM acompanhado da palavra MÉDICO, e a
+        especialidade seguida do RQE. Já construímos essa linha no rodapé, que é compartilhado com a home e
+        portanto atende ao Art. 6º.
+      </p>
+
+      <p>
+        Preenchemos o <strong>CRM/SP 118350</strong>, que localizamos em duas fontes concordantes — sua
+        página no Hospital BP e o CliniGuia, que espelha o cadastro do CFM. Como encontramos em terceiros,
+        e não na fonte oficial, <strong>pedimos sua confirmação</strong>. <strong>O RQE precisa vir do
+        senhor</strong>: não é informação pública, e não queremos publicar número de registro por dedução.
+      </p>
+    </div>
+  </section>
+
+  <section class="finding">
+    <div class="gutter"><span class="num">02 / Medido</span></div>
+    <div class="body">
+      <h2>Onde o site já está</h2>
+
+      <p>
+        O documento afirma haver “risco técnico de baixa leitura por mecanismos de busca e sistemas de
+        inteligência artificial”. Esse risco <em>existia</em>, era real, e foi resolvido no mês passado.
+        Medições de hoje:
+      </p>
+
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th>O que o documento pede (§7, §11)</th><th>Estado medido</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Conteúdo no HTML inicial ou pré-renderizado</td><td><span class="ok">Feito.</span> O site entrega 128 KB de conteúdo já montado, antes de qualquer JavaScript rodar — é o que o Google e os sistemas de IA leem</td></tr>
+            <tr><td>Título e descrição exclusivos por página</td><td><span class="ok">Feito</span>, nas 21 páginas</td></tr>
+            <tr><td>URLs legíveis, canônicos, sitemap, robots.txt</td><td><span class="ok">Feito</span>, gerados automaticamente a cada publicação</td></tr>
+            <tr><td>Dados estruturados (médico, artigo, perguntas, breadcrumb)</td><td><span class="ok">Feito</span></td></tr>
+            <tr><td>Desempenho móvel e Core Web Vitals</td><td><span class="ok">100/100</span> no PageSpeed Insights do Google (mobile). Carrega o conteúdo principal em 1,5 s</td></tr>
+            <tr><td>Imagens comprimidas, texto alternativo, HTTPS, página de erro</td><td><span class="ok">Feito</span></td></tr>
+            <tr><td>Posicionamento na primeira tela</td><td>Já é, palavra por palavra, o texto que o documento recomenda: “Neurocirurgia vascular e craniana de alta complexidade”, com os dois botões separados — avaliação e segunda opinião</td></tr>
+            <tr><td>Jornada da segunda opinião</td><td>Página própria, com perguntas frequentes e aviso de que não há promessa de resultado</td></tr>
+            <tr><td>Redirecionamentos do site anterior</td><td><span class="ok">Feito hoje</span> — as 20 páginas do site antigo apontam para as equivalentes</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Além disso, entregamos hoje, a partir da leitura do seu documento: limpeza de todos os superlativos
+        e promessas da comunicação (§10), agrupamento das áreas clínicas por natureza do problema (§3),
+        formulário com os campos que o senhor pediu, aviso de cookies com recusa tão fácil quanto o aceite,
+        e política de privacidade (§6, §7). A medição já nasce configurada para não gravar cookie nenhum
+        antes de o paciente autorizar.
+      </p>
+    </div>
+  </section>
+
+  <section class="finding">
+    <div class="gutter"><span class="num">03 / Com o senhor</span></div>
+    <div class="body">
+      <h2>O que falta, e que depende do senhor</h2>
+
+      <p>Nada disso é trabalho de agência. São as entradas que faltam:</p>
+
+      <ol class="needs">
+        <li>
+          <strong>Texto clínico de decisão.</strong> As 11 páginas hoje têm o que é, sintomas, diagnóstico,
+          tratamento e recuperação. O que o senhor pede no §4 — <strong>quando observar, quando tratar,
+          riscos e limites, papel da microcirurgia</strong> — é justamente o que nenhum texto de internet tem
+          e o que faz o paciente escolher. Não temos como escrever isso, e não vamos inventar afirmação
+          médica. Sugestão prática: o senhor grava um áudio de cinco minutos por condição, respondendo
+          “quando eu opero e quando eu acompanho”, e nós transformamos em texto para o senhor revisar.
+        </li>
+        <li>
+          <strong>O RQE, e a confirmação do CRM.</strong> O CRM/SP 118350 já está no rodapé, achado em
+          fontes públicas — falta o senhor confirmar. O RQE não existe em fonte pública: só o senhor tem.
+        </li>
+        <li>
+          <strong>Conta do Google Analytics.</strong> A medição está construída e desligada, esperando o
+          identificador. Sem ela, nenhuma consulta pode ser atribuída a canal — que é, no seu próprio
+          documento (§8), o critério de “comercialmente funcional”.
+        </li>
+        <li>
+          <strong>A data da virada de domínio.</strong> O <code>hugodoria.com.br</code> ainda serve o site
+          antigo em WordPress.
+        </li>
+        <li>
+          <strong>Um olhar jurídico sobre a política de privacidade.</strong> Nós a escrevemos com as bases
+          legais que entendemos corretas para consultório — consentimento (art. 7º, I), legítimo interesse
+          para dados de navegação (art. 7º, IX), tutela da saúde quando o contato vira atendimento
+          (art. 11, II, “f”) — e com o prazo de guarda de prontuário da Lei 13.787/2018. Conferimos artigo
+          por artigo, mas <strong>não somos advogados</strong> e não vamos fingir que somos: peça ao seu
+          jurídico uma leitura de dez minutos antes de publicar. O texto também depende do e-mail
+          <code>contato@hugodoria.com.br</code>, marcado como provisório no projeto — precisamos saber se é
+          definitivo.
+        </li>
+      </ol>
+
+      <p style="margin-top:1.5rem">
+        As três páginas que faltam — descompressão microvascular, meningiomas e tumores da base do crânio —
+        dependem do primeiro item.
+      </p>
+    </div>
+  </section>
+
+  <section class="finding">
+    <div class="gutter"><span class="num">04 / Método</span></div>
+    <div class="body">
+      <h2>Uma observação sobre o método</h2>
+
+      <p>Vale uma observação prática, e ela começa com um erro nosso.</p>
+
+      <p>
+        Ao preparar esta resposta, pedimos a uma inteligência artificial que resumisse a Resolução
+        CFM 2.336/2023. Ela respondeu, com toda a segurança, o seguinte:
+      </p>
+
+      <div class="exhibit">
+        <span class="stamp">Resposta da IA · incorreta</span>
+        <q>Art. 20 — não é permitido incluir depoimentos de pacientes ou ex-pacientes em anúncios.</q>
+      </div>
+
+      <p>
+        Esse artigo não existe — a resolução termina no Art. 17 — e a regra verdadeira diz quase o
+        contrário: depoimento é permitido, desde que sóbrio e anônimo. Se tivéssemos confiado, teríamos
+        recomendado ao senhor remover uma seção inteira do site sem nenhuma necessidade. Só não aconteceu
+        porque abrimos o PDF do conselho e lemos.
+      </p>
+
+      <p>
+        Guardamos a lição para nós — e ela também explica por que alguns pontos do briefing já estavam
+        resolvidos: uma análise feita de fora não tem como medir o que está dentro do código. É a natureza
+        da ferramenta, não um defeito do documento, que no conjunto nos foi útil.
+      </p>
+
+      <div class="pull">
+        Daí a sugestão: <strong>quando surgir uma dúvida técnica sobre o site, pergunte direto a nós.</strong>
+        Respondemos com o número medido, no mesmo dia, e o senhor não gasta tempo com o que já está
+        resolvido. Esse tempo rende muito mais no conteúdo clínico — a parte que ninguém além do senhor
+        pode escrever, e que hoje é o que separa o site de uma publicação segura.
+      </div>
+    </div>
+  </section>
+
+  <div class="closing">
+    <span class="lbl">Próximo passo</span>
+    <p>
+      O senhor decide sobre os depoimentos e nos envia o RQE, a confirmação do CRM e a conta do Analytics.
+      Com isso, publicamos no domínio oficial. O conteúdo clínico entra em seguida, condição por condição,
+      sem travar o lançamento. Ficamos à disposição para conversar sobre qualquer ponto acima.
+    </p>
+  </div>
+
+</div>
