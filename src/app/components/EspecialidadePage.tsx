@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams, useNavigate, Link } from "react-router";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
@@ -15,16 +15,38 @@ import { useSeo } from "../seo/useSeo";
 import { breadcrumbSchema, medicalPageSchema } from "../seo/schema";
 import { responsiveImg } from "@/lib/img";
 
-// Figuras médicas Magnific (navy). Escolhe por palavra-chave da legenda;
-// fallback rotativo pelo índice da seção pra variar entre as imagens.
+// Figuras médicas Magnific (navy). A legenda escolhe a figura por palavra-chave.
+//
+// ⚠️ Duas regras que nasceram de um defeito real (o cliente viu, jul/2026):
+//
+// 1. **Da regra mais específica para a mais genérica.** A ordem antiga testava
+//    `arteri|vascul` primeiro, então "Nidus arteriovenoso" caía em angiografia
+//    antes de a regra de `nidus` ser avaliada — e a página de MAVs mostrava a
+//    MESMA imagem em "Fig. 01 — Nidus" e "Fig. 02 — Angiografia digital".
+//    Termo anatômico ganha de termo vascular genérico.
+//
+// 2. **Sem repetir dentro da mesma página.** Se a figura escolhida já apareceu,
+//    cai para a próxima ainda não usada. Duas legendas diferentes descrevendo a
+//    mesma imagem é erro factual, não só monotonia.
+//
+// Continua havendo repetição ENTRE páginas (são 4 figuras para 11 condições) —
+// isso só se resolve gerando figuras próprias por condição, não em código.
 const FIGURAS = ["angiografia", "mri", "reconstrucao3d", "microscopio"] as const;
-function figuraFor(caption: string, idx: number): string {
+
+function escolherFigura(caption: string, idx: number, usadas: Set<string>): string {
   const c = caption.toLowerCase();
   let key: string = FIGURAS[idx % FIGURAS.length];
-  if (/angiograf|vascul|arteri|fluxo|bypass/.test(c)) key = "angiografia";
-  else if (/resson|rm\b|mri|tomograf|imagem|scan/.test(c)) key = "mri";
-  else if (/microcirurg|cirúrg|clipagem|microsc|intraoper/.test(c)) key = "microscopio";
-  else if (/3d|reconstru|anatom|lesão|tumor|nidus|represent/.test(c)) key = "reconstrucao3d";
+
+  if (/3d|reconstru|anatom|nidus|malforma|lesão|tumor|represent/.test(c)) key = "reconstrucao3d";
+  else if (/microcirurg|cirúrg|clipagem|microsc|intraoper|ressec/.test(c)) key = "microscopio";
+  else if (/resson|rm\b|mri|tomograf|scan/.test(c)) key = "mri";
+  else if (/angiograf|vascul|arteri|fluxo|bypass/.test(c)) key = "angiografia";
+
+  if (usadas.has(key)) {
+    const livre = FIGURAS.find((f) => !usadas.has(f));
+    if (livre) key = livre;
+  }
+  usadas.add(key);
   return `/v4/figuras/${key}.jpg`;
 }
 
@@ -92,6 +114,16 @@ export default function EspecialidadePage() {
   const Icon = card.icon;
   const lead = article?.lead ?? card.description;
   const sections = article?.sections ?? [];
+
+  // Resolve as figuras de UMA VEZ por artigo, em ordem, para que o controle de
+  // "não repetir" enxergue a página inteira. Se fosse chamado dentro do map do
+  // render, cada seção começaria com o conjunto de usadas vazio.
+  const figuras = useMemo(() => {
+    const usadas = new Set<string>();
+    return sections.map((s, i) =>
+      s.figureCaption ? escolherFigura(s.figureCaption, i, usadas) : null,
+    );
+  }, [sections]);
 
   return (
     <div className="flex min-h-screen flex-col bg-navy-600 font-body">
@@ -184,7 +216,7 @@ export default function EspecialidadePage() {
                       <figure className="mt-2 m-0">
                         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-navy-800 ring-1 ring-white/10">
                           <img
-                            {...responsiveImg(figuraFor(s.figureCaption, si), "(max-width: 1024px) 100vw, 720px")}
+                            {...responsiveImg(figuras[si]!, "(max-width: 1024px) 100vw, 720px")}
                             alt={s.figureCaption}
                             loading="lazy"
                             className="absolute inset-0 size-full object-cover"
