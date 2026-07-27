@@ -62,6 +62,7 @@ Nada disso é trabalho de agência. São as quatro entradas que faltam:
 2. **CRM e RQE.**
 3. **Conta do Google Analytics.** A medição está construída e desligada, esperando o identificador. Sem ela, nenhuma consulta pode ser atribuída a canal — que é, no seu próprio documento (§8), o critério de "comercialmente funcional".
 4. **A data da virada de domínio.** O `hugodoria.com.br` ainda serve o site antigo em WordPress.
+5. **Um olhar jurídico sobre a política de privacidade.** Nós a escrevemos com as bases legais que entendemos corretas para consultório — consentimento (art. 7º, I), legítimo interesse para dados de navegação (art. 7º, IX), tutela da saúde quando o contato vira atendimento (art. 11, II, "f") — e com o prazo de guarda de prontuário da Lei 13.787/2018. Conferimos artigo por artigo, mas **não somos advogados** e não vamos fingir que somos: peça ao seu jurídico uma leitura de dez minutos antes de publicar. O texto também depende do e-mail `contato@hugodoria.com.br`, que está marcado como provisório no projeto — precisamos saber se é definitivo.
 
 As três páginas que faltam (descompressão microvascular, meningiomas e tumores da base do crânio) dependem do item 1.
 
