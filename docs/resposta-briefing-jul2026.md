@@ -30,7 +30,9 @@ Não estamos dizendo que o senhor cometeu infração — o material está num en
 
 **Nossa recomendação, que é o que a própria norma pede:** manter as avaliações, mas **anonimizadas** (primeiro nome e inicial, sem o procedimento identificado) e **filtradas** — fora as que contêm adjetivo de superioridade ou menção a resultado. Sobra menos depoimento e sobra o que tem valor real: o relato do cuidado, não do desfecho. Podemos preparar essa versão para o senhor comparar lado a lado com a atual. **A decisão é sua, e é a única do pacote que preferimos não tomar sozinhos.**
 
-Ainda no mesmo capítulo, e igualmente ausente do documento: os **Art. 4º e 6º** exigem que o site traga, **na página principal**, seu nome, o número do CRM acompanhado da palavra MÉDICO, e a especialidade seguida do RQE. Hoje o site não traz nenhum dos três. Já deixamos o espaço pronto no rodapé — **precisamos que o senhor nos envie CRM e RQE**, porque não vamos digitar número de registro por conta própria.
+Ainda no mesmo capítulo, e igualmente ausente do documento: os **Art. 4º e 6º** exigem que o site traga, **na página principal**, seu nome, o número do CRM acompanhado da palavra MÉDICO, e a especialidade seguida do RQE. Hoje o site não traz nenhum dos três. Já construímos a linha no rodapé, que é compartilhado com a home e portanto cumpre a exigência do Art. 6º.
+
+Preenchemos o **CRM/SP 118350**, que localizamos em duas fontes concordantes — sua página no Hospital BP e o CliniGuia, que espelha o cadastro do CFM. **Pedimos que o senhor confirme**, porque achamos em terceiros e não na fonte oficial. **O RQE precisa vir do senhor**: não é informação pública (o Busca Médicos do CFM exige verificação humana) e não vamos digitar número de registro por dedução.
 
 ---
 
@@ -50,16 +52,16 @@ O documento afirma haver "risco técnico de baixa leitura por mecanismos de busc
 | Jornada da segunda opinião | Página própria, com perguntas frequentes e aviso de que não há promessa de resultado |
 | Redirecionamentos do site anterior | Feito hoje — as 20 páginas do site antigo apontam para as equivalentes |
 
-Além disso, entregamos hoje, a partir da leitura do seu documento: limpeza de todos os superlativos e promessas da comunicação (§10), agrupamento das áreas clínicas por natureza do problema (§3), formulário com os campos que o senhor pediu, consentimento de dados e política de privacidade (§6, §7).
+Além disso, entregamos hoje, a partir da leitura do seu documento: limpeza de todos os superlativos e promessas da comunicação (§10), agrupamento das áreas clínicas por natureza do problema (§3), formulário com os campos que o senhor pediu, aviso de cookies com recusa tão fácil quanto o aceite, e política de privacidade (§6, §7). A medição já nasce configurada para não gravar cookie nenhum antes de o paciente autorizar.
 
 ---
 
 ## 3. O que trava a publicação — e só o senhor tem
 
-Nada disso é trabalho de agência. São as quatro entradas que faltam:
+Nada disso é trabalho de agência. São as entradas que faltam:
 
 1. **Texto clínico de decisão.** As 11 páginas hoje têm o que é, sintomas, diagnóstico, tratamento e recuperação. O que o senhor pede no §4 — **quando observar, quando tratar, riscos e limites, papel da microcirurgia** — é justamente o que nenhum texto de internet tem e o que faz o paciente escolher. Não temos como escrever isso, e não vamos inventar afirmação médica. Sugestão prática: o senhor grava um áudio de cinco minutos por condição, respondendo "quando eu opero e quando eu acompanho", e nós transformamos em texto para o senhor revisar.
-2. **CRM e RQE.**
+2. **O RQE, e a confirmação do CRM.** O CRM/SP 118350 já está no rodapé, achado em fontes públicas — falta o senhor confirmar. O RQE não existe em fonte pública: só o senhor tem.
 3. **Conta do Google Analytics.** A medição está construída e desligada, esperando o identificador. Sem ela, nenhuma consulta pode ser atribuída a canal — que é, no seu próprio documento (§8), o critério de "comercialmente funcional".
 4. **A data da virada de domínio.** O `hugodoria.com.br` ainda serve o site antigo em WordPress.
 5. **Um olhar jurídico sobre a política de privacidade.** Nós a escrevemos com as bases legais que entendemos corretas para consultório — consentimento (art. 7º, I), legítimo interesse para dados de navegação (art. 7º, IX), tutela da saúde quando o contato vira atendimento (art. 11, II, "f") — e com o prazo de guarda de prontuário da Lei 13.787/2018. Conferimos artigo por artigo, mas **não somos advogados** e não vamos fingir que somos: peça ao seu jurídico uma leitura de dez minutos antes de publicar. O texto também depende do e-mail `contato@hugodoria.com.br`, que está marcado como provisório no projeto — precisamos saber se é definitivo.
