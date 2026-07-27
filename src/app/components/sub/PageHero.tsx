@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { Container } from "./primitives";
 import { BrainGraphic } from "./BrainGraphic";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
+import { responsiveImg } from "@/lib/img";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -82,8 +83,9 @@ export function PageHero({
             <div className="relative aspect-square overflow-hidden rounded-none ring-1 ring-white/15">
               {image ? (
                 <ImageWithFallback
-                  src={image}
+                  {...responsiveImg(image, "(max-width: 1024px) 100vw, 640px")}
                   alt={imageAlt ?? ""}
+                  fetchPriority="high"
                   className="size-full object-cover object-top transition-transform duration-[1.2s] ease-out hover:scale-105"
                 />
               ) : (

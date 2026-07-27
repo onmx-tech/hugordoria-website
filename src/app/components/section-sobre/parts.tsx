@@ -1,6 +1,7 @@
 import type { ReactNode, CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 import { cells, texts, HEADER } from "./data";
+import { responsiveImg } from "@/lib/img";
 import imgVideo from "@/assets/a375c45d2716fbbea43385fdee4485566a41cfa6.webp";
 import imgScrubsGreen from "@/assets/1237b2795956579d89da3b7db4b78c58db67e687.webp";
 
@@ -43,9 +44,11 @@ export function ImageFrame({
       }}
     >
       <img
-        src={src}
+        {...responsiveImg(src, `${Math.round(w * 1.2)}px`)}
         alt={alt}
         draggable={false}
+        loading="lazy"
+        decoding="async"
         className="absolute top-0 block max-w-none select-none object-cover"
         style={{ left: "-10%", width: "120%", height: "100%", objectPosition }}
       />
@@ -255,9 +258,11 @@ function MobileFrame({
       style={{ aspectRatio: ratio, backgroundColor: "rgba(255, 255, 255, 0.06)" }}
     >
       <img
-        src={src}
+        {...responsiveImg(src, "100vw")}
         alt={alt}
         draggable={false}
+        loading="lazy"
+        decoding="async"
         className="block h-full w-full select-none object-cover"
         style={{ objectPosition }}
       />

@@ -26,6 +26,7 @@ import { breadcrumbSchema } from "../seo/schema";
 import { ScrollRevealManifesto } from "../components/sub/ScrollRevealManifesto";
 import { cards } from "../components/section-especialidades/data";
 import { useLocale } from "../i18n/LocaleProvider";
+import { responsiveImg } from "@/lib/img";
 import {
   CONTATO,
   DEPOIMENTOS_GALERIA,
@@ -174,7 +175,7 @@ export function SobreMimPage() {
             "/v4/photos/retrato-sentado-sorrindo.jpg",
           ].map((src) => (
             <div key={src} className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-navy-800 ring-1 ring-white/10">
-              <img src={src} alt="Dr. Hugo Doria" loading="lazy" className="absolute inset-0 size-full object-cover object-top transition-transform duration-[1.2s] ease-out hover:scale-105" />
+              <img {...responsiveImg(src, "(max-width: 768px) 50vw, 320px")} alt="Dr. Hugo Doria" loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover object-top transition-transform duration-[1.2s] ease-out hover:scale-105" />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-900/40 to-transparent" />
             </div>
           ))}
@@ -426,7 +427,7 @@ export function DepoimentosPage() {
         <div className="gap-5 sm:columns-2 lg:columns-3" style={{ columnFill: "balance" }}>
           {DEPOIMENTOS_GALERIA.map((src, i) => (
             <div key={i} className="mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
-              <img src={src} alt={t("forms.depoimentos.itemAlt", { n: i + 1 })} loading="lazy" className="w-full" />
+              <img {...responsiveImg(src, "(max-width: 768px) 100vw, 400px")} alt={t("forms.depoimentos.itemAlt", { n: i + 1 })} loading="lazy" decoding="async" className="w-full" />
             </div>
           ))}
         </div>

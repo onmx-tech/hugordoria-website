@@ -13,6 +13,7 @@ import { PageHero } from "./sub/PageHero";
 import { Eyebrow, SectionHeading, Divider, Button, Container } from "./sub/primitives";
 import { useSeo } from "../seo/useSeo";
 import { breadcrumbSchema, medicalPageSchema } from "../seo/schema";
+import { responsiveImg } from "@/lib/img";
 
 // Figuras médicas Magnific (navy). Escolhe por palavra-chave da legenda;
 // fallback rotativo pelo índice da seção pra variar entre as imagens.
@@ -183,7 +184,7 @@ export default function EspecialidadePage() {
                       <figure className="mt-2 m-0">
                         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-navy-800 ring-1 ring-white/10">
                           <img
-                            src={figuraFor(s.figureCaption, si)}
+                            {...responsiveImg(figuraFor(s.figureCaption, si), "(max-width: 1024px) 100vw, 720px")}
                             alt={s.figureCaption}
                             loading="lazy"
                             className="absolute inset-0 size-full object-cover"

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Play } from "lucide-react";
 import { Eyebrow, SectionHeading, Container } from "./primitives";
+import { responsiveImg } from "@/lib/img";
 
 /**
  * Bloco de vídeo cinematográfico (16:9) para as subpáginas.
@@ -65,7 +66,7 @@ export function VideoFeature({
               <>
                 {/* poster */}
                 {poster ? (
-                  <img src={poster} alt="" aria-hidden className="absolute inset-0 size-full object-cover" />
+                  <img {...responsiveImg(poster, "(max-width: 1024px) 100vw, 960px")} alt="" aria-hidden loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
                 ) : (
                   <div className="absolute inset-0 bg-gradient-to-br from-navy-800 to-navy-900" />
                 )}

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import { CardArrow } from "./icons";
+import { responsiveImg } from "@/lib/img";
 import { CARD_H, CARD_W, HEADER_W, CANVAS_H, type CardData } from "./data";
 
 const IMAGE_H = 260;
@@ -43,8 +44,10 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
             style={{ height: IMAGE_H }}
           >
             <img
-              src={imgSrc}
+              {...responsiveImg(imgSrc, `${CARD_W}px`)}
               alt={card.title}
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 h-full w-full object-cover group-hover:scale-105"
               style={{
                 // idem: `scale-105` do v4 usa a propriedade CSS `scale`
@@ -168,8 +171,10 @@ export function CardMobile({ card }: { card: CardData }) {
           style={{ aspectRatio: "16 / 11" }}
         >
           <img
-            src={imgSrc}
+            {...responsiveImg(imgSrc, "100vw")}
             alt={card.title}
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>

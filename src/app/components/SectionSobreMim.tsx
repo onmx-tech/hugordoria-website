@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 const imgMedicalRoom = "/v4/photos/sobre-portrait.jpg";
 import { gsap } from "../../lib/gsap";
 import { isPrerender } from "../../lib/prerender";
+import { responsiveImg } from "../../lib/img";
 
 // ⚠️ COMPLIANCE (CFM 2.336/2023): "casos de sucesso" afirma DESFECHO e é
 // vedado — trocado por um dado de volume, que é factual. Os três números
@@ -52,8 +53,10 @@ export default function SectionSobreMim() {
             style={{ aspectRatio: "5 / 6" }}
           >
             <img
-              src={imgMedicalRoom}
+              {...responsiveImg(imgMedicalRoom, "(max-width: 1024px) 100vw, 640px")}
               alt={t("home.sobreMim.fotoAlt")}
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 h-full w-full object-cover"
               style={{ objectPosition: "50% 28%" }}
             />
