@@ -4,35 +4,110 @@
   "buildCommand": "npm run build:ssg",
   "outputDirectory": "dist",
   "redirects": [
-    { "source": "/especialidades/aneurisma", "destination": "/especialidade/aneurisma-cerebral", "permanent": true },
-    { "source": "/especialidades/malformacoes-arteriovenosas-mavs", "destination": "/especialidade/mavs", "permanent": true },
-    { "source": "/especialidades/moya-moya", "destination": "/especialidade/doenca-de-moyamoya", "permanent": true },
-    { "source": "/especialidades/neuralgia-do-trigemio", "destination": "/especialidade/neuralgia-do-trigemeo", "permanent": true },
-    { "source": "/especialidades/cavernomas", "destination": "/especialidade/cavernomas", "permanent": true },
-    { "source": "/especialidades/espasmo-hemifacial", "destination": "/especialidade/espasmo-hemifacial", "permanent": true },
-    { "source": "/especialidades/schwannoma-vestibular", "destination": "/especialidade/schwannoma-vestibular", "permanent": true },
-    { "source": "/especialidades/tumores-cerebrais", "destination": "/especialidade/tumores-cerebrais", "permanent": true },
-    { "source": "/especialidades/tumores-hipofisarios", "destination": "/especialidade/tumores-hipofisarios", "permanent": true },
-    { "source": "/especialidades/tumores-medulares", "destination": "/especialidade/tumores-medulares", "permanent": true },
-    { "source": "/timetable", "destination": "/contato", "permanent": true },
-    { "source": "/portfolio/:slug*", "destination": "/", "permanent": true },
-    { "source": "/feed", "destination": "/", "permanent": true },
-    { "source": "/comments/feed", "destination": "/", "permanent": true },
-    { "source": "/wp-sitemap.xml", "destination": "/sitemap.xml", "permanent": true },
-    { "source": "/wp-sitemap-:rest*", "destination": "/sitemap.xml", "permanent": true }
+    {
+      "source": "/especialidades/aneurisma",
+      "destination": "/especialidade/aneurisma-cerebral",
+      "statusCode": 301
+    },
+    {
+      "source": "/especialidades/malformacoes-arteriovenosas-mavs",
+      "destination": "/especialidade/mavs",
+      "statusCode": 301
+    },
+    {
+      "source": "/especialidades/moya-moya",
+      "destination": "/especialidade/doenca-de-moyamoya",
+      "statusCode": 301
+    },
+    {
+      "source": "/especialidades/neuralgia-do-trigemio",
+      "destination": "/especialidade/neuralgia-do-trigemeo",
+      "statusCode": 301
+    },
+    {
+      "source": "/especialidades/cavernomas",
+      "destination": "/especialidade/cavernomas",
+      "statusCode": 301
+    },
+    {
+      "source": "/especialidades/espasmo-hemifacial",
+      "destination": "/especialidade/espasmo-hemifacial",
+      "statusCode": 301
+    },
+    {
+      "source": "/especialidades/schwannoma-vestibular",
+      "destination": "/especialidade/schwannoma-vestibular",
+      "statusCode": 301
+    },
+    {
+      "source": "/especialidades/tumores-cerebrais",
+      "destination": "/especialidade/tumores-cerebrais",
+      "statusCode": 301
+    },
+    {
+      "source": "/especialidades/tumores-hipofisarios",
+      "destination": "/especialidade/tumores-hipofisarios",
+      "statusCode": 301
+    },
+    {
+      "source": "/especialidades/tumores-medulares",
+      "destination": "/especialidade/tumores-medulares",
+      "statusCode": 301
+    },
+    {
+      "source": "/timetable",
+      "destination": "/contato",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolio/:slug*",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/feed",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/comments/feed",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wp-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/wp-sitemap-:rest*",
+      "destination": "/sitemap.xml",
+      "statusCode": 301
+    }
   ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "cache-control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "cache-control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/hero/(.*)",
       "headers": [
-        { "key": "cache-control", "value": "public, max-age=604800" }
+        {
+          "key": "cache-control",
+          "value": "public, max-age=604800"
+        }
       ]
     }
   ]
