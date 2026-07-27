@@ -11,12 +11,12 @@ export const SOBRE_MIM = {
     {
       titulo: "Actuación Profesional",
       texto:
-        "Neurocirujano en hospitales de renombre como BP, Santa Catarina, Albert Einstein y Sírio Libanês.",
+        "Neurocirujano en los hospitales BP, Santa Catarina, Albert Einstein y Sírio-Libanês.",
     },
     {
       titulo: "Publicaciones e Investigación",
       texto:
-        "Una extensa lista de publicaciones en revistas de renombre internacional y nacional, revisor de importantes publicaciones periódicas y referente en el campo, gracias a una amplia experiencia de 20 años en neurocirugía.",
+        "Publicaciones en revistas nacionales e internacionales de neurocirugía, con actuación como revisor, a lo largo de 20 años de práctica en el área.",
     },
     {
       titulo: "Coordinación y Liderazgo",

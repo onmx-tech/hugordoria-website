@@ -41,6 +41,8 @@ const STATIC_ROUTES = [
   { path: "/publicacoes", priority: "0.6", changefreq: "yearly" },
   { path: "/eventos", priority: "0.5", changefreq: "yearly" },
   { path: "/midia", priority: "0.5", changefreq: "monthly" },
+  // Página legal (LGPD) — indexável, mas de prioridade baixa.
+  { path: "/privacidade", priority: "0.3", changefreq: "yearly" },
 ];
 
 function readSpecialtySlugs() {

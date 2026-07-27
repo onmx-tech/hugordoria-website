@@ -6,6 +6,7 @@ import { PageHero } from "../components/sub/PageHero";
 import { Eyebrow, SectionHeading, Divider, Button, Container } from "../components/sub/primitives";
 import { HERO_IMG } from "../components/sub/heroImages";
 import { getCards } from "../components/section-especialidades/cards-i18n";
+import { FAMILIES, cardsByFamily } from "../components/section-especialidades/data";
 import { LocaleLink as Link, useLocale } from "../i18n/LocaleProvider";
 import { useTranslation } from "react-i18next";
 import FloatingNav from "../components/FloatingNav";
@@ -47,34 +48,56 @@ export function EspecialidadesPage() {
           badge={{ value: String(cards.length).padStart(2, "0"), label: t("sub.especialidades.hero.badgeLabel") }}
         />
 
-        {/* Grid de especialidades */}
+        {/* Grade por família clínica — o paciente chega sabendo o sintoma, não o
+            nome da doença; o agrupamento é o que o orienta. Cada família é um
+            <h2>, e os cards descem para <h3>: hierarquia semântica real. */}
         <section className="bg-navy-800 py-20 md:py-28">
-          <Container>
-            <div className="grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
-              {cards.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <Link
-                    key={s.slug}
-                    to={`/especialidade/${s.slug}`}
-                    className="group flex flex-col gap-8 bg-navy-800 p-8 transition-colors hover:bg-white/[0.04]"
-                  >
-                    <span className="block [&>svg]:h-full [&>svg]:w-full" style={{ width: 48, height: 48 }}><Icon /></span>
-                    <div className="flex flex-col gap-3">
-                      <h3 className="font-display text-white text-[22px]" style={{ fontWeight: 500 }}>{s.title}</h3>
-                      <p className="font-body text-white/70 text-[16px]" style={{ lineHeight: 1.55 }}>{s.description}</p>
-                    </div>
-                    <span className="mt-auto inline-flex items-center gap-2 font-display text-white text-[14px]" style={{ fontWeight: 600 }}>
-                      {t("sub.common.saibaMais")}
-                      <ArrowRight className="size-5 text-gold-600 transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
-                    </span>
-                  </Link>
-                );
-              })}
-              {/* fecha a grade (11 cards → 1 célula órfã no grid de 2/3 col);
-                  sem isto, o gap-px deixa um retângulo claro do fundo aparecendo */}
-              <div aria-hidden className="hidden bg-navy-800 sm:block" />
-            </div>
+          <Container className="flex flex-col gap-20 md:gap-24">
+            {FAMILIES.map((family) => {
+              const group = cardsByFamily(cards, family);
+              if (!group.length) return null;
+              // A grade é de 3 colunas; a última linha incompleta deixaria o fundo
+              // aparecendo através do gap-px. Fechamos com células mudas.
+              const filler = (3 - (group.length % 3)) % 3;
+              return (
+                <div key={family}>
+                  <Eyebrow>{`0${FAMILIES.indexOf(family) + 1}`}</Eyebrow>
+                  <h2 className="mt-5 font-display text-white text-[30px] tracking-[-0.02em] md:text-[38px]" style={{ fontWeight: 400, lineHeight: 1.1 }}>
+                    {t(`sub.especialidades.familias.${family}.title`)}
+                  </h2>
+                  <p className="mt-4 max-w-[620px] font-body text-white/65 text-[17px]" style={{ lineHeight: 1.55 }}>
+                    {t(`sub.especialidades.familias.${family}.intro`)}
+                  </p>
+                  <Divider tone="light" className="mt-8" />
+
+                  <div className="mt-10 grid gap-px overflow-hidden bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+                    {group.map((s) => {
+                      const Icon = s.icon;
+                      return (
+                        <Link
+                          key={s.slug}
+                          to={`/especialidade/${s.slug}`}
+                          className="group flex flex-col gap-8 bg-navy-800 p-8 transition-colors hover:bg-white/[0.04]"
+                        >
+                          <span className="block [&>svg]:h-full [&>svg]:w-full" style={{ width: 48, height: 48 }}><Icon /></span>
+                          <div className="flex flex-col gap-3">
+                            <h3 className="font-display text-white text-[22px]" style={{ fontWeight: 500 }}>{s.title}</h3>
+                            <p className="font-body text-white/70 text-[16px]" style={{ lineHeight: 1.55 }}>{s.description}</p>
+                          </div>
+                          <span className="mt-auto inline-flex items-center gap-2 font-display text-white text-[14px]" style={{ fontWeight: 600 }}>
+                            {t("sub.common.saibaMais")}
+                            <ArrowRight className="size-5 text-gold-600 transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
+                          </span>
+                        </Link>
+                      );
+                    })}
+                    {Array.from({ length: filler }, (_, i) => (
+                      <div key={`filler-${i}`} aria-hidden className="hidden bg-navy-800 sm:block" />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </Container>
         </section>
 

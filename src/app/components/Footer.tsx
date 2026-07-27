@@ -21,6 +21,18 @@ const NAV_LINKS = [
 const ADDRESS =
   "R. Teixeira da Silva, 54 - 73 - Bela Vista, São Paulo - SP, 04002-030, Brasil";
 
+// Identificação profissional exigida pela Resolução CFM 2.336/2023: art. 4º, I
+// (nome + nº do CRM acompanhados da palavra MÉDICO), art. 4º, II (especialidade
+// registrada seguida do RQE) e art. 6º (tem de estar na página principal do
+// site). Este Footer é compartilhado com a home, então cobre o art. 6º.
+//
+// Fica em string literal, fora do i18n, de propósito: é dado de registro em
+// conselho brasileiro — não é copy que se traduz por idioma.
+//
+// TBC: valores reais a confirmar com o cliente — NÃO inventar número de CRM/RQE.
+const IDENTIFICACAO_CFM =
+  "Dr. Hugo Leonardo Doria-Netto — MÉDICO — CRM/SP 000000 · RQE 00000 (Neurocirurgia)";
+
 function LogoSection() {
   return (
     <div className="flex flex-col gap-8 max-w-[384px]">
@@ -70,9 +82,14 @@ function LogoSection() {
           <path d={svgPaths.p1a136f00} fill="var(--color-accent-gold)" />
         </svg>
       </div>
-      <p className="font-['Geist',sans-serif] font-normal text-cream text-sm leading-[1.5]">
-        {ADDRESS}
-      </p>
+      <div className="flex flex-col gap-3">
+        <p className="font-['Geist',sans-serif] font-normal text-cream text-sm leading-[1.5]">
+          {ADDRESS}
+        </p>
+        <p className="font-['Geist',sans-serif] font-normal text-cream/70 text-[13px] leading-[1.5]">
+          {IDENTIFICACAO_CFM}
+        </p>
+      </div>
     </div>
   );
 }
@@ -125,6 +142,7 @@ function SocialFacebook() {
 export default function Footer() {
   const { locale } = useLocale();
   const { t } = useTranslation("sub");
+  const { t: tForms } = useTranslation("forms");
   const cards = getCards(locale);
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -153,6 +171,14 @@ export default function Footer() {
                     {t(link.labelKey)}
                   </Link>
                 ))}
+                {/* Link legal (LGPD). Rótulo vem do namespace "forms", onde mora
+                    o resto da política — não do "sub" dos demais itens. */}
+                <Link
+                  to="/privacidade"
+                  className="font-['Geist',sans-serif] font-normal text-cream/50 leading-normal transition-colors duration-200 hover:text-cream"
+                >
+                  {tForms("forms.privacidade.footerLink")}
+                </Link>
               </nav>
             </div>
 
@@ -198,6 +224,16 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+        {/* Identificação profissional — EXIGIDA por lei, não é decoração.
+            Resolução CFM 2.336/2023, Art. 4º: nome + nº do CRM acompanhados da
+            palavra MÉDICO, e a especialidade registrada seguida do RQE. Art. 6º:
+            em sites, isso tem de estar na página principal — este footer é
+            compartilhado com a home, então é aqui que a obrigação se cumpre.
+            Não remover nem esconder em mobile. */}
+        <p className="mt-14 border-t border-white/10 pt-8 font-['Geist',sans-serif] text-[13px] leading-relaxed text-cream/45">
+          {tForms("forms.identificacao.linha")}
+        </p>
       </div>
 
       {/* Bottom bar */}

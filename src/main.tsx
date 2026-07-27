@@ -24,6 +24,9 @@ const LocalizacaoPage = lazy(() => import("./app/pages/InstitucionalPages.tsx").
 const SegundaOpiniaoPage = lazy(() =>
   import("./app/pages/SegundaOpiniao.tsx").then((m) => ({ default: m.SegundaOpiniaoPage })),
 );
+const PrivacidadePage = lazy(() =>
+  import("./app/pages/Privacidade.tsx").then((m) => ({ default: m.PrivacidadePage })),
+);
 const NotFoundPage = lazy(() => import("./app/pages/NotFound.tsx").then((m) => ({ default: m.NotFoundPage })));
 import { RouteTracker } from "./app/analytics/RouteTracker.tsx";
 import { captureUtmParams } from "./app/analytics/utm.ts";
@@ -61,6 +64,7 @@ function appRoutes() {
       <Route path="contato" element={<ContatoPage />} />
       <Route path="localizacao" element={<LocalizacaoPage />} />
       <Route path="segunda-opiniao" element={<SegundaOpiniaoPage />} />
+      <Route path="privacidade" element={<PrivacidadePage />} />
       <Route path="*" element={<NotFoundPage />} />
     </>
   );

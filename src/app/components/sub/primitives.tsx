@@ -75,6 +75,8 @@ type ButtonProps = {
   icon?: "arrow" | "chat" | "none";
   className?: string;
   type?: "button" | "submit";
+  /** Só vale para <button> (to/href ignoram). Ex.: envio travado até o consentimento. */
+  disabled?: boolean;
 };
 
 export function Button({
@@ -86,9 +88,13 @@ export function Button({
   icon = "none",
   className = "",
   type = "button",
+  disabled = false,
 }: ButtonProps) {
-  const base =
-    "group/btn inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 transition-all duration-300 cursor-pointer select-none hover:-translate-y-0.5";
+  // O lift do hover sai do `base` quando desabilitado — duas utilities de
+  // translate no mesmo nó não se resolvem pela ordem da string de classes.
+  const base = `group/btn inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 transition-all duration-300 select-none ${
+    disabled ? "cursor-not-allowed opacity-45" : "cursor-pointer hover:-translate-y-0.5"
+  }`;
   const styles: Record<string, string> = {
     gold: "bg-gold-600 text-white hover:bg-gold-500",
     "outline-dark": "border border-navy-600/40 text-navy-600 hover:bg-navy-600 hover:text-white",
@@ -120,7 +126,7 @@ export function Button({
     );
   }
   return (
-    <button type={type} onClick={onClick} className={cls}>
+    <button type={type} onClick={onClick} disabled={disabled} className={cls}>
       {content}
     </button>
   );

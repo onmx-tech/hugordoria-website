@@ -12,16 +12,31 @@ export type Testimonial = {
   role: string;
 };
 
+/**
+ * Família clínica da condição. O cliente pediu (briefing jul/2026, §3/§4) que as
+ * áreas apareçam agrupadas por natureza do problema, e não como uma lista plana:
+ * é assim que o paciente se localiza e é assim que a página ganha hierarquia
+ * semântica de subtítulos. A ordem de `FAMILIES` é a ordem de exibição.
+ */
+export type Family = "vascular" | "conflitos" | "tumores";
+export const FAMILIES: Family[] = ["vascular", "conflitos", "tumores"];
+
 export type CardData = {
   slug: string;
   title: string;
   description: string;
   detailedDescription?: string;
+  family: Family;
   icon: () => ReactNode;
   image?: string;
   highlights?: string[];
   testimonials?: Testimonial[];
 };
+
+/** Cards de uma família, na ordem original do array. */
+export function cardsByFamily(all: CardData[], family: Family): CardData[] {
+  return all.filter((c) => c.family === family);
+}
 
 export const CANVAS_H = 1052;
 export const HEADER_W = 1896;
@@ -37,6 +52,7 @@ export const END_PADDING = 80;
 export const cards: CardData[] = [
   {
     slug: "schwannoma-vestibular",
+    family: "tumores",
     icon: IconSchwannoma,
     title: "Schwannoma Vestibular",
     description:
@@ -61,6 +77,7 @@ export const cards: CardData[] = [
   },
   {
     slug: "aneurisma-cerebral",
+    family: "vascular",
     icon: IconAneurisma,
     title: "Aneurisma Cerebral",
     description:
@@ -90,6 +107,7 @@ export const cards: CardData[] = [
   },
   {
     slug: "mavs",
+    family: "vascular",
     icon: IconMAV,
     title: "MAVs",
     description:
@@ -113,6 +131,7 @@ export const cards: CardData[] = [
   },
   {
     slug: "tumores-cerebrais",
+    family: "tumores",
     icon: IconTumor,
     title: "Tumores Cerebrais",
     description:
@@ -142,6 +161,7 @@ export const cards: CardData[] = [
   },
   {
     slug: "doenca-de-moyamoya",
+    family: "vascular",
     icon: IconSchwannoma,
     title: "Doença de Moyamoya",
     description:
@@ -165,6 +185,7 @@ export const cards: CardData[] = [
   },
   {
     slug: "neuralgia-do-trigemeo",
+    family: "conflitos",
     icon: IconAneurisma,
     title: "Neuralgia do Trigêmeo",
     description:
@@ -180,6 +201,7 @@ export const cards: CardData[] = [
   },
   {
     slug: "espasmo-hemifacial",
+    family: "conflitos",
     icon: IconMAV,
     title: "Espasmo Hemifacial",
     description:
@@ -195,6 +217,7 @@ export const cards: CardData[] = [
   },
   {
     slug: "revascularizacao-cerebral",
+    family: "vascular",
     icon: IconTumor,
     title: "Revascularização Cerebral",
     description:
@@ -210,6 +233,7 @@ export const cards: CardData[] = [
   },
   {
     slug: "tumores-hipofisarios",
+    family: "tumores",
     icon: IconAneurisma,
     title: "Tumores Hipofisários",
     description:
@@ -225,6 +249,7 @@ export const cards: CardData[] = [
   },
   {
     slug: "cavernomas",
+    family: "vascular",
     icon: IconMAV,
     title: "Cavernomas",
     description:
@@ -239,6 +264,7 @@ export const cards: CardData[] = [
   },
   {
     slug: "tumores-medulares",
+    family: "tumores",
     icon: IconTumor,
     title: "Tumores Medulares",
     description:

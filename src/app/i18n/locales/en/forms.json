@@ -3,7 +3,7 @@
     "stats": {
       "experiencia": "Years of experience",
       "artigos": "Published articles",
-      "casos": "Successful cases"
+      "casos": "Surgeries performed in 20 years"
     },
     "sobre": {
       "heroEyebrow": "About",
@@ -17,7 +17,7 @@
       "pilaresEyebrow": "Pillars",
       "pilaresHeading": "A practice on three fronts",
       "formacaoEyebrow": "International training",
-      "formacaoHeading": "Training at the world's leading centers",
+      "formacaoHeading": "Training at international centers",
       "retratosEyebrow": "Portraits",
       "retratosHeading": "The professional behind every surgery"
     },
@@ -37,10 +37,10 @@
       "heroTitle": "Scientific output",
       "heroImageAlt": "Scientific publications",
       "artigoEyebrow": "Featured article",
-      "artigoHeading": "Four years of research in a world-reference journal.",
+      "artigoHeading": "Four years of research published in World Neurosurgery.",
       "lerArtigo": "Read the scientific article",
       "capitulosEyebrow": "Book chapters",
-      "capitulosHeading": "Contributions to reference works"
+      "capitulosHeading": "Chapters in neurosurgery books"
     },
     "eventos": {
       "heroEyebrow": "Events",
@@ -60,8 +60,8 @@
     "depoimentos": {
       "heroEyebrow": "Testimonials",
       "heroTitle": "Words that are worth a life",
-      "heroIntro": "Real messages from patients and families over two decades — the greatest recognition of this work.",
-      "heroBadgeLabel": "successful cases",
+      "heroIntro": "Messages from patients and families over two decades. These are individual accounts: every case is unique and no outcome can be guaranteed.",
+      "heroBadgeLabel": "published reviews",
       "itemAlt": "Testimonial {{n}}"
     },
     "contato": {
@@ -94,8 +94,32 @@
         "telefone": "Phone",
         "email": "E-mail",
         "assunto": "Subject",
-        "mensagem": "Message"
-      }
+        "mensagem": "Message",
+        "cidadeEstado": "City and state",
+        "exames": "Has exams",
+        "indicacao": "Surgical recommendation",
+        "origem": "How they heard about us",
+        "consentimento": "LGPD consent: granted in the website form."
+      },
+      "labelCidadeEstado": "City and state",
+      "phCidadeEstado": "e.g. São Paulo, SP",
+      "labelExames": "Do you have exams?",
+      "labelIndicacao": "Have you been given a surgical recommendation?",
+      "labelOrigem": "How did you hear about Dr. Hugo?",
+      "selectDefault": "Select",
+      "opcaoSim": "Yes",
+      "opcaoNao": "No",
+      "opcaoNaoSei": "I'm not sure",
+      "origemOpcoes": [
+        "Referral from a doctor",
+        "Referral from a patient",
+        "Google search",
+        "Social media",
+        "Other"
+      ],
+      "consentPre": "I authorize contact and the processing of my data for the purpose of scheduling and evaluating my case, as described in the ",
+      "consentLink": "Privacy Policy",
+      "consentPos": "."
     },
     "localizacao": {
       "heroEyebrow": "Location",
@@ -153,6 +177,136 @@
         "exames": "Exams",
         "resumo": "Case summary"
       }
+    },
+    "privacidade": {
+      "footerLink": "Privacy Policy",
+      "seoTitle": "Privacy Policy",
+      "seoDescription": "How the data submitted through this website's forms is collected, used, shared and deleted: purpose, legal basis under the LGPD, retention periods and the channel to exercise your rights.",
+      "heroEyebrow": "Privacy",
+      "heroTitle": "Privacy Policy",
+      "heroIntro": "How your data is handled when you browse this website or send a contact request: what is collected, what for, who it is shared with and how to request its deletion.",
+      "atualizacaoLabel": "Last updated",
+      "atualizacaoData": "July 27, 2026",
+      "canalEyebrow": "Data subject channel",
+      "canalHeading": "Talk to us about your data",
+      "canalTexto": "Requests for access, correction, deletion or withdrawal of consent should be sent by e-mail, using the name given in the original contact. The team confirms receipt and replies within the period set out in art. 19 of the LGPD.",
+      "canalEmailLabel": "E-mail for privacy matters",
+      "canalBotao": "Go to contact",
+      "secoes": [
+        {
+          "titulo": "Who processes your data",
+          "paragrafos": [
+            "The data collected on this website is processed by Dr. Hugo Leonardo Doria-Netto and by his practice team, at R. Teixeira da Silva, 54 — suite 73, Bela Vista, São Paulo/SP, Brazil.",
+            "This policy covers the website and the forms published on it. It does not cover other services you may reach from here, such as WhatsApp, Google Maps or social media profiles, which have policies of their own."
+          ]
+        },
+        {
+          "titulo": "What data is collected",
+          "paragrafos": [
+            "The website has no sign-up and no login area. The data that reaches the team is what you write yourself in the contact form or in the second opinion request:"
+          ],
+          "itens": [
+            "Full name",
+            "Phone or WhatsApp",
+            "E-mail",
+            "City and state",
+            "Specialty or subject of the contact",
+            "Whether you already have exams",
+            "Whether you have been given a surgical recommendation",
+            "How you heard about Dr. Hugo Doria",
+            "The message you write — including whatever you choose to tell about your case"
+          ],
+          "fecho": [
+            "The website also records browsing data: pages visited, language, device and browser type and the source of the visit (for example, the utm_ parameters of a campaign link, kept only in the browser session). This data is handled in aggregate and is not cross-referenced with what you write in the form."
+          ]
+        },
+        {
+          "titulo": "What should not be sent here",
+          "paragrafos": [
+            "Do not send exams, reports or medical images through the forms on this website. They accept no attachments and are not the appropriate channel for clinical files: the team will guide you through a secure transfer in the conversation, after confirming receipt of your request."
+          ]
+        },
+        {
+          "titulo": "What the data is used for",
+          "itens": [
+            "Replying to your contact and scheduling the appointment or the assessment of your case",
+            "Understanding, before the appointment, the subject that led you to get in touch",
+            "Organizing the schedule and the team's follow-up",
+            "Measuring website use in aggregate, to improve navigation and content"
+          ],
+          "fecho": [
+            "The data is not used for advertising directed at you, and is not sold, rented or transferred to third parties."
+          ]
+        },
+        {
+          "titulo": "Legal basis",
+          "paragrafos": [
+            "Processing of the data submitted through the form relies on your consent — art. 7, I of Law 13.709/2018 (LGPD) — given when you tick the authorization box before sending.",
+            "Browsing data is processed on the basis of the legitimate interest (art. 7, IX) of maintaining and improving the website, always in aggregate form.",
+            "When the contact turns into care, health data starts to be processed under art. 11, II, “f” of the LGPD — protection of health, in a procedure carried out by a health professional."
+          ]
+        },
+        {
+          "titulo": "Who the data is shared with",
+          "paragrafos": [
+            "The website does not store what you write. The form assembles a message with the fields you filled in and opens the conversation in the team's WhatsApp — from there, sending happens in your own app. No health data is stored in any database of this website.",
+            "The following have access to your data:"
+          ],
+          "itens": [
+            "The practice team, which receives and answers the message",
+            "WhatsApp (Meta Platforms), as the app where the conversation takes place, subject to that service's own privacy policy",
+            "The website's hosting provider and the audience measurement tool, which handle only technical browsing data"
+          ],
+          "fecho": [
+            "Beyond that, data is only shared to comply with a legal obligation or an order from a competent authority."
+          ]
+        },
+        {
+          "titulo": "How long it is kept",
+          "paragrafos": [
+            "Since the website stores nothing, what exists is the WhatsApp conversation and the practice's own records.",
+            "Messages from people who do not go on to be seen are kept for as long as the contact lasts and can be deleted at any time at your request. Information that becomes part of a medical record follows the minimum retention period set out in Brazilian health legislation (Law 13.787/2018): 20 years from the last entry."
+          ]
+        },
+        {
+          "titulo": "Cookies and measurement",
+          "paragrafos": [
+            "The website uses audience measurement (Google Analytics 4, via Google Tag Manager) to know, in aggregate, which pages are accessed and through which paths. These cookies do not identify you individually and can be blocked in your browser settings, with no loss of functionality.",
+            "No advertising or remarketing cookies are used."
+          ]
+        },
+        {
+          "titulo": "Your rights",
+          "paragrafos": [
+            "Art. 18 of the LGPD guarantees you, at any time and free of charge:"
+          ],
+          "itens": [
+            "To confirm that processing exists and to access what was submitted",
+            "To correct incomplete, inaccurate or outdated data",
+            "To request deletion of data processed on the basis of consent",
+            "To know who the data has been shared with",
+            "To withdraw consent, which stops contact from the team"
+          ],
+          "fecho": [
+            "Withdrawal does not undo processing already carried out, nor does it reach records that health legislation requires to be kept."
+          ]
+        },
+        {
+          "titulo": "Minors",
+          "paragrafos": [
+            "When the patient is under 18, the form must be filled in by the father, the mother or the legal guardian — it is they who authorize the contact and the processing of the data."
+          ]
+        },
+        {
+          "titulo": "Changes to this policy",
+          "paragrafos": [
+            "This policy may be updated to reflect changes to the website or to the law. The date of the latest update is always shown at the top of this page."
+          ]
+        }
+      ]
+    },
+    "identificacao": {
+      "linha": "Dr. Hugo Leonardo Doria-Netto — PHYSICIAN — CRM/SP 000000 · RQE 00000 — Neurosurgery. This site is for information only and does not replace a medical consultation. In an emergency, call your local emergency service."
     }
   }
 }

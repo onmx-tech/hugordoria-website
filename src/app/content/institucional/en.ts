@@ -10,12 +10,12 @@ export const SOBRE_MIM = {
     {
       titulo: "Clinical Practice",
       texto:
-        "Neurosurgeon at renowned hospitals such as BP, Santa Catarina, Albert Einstein and Sírio Libanês.",
+        "Neurosurgeon at BP, Santa Catarina, Albert Einstein and Sírio-Libanês hospitals.",
     },
     {
       titulo: "Publications and Research",
       texto:
-        "An extensive list of publications in leading international and national journals, reviewer for major periodicals and a reference in the field, drawing on 20 years of experience in neurosurgery.",
+        "Publications in national and international neurosurgery journals, serving as a reviewer, over 20 years of practice in the field.",
     },
     {
       titulo: "Coordination and Leadership",

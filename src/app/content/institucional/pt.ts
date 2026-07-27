@@ -10,12 +10,12 @@ export const SOBRE_MIM = {
     {
       titulo: "Atuação Profissional",
       texto:
-        "Neurocirurgião em hospitais renomados como BP, Santa Catarina, Albert Einstein e Sírio Libanês.",
+        "Neurocirurgião nos hospitais BP, Santa Catarina, Albert Einstein e Sírio-Libanês.",
     },
     {
       titulo: "Publicações e Pesquisa",
       texto:
-        "Extensa lista de publicações em revistas renomadas internacionais e nacionais, revisor de periódicos importantes e formador de opinião pela vasta experiência de 20 anos na área neurocirúrgica.",
+        "Publicações em periódicos nacionais e internacionais de neurocirurgia, com atuação como revisor, ao longo de 20 anos de prática na área.",
     },
     {
       titulo: "Coordenação e Liderança",

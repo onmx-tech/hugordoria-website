@@ -3,7 +3,7 @@
     "stats": {
       "experiencia": "Años de experiencia",
       "artigos": "Artículos publicados",
-      "casos": "Casos de éxito"
+      "casos": "Cirugías realizadas en 20 años"
     },
     "sobre": {
       "heroEyebrow": "Acerca de",
@@ -17,7 +17,7 @@
       "pilaresEyebrow": "Pilares",
       "pilaresHeading": "Una actuación en tres frentes",
       "formacaoEyebrow": "Formación internacional",
-      "formacaoHeading": "Formación en los mayores centros del mundo",
+      "formacaoHeading": "Formación en centros internacionales",
       "retratosEyebrow": "Retratos",
       "retratosHeading": "El profesional detrás de cada cirugía"
     },
@@ -37,10 +37,10 @@
       "heroTitle": "Producción científica",
       "heroImageAlt": "Publicaciones científicas",
       "artigoEyebrow": "Artículo destacado",
-      "artigoHeading": "Cuatro años de investigación en una revista de referencia mundial.",
+      "artigoHeading": "Cuatro años de investigación publicados en World Neurosurgery.",
       "lerArtigo": "Leer el artículo científico",
       "capitulosEyebrow": "Capítulos de libros",
-      "capitulosHeading": "Contribuciones en obras de referencia"
+      "capitulosHeading": "Capítulos en obras de neurocirugía"
     },
     "eventos": {
       "heroEyebrow": "Eventos",
@@ -60,8 +60,8 @@
     "depoimentos": {
       "heroEyebrow": "Testimonios",
       "heroTitle": "Palabras que valen una vida",
-      "heroIntro": "Mensajes reales de pacientes y familiares a lo largo de dos décadas — el mayor reconocimiento del trabajo.",
-      "heroBadgeLabel": "casos de éxito",
+      "heroIntro": "Mensajes de pacientes y familiares a lo largo de dos décadas. Son relatos individuales: cada caso es único y ningún resultado puede garantizarse.",
+      "heroBadgeLabel": "evaluaciones publicadas",
       "itemAlt": "Testimonio {{n}}"
     },
     "contato": {
@@ -94,8 +94,32 @@
         "telefone": "Teléfono",
         "email": "Correo electrónico",
         "assunto": "Asunto",
-        "mensagem": "Mensaje"
-      }
+        "mensagem": "Mensaje",
+        "cidadeEstado": "Ciudad y estado",
+        "exames": "Tiene exámenes",
+        "indicacao": "Indicación quirúrgica",
+        "origem": "Cómo nos conoció",
+        "consentimento": "Consentimiento LGPD: autorizado en el formulario del sitio."
+      },
+      "labelCidadeEstado": "Ciudad y estado",
+      "phCidadeEstado": "Ej.: São Paulo, SP",
+      "labelExames": "¿Tiene exámenes?",
+      "labelIndicacao": "¿Ya recibió indicación quirúrgica?",
+      "labelOrigem": "¿Cómo conoció al Dr. Hugo?",
+      "selectDefault": "Seleccione",
+      "opcaoSim": "Sí",
+      "opcaoNao": "No",
+      "opcaoNaoSei": "No sé informar",
+      "origemOpcoes": [
+        "Indicación médica",
+        "Indicación de un paciente",
+        "Búsqueda en Google",
+        "Redes sociales",
+        "Otro"
+      ],
+      "consentPre": "Autorizo el contacto y el tratamiento de mis datos con la finalidad de agendar y evaluar mi caso, conforme a la ",
+      "consentLink": "Política de Privacidad",
+      "consentPos": "."
     },
     "localizacao": {
       "heroEyebrow": "Ubicación",
@@ -153,6 +177,136 @@
         "exames": "Exámenes",
         "resumo": "Resumen del caso"
       }
+    },
+    "privacidade": {
+      "footerLink": "Política de Privacidad",
+      "seoTitle": "Política de Privacidad",
+      "seoDescription": "Cómo se recopilan, usan, comparten y eliminan los datos enviados por los formularios de este sitio: finalidad, base legal en la LGPD, plazos de conservación y canal para ejercer sus derechos.",
+      "heroEyebrow": "Privacidad",
+      "heroTitle": "Política de Privacidad",
+      "heroIntro": "Cómo se tratan sus datos cuando navega por este sitio o envía una solicitud de contacto: qué se recopila, para qué, con quién se comparte y cómo pedir su eliminación.",
+      "atualizacaoLabel": "Última actualización",
+      "atualizacaoData": "27 de julio de 2026",
+      "canalEyebrow": "Canal del titular",
+      "canalHeading": "Hable sobre sus datos",
+      "canalTexto": "Las solicitudes de acceso, corrección, eliminación o revocación del consentimiento deben enviarse por correo electrónico, con el nombre usado en el contacto original. El equipo confirma la recepción y responde dentro del plazo del art. 19 de la LGPD.",
+      "canalEmailLabel": "Correo para asuntos de privacidad",
+      "canalBotao": "Ir al contacto",
+      "secoes": [
+        {
+          "titulo": "Quién trata sus datos",
+          "paragrafos": [
+            "Los datos recopilados en este sitio son tratados por el Dr. Hugo Leonardo Doria-Netto y por el equipo de su consultorio, en R. Teixeira da Silva, 54 — of. 73, Bela Vista, São Paulo/SP, Brasil.",
+            "Esta política se aplica al sitio y a los formularios publicados en él. No se aplica a otros servicios a los que usted acceda desde aquí, como WhatsApp, Google Maps o los perfiles en redes sociales, que tienen políticas propias."
+          ]
+        },
+        {
+          "titulo": "Qué datos se recopilan",
+          "paragrafos": [
+            "El sitio no tiene registro ni área de acceso. Los datos que llegan al equipo son los que usted mismo escribe en el formulario de contacto o en la solicitud de segunda opinión:"
+          ],
+          "itens": [
+            "Nombre completo",
+            "Teléfono o WhatsApp",
+            "Correo electrónico",
+            "Ciudad y estado",
+            "Especialidad o asunto del contacto",
+            "Si ya tiene exámenes",
+            "Si ya recibió indicación quirúrgica",
+            "Cómo conoció al Dr. Hugo Doria",
+            "El mensaje que usted escriba — incluido lo que decida contar sobre su caso"
+          ],
+          "fecho": [
+            "Además, el sitio registra datos de navegación: páginas visitadas, idioma, tipo de dispositivo y navegador y el origen del acceso (por ejemplo, los parámetros utm_ de un enlace de campaña, guardados solo en la sesión del navegador). Esos datos se tratan de forma agregada y no se cruzan con lo que usted escribe en el formulario."
+          ]
+        },
+        {
+          "titulo": "Qué no debe enviarse por aquí",
+          "paragrafos": [
+            "No envíe exámenes, informes ni imágenes médicas por los formularios de este sitio. No aceptan archivos adjuntos y no son el canal indicado para material clínico: el equipo orienta el envío seguro en la conversación, después de confirmar la recepción de su solicitud."
+          ]
+        },
+        {
+          "titulo": "Para qué se usan los datos",
+          "itens": [
+            "Responder a su contacto y agendar la consulta o la evaluación del caso",
+            "Comprender, antes de la atención, el asunto que motivó la consulta",
+            "Organizar la agenda y el seguimiento del equipo",
+            "Medir de forma agregada el uso del sitio, para mejorar la navegación y el contenido"
+          ],
+          "fecho": [
+            "Los datos no se usan para publicidad dirigida a usted ni se venden, alquilan o ceden a terceros."
+          ]
+        },
+        {
+          "titulo": "Base legal",
+          "paragrafos": [
+            "El tratamiento de los datos enviados por el formulario se basa en su consentimiento — art. 7º, I, de la Ley 13.709/2018 (LGPD) —, manifestado cuando usted marca la casilla de autorización antes de enviar.",
+            "Los datos de navegación se tratan con base en el interés legítimo (art. 7º, IX) de mantener y mejorar el sitio, siempre de forma agregada.",
+            "Cuando el contacto evoluciona hacia la atención, los datos de salud pasan a tratarse con base en el art. 11, II, “f”, de la LGPD — tutela de la salud, en procedimiento realizado por profesional de la salud."
+          ]
+        },
+        {
+          "titulo": "Con quién se comparten los datos",
+          "paragrafos": [
+            "El sitio no guarda lo que usted escribe. El formulario arma un mensaje con los campos completados y abre la conversación en el WhatsApp del equipo — el envío, a partir de ahí, ocurre en su propia aplicación. Ningún dato de salud se almacena en una base de datos de este sitio.",
+            "Tienen acceso a sus datos:"
+          ],
+          "itens": [
+            "El equipo del consultorio, que recibe y responde el mensaje",
+            "WhatsApp (Meta Platforms), como aplicación en la que ocurre la conversación, sujeta a la política de privacidad del propio servicio",
+            "El proveedor de alojamiento del sitio y la herramienta de medición de audiencia, que tratan solo datos técnicos de navegación"
+          ],
+          "fecho": [
+            "Fuera de eso, los datos solo se comparten por obligación legal o por determinación de autoridad competente."
+          ]
+        },
+        {
+          "titulo": "Cuánto tiempo se conservan",
+          "paragrafos": [
+            "Como el sitio no almacena los datos, lo que existe es la conversación en WhatsApp y los registros del consultorio.",
+            "Los mensajes de quienes no llegan a ser atendidos se conservan mientras dure el contacto y pueden borrarse en cualquier momento, a su pedido. La información que pasa a integrar la historia clínica sigue el plazo mínimo de conservación previsto en la legislación de salud (Ley 13.787/2018): 20 años a partir del último registro."
+          ]
+        },
+        {
+          "titulo": "Cookies y medición",
+          "paragrafos": [
+            "El sitio usa medición de audiencia (Google Analytics 4, mediante Google Tag Manager) para saber, de forma agregada, qué páginas se visitan y por qué caminos. Esas cookies no lo identifican individualmente y pueden bloquearse en la configuración de su navegador, sin perjuicio del uso del sitio.",
+            "No se usan cookies de publicidad ni de remarketing."
+          ]
+        },
+        {
+          "titulo": "Sus derechos",
+          "paragrafos": [
+            "El art. 18 de la LGPD le garantiza, en cualquier momento y sin costo:"
+          ],
+          "itens": [
+            "Confirmar que existe tratamiento de sus datos y acceder a lo que fue enviado",
+            "Corregir datos incompletos, inexactos o desactualizados",
+            "Pedir la eliminación de los datos tratados con base en el consentimiento",
+            "Saber con quién se compartieron los datos",
+            "Revocar el consentimiento, lo que interrumpe el contacto por parte del equipo"
+          ],
+          "fecho": [
+            "La revocación no deshace el tratamiento ya realizado hasta ese momento, ni alcanza los registros que la legislación de salud obliga a mantener."
+          ]
+        },
+        {
+          "titulo": "Menores de edad",
+          "paragrafos": [
+            "Cuando el paciente tiene menos de 18 años, el formulario debe ser completado por el padre, la madre o el responsable legal — es quien autoriza el contacto y el tratamiento de los datos."
+          ]
+        },
+        {
+          "titulo": "Cambios en esta política",
+          "paragrafos": [
+            "Esta política puede actualizarse para acompañar cambios en el sitio o en la legislación. La fecha de la última actualización está siempre al inicio de esta página."
+          ]
+        }
+      ]
+    },
+    "identificacao": {
+      "linha": "Dr. Hugo Leonardo Doria-Netto — MÉDICO — CRM/SP 000000 · RQE 00000 — Neurocirugía. Este sitio tiene finalidad informativa y no sustituye la consulta médica. En caso de emergencia, llame al servicio de urgencias local."
     }
   }
 }

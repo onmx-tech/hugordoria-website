@@ -31,7 +31,7 @@
     },
     "especialidades": {
       "seo": {
-        "title": "Specialties — vascular and oncological neurosurgery",
+        "title": "Clinical areas — vascular and cranial neurosurgery",
         "description": "Cerebral aneurysm, AVMs, moyamoya, brain, pituitary and spinal tumors, schwannoma, cavernomas, trigeminal neuralgia and hemifacial spasm."
       },
       "breadcrumb": {
@@ -41,7 +41,7 @@
       "hero": {
         "eyebrow": "Neurosurgery Services",
         "title": "My Specialties",
-        "intro": "Advanced treatments in vascular and oncological neurosurgery, from diagnosis to rehabilitation, always pairing state-of-the-art technology with humanized care.",
+        "intro": "Cerebrovascular conditions, neurovascular conflicts and complex cranial tumors — from diagnosis to the treatment decision.",
         "imageAlt": "Dr. Hugo Doria, neurosurgeon",
         "badgeLabel": "Areas of specialty"
       },
@@ -67,14 +67,28 @@
           {
             "step": "04",
             "title": "Follow-up",
-            "text": "Rehabilitation and close monitoring to ensure the best possible recovery."
+            "text": "Rehabilitation and close follow-up throughout the whole recovery."
           }
         ]
       },
       "cta": {
         "heading": "Didn't find your condition? Talk to me.",
-        "text": "Every case is unique. Schedule an assessment so we can discuss the ideal treatment for your neurological health.",
+        "text": "Every case is unique. Schedule an evaluation so we can discuss the treatment path suited to your condition.",
         "button": "Get in Touch"
+      },
+      "familias": {
+        "vascular": {
+          "title": "Vascular neurosurgery",
+          "intro": "Diseases of the brain's blood vessels — when the artery wall, the connection between vessels or the blood flow is compromised."
+        },
+        "conflitos": {
+          "title": "Neurovascular conflicts",
+          "intro": "When a vessel compresses a cranial nerve and produces pain or involuntary movement in the face."
+        },
+        "tumores": {
+          "title": "Complex cranial tumors",
+          "intro": "Lesions growing inside the skull or at its base, close to nerve structures that must be preserved."
+        }
       }
     },
     "notFound": {
@@ -118,7 +132,7 @@
       "breadcrumbInicio": "Home",
       "breadcrumbEspecialidades": "Specialties",
       "ctaHeading": "Questions about your case?",
-      "ctaText": "Book an evaluation so we can discuss your diagnosis and the best treatment path.",
+      "ctaText": "Schedule an evaluation so we can discuss the diagnosis and the treatment path suited to your case.",
       "ctaButton": "Get in touch",
       "fichaRapida": "Quick facts",
       "outrasEspecialidades": "Other specialties"

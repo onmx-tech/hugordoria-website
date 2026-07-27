@@ -31,7 +31,7 @@
     },
     "especialidades": {
       "seo": {
-        "title": "Especialidades — neurocirurgia vascular e oncológica",
+        "title": "Áreas clínicas — neurocirurgia vascular e craniana",
         "description": "Aneurisma cerebral, MAVs, moyamoya, tumores cerebrais, hipofisários e medulares, schwannoma, cavernomas, neuralgia do trigêmeo e espasmo hemifacial."
       },
       "breadcrumb": {
@@ -41,7 +41,7 @@
       "hero": {
         "eyebrow": "Serviços de Neurocirurgia",
         "title": "Minhas Especialidades",
-        "intro": "Tratamentos avançados em neurocirurgia vascular e oncológica, do diagnóstico à reabilitação, sempre aliando tecnologia de ponta ao cuidado humanizado.",
+        "intro": "Condições cerebrovasculares, conflitos neurovasculares e tumores cranianos complexos — do diagnóstico à decisão de tratamento.",
         "imageAlt": "Dr. Hugo Doria, neurocirurgião",
         "badgeLabel": "Áreas de especialidade"
       },
@@ -67,14 +67,28 @@
           {
             "step": "04",
             "title": "Acompanhamento",
-            "text": "Reabilitação e seguimento próximo para garantir a melhor recuperação possível."
+            "text": "Reabilitação e seguimento próximo ao longo de toda a recuperação."
           }
         ]
       },
       "cta": {
         "heading": "Não encontrou a sua condição? Fale comigo.",
-        "text": "Cada caso é único. Agende uma avaliação para discutirmos o tratamento ideal para a sua saúde neurológica.",
+        "text": "Cada caso é único. Agende uma avaliação para discutirmos o caminho de tratamento adequado ao seu quadro.",
         "button": "Entre em Contato"
+      },
+      "familias": {
+        "vascular": {
+          "title": "Neurocirurgia vascular",
+          "intro": "Doenças dos vasos do cérebro — quando a parede da artéria, a conexão entre vasos ou o fluxo sanguíneo estão comprometidos."
+        },
+        "conflitos": {
+          "title": "Conflitos neurovasculares",
+          "intro": "Quando um vaso comprime um nervo craniano e produz dor ou movimento involuntário no rosto."
+        },
+        "tumores": {
+          "title": "Tumores cranianos complexos",
+          "intro": "Lesões que crescem dentro do crânio ou na sua base, próximas a estruturas nervosas que precisam ser preservadas."
+        }
       }
     },
     "notFound": {
@@ -118,7 +132,7 @@
       "breadcrumbInicio": "Início",
       "breadcrumbEspecialidades": "Especialidades",
       "ctaHeading": "Tem dúvidas sobre o seu caso?",
-      "ctaText": "Agende uma avaliação para discutirmos o diagnóstico e o melhor caminho de tratamento.",
+      "ctaText": "Agende uma avaliação para discutirmos o diagnóstico e o caminho de tratamento adequado ao seu caso.",
       "ctaButton": "Entre em Contato",
       "fichaRapida": "Ficha rápida",
       "outrasEspecialidades": "Outras especialidades"

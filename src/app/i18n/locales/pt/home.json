@@ -8,8 +8,8 @@
       "description": "Avaliação especializada de aneurismas cerebrais, malformações arteriovenosas, cavernomas, doença de Moyamoya, revascularização cerebral e tumores cranianos complexos."
     },
     "sobreMim": {
-      "heading": "Melhor Neurocirurgia e Cuidados Neurológicos",
-      "paragraph": "Confie em mim, para proporcionar o melhor tratamento e transformar sua vida com excelência e dedicação, de forma humana e exclusiva — meu maior compromisso com meus pacientes e suas famílias.",
+      "heading": "Vinte anos dedicados à neurocirurgia vascular",
+      "paragraph": "Formação microcirúrgica com o Prof. Dr. Evandro de Oliveira, experiência internacional na University of California, San Francisco, e no Barrow Neurological Institute, doutorado em neurociência e coordenação do Departamento de Neurocirurgia Vascular da Sociedade Brasileira de Neurocirurgia.",
       "fotoAlt": "Dr. Hugo Doria em seu consultório",
       "stats": {
         "experiencia": "Anos de Experiência",
@@ -40,9 +40,9 @@
         "publicacoes": "Publicações & Pesquisa"
       },
       "texts": {
-        "hospitals": "Neurocirurgião em hospitais renomados como BP, Santa Catarina, Albert Einstein e Sírio Libanês.",
+        "hospitals": "Neurocirurgião nos hospitais BP, Santa Catarina, Albert Einstein e Sírio-Libanês.",
         "coordination": "Coordenador do Departamento de Neurocirurgia Vascular da Sociedade Brasileira de Neurocirurgia.",
-        "publications": "Extensa lista de publicações em revistas renomadas internacionais e nacionais, revisor de periódicos importantes e formador de opinião pela vasta experiência de 20 anos na área neurocirúrgica.",
+        "publications": "Publicações em periódicos nacionais e internacionais de neurocirurgia, com atuação como revisor, ao longo de 20 anos de prática na área.",
         "surgery": "Atuação cirúrgica em casos de alta complexidade vascular e neurológica, com técnicas microcirúrgicas modernas."
       },
       "alts": {
@@ -58,7 +58,7 @@
     },
     "brain": {
       "heading": "Cuidados Essenciais para Sua Saúde Neurológica",
-      "paragraph": "Experimente tratamentos neurológicos de excelência mundial, associados ao cuidado humanizado, exclusivo e personalizado que são a marca registrada do Dr. Hugo Doria.",
+      "paragraph": "Tratamento de condições cerebrovasculares e tumores cranianos com técnica microcirúrgica, avaliação individualizada e acompanhamento próximo em cada etapa.",
       "cta": "Entre em Contato"
     },
     "especialidades": {

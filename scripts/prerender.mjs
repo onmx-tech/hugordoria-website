@@ -38,6 +38,7 @@ const STATIC_ROUTES = [
   "/contato",
   "/localizacao",
   "/segunda-opiniao",
+  "/privacidade",
 ];
 
 // Especialidades com artigo clínico (as indexáveis).

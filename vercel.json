@@ -3,6 +3,24 @@
   "framework": "vite",
   "buildCommand": "npm run build:ssg",
   "outputDirectory": "dist",
+  "redirects": [
+    { "source": "/especialidades/aneurisma", "destination": "/especialidade/aneurisma-cerebral", "permanent": true },
+    { "source": "/especialidades/malformacoes-arteriovenosas-mavs", "destination": "/especialidade/mavs", "permanent": true },
+    { "source": "/especialidades/moya-moya", "destination": "/especialidade/doenca-de-moyamoya", "permanent": true },
+    { "source": "/especialidades/neuralgia-do-trigemio", "destination": "/especialidade/neuralgia-do-trigemeo", "permanent": true },
+    { "source": "/especialidades/cavernomas", "destination": "/especialidade/cavernomas", "permanent": true },
+    { "source": "/especialidades/espasmo-hemifacial", "destination": "/especialidade/espasmo-hemifacial", "permanent": true },
+    { "source": "/especialidades/schwannoma-vestibular", "destination": "/especialidade/schwannoma-vestibular", "permanent": true },
+    { "source": "/especialidades/tumores-cerebrais", "destination": "/especialidade/tumores-cerebrais", "permanent": true },
+    { "source": "/especialidades/tumores-hipofisarios", "destination": "/especialidade/tumores-hipofisarios", "permanent": true },
+    { "source": "/especialidades/tumores-medulares", "destination": "/especialidade/tumores-medulares", "permanent": true },
+    { "source": "/timetable", "destination": "/contato", "permanent": true },
+    { "source": "/portfolio/:slug*", "destination": "/", "permanent": true },
+    { "source": "/feed", "destination": "/", "permanent": true },
+    { "source": "/comments/feed", "destination": "/", "permanent": true },
+    { "source": "/wp-sitemap.xml", "destination": "/sitemap.xml", "permanent": true },
+    { "source": "/wp-sitemap-:rest*", "destination": "/sitemap.xml", "permanent": true }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "headers": [
     {

@@ -25,7 +25,7 @@ import { useSeo } from "../seo/useSeo";
 import { breadcrumbSchema } from "../seo/schema";
 import { ScrollRevealManifesto } from "../components/sub/ScrollRevealManifesto";
 import { cards } from "../components/section-especialidades/data";
-import { useLocale } from "../i18n/LocaleProvider";
+import { useLocale, LocaleLink } from "../i18n/LocaleProvider";
 import { responsiveImg } from "@/lib/img";
 import {
   CONTATO,
@@ -468,18 +468,40 @@ export function ContatoPage() {
   const [nome, setNome] = useState("");
   const [telefone, setTelefone] = useState("");
   const [email, setEmail] = useState("");
+  const [cidadeEstado, setCidadeEstado] = useState("");
   const [assunto, setAssunto] = useState("");
+  const [exames, setExames] = useState("");
+  const [indicacao, setIndicacao] = useState("");
+  const [origem, setOrigem] = useState("");
   const [mensagem, setMensagem] = useState("");
+  // Consentimento LGPD (art. 7º, I) — sem ele o envio não acontece.
+  const [consentimento, setConsentimento] = useState(false);
+
+  const simNaoNaoSei = [
+    t("forms.contato.opcaoSim"),
+    t("forms.contato.opcaoNao"),
+    t("forms.contato.opcaoNaoSei"),
+  ];
+  const origemOpcoes = t("forms.contato.origemOpcoes", { returnObjects: true }) as string[];
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    // Guarda redundante ao `required` do checkbox: nada sai sem consentimento.
+    if (!consentimento) return;
     const texto = [
       t("forms.contato.wa.saudacao"),
       `${t("forms.contato.wa.nome")}: ${nome}`,
       telefone && `${t("forms.contato.wa.telefone")}: ${telefone}`,
       email && `${t("forms.contato.wa.email")}: ${email}`,
+      cidadeEstado && `${t("forms.contato.wa.cidadeEstado")}: ${cidadeEstado}`,
       assunto && `${t("forms.contato.wa.assunto")}: ${assunto}`,
+      exames && `${t("forms.contato.wa.exames")}: ${exames}`,
+      indicacao && `${t("forms.contato.wa.indicacao")}: ${indicacao}`,
+      origem && `${t("forms.contato.wa.origem")}: ${origem}`,
       mensagem && `${t("forms.contato.wa.mensagem")}: ${mensagem}`,
+      // Registro do consentimento junto do pedido — é a evidência que a
+      // equipe guarda de que o titular autorizou o contato.
+      t("forms.contato.wa.consentimento"),
     ].filter(Boolean).join("\n");
 
     // Evento de conversão — só página de origem e especialidade (o "assunto"
@@ -547,9 +569,14 @@ export function ContatoPage() {
                   <input type="tel" value={telefone} onChange={(e) => setTelefone(e.target.value)} placeholder={t("forms.contato.phTelefone")} className={fieldClass} />
                 </Field>
               </div>
-              <Field label={t("forms.contato.labelEmail")}>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t("forms.contato.phEmail")} className={fieldClass} />
-              </Field>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field label={t("forms.contato.labelEmail")}>
+                  <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t("forms.contato.phEmail")} className={fieldClass} />
+                </Field>
+                <Field label={t("forms.contato.labelCidadeEstado")}>
+                  <input required type="text" value={cidadeEstado} onChange={(e) => setCidadeEstado(e.target.value)} placeholder={t("forms.contato.phCidadeEstado")} className={fieldClass} />
+                </Field>
+              </div>
               <Field label={t("forms.contato.labelAssunto")}>
                 <select value={assunto} onChange={(e) => setAssunto(e.target.value)} className={`${fieldClass} appearance-none`}>
                   <option value="" className="bg-navy-800">{t("forms.contato.selectAssuntoDefault")}</option>
@@ -559,10 +586,58 @@ export function ContatoPage() {
                   <option value="Outro" className="bg-navy-800">{t("forms.contato.selectAssuntoOutro")}</option>
                 </select>
               </Field>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field label={t("forms.contato.labelExames")}>
+                  <select value={exames} onChange={(e) => setExames(e.target.value)} className={`${fieldClass} appearance-none`}>
+                    <option value="" className="bg-navy-800">{t("forms.contato.selectDefault")}</option>
+                    {simNaoNaoSei.map((o) => (
+                      <option key={o} value={o} className="bg-navy-800">{o}</option>
+                    ))}
+                  </select>
+                </Field>
+                <Field label={t("forms.contato.labelIndicacao")}>
+                  <select value={indicacao} onChange={(e) => setIndicacao(e.target.value)} className={`${fieldClass} appearance-none`}>
+                    <option value="" className="bg-navy-800">{t("forms.contato.selectDefault")}</option>
+                    {simNaoNaoSei.map((o) => (
+                      <option key={o} value={o} className="bg-navy-800">{o}</option>
+                    ))}
+                  </select>
+                </Field>
+              </div>
+              <Field label={t("forms.contato.labelOrigem")}>
+                <select value={origem} onChange={(e) => setOrigem(e.target.value)} className={`${fieldClass} appearance-none`}>
+                  <option value="" className="bg-navy-800">{t("forms.contato.selectDefault")}</option>
+                  {origemOpcoes.map((o) => (
+                    <option key={o} value={o} className="bg-navy-800">{o}</option>
+                  ))}
+                </select>
+              </Field>
               <Field label={t("forms.contato.labelMensagem")}>
                 <textarea required rows={5} value={mensagem} onChange={(e) => setMensagem(e.target.value)} placeholder={t("forms.contato.phMensagem")} className={`${fieldClass} resize-none`} />
               </Field>
-              <Button type="submit" variant="gold" icon="chat" className="mt-2 w-full">{t("forms.contato.enviar")}</Button>
+
+              {/* Consentimento LGPD — obrigatório; o envio fica travado até marcar. */}
+              <label className="mt-1 flex cursor-pointer items-start gap-3">
+                <input
+                  required
+                  type="checkbox"
+                  checked={consentimento}
+                  onChange={(e) => setConsentimento(e.target.checked)}
+                  className="mt-[3px] size-[18px] shrink-0 cursor-pointer accent-[var(--color-accent-gold)]"
+                />
+                <span className="font-body text-white/60 text-[13px]" style={{ lineHeight: 1.6 }}>
+                  {t("forms.contato.consentPre")}
+                  <LocaleLink
+                    to="/privacidade"
+                    className="text-gold-600 underline underline-offset-2 transition-colors hover:text-gold-500"
+                  >
+                    {t("forms.contato.consentLink")}
+                  </LocaleLink>
+                  {t("forms.contato.consentPos")}
+                </span>
+              </label>
+
+              <Button type="submit" variant="gold" icon="chat" className="mt-2 w-full" disabled={!consentimento}>{t("forms.contato.enviar")}</Button>
             </form>
           </div>
         </div>
