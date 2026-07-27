@@ -7,6 +7,7 @@ import {
 } from "react";
 import { Link, Outlet, useLocation, type LinkProps } from "react-router";
 import { useTranslation } from "react-i18next";
+import CookieConsent from "../components/CookieConsent";
 import {
   DEFAULT_LOCALE,
   HTML_LANG,
@@ -55,6 +56,10 @@ export function LocaleLayout({ locale }: { locale: Locale }) {
   return (
     <LocaleContext.Provider value={value}>
       <Outlet />
+      {/* Aviso de cookies — aqui, e não no main.tsx, porque precisa do
+          contexto de locale para linkar /privacidade no idioma certo.
+          Fica fora do <Outlet/> para não remontar a cada troca de rota. */}
+      <CookieConsent />
     </LocaleContext.Provider>
   );
 }

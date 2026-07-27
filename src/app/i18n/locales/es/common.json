@@ -23,5 +23,12 @@
     "pt": "Português",
     "en": "English",
     "es": "Español"
+  },
+  "cookies": {
+    "aria": "Aviso de cookies",
+    "texto": "Usamos medición de audiencia para entender qué páginas ayudan más a los pacientes. Nada de publicidad ni remarketing. Puede rechazar sin perder ninguna funcionalidad — detalles en la",
+    "politica": "Política de Privacidad",
+    "aceitar": "Aceptar",
+    "recusar": "Rechazar"
   }
 }

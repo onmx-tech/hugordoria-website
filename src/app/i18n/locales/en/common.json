@@ -23,5 +23,12 @@
     "pt": "Português",
     "en": "English",
     "es": "Español"
+  },
+  "cookies": {
+    "aria": "Cookie notice",
+    "texto": "We use audience measurement to understand which pages help patients most. No advertising, no remarketing. You can decline without losing any functionality — details in the",
+    "politica": "Privacy Policy",
+    "aceitar": "Accept",
+    "recusar": "Decline"
   }
 }
