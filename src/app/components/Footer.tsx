@@ -21,18 +21,6 @@ const NAV_LINKS = [
 const ADDRESS =
   "R. Teixeira da Silva, 54 - 73 - Bela Vista, São Paulo - SP, 04002-030, Brasil";
 
-// Identificação profissional exigida pela Resolução CFM 2.336/2023: art. 4º, I
-// (nome + nº do CRM acompanhados da palavra MÉDICO), art. 4º, II (especialidade
-// registrada seguida do RQE) e art. 6º (tem de estar na página principal do
-// site). Este Footer é compartilhado com a home, então cobre o art. 6º.
-//
-// Fica em string literal, fora do i18n, de propósito: é dado de registro em
-// conselho brasileiro — não é copy que se traduz por idioma.
-//
-// TBC: valores reais a confirmar com o cliente — NÃO inventar número de CRM/RQE.
-const IDENTIFICACAO_CFM =
-  "Dr. Hugo Leonardo Doria-Netto — MÉDICO — CRM/SP 000000 · RQE 00000 (Neurocirurgia)";
-
 function LogoSection() {
   return (
     <div className="flex flex-col gap-8 max-w-[384px]">
@@ -82,14 +70,9 @@ function LogoSection() {
           <path d={svgPaths.p1a136f00} fill="var(--color-accent-gold)" />
         </svg>
       </div>
-      <div className="flex flex-col gap-3">
-        <p className="font-['Geist',sans-serif] font-normal text-cream text-sm leading-[1.5]">
-          {ADDRESS}
-        </p>
-        <p className="font-['Geist',sans-serif] font-normal text-cream/70 text-[13px] leading-[1.5]">
-          {IDENTIFICACAO_CFM}
-        </p>
-      </div>
+      <p className="font-['Geist',sans-serif] font-normal text-cream text-sm leading-[1.5]">
+        {ADDRESS}
+      </p>
     </div>
   );
 }

@@ -271,8 +271,7 @@
         {
           "titulo": "Cookies y medición",
           "paragrafos": [
-            "El sitio usa medición de audiencia (Google Analytics 4, mediante Google Tag Manager) para saber, de forma agregada, qué páginas se visitan y por qué caminos. Esas cookies no lo identifican individualmente y pueden bloquearse en la configuración de su navegador, sin perjuicio del uso del sitio.",
-            "No se usan cookies de publicidad ni de remarketing."
+            "El sitio puede usar medición de audiencia (Google Analytics 4, vía Google Tag Manager) para saber, de forma agregada, qué páginas se acceden y por qué caminos. Cuando está activa, esa medición no lo identifica individualmente y puede bloquearse en la configuración de su navegador, sin perjuicio del uso del sitio. En ningún caso se usan cookies de publicidad ni de remarketing."
           ]
         },
         {

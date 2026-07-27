@@ -271,8 +271,7 @@
         {
           "titulo": "Cookies and measurement",
           "paragrafos": [
-            "The website uses audience measurement (Google Analytics 4, via Google Tag Manager) to know, in aggregate, which pages are accessed and through which paths. These cookies do not identify you individually and can be blocked in your browser settings, with no loss of functionality.",
-            "No advertising or remarketing cookies are used."
+            "The website may use audience measurement (Google Analytics 4, via Google Tag Manager) to know, in aggregate, which pages are accessed and through which paths. When active, this measurement does not identify you individually and can be blocked in your browser settings, with no loss of functionality. Advertising and remarketing cookies are never used."
           ]
         },
         {
