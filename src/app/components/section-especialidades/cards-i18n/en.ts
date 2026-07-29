@@ -25,21 +25,21 @@ export const CARDS_TEXT: Record<string, CardText> = {
   "tumores-cerebrais": {
     title: "Brain Tumors",
     description:
-      "Surgical treatment of primary and metastatic brain tumors with minimally invasive techniques.",
+      "Evaluation and microsurgical treatment of primary, metastatic and complex-location brain tumors, with individualized planning and techniques aimed at functional preservation.",
     detailedDescription:
       "Brain tumors can be primary (originating in the brain) or metastatic (arising from other organs). Surgical treatment aims at maximal safe resection, preserving eloquent areas of the brain responsible for motor, language and cognitive functions. Dr. Hugo Doria uses advanced techniques such as neuronavigation, 5-ALA fluorescence, direct cortical stimulation and awake surgery for tumors in eloquent areas, maximizing tumor removal while preserving the patient's quality of life.",
   },
   "doenca-de-moyamoya": {
     title: "Moyamoya Disease",
     description:
-      "Treatment of the rare disease involving progressive narrowing of the cerebral arteries through revascularization.",
+      "Evaluation and treatment of Moyamoya disease, including direct and indirect cerebral revascularization techniques when indicated.",
     detailedDescription:
       "Moyamoya disease is a rare and progressive cerebrovascular condition characterized by the narrowing of the internal carotid arteries and their main branches. This leads to the formation of a network of fragile collateral vessels that can cause cerebral ischemia and hemorrhages. The treatment of choice is surgical cerebral revascularization, through direct bypass (anastomosis of the superficial temporal artery to the middle cerebral artery) or indirect techniques. Dr. Hugo Doria is a reference in this highly specialized surgical technique.",
   },
   "neuralgia-do-trigemeo": {
     title: "Trigeminal Neuralgia",
     description:
-      "Episodic facial pain treated by microvascular decompression or stereotactic radiosurgery.",
+      "Specialized evaluation of trigeminal neuralgia and its therapeutic alternatives, including drug treatment, percutaneous procedures, radiosurgery and microvascular decompression, according to the profile of each case.",
     detailedDescription:
       "Trigeminal neuralgia is one of the most intense pains known in medicine, characterized by sudden, lancinating episodes of pain on one side of the face. It is usually caused by compression of the trigeminal nerve by a blood vessel at the base of the skull. The definitive treatment is microvascular decompression (Jannetta technique), which consists of moving the vessel away from the nerve through a retrosigmoid craniotomy. Dr. Hugo Doria has extensive experience in this procedure, providing lasting pain relief while preserving facial sensation.",
   },
@@ -60,14 +60,14 @@ export const CARDS_TEXT: Record<string, CardText> = {
   "tumores-hipofisarios": {
     title: "Pituitary Tumors",
     description:
-      "Removal of pituitary adenomas by the endoscopic endonasal approach, preserving glandular function.",
+      "Treatment of pituitary adenomas, including the endoscopic endonasal approach when indicated, with planning aimed at preserving neuroendocrine structures and functions.",
     detailedDescription:
       "Pituitary tumors (adenomas) are benign lesions that develop in the pituitary gland, at the base of the skull. They can cause hormonal disorders, visual changes and headache. Surgical treatment is preferably performed by the endoscopic endonasal transsphenoidal approach, a minimally invasive technique without external incisions. Dr. Hugo Doria performs this procedure in partnership with an otorhinolaryngology team, using high-definition endoscopy and neuronavigation for precise removal of the tumor while preserving glandular function.",
   },
   "cavernomas": {
     title: "Cavernomas",
     description:
-      "Low-flow vascular malformations, cerebral or spinal, treated by microsurgery.",
+      "Evaluation of cerebral and spinal cavernomas, with individualized decision between clinical and radiological follow-up and microsurgical treatment when indicated.",
     detailedDescription:
       "Cavernomas (cavernous angiomas) are low-flow vascular malformations formed by dilated capillaries, which can occur in the brain or spinal cord. They can cause seizures, neurological deficits and bleeding. Microsurgical treatment is indicated for symptomatic lesions or those with recurrent bleeding, using a high-precision technique for complete removal while preserving the adjacent neural tissue.",
   },

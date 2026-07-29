@@ -25,21 +25,21 @@ export const CARDS_TEXT: Record<string, CardText> = {
   "tumores-cerebrais": {
     title: "Tumores Cerebrales",
     description:
-      "Tratamiento quirúrgico de tumores cerebrales primarios y metastásicos con técnicas mínimamente invasivas.",
+      "Evaluación y tratamiento microquirúrgico de tumores cerebrales primarios, metastásicos y de localización compleja, con planificación individualizada y técnicas orientadas a la preservación funcional.",
     detailedDescription:
       "Los tumores cerebrales pueden ser primarios (originados en el cerebro) o metastásicos (provenientes de otros órganos). El tratamiento quirúrgico busca la resección máxima segura, preservando las áreas elocuentes del cerebro responsables de las funciones motoras, del lenguaje y cognitivas. El Dr. Hugo Doria utiliza técnicas avanzadas como neuronavegación, fluorescencia con 5-ALA, estimulación cortical directa y cirugía con paciente despierto para tumores en áreas elocuentes, maximizando la extirpación tumoral y preservando la calidad de vida del paciente.",
   },
   "doenca-de-moyamoya": {
     title: "Enfermedad de Moyamoya",
     description:
-      "Tratamiento de la enfermedad rara con estrechamiento progresivo de las arterias cerebrales mediante revascularización.",
+      "Evaluación y tratamiento de la enfermedad de Moyamoya, incluyendo técnicas de revascularización cerebral directa e indirecta cuando estén indicadas.",
     detailedDescription:
       "La enfermedad de moyamoya es una afección cerebrovascular rara y progresiva caracterizada por el estrechamiento de las arterias carótidas internas y sus ramas principales. Esto conduce a la formación de una red de vasos colaterales frágiles que pueden causar isquemia cerebral y hemorragias. El tratamiento de elección es la revascularización cerebral quirúrgica, mediante bypass directo (anastomosis de la arteria temporal superficial a la arteria cerebral media) o técnicas indirectas. El Dr. Hugo Doria es referencia en esta técnica quirúrgica altamente especializada.",
   },
   "neuralgia-do-trigemeo": {
     title: "Neuralgia del Trigémino",
     description:
-      "Dolor facial episódico tratado mediante descompresión microvascular o radiocirugía estereotáctica.",
+      "Evaluación especializada de la neuralgia del trigémino y de sus alternativas terapéuticas, incluyendo tratamiento farmacológico, procedimientos percutáneos, radiocirugía y descompresión microvascular, según el perfil de cada caso.",
     detailedDescription:
       "La neuralgia del trigémino es uno de los dolores más intensos conocidos en la medicina, caracterizado por episodios lancinantes y súbitos de dolor en un lado de la cara. Generalmente es causada por la compresión del nervio trigémino por un vaso sanguíneo en la base del cráneo. El tratamiento definitivo es la descompresión microvascular (técnica de Jannetta), que consiste en separar el vaso del nervio mediante una craneotomía retrosigmoidea. El Dr. Hugo Doria tiene amplia experiencia en este procedimiento, proporcionando un alivio duradero del dolor con preservación de la sensibilidad facial.",
   },
@@ -60,14 +60,14 @@ export const CARDS_TEXT: Record<string, CardText> = {
   "tumores-hipofisarios": {
     title: "Tumores Hipofisarios",
     description:
-      "Extirpación de adenomas hipofisarios por vía endoscópica endonasal, preservando la función glandular.",
+      "Tratamiento de adenomas hipofisarios, incluyendo el abordaje endoscópico endonasal cuando esté indicado, con planificación orientada a la preservación de las estructuras y funciones neuroendocrinas.",
     detailedDescription:
       "Los tumores hipofisarios (adenomas) son lesiones benignas que se desarrollan en la glándula hipófisis, en la base del cráneo. Pueden causar trastornos hormonales, alteraciones visuales y cefalea. El tratamiento quirúrgico se realiza preferentemente por vía endoscópica endonasal transesfenoidal, una técnica mínimamente invasiva sin incisiones externas. El Dr. Hugo Doria realiza este procedimiento en colaboración con un equipo otorrinolaringológico, utilizando endoscopia de alta definición y neuronavegación para la extirpación precisa del tumor con preservación de la función glandular.",
   },
   "cavernomas": {
     title: "Cavernomas",
     description:
-      "Malformaciones vasculares de bajo flujo, cerebrales o medulares, tratadas mediante microcirugía.",
+      "Evaluación de cavernomas cerebrales y medulares, con definición individualizada entre seguimiento clínico-radiológico y tratamiento microquirúrgico cuando esté indicado.",
     detailedDescription:
       "Los cavernomas (angiomas cavernosos) son malformaciones vasculares de bajo flujo formadas por capilares dilatados, que pueden presentarse en el cerebro o en la médula espinal. Pueden causar convulsiones, déficits neurológicos y sangrados. El tratamiento microquirúrgico está indicado en lesiones sintomáticas o con sangrados recurrentes, con una técnica de alta precisión para la extirpación completa preservando el tejido neural adyacente.",
   },
