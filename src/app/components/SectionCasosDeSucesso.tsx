@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { LocaleLink } from "../i18n/LocaleProvider";
 import { useTranslation } from "react-i18next";
 import svgPaths from "../../imports/svg-nx92b0rij3";
 import { gsap } from "../../lib/gsap";
@@ -64,6 +65,44 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "Muito atencioso antes, durante e depois do procedimento. A equipe esteve disponível sempre que precisei tirar uma dúvida.",
     name: "Renato S.",
+    roleKey: "home.casos.roles.paciente",
+  },
+  {
+    quote:
+      "Agradeço pelo acolhimento antes da minha cirurgia. O senhor me passou muita tranquilidade.",
+    name: "Jader X.",
+    roleKey: "home.casos.roles.paciente",
+  },
+  {
+    quote:
+      "Há 14 anos o senhor realizou uma cirurgia na minha coluna. Sou muito grata.",
+    name: "Sandra M.",
+    roleKey: "home.casos.roles.paciente",
+  },
+  {
+    quote: "Sempre alegre nos recebendo quando saíamos da sala de cirurgia.",
+    name: "Adriana T.",
+    roleKey: "home.casos.roles.paciente",
+  },
+  {
+    quote:
+      "Parabéns, Dr. Hugo, por toda a sua dedicação e empenho com os pacientes.",
+    name: "Selma S.",
+    roleKey: "home.casos.roles.paciente",
+  },
+  {
+    quote: "É merecedor de todo reconhecimento. Gratidão, de sua paciente.",
+    name: "Andressa A.",
+    roleKey: "home.casos.roles.paciente",
+  },
+  {
+    quote: "Um orgulho ter você como meu médico.",
+    name: "Greicy D.",
+    roleKey: "home.casos.roles.paciente",
+  },
+  {
+    quote: "Fui sua paciente em acompanhamento. Muito obrigada por tudo.",
+    name: "Isa S.",
     roleKey: "home.casos.roles.paciente",
   },
 ];
@@ -150,14 +189,15 @@ export default function SectionCasosDeSucesso() {
     // ação direta do usuário — tem de responder rápido e parar.
     gsap.fromTo(
       cards,
-      dir === 0 ? { y: 20, opacity: 0 } : { x: dir * 28, opacity: 0 },
+      dir === 0 ? { y: 20, opacity: 0 } : { x: dir * 32, opacity: 0, scale: 0.995 },
       {
         x: 0,
         y: 0,
         opacity: 1,
-        stagger: 0.04,
-        duration: dir === 0 ? 0.45 : 0.32,
-        ease: "power2.out",
+        scale: 1,
+        stagger: 0.055,
+        duration: dir === 0 ? 0.45 : 0.5,
+        ease: "power3.out",
         onComplete: () => {
           animatingRef.current = false;
         },
@@ -177,11 +217,11 @@ export default function SectionCasosDeSucesso() {
     // Sem `scale`: escalar caixa com texto dentro borra a leitura no meio do
     // movimento, e a informação é o que importa aqui.
     gsap.to(cards, {
-      x: dir * -20,
+      x: dir * -22,
       opacity: 0,
       stagger: 0.03,
-      duration: 0.14,
-      ease: "power2.in",
+      duration: 0.16,
+      ease: "power1.in",
       onComplete: () => setPage((p) => p + dir),
     });
   };
@@ -288,6 +328,14 @@ export default function SectionCasosDeSucesso() {
           </span>
 
           <div className="flex items-center gap-3">
+            {/* Saída para a lista completa: o carrossel mostra 2 por vez e a
+                pessoa que quer ler tudo não deveria ter de clicar sete vezes. */}
+            <LocaleLink
+              to="/depoimentos"
+              className="mr-1 hidden sm:inline-flex min-h-[44px] items-center rounded-full px-4 font-['Arimo',sans-serif] text-[14px] text-navy/70 transition-colors duration-200 hover:text-navy"
+            >
+              {t("home.casos.verTodos")}
+            </LocaleLink>
             <button
               type="button"
               onClick={() => paginate(-1)}

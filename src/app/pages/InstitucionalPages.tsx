@@ -33,6 +33,7 @@ import {
   getInstitucional,
 } from "../content/institucional";
 
+import svgPaths from "../../imports/svg-nx92b0rij3";
 import { TESTIMONIALS } from "../components/SectionCasosDeSucesso";
 
 /**
@@ -41,25 +42,46 @@ import { TESTIMONIALS } from "../components/SectionCasosDeSucesso";
  * Grade simples e legível: sem carrossel, porque aqui a pessoa veio ler.
  */
 function TestimonialsSobrios() {
-  // Namespace "home" — os roleKey vivem em home.json. Com o namespace padrão o
-  // i18next não acha a chave e imprime a PRÓPRIA CHAVE na tela ("home.casos.
-  // roles.paciente"), ao lado do nome de cada paciente. Ficou 6× por idioma no
-  // ar. Chave que não resolve não quebra o build nem o teste: só aparece.
+  // Namespace "home": os roleKey vivem em home.json. Com o namespace padrão o
+  // i18next imprime a PRÓPRIA CHAVE na tela.
   const { t } = useTranslation("home");
   return (
-    <div className="grid gap-5 md:grid-cols-2">
+    <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-6">
       {TESTIMONIALS.map((d) => (
-        <figure
+        // Mesmo card do carrossel da home — fundo claro sobre o navy, aspas em
+        // ouro e a atribuição separada por um fio. Uma avaliação tem de parecer
+        // a mesma coisa nas duas páginas.
+        <article
           key={d.name}
-          className="flex flex-col justify-between gap-6 rounded-2xl border border-white/10 bg-white/[0.04] p-7 md:p-8"
+          className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-cream p-8 md:p-10 transition-colors duration-300 hover:border-gold-light/30"
         >
-          <blockquote className="font-body text-[16px] leading-[1.55] text-cream/85">
-            “{d.quote}”
-          </blockquote>
-          <figcaption className="border-t border-white/10 pt-4 font-['Geist_Mono',ui-monospace,monospace] text-[11px] uppercase tracking-[0.12em] text-cream/45">
-            {d.name} · {t(d.roleKey)}
-          </figcaption>
-        </figure>
+          <div className="flex flex-col gap-6 md:gap-8">
+            <svg className="w-[40px] h-[34px] shrink-0" viewBox="0 0 55 47" fill="none" aria-hidden="true">
+              <path d={svgPaths.p3f3a4c80} fill="var(--color-accent-gold)" />
+            </svg>
+            <p
+              className="font-['Arimo',sans-serif] font-normal text-navy leading-[1.18] tracking-[-0.02em]"
+              style={{ fontSize: "clamp(17px, 1.6vw, 24px)" }}
+            >
+              {d.quote}
+            </p>
+          </div>
+          <div className="mt-8 flex items-center gap-3 border-t border-navy/[0.08] pt-6">
+            <div className="flex size-10 items-center justify-center rounded-full bg-navy/[0.06]">
+              <span className="font-['Geist',sans-serif] text-sm font-medium text-navy/40">
+                {d.name.charAt(0)}
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-['Arimo',sans-serif] text-[15px] font-normal leading-[1.3] text-navy">
+                {d.name}
+              </span>
+              <span className="font-['Arimo',sans-serif] text-[13px] font-normal leading-[1.3] text-navy/45">
+                {t(d.roleKey)}
+              </span>
+            </div>
+          </div>
+        </article>
       ))}
     </div>
   );

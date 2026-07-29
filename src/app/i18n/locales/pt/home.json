@@ -27,7 +27,8 @@
         "tumores": "Paciente — Tumores Cerebrais",
         "schwannoma": "Paciente — Schwannoma",
         "meningioma": "Paciente — Meningioma"
-      }
+      },
+      "verTodos": "Ver todos"
     },
     "sobre": {
       "eyebrow": "MD PhD — Neurocirurgião",
