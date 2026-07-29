@@ -19,8 +19,11 @@ const NAV_LINKS = [
   { labelKey: "sub.footer.nav.contato", to: "/contato" },
 ] as const;
 
-const ADDRESS =
-  "R. Teixeira da Silva, 54 - 73 - Bela Vista, São Paulo - SP, 04002-030, Brasil";
+// Uma única fonte para o endereço. Estava duplicado aqui como string literal e
+// ficou para trás quando o formato oficial entrou em CONTATO — o rodapé é
+// compartilhado por todas as páginas e nos três idiomas, então a cópia velha
+// aparecia no site inteiro. Endereço é identificador: não se escreve duas vezes.
+const ADDRESS = CONTATO.endereco;
 
 function LogoSection() {
   return (

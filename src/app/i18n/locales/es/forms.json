@@ -17,7 +17,8 @@
       "formacaoEyebrow": "Formación internacional",
       "formacaoHeading": "Formación en centros internacionales",
       "retratosEyebrow": "Retratos",
-      "retratosHeading": "El profesional detrás de cada cirugía"
+      "retratosHeading": "El profesional detrás de cada cirugía",
+      "heroBadgeLabel": "Coordinador · Neurocirugía Vascular"
     },
     "doutorado": {
       "heroEyebrow": "Doctorado",
@@ -56,10 +57,10 @@
       "heroBadgeLabel": "vídeos"
     },
     "depoimentos": {
-      "heroEyebrow": "Testimonios",
+      "heroEyebrow": "Opiniones",
       "heroTitle": "Palabras que valen una vida",
       "heroIntro": "Mensajes de pacientes y familiares a lo largo de los años. Son relatos individuales: cada caso es único y ningún resultado puede garantizarse.",
-      "itemAlt": "Testimonio {{n}}"
+      "itemAlt": "Opinión {{n}}"
     },
     "contato": {
       "heroEyebrow": "Contacto",

@@ -20,7 +20,13 @@ export const DOCTOR = {
   legalName: "Hugo Leonardo Doria Netto",
   jobTitle: "Neurocirurgião",
   credentials: "MD PhD",
-  specialty: "Neurocirurgia vascular",
+  // Descreve a PRÁTICA, não um título registrado. O RQE 48918 registra
+  // "NEUROCIRURGIA" — anunciar "especialista em neurocirurgia vascular"
+  // divergiria do cadastro oficial, que é o que a CFM 2.336/2023 veda (e o
+  // próprio briefing do cliente proíbe nomenclatura divergente do cadastro).
+  // O `schema.ts` interpola isto em `Neurocirurgião MD PhD — ${specialty}.`,
+  // então a frase tem de fechar sozinha depois do travessão.
+  specialty: "atuação em neurocirurgia vascular e craniana",
 } as const;
 
 /** Imagem padrão de compartilhamento (WhatsApp, LinkedIn, Facebook). */

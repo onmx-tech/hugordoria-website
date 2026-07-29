@@ -90,10 +90,13 @@ export function SobreMimPage() {
         intro={t("forms.sobre.heroIntro")}
         image="/v4/photos/sobre-portrait.jpg"
         imageAlt="Dr. Hugo Doria"
-        /* Era "+20 anos de experiência". Mesmo motivo dos outros números: não
-           há critério documentado de contagem, e o RQE foi emitido em 2014. O
-           selo passa a trazer o registro de especialista, que é conferível. */
-        badge={{ value: "RQE 48918", label: t("forms.stats.registro") }}
+        /* Era "+20 anos de experiência" — número sem critério de contagem, na
+           página que mais sustenta autoridade. Tentei pôr o RQE aqui, mas a
+           tira logo abaixo já traz RQE 48918 com esse mesmo rótulo: o selo
+           repetia idêntico 200px depois e não entregava nada novo. Ficou a
+           credencial que a tira NÃO tem — a coordenação na SBN, que é cargo
+           com mandato e se confere por fora. */
+        badge={{ value: "SBN", label: t("forms.sobre.heroBadgeLabel") }}
       />
 
       {/* 1. Prova rápida de credibilidade */}
