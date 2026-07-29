@@ -90,7 +90,7 @@ export function SobreMimPage() {
         intro={t("forms.sobre.heroIntro")}
         image="/v4/photos/sobre-portrait.jpg"
         imageAlt="Dr. Hugo Doria"
-        /* Era "+20 anos de experiência" — número sem critério de contagem, na
+        /* Era uma contagem de anos de experiência — número sem critério, na
            página que mais sustenta autoridade. Tentei pôr o RQE aqui, mas a
            tira logo abaixo já traz RQE 48918 com esse mesmo rótulo: o selo
            repetia idêntico 200px depois e não entregava nada novo. Ficou a
@@ -428,7 +428,7 @@ export function DepoimentosPage() {
         intro={t("forms.depoimentos.heroIntro")}
         image="/v4/photos/retrato-sentado-sorrindo.jpg"
         imageAlt="Dr. Hugo Doria"
-        /* O selo "+9.500 pacientes" saiu daqui por dois motivos somados: o
+        /* O selo com a contagem de pacientes saiu daqui por dois motivos: o
            número não é auditável, e ele estava no topo justamente da página de
            depoimentos — contagem de pacientes anunciada sobre uma galeria de
            elogios é a leitura mais promocional possível do Art. 11, XVI. */
