@@ -9,7 +9,9 @@
     "publicacoes": "Publications",
     "midia": "Media",
     "contato": "Contact",
-    "segundaOpiniao": "Second opinion"
+    "segundaOpiniao": "Second opinion",
+    "agendar": "Book",
+    "agendarAria": "Book an appointment via WhatsApp"
   },
   "cta": {
     "agendar": "Book an appointment",

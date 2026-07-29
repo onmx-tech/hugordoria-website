@@ -75,10 +75,11 @@ export function SobreMimPage() {
     ],
   });
 
+  // Ver o comentário em SectionSobreMim: números públicos sem metodologia
+  // documentada saíram do site inteiro; ficaram as credenciais verificáveis.
   const stats = [
-    { value: "+20", label: t("forms.stats.experiencia") },
-    { value: "+100", label: t("forms.stats.artigos") },
-    { value: "+9.500", label: t("forms.stats.casos") },
+    { value: "MD PhD", label: t("forms.stats.titulacao") },
+    { value: "RQE 48918", label: t("forms.stats.registro") },
   ];
 
   return (
@@ -89,7 +90,10 @@ export function SobreMimPage() {
         intro={t("forms.sobre.heroIntro")}
         image="/v4/photos/sobre-portrait.jpg"
         imageAlt="Dr. Hugo Doria"
-        badge={{ value: "+20", label: t("forms.sobre.heroBadgeLabel") }}
+        /* Era "+20 anos de experiência". Mesmo motivo dos outros números: não
+           há critério documentado de contagem, e o RQE foi emitido em 2014. O
+           selo passa a trazer o registro de especialista, que é conferível. */
+        badge={{ value: "RQE 48918", label: t("forms.stats.registro") }}
       />
 
       {/* 1. Prova rápida de credibilidade */}
@@ -421,7 +425,10 @@ export function DepoimentosPage() {
         intro={t("forms.depoimentos.heroIntro")}
         image="/v4/photos/retrato-sentado-sorrindo.jpg"
         imageAlt="Dr. Hugo Doria"
-        badge={{ value: "+9.500", label: t("forms.depoimentos.heroBadgeLabel") }}
+        /* O selo "+9.500 pacientes" saiu daqui por dois motivos somados: o
+           número não é auditável, e ele estava no topo justamente da página de
+           depoimentos — contagem de pacientes anunciada sobre uma galeria de
+           elogios é a leitura mais promocional possível do Art. 11, XVI. */
       />
       <Section>
         <div className="gap-5 sm:columns-2 lg:columns-3" style={{ columnFill: "balance" }}>

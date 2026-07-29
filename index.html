@@ -10,7 +10,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Dr. Hugo Doria — Neurocirurgião vascular em São Paulo</title>
+    <title>Dr. Hugo Doria — Neurocirurgia vascular e craniana | São Paulo</title>
     <meta
       name="description"
       content="Neurocirurgião MD PhD com atuação no BP, Santa Catarina, Albert Einstein e Sírio-Libanês. Tratamento de aneurismas, MAVs, tumores cerebrais e doenças neurológicas complexas."
@@ -24,6 +24,16 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Instalável na tela inicial ("baixar como se fosse aplicativo").
+         iPhone: o Safari precisa só do manifest + apple-touch-icon acima, mais
+         o apple-mobile-web-app-* daqui. Android: o Chrome também exige um
+         service worker, registrado em main.tsx — ver public/sw.js, que é
+         propositalmente vazio para não brigar com o prerender. -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Dr. Hugo Doria" />
 
     <!-- Fontes (Geist + Arimo) são SELF-HOSTED via @font-face em
          styles/fonts.css. Sem Google Fonts no critical path — nada de

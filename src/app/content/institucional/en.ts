@@ -15,7 +15,7 @@ export const SOBRE_MIM = {
     {
       titulo: "Publications and Research",
       texto:
-        "Publications in national and international neurosurgery journals, serving as a reviewer, over 20 years of practice in the field.",
+        "Publications in national and international neurosurgery journals, serving as a reviewer throughout his career.",
     },
     {
       titulo: "Coordination and Leadership",
@@ -25,9 +25,9 @@ export const SOBRE_MIM = {
   ],
   bio: [
     "My work is devoted to the relentless pursuit of the development and advancement of treatments and to innovation across every field of neurosurgery and neuroscience, so that life, in its most vigorous form, may be restored to all who need it — in a humanized and individual way, my greatest commitment to my patients.",
-    "Doctor (PhD) in Neurology and Neuroscience, with a doctoral thesis on Cerebral Aneurysms from the Federal University of São Paulo (UNIFESP), the doctoral work published as a scientific article in the international journal World Neurosurgery (2022). My life's purpose is the relentless pursuit of neurosurgical treatment and the cure of my patients, always combining microsurgical technique with humanized care, delivering excellence and exclusivity to each patient.",
-    "Humanized care is the reflection of two decades of relationships with patients who are, to me, lives entrusted to my responsibility — lives I safeguard with all my consideration and the dignity they deserve.",
-    "Far beyond medicine, neurosurgery is my vocation and where I have the opportunity to exercise my passion and deliver the best of my technique and respect to the people who have entrusted me with their health and their lives.",
+    "Doctor (PhD) in Neurology and Neuroscience, with a doctoral thesis on Cerebral Aneurysms from the Federal University of São Paulo (UNIFESP), the doctoral work published as a scientific article in the international journal World Neurosurgery (2022). My life's purpose is the relentless pursuit of neurosurgical treatment for my patients, always combining microsurgical technique with humanized care and undivided attention to each patient.",
+    "Humanized care is the reflection of long-standing relationships with patients who are, to me, lives entrusted to my responsibility — lives I safeguard with all my consideration and the dignity they deserve.",
+    "Far beyond medicine, neurosurgery is my vocation and where I have the opportunity to exercise my passion and bring my technique and my respect to the people who have entrusted me with their health and their lives.",
     "I tirelessly pursue the development and advancement of techniques and innovation across every field of neurosurgery and neuroscience, so that life, in its fullest form, may be restored to all who need it — returning my surgical patients to their families and their daily routines, for the benefit of life in its widest possibility.",
     "Expertise in Medicine, with emphasis on Microneurosurgery, working mainly in vascular neurosurgery (Cerebral Aneurysms and Cerebral and Spinal Arteriovenous Malformations, Cerebral and Spinal Cavernomas, Trigeminal Neuralgia, Hemifacial Spasm and Moyamoya Disease), Brain Tumors and tumors of the spinal cord and spine, microsurgical anatomy. Neurosurgeon and full member of the Sociedade Brasileira de Neurocirurgia – SBN, Coordinator of the Vascular Neurosurgery Department of the SBN 2025-2027, Member of the Congress of Neurological Surgeons – CNS and the AANS (American Association of Neurological Surgeons), and Neurosurgeon of the Academia Brasileira de Neurocirurgia (ABNc).",
   ],

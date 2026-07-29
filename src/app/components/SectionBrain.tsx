@@ -6,7 +6,10 @@ import { isPrerender } from "../../lib/prerender";
 const FRAME_COUNT = 122;
 
 function buildFramePath(index: number) {
-  return `/sequence/HD_BG_Menor_${String(index).padStart(5, "0")}.jpg`;
+  // WebP derivado no prebuild (os .jpg originais continuam no repo, ninguém os
+  // serve). 4,8 MB → 2,7 MB no conjunto, e cada frame decodifica mais rápido —
+  // que é o que trava o scroll no celular, não o download.
+  return `/sequence/HD_BG_Menor_${String(index).padStart(5, "0")}.webp`;
 }
 
 function drawCover(

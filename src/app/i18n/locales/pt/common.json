@@ -9,7 +9,9 @@
     "publicacoes": "Publicações",
     "midia": "Mídia",
     "contato": "Contato",
-    "segundaOpiniao": "Segunda opinião"
+    "segundaOpiniao": "Segunda opinião",
+    "agendar": "Agendar",
+    "agendarAria": "Agendar consulta pelo WhatsApp"
   },
   "cta": {
     "agendar": "Agendar consulta",

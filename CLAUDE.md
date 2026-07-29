@@ -84,6 +84,28 @@ Regras:
 
 O overlay de edição visual é importado com `lazy()` sob `import.meta.env.DEV` no `main.tsx`. Ele não faz nada em produção, mas ia inteiro no bundle — o import dinâmico cortou **1.204 kB → 680 kB** (375 → 233 kB gzip). **Não voltar para o import estático.**
 
+## Números públicos não voltam sem base documental
+
+O site não exibe mais "+20 anos", "+100 artigos" nem "+9.500 pacientes". Não foi preferência editorial: em publicidade médica (CFM 2.336/2023, Art. 11, XVI) número sem metodologia de contagem auditável é tratado como promocional, e nenhum dos três tinha — "9.500" não definia se contava pessoas, consultas ou cirurgias. No lugar ficaram credenciais que um terceiro consegue conferir: **MD PhD** e **RQE 48918** (registro de especialista, CREMESP, emitido em 16/12/2014; CRM/SP 118350).
+
+**Não reintroduzir número público sem que o cliente entregue a base documental por escrito** — e, quando entregar, o critério de contagem tem de caber no rótulo. Vale para stats, selos de `PageHero` e texto corrido.
+
+⚠️ Pegadinha ao auditar isso: `grep -rn "\+20"` **não acha** `"+20"` — em regex básica o `\+` vira quantificador e a varredura devolve um falso "limpo". Use `grep -rF` para string literal. Foi assim que um selo passou batido.
+
+## PWA — instalável, e de propósito sem cache
+
+`public/manifest.webmanifest` + `public/sw.js`, registrado no fim do `main.tsx`. No iPhone o "Adicionar à Tela de Início" precisa só do manifest e das metatags `apple-mobile-web-app-*`; o service worker existe porque o **Chrome no Android exige um listener de `fetch`** para oferecer a instalação.
+
+**O service worker é intencionalmente vazio e não deve ganhar cache.** O site é pré-renderizado e servido pela CDN — um cache aqui competiria com esse fluxo e poderia servir texto clínico desatualizado depois de uma publicação. O `activate` inclusive limpa qualquer cache que apareça. Ícone maskable (`icon-512-maskable.png`) é derivado do `icon-512.png` com zona segura de 72px por lado.
+
+## Sequência de frames da home é WebP
+
+`public/sequence/*.jpg` são os originais; **ninguém os serve** — o `SectionBrain` pede `.webp`, derivados no prebuild pelo `optimize-images.mjs` (4,8 MB → 2,7 MB). O gargalo relatado no celular é de **decode durante o scroll**, não de banda: o mobile já baixa 31 dos 122 frames (`MOBILE_STEP = 4`). Por isso a resposta não é trocar por `<video>` — scrub de vídeo no Safari do iPhone é pior, e fugir disso é a razão de a sequência existir.
+
+## Dimensões de imagem são geradas, não digitadas
+
+`src/lib/img-dimensions.json` mapeia cada asset de `public/v4` para `[largura, altura]` e é **gerado pelo prebuild** (o sharp já abre todo arquivo para derivar os WebP). O `responsiveImg()` devolve `width`/`height` a partir dele, o que reserva o espaço da imagem e zera o salto de layout das `loading="lazy"`. Asset novo entra sozinho; asset sem medida apenas volta ao comportamento antigo. Não editar o JSON à mão.
+
 ## Deploy — produção é SEMPRE prebuilt local
 
 Domínio: **`hugodoria.merinno.com`** (projeto Vercel `hugordoria-website`, scope `onmx-techs-projects`). ⚠️ Não confundir com `hugodoria.com.br`, que ainda é o WordPress antigo do cliente.

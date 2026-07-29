@@ -4,6 +4,7 @@ import { LocaleLink as Link, useLocale } from "../i18n/LocaleProvider";
 import { useTranslation } from "react-i18next";
 import svgPaths from "../../imports/svg-nx92b0rij3";
 import { getCards } from "./section-especialidades/cards-i18n";
+import { CONTATO, SOCIAL } from "../content/institucional";
 
 // labelKey aponta para o i18n (namespace "sub": sub.footer.nav.*); o texto é
 // resolvido com t() no render. `to` continua sendo o path base em PT.
@@ -203,6 +204,24 @@ export default function Footer() {
                 >
                   {t("sub.footer.localizacao")}
                 </Link>
+
+                {/* "Como chegar" abre o GPS já com a rota traçada até o
+                    consultório. Nasceu de um pedido concreto: a secretária
+                    instrui pacientes idosos por telefone, e "desce até o fim
+                    do site e aperta o botão do mapa" é uma instrução que se dá
+                    ao telefone. Alvo de toque de 44px pelo mesmo motivo. */}
+                <a
+                  href={CONTATO.rotaLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex min-h-[44px] w-fit items-center gap-2 rounded-full border border-white/20 px-4 font-['Geist',sans-serif] text-[14px] font-medium leading-none text-cream transition-colors duration-200 hover:border-white/40 hover:bg-white/5"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  {t("sub.footer.comoChegar")}
+                </a>
               </div>
             </div>
           </div>
@@ -220,12 +239,32 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="absolute bottom-0 left-0 right-0 bg-[rgba(255,255,255,0.06)]">
+      {/* data-footer-bar: alvo do IntersectionObserver do FloatingNav. Quando
+          esta barra entra na tela, o botão flutuante de agendar sai — os dois
+          disputam o mesmo canto inferior direito. */}
+      <div data-footer-bar className="absolute bottom-0 left-0 right-0 bg-[rgba(255,255,255,0.06)]">
         <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-16 h-[72px] md:h-[112px] flex items-center justify-between">
+          {/* Os três ícones eram SVG solto, sem <a> em volta: desenhados, mas
+              não clicáveis — o cliente reportou "os ícones não estão levando
+              para as páginas correspondentes". As URLs já existiam em SOCIAL,
+              só nunca tinham sido ligadas. */}
           <div className="flex items-center gap-2">
-            <SocialLinkedin />
-            <SocialInstagram />
-            <SocialFacebook />
+            {[
+              { href: SOCIAL.linkedin, rotulo: "LinkedIn", Icone: SocialLinkedin },
+              { href: SOCIAL.instagram, rotulo: "Instagram", Icone: SocialInstagram },
+              { href: SOCIAL.facebook, rotulo: "Facebook", Icone: SocialFacebook },
+            ].map(({ href, rotulo, Icone }) => (
+              <a
+                key={rotulo}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${rotulo} do Dr. Hugo Doria`}
+                className="rounded-full transition-opacity duration-200 hover:opacity-70"
+              >
+                <Icone />
+              </a>
+            ))}
           </div>
 
           <p className="hidden md:block font-['Geist',sans-serif] font-normal text-silver text-sm leading-normal whitespace-nowrap">

@@ -16,6 +16,7 @@ const SHOW_THRESHOLD = 480;
 
 export default function FloatingNav() {
   const [visible, setVisible] = useState(false);
+  const [noRodape, setNoRodape] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const { pathname } = useLocation();
   const { t } = useTranslation();
@@ -34,8 +35,9 @@ export default function FloatingNav() {
       const y = window.scrollY;
       const goingDown = y > lastY + 4;
       const goingUp = y < lastY - 4;
-      // Some depois do threshold; enquanto rola PRA BAIXO (lendo) esconde para
-      // não cobrir o conteúdo; reaparece ao rolar PRA CIMA (intenção de agir).
+      // Só a PILL de navegação (desktop) obedece à direção do scroll: enquanto
+      // a pessoa desce lendo ela sai da frente, e volta ao subir. O botão de
+      // agendar NÃO participa disso — ver o comentário do CTA abaixo.
       if (y <= SHOW_THRESHOLD) setVisible(false);
       else if (goingDown) setVisible(false);
       else if (goingUp) setVisible(true);
@@ -50,17 +52,33 @@ export default function FloatingNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // O CTA cede a vez ao rodapé. Ele é fixo no canto inferior direito, que é
+  // exatamente onde mora a barra final do rodapé — sem isso os dois se
+  // sobrepõem (o cliente mandou print). Não é perda de conversão: quando o
+  // rodapé está na tela, telefone, WhatsApp e "Como chegar" já estão visíveis.
+  useEffect(() => {
+    const alvo = document.querySelector("[data-footer-bar]");
+    if (!alvo) return;
+    const io = new IntersectionObserver(
+      ([entrada]) => setNoRodape(entrada.isIntersecting),
+      { rootMargin: "0px 0px -8px 0px" },
+    );
+    io.observe(alvo);
+    return () => io.disconnect();
+  }, [pathname]);
+
   // A página de contato JÁ é o CTA de agendamento (formulário + canais):
   // a nav flutuante fica redundante e, no mobile, colide com o botão de envio.
   if (basePath.startsWith("/contato")) return null;
 
   return (
+    <>
     <nav
       ref={navRef}
       aria-label="Navegação flutuante"
-      // Mobile: FAB no canto inferior-direito (não cobre o texto/rosto ao rolar).
-      // Desktop (md+): pill de navegação centralizado embaixo.
-      className={`fixed bottom-6 right-5 z-50 flex items-center rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] gap-1 px-1.5 py-1.5 md:right-auto md:left-1/2 md:-translate-x-1/2 ${visible ? "translate-y-0" : "translate-y-[calc(100%+2.5rem)]"}`}
+      // Pill de navegação — só no desktop, e só depois que a leitura começa.
+      // No mobile ela não existe: lá o polegar tem uma ação só, que é agendar.
+      className={`hidden md:flex fixed bottom-6 left-1/2 -translate-x-1/2 z-50 items-center rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] gap-1 px-1.5 py-1.5 ${visible ? "translate-y-0" : "translate-y-[calc(100%+2.5rem)]"}`}
       style={{
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? "auto" : "none",
@@ -109,22 +127,35 @@ export default function FloatingNav() {
         {t("nav.segundaOpiniao")}
       </LocaleLink>
 
-      <a
-        href="https://wa.me/5511971622777"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 rounded-full px-5 py-2.5 md:ml-1 md:px-4 md:py-2 text-[14px] md:text-[13px] font-medium leading-none tracking-[-0.01em] transition-all duration-300 whitespace-nowrap"
-        style={{
-          fontFamily: "'Geist', sans-serif",
-          color: "var(--color-bg-cream)",
-          background: "color-mix(in srgb, var(--color-accent-gold-light) 15%, transparent)",
-        }}
-      >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--color-accent-gold-light)" }}>
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-        </svg>
-        Agendar
-      </a>
     </nav>
+
+    {/* AGENDAR — permanente, em todas as páginas e desde o topo.
+        Antes ele morava dentro da pill e só aparecia ao rolar PARA CIMA: a
+        equipe do cliente testou, concluiu que estava quebrado e pediu três
+        vezes um botão fixo. Estavam certos pelo motivo certo — o site existe
+        para marcar consulta, e uma ação primária não pode depender da direção
+        do dedo. Altura mínima de 48px: a área de toque anterior media ~34px,
+        abaixo dos 44px recomendados, e o público é majoritariamente idoso. */}
+    <a
+      href="https://wa.me/5511971622777"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={t("nav.agendarAria")}
+      className={`fixed bottom-6 right-5 z-50 flex min-h-[48px] items-center gap-2.5 rounded-full px-5 text-[15px] font-medium leading-none tracking-[-0.01em] whitespace-nowrap transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${noRodape ? "pointer-events-none translate-y-[calc(100%+2.5rem)] opacity-0" : "translate-y-0 opacity-100"}`}
+      style={{
+        fontFamily: "'Geist', sans-serif",
+        textDecoration: "none",
+        color: "var(--color-bg-deep)",
+        background: "var(--color-accent-gold-light)",
+      }}
+    >
+      {/* Glifo do WhatsApp, não um telefone genérico: o cliente pediu o ícone
+          do WhatsApp por nome, e o destino do link é o WhatsApp de fato. */}
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.02a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.71.97.99-3.62-.23-.37a9.79 9.79 0 0 1-1.5-5.22c0-5.4 4.4-9.8 9.82-9.8a9.75 9.75 0 0 1 6.94 2.88 9.75 9.75 0 0 1 2.87 6.93c0 5.4-4.4 9.81-9.81 9.81M20.52 3.45A11.73 11.73 0 0 0 12.05 0C5.53 0 .23 5.3.22 11.81c0 2.08.55 4.11 1.58 5.91L.12 24l6.42-1.68a11.8 11.8 0 0 0 5.51 1.4h.01c6.52 0 11.82-5.3 11.82-11.81 0-3.16-1.23-6.12-3.46-8.35" />
+      </svg>
+      {t("nav.agendar")}
+    </a>
+    </>
   );
 }

@@ -9,10 +9,18 @@ import { responsiveImg } from "../../lib/img";
 // vedado — trocado por um dado de volume, que é factual. Os três números
 // ainda dependem de BASE DOCUMENTAL do consultório; se algum não puder ser
 // comprovado, ele sai daqui (não se estima número em publicidade médica).
+// Antes eram três números: +20 anos, +100 artigos, +9.500 pacientes. Nenhum
+// tinha metodologia documentada — "9.500" não dizia se contava pessoas,
+// consultas ou cirurgias, e "100 artigos" somava categorias diferentes. Em
+// publicidade médica, número sem fonte auditável é o que a CFM 2.336/2023 trata
+// como promocional (Art. 11, XVI), e o próprio cliente pediu para retirá-los
+// até existir base documental.
+// O que entrou no lugar é verificável por terceiros: a titulação e o registro
+// de especialista emitido pelo CREMESP. Autoridade que se confere, em vez de
+// autoridade que se afirma.
 const STATS = [
-  { value: "+20", labelKey: "home.sobreMim.stats.experiencia" },
-  { value: "+100", labelKey: "home.sobreMim.stats.artigos" },
-  { value: "+9.500", labelKey: "home.sobreMim.stats.pacientes" },
+  { value: "MD PhD", labelKey: "home.sobreMim.stats.titulacao" },
+  { value: "RQE 48918", labelKey: "home.sobreMim.stats.registro" },
 ] as const;
 
 export default function SectionSobreMim() {

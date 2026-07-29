@@ -18,8 +18,15 @@ export const CONTATO = {
   whatsapp: "+55 (11) 97162-2777",
   whatsappLink: "https://wa.me/5511971622777",
   endereco:
-    "R. Teixeira da Silva, 54 - 73 - Bela Vista, São Paulo - SP, 04002-030, Brasil",
+    "Rua Teixeira da Silva, 54 — conjunto 73, Bela Vista, São Paulo — SP, CEP 04002-030",
   mapsLink: "https://maps.app.goo.gl/jLGCpkNz1VXgS8fk7",
+  // Rota ponto-a-ponto: abre o GPS já traçando o caminho até o consultório, no
+  // app que a pessoa tiver. Pedido do cliente pensando em paciente idoso, que a
+  // secretária instrui por telefone ("abre o site, desce e aperta Como chegar").
+  // Google Maps universal em vez de Waze: quem não tem o app cai numa página de
+  // instalação, e aí o atalho vira obstáculo.
+  rotaLink:
+    "https://www.google.com/maps/dir/?api=1&destination=Rua+Teixeira+da+Silva%2C+54+-+conjunto+73%2C+Bela+Vista%2C+S%C3%A3o+Paulo+-+SP%2C+04002-030",
   mapsEmbed:
     "https://maps.google.com/maps?q=R.%20Teixeira%20da%20Silva%2C%2054%20-%2073%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004002-030%2C%20Brasil&t=m&z=16&output=embed&iwloc=near",
   // E-mail PROVISÓRIO — o original usa placeholder do Hostinger; confirmar com o cliente.

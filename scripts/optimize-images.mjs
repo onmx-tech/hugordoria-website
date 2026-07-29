@@ -9,7 +9,7 @@
  * Idempotente: pula o que já está gerado e mais novo que a origem.
  */
 import sharp from "sharp";
-import { readdir, stat, mkdir } from "node:fs/promises";
+import { readdir, stat, mkdir, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -34,6 +34,12 @@ async function newerThan(a, b) {
 let made = 0;
 let skipped = 0;
 let savedBytes = 0;
+// Proporção de cada asset, para o <img> reservar o espaço antes de a imagem
+// chegar. Sem isso o conteúdo abaixo salta quando cada foto carrega — que é o
+// que gera CLS. O sharp já abre todo arquivo aqui para gerar os WebP, então a
+// medida sai de graça; deduzir dimensão à mão em ~20 componentes é que seria
+// caro e ficaria errado no primeiro asset trocado.
+const dimensoes = {};
 
 for (const dir of DIRS) {
   const abs = path.join(ROOT, dir);
@@ -45,6 +51,13 @@ for (const dir of DIRS) {
     const src = path.join(abs, file);
     const base = file.replace(SOURCE_RE, "");
     const meta = await sharp(src).metadata();
+
+    if (meta.width && meta.height) {
+      // Chave = path público do original, igual ao que os componentes passam
+      // para responsiveImg(). Ex.: "/v4/photos/sobre-portrait.jpg".
+      const chave = "/" + path.relative(path.join(ROOT, "public"), src).split(path.sep).join("/");
+      dimensoes[chave] = [meta.width, meta.height];
+    }
 
     for (const w of WIDTHS) {
       const out = path.join(abs, `${base}-${w}.webp`);
@@ -62,7 +75,48 @@ for (const dir of DIRS) {
   }
 }
 
+// A sequência de frames da home (public/sequence) é outro bicho: são 122 JPGs
+// que o GSAP troca durante o scroll, e o navegador precisa DECODIFICAR cada um
+// em tempo de rolagem. O gargalo relatado ("travando um pouco" no celular) é de
+// decode, não de banda — por isso a saída não é vídeo (scrub de <video> no
+// Safari do iPhone é pior, e foi para fugir disso que a sequência existe), e sim
+// um formato mais leve para decodificar. Mesmos pixels, arquivo menor.
+{
+  const dir = path.join(ROOT, "public/sequence");
+  if (existsSync(dir)) {
+    const frames = (await readdir(dir)).filter((f) => /\.jpe?g$/i.test(f));
+    let convertidos = 0;
+    let antes = 0;
+    let depois = 0;
+    for (const file of frames) {
+      const src = path.join(dir, file);
+      const out = path.join(dir, file.replace(/\.jpe?g$/i, ".webp"));
+      antes += (await stat(src)).size;
+      if (!(await newerThan(src, out))) {
+        depois += (await stat(out)).size;
+        continue;
+      }
+      const info = await sharp(src).webp({ quality: 80 }).toFile(out);
+      depois += info.size;
+      convertidos++;
+    }
+    if (frames.length) {
+      console.log(
+        `[sequence] ${frames.length} frames, ${convertidos} convertidos agora. ` +
+          `${(antes / 1048576).toFixed(1)} MB → ${(depois / 1048576).toFixed(1)} MB`,
+      );
+    }
+  }
+}
+
+// Gerado, nunca editado à mão — mesma regra do sitemap.
+await writeFile(
+  path.join(ROOT, "src/lib/img-dimensions.json"),
+  JSON.stringify(dimensoes, null, 2) + "\n",
+);
+
 console.log(
-  `[images] ${made} webp gerados, ${skipped} em dia. ` +
+  `[images] ${made} webp gerados, ${skipped} em dia, ` +
+    `${Object.keys(dimensoes).length} dimensões mapeadas. ` +
     `Economia na maior largura: ${(savedBytes / 1024 / 1024).toFixed(1)} MB`,
 );

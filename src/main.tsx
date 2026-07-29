@@ -113,3 +113,16 @@ if (rootEl.firstElementChild) {
 } else {
   createRoot(rootEl).render(tree);
 }
+
+// Service worker — habilita "instalar aplicativo" no Android (o iPhone se
+// contenta com o manifest). Registrado DEPOIS da hidratação e dentro do load
+// para não disputar banda com o first paint, que é o que sustenta o PageSpeed.
+// Fora de dev, onde um SW ativo só atrapalha o hot reload.
+if ("serviceWorker" in navigator && import.meta.env.PROD) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch(() => {
+      // Falhar aqui não pode derrubar o site: sem SW, ele continua sendo um
+      // site normal — só não oferece a instalação no Android.
+    });
+  });
+}

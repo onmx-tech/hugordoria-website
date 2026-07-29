@@ -15,7 +15,7 @@ export const SOBRE_MIM = {
     {
       titulo: "Publicações e Pesquisa",
       texto:
-        "Publicações em periódicos nacionais e internacionais de neurocirurgia, com atuação como revisor, ao longo de 20 anos de prática na área.",
+        "Publicações em periódicos nacionais e internacionais de neurocirurgia, com atuação como revisor ao longo da carreira.",
     },
     {
       titulo: "Coordenação e Liderança",
@@ -25,9 +25,9 @@ export const SOBRE_MIM = {
   ],
   bio: [
     "Meu trabalho é dedicado à busca incessante pelo desenvolvimento e evolução de tratamentos e a inovação em todos os campos da neurocirurgia e neurociência, para que a vida, em sua versão mais vigorosa, seja resgatada para todos os que necessitam, de forma humanizada e exclusiva, meu maior compromisso com os clientes.",
-    "Doutor (PhD) em Neurologia e Neurociência com Tese de Doutorado sobre Aneurismas Cerebrais, pela Universidade Federal de São Paulo (UNIFESP), com o trabalho do doutorado publicado como artigo científico em revista internacional: World Neurosurgery (2022). Meu propósito de vida é a busca incessante pelo tratamento neurocirúrgico e cura dos meus pacientes, sempre aliando a técnica microcirúrgica ao trato humanizado com entrega de excelência e exclusividade a cada paciente.",
-    "O cuidado humanizado é reflexo de duas décadas de relacionamento com pacientes que são para mim, vidas entregues a minha responsabilidade, das quais zelo com toda minha consideração e a dignidade que merecem.",
-    "Muito além da medicina, a neurocirurgia é a minha vocação e onde tenho a oportunidade de exercer minha paixão e entregar o melhor da minha técnica e respeito a pessoas que a mim delegaram sua saúde e vida.",
+    "Doutor (PhD) em Neurologia e Neurociência com Tese de Doutorado sobre Aneurismas Cerebrais, pela Universidade Federal de São Paulo (UNIFESP), com o trabalho do doutorado publicado como artigo científico em revista internacional: World Neurosurgery (2022). Meu propósito de vida é a busca incessante pelo tratamento neurocirúrgico dos meus pacientes, sempre aliando a técnica microcirúrgica ao trato humanizado e à dedicação exclusiva a cada paciente.",
+    "O cuidado humanizado é reflexo de uma longa convivência com pacientes que são para mim, vidas entregues a minha responsabilidade, das quais zelo com toda minha consideração e a dignidade que merecem.",
+    "Muito além da medicina, a neurocirurgia é a minha vocação e onde tenho a oportunidade de exercer minha paixão e entregar minha técnica e meu respeito a pessoas que a mim delegaram sua saúde e vida.",
     "Busco incansavelmente o desenvolvimento e evolução de técnicas e a inovação em todos os campos da neurocirurgia e neurociência, para que a vida, em sua versão mais plena, seja resgatada para todos os que necessitam, devolvendo os meus pacientes cirúrgicos à suas famílias e suas rotinas cotidianas, para proveito da vida em sua mais ampla possibilidade.",
     "Expertise na área de Medicina, com ênfase em Microneurocirurgia, atuando principalmente na neurocirurgia vascular (Aneurismas Cerebrais e Malformações Arteriovenosas Cerebrais e Medulares, Cavernomas Cerebrais e Medulares, Neuralgia Trigeminal, Espasmo Hemifacial e Doença de Moyamoya), Tumores Cerebrais e na Medula e coluna vertebral, anatomia microcirúrgica. Neurocirurgião Membro titular da Sociedade Brasileira de Neurocirurgia – SBN, Coordenador do Departamento de Neurocirurgia Vascular SBN 2025-2027, Member of Congress of Neurological Surgeons – CNS e AANS (American Association of Neurological Surgeons) e Neurocirurgião da Academia Brasileira de Neurocirurgia (ABNc).",
   ],

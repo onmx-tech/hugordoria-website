@@ -1,19 +1,17 @@
 {
   "forms": {
     "stats": {
-      "experiencia": "Anos de experiência",
-      "artigos": "Artigos publicados",
-      "casos": "Cirurgias realizadas em 20 anos"
+      "titulacao": "Doutorado em Neurociência · UNIFESP",
+      "registro": "Especialista registrado no CREMESP"
     },
     "sobre": {
       "heroEyebrow": "Sobre",
       "heroIntro": "MD, PhD — Neurocirurgião dedicado à neurocirurgia vascular, unindo precisão técnica, pesquisa avançada e um cuidado profundamente humano.",
-      "heroBadgeLabel": "anos de experiência",
       "videoEyebrow": "Conheça minha trajetória",
       "videoTitle": "Uma conversa sobre técnica, decisão e o cuidado com cada paciente.",
       "videoCaption": "Vídeo · Dr. Hugo Doria",
       "trajetoriaEyebrow": "Trajetória",
-      "trajetoriaHeading": "Duas décadas dedicadas à microneurocirurgia de alta complexidade.",
+      "trajetoriaHeading": "Uma prática construída em torno da microneurocirurgia de alta complexidade.",
       "pilaresEyebrow": "Pilares",
       "pilaresHeading": "Uma atuação em três frentes",
       "formacaoEyebrow": "Formação internacional",
@@ -45,7 +43,7 @@
     "eventos": {
       "heroEyebrow": "Eventos",
       "heroTitle": "Presença na comunidade neurocirúrgica",
-      "heroIntro": "20 anos de experiência compartilhados em congressos nacionais e internacionais, aulas para residentes e simpósios de neurocirurgia vascular.",
+      "heroIntro": "Experiência compartilhada em congressos nacionais e internacionais, aulas para residentes e simpósios de neurocirurgia vascular.",
       "heroImageAlt": "Dr. Hugo Doria palestrando em congresso",
       "heroBadgeLabel": "palestras e congressos",
       "palestrasEyebrow": "Palestras & congressos"
@@ -60,8 +58,7 @@
     "depoimentos": {
       "heroEyebrow": "Depoimentos",
       "heroTitle": "Palavras que valem uma vida",
-      "heroIntro": "Mensagens de pacientes e familiares ao longo de duas décadas. São relatos individuais: cada caso é único e nenhum resultado pode ser garantido.",
-      "heroBadgeLabel": "avaliações publicadas",
+      "heroIntro": "Mensagens de pacientes e familiares ao longo dos anos. São relatos individuais: cada caso é único e nenhum resultado pode ser garantido.",
       "itemAlt": "Depoimento {{n}}"
     },
     "contato": {
@@ -196,7 +193,7 @@
         {
           "titulo": "Quem trata os seus dados",
           "paragrafos": [
-            "Os dados coletados neste site são tratados pelo Dr. Hugo Leonardo Doria-Netto e pela equipe do seu consultório, na R. Teixeira da Silva, 54 — cj. 73, Bela Vista, São Paulo/SP.",
+            "Os dados coletados neste site são tratados pelo Dr. Hugo Leonardo Doria-Netto e pela equipe do seu consultório, na Rua Teixeira da Silva, 54 — conjunto 73, Bela Vista, São Paulo — SP, CEP 04002-030.",
             "Esta política vale para o site e para os formulários publicados nele. Não vale para outros serviços que você acesse a partir daqui, como o WhatsApp, o Google Maps ou os perfis em redes sociais, que têm políticas próprias."
           ]
         },
@@ -305,7 +302,7 @@
       ]
     },
     "identificacao": {
-      "linha": "Dr. Hugo Leonardo Doria-Netto — MÉDICO — CRM/SP 118350 · RQE 00000 — Neurocirurgia. Este site tem finalidade informativa e não substitui a consulta médica. Em caso de emergência, ligue 192 (SAMU)."
+      "linha": "Dr. Hugo Leonardo Doria-Netto — MÉDICO — CRM/SP 118350 · RQE 48918 — Neurocirurgia. Este site tem finalidade informativa e não substitui a consulta médica. Em caso de emergência, ligue 192 (SAMU)."
     }
   }
 }

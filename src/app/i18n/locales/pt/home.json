@@ -8,13 +8,12 @@
       "description": "Avaliação especializada de aneurismas cerebrais, malformações arteriovenosas, cavernomas, doença de Moyamoya, revascularização cerebral e tumores cranianos complexos."
     },
     "sobreMim": {
-      "heading": "Vinte anos dedicados à neurocirurgia vascular",
+      "heading": "Uma trajetória dedicada à neurocirurgia vascular",
       "paragraph": "Formação microcirúrgica com o Prof. Dr. Evandro de Oliveira, experiência internacional na University of California, San Francisco, e no Barrow Neurological Institute, doutorado em neurociência e coordenação do Departamento de Neurocirurgia Vascular da Sociedade Brasileira de Neurocirurgia.",
       "fotoAlt": "Dr. Hugo Doria em seu consultório",
       "stats": {
-        "experiencia": "Anos de Experiência",
-        "artigos": "Artigos Publicados",
-        "pacientes": "Pacientes Atendidos"
+        "titulacao": "Doutorado em Neurociência · UNIFESP",
+        "registro": "Especialista registrado no CREMESP"
       }
     },
     "casos": {
@@ -42,7 +41,7 @@
       "texts": {
         "hospitals": "Neurocirurgião nos hospitais BP, Santa Catarina, Albert Einstein e Sírio-Libanês.",
         "coordination": "Coordenador do Departamento de Neurocirurgia Vascular da Sociedade Brasileira de Neurocirurgia.",
-        "publications": "Publicações em periódicos nacionais e internacionais de neurocirurgia, com atuação como revisor, ao longo de 20 anos de prática na área.",
+        "publications": "Publicações em periódicos nacionais e internacionais de neurocirurgia, com atuação como revisor ao longo da carreira.",
         "surgery": "Atuação cirúrgica em casos de alta complexidade vascular e neurológica, com técnicas microcirúrgicas modernas."
       },
       "alts": {
@@ -54,7 +53,7 @@
     },
     "quote": {
       "text": "A Neurocirurgia é uma arte e é uma honra poder exercê-la. Atuar em uma área de extrema importância para resgatar a vida dos pacientes é muito mais que uma profissão, é um grande privilégio.",
-      "attribution": "Assim define Dr. Hugo Leonardo Doria-Netto, MD, PhD, seu dom na medicina é reconhecido como uma dádiva de Deus."
+      "attribution": "Assim define Dr. Hugo Leonardo Doria-Netto, MD, PhD, que exerce a neurocirurgia como responsabilidade e vocação, colocando conhecimento e técnica a serviço da vida."
     },
     "brain": {
       "heading": "Cuidados Essenciais para Sua Saúde Neurológica",

@@ -1,0 +1,53 @@
+{
+  "name": "Dr. Hugo Doria — Neurocirurgia",
+  "short_name": "Dr. Hugo Doria",
+  "description": "Neurocirurgia vascular e craniana de alta complexidade em São Paulo. Agendamento, endereço e contato a um toque.",
+  "id": "/",
+  "start_url": "/?fonte=app",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "background_color": "#1a293f",
+  "theme_color": "#1a293f",
+  "categories": ["medical", "health"],
+  "icons": [
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Agendar consulta",
+      "short_name": "Agendar",
+      "description": "Falar com a equipe pelo WhatsApp",
+      "url": "/contato?fonte=app-atalho"
+    },
+    {
+      "name": "Como chegar",
+      "short_name": "Localização",
+      "description": "Endereço e rota até o consultório",
+      "url": "/localizacao?fonte=app-atalho"
+    }
+  ]
+}
