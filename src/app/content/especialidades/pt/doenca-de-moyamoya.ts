@@ -53,7 +53,7 @@ export const article: ArticleContent = {
       tocLabel: "Tratamento",
       heading: "Revascularização cerebral",
       paragraphs: [
-        "O tratamento é essencial para prevenir AVCs e hemorragias. Cada caso é avaliado individualmente, e o tratamento cirúrgico, em mãos especializadas, reduz o risco de AVCs:",
+        "O tratamento é essencial para prevenir AVCs e hemorragias. Cada caso é avaliado individualmente:",
       ],
       options: [
         {

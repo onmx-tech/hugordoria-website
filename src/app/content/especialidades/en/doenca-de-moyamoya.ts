@@ -53,7 +53,7 @@ export const article: ArticleContent = {
       tocLabel: "Treatment",
       heading: "Cerebral revascularization",
       paragraphs: [
-        "Treatment is essential to prevent strokes and hemorrhages. Each case is assessed individually, and surgical treatment, in specialized hands, reduces the risk of strokes:",
+        "Treatment is essential to prevent strokes and hemorrhages. Each case is assessed individually:",
       ],
       options: [
         {
