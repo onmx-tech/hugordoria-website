@@ -1,0 +1,427 @@
+{
+  "_meta": {
+    "data": "2026-07-29",
+    "escopo": "public/v4/depoimentos/depo-01.png .. depo-24.png",
+    "base_legal": "Resolução CFM 2.336/2023 — Art. 8º §3º e §4º, Art. 11 XII, Art. 13, Art. 14 II 'g' e II 'i' 3",
+    "observacao_estrutural": "24 arquivos, mas 38 comentários de terceiros (vários prints contêm 2 ou 3 comentários) + 1 resposta pública do próprio médico (depo-19). O campo 'veredito' de cada arquivo é o PIOR caso entre os comentários daquele print — um print só pode ir ao ar inteiro. O array 'comentarios' traz o veredito individual de cada texto, que é o material realmente reaproveitável.",
+    "alerta_de_conjunto": "Mesmo que todo comentário aproveitável seja anonimizado e reescrito, publicá-los AGRUPADOS numa galeria configura elogio a técnica/resultado de forma reiterada e sistemática (Art. 8º §4º), que vai à Codame independentemente do mérito de cada peça. A triagem individual NÃO resolve o risco do conjunto.",
+    "alerta_de_formato": "Nenhum dos 24 arquivos pode ir ao ar como imagem, nem com tarja. Print de rede social carrega @ , avatar, data e layout que identificam o autor; borrar o @ mantém o avatar, o padrão de escrita e a rastreabilidade pela data do post. O caminho seguro é texto puro, sem screenshot.",
+    "contagem_por_arquivo": { "descartar": 23, "aproveitavel": 0, "aproveitavel_com_corte": 1 },
+    "contagem_por_comentario": { "total": 38, "descartar": 30, "aproveitavel": 3, "aproveitavel_com_corte": 5 },
+    "nota_contagem": "O array 'comentarios' só foi desdobrado nos prints em que ALGUM comentário sobrevive à triagem. Os prints 05, 14, 15 e 19 também têm 2 comentários cada, mas todos são descarte — ficaram agregados no objeto do arquivo. Daí 34 objetos granulares para 38 comentários reais.",
+    "incidencia_por_problema": {
+      "promessa_ou_insinuacao_de_resultado": "20 de 38 comentários (53%) — 'curar', 'salvar', 'cura', 'milagre', 'nova vida', 'garantir'",
+      "superlativo_de_superioridade": "17 de 38 — incluindo 4 ocorrências do literal 'o melhor'",
+      "mencao_religiosa": "22 dos 24 arquivos (todos menos depo-03 e depo-05)",
+      "diagnostico_ou_procedimento_nomeado": "10 comentários — cavernoma, angioma cavernoso no cerebelo, aneurisma cerebral, cirurgia de coluna, UTI, angiografia",
+      "terceiro_exposto": "4 casos — depo-01 ('Sarinha'), depo-07 (nome da paciente no corpo + outro médico), depo-11 (marido), depo-19 (o médico repete o @ da paciente)",
+      "avatar_com_rosto_identificavel": "36 de 38 (as 2 exceções são logotipos de negócio, mas o @ identifica igual)"
+    }
+  },
+  "depoimentos": [
+    {
+      "arquivo": "depo-01.png",
+      "transcricao": "Parabéns Dr Hugo!! Que Deus continue te capacitando para reestabelecer e curar vidas como a senhor ajudou com a Sarinha! Eterna gratidão!",
+      "autor_visivel": "penkalviviane",
+      "tem_foto_rosto": true,
+      "terceiros_citados": ["Sarinha"],
+      "problemas": ["promessa_resultado", "identificacao_autor", "foto_rosto", "terceiro_identificado", "religioso"],
+      "veredito": "descartar",
+      "motivo": "Expõe uma TERCEIRA pessoa pelo primeiro nome ('a Sarinha'), que não escreveu o comentário e não consentiu — o comentário é de acompanhante, não da paciente. Some com 'curar vidas'. Anonimizar a autora não protege a paciente citada.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-02.png",
+      "transcricao": "[1] dressaalbuquerque: \"Parabéns Dr. Hugo! É merecedor de todo reconhecimento. Que Deus te abençoe sempre! Gratidão! Um abraço de sua paciente 🙏🌷\" | [2] eti.medeiros: \"Parabéns para o melhor. Que Deus continue te abençoando.\" | [3] greicydestro: \"Parabéns Dr. Hugo, um orgulho ter você como meu médico, o mundo precisa de médicos como você 👏👏\"",
+      "autor_visivel": "dressaalbuquerque / eti.medeiros / greicydestro",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["superlativo", "identificacao_autor", "foto_rosto", "religioso"],
+      "veredito": "descartar",
+      "motivo": "Print inteiro cai por causa do comentário 2 ('para o melhor'). Os comentários 1 e 3 têm texto aproveitável — ver array 'comentarios'.",
+      "texto_sugerido": null,
+      "comentarios": [
+        {
+          "autor_visivel": "dressaalbuquerque",
+          "transcricao": "Parabéns Dr. Hugo! É merecedor de todo reconhecimento. Que Deus te abençoe sempre! Gratidão! Um abraço de sua paciente 🙏🌷",
+          "problemas": ["identificacao_autor", "foto_rosto", "religioso"],
+          "veredito": "aproveitavel",
+          "texto_sugerido": "Parabéns, Dr. Hugo. É merecedor de todo reconhecimento. Gratidão! Um abraço de sua paciente.",
+          "atribuicao": "Andressa A.",
+          "atribuicao_nota": "Nome inferido do @ ('dressa'). CONFIRMAR com o cliente antes de publicar."
+        },
+        {
+          "autor_visivel": "eti.medeiros",
+          "transcricao": "Parabéns para o melhor. Que Deus continue te abençoando.",
+          "problemas": ["superlativo", "identificacao_autor", "foto_rosto", "religioso"],
+          "veredito": "descartar",
+          "texto_sugerido": null,
+          "motivo": "'o melhor' é adjetivo de superioridade comparativa — Art. 14, II, 'g'. Sem esse trecho não sobra depoimento."
+        },
+        {
+          "autor_visivel": "greicydestro",
+          "transcricao": "Parabéns Dr. Hugo, um orgulho ter você como meu médico, o mundo precisa de médicos como você 👏👏",
+          "problemas": ["superlativo", "identificacao_autor", "foto_rosto"],
+          "veredito": "aproveitavel_com_corte",
+          "corte": "Retirar 'o mundo precisa de médicos como você' — comparação implícita com os demais médicos.",
+          "texto_sugerido": "Parabéns, Dr. Hugo. Um orgulho ter você como meu médico.",
+          "atribuicao": "Greicy D."
+        }
+      ]
+    },
+    {
+      "arquivo": "depo-03.png",
+      "transcricao": "Com certeza irá desempenhar o seu máximo, Dr. Hugo Leonardo Doria Netto nessa profissão é o melhor, eu posso dizer sobre isso, por duas vezes me devolveu a saúde retornando a vida normal,.",
+      "autor_visivel": "anafloresgayno",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["promessa_resultado", "superlativo", "identificacao_autor", "foto_rosto"],
+      "veredito": "descartar",
+      "motivo": "Dobra a violação: 'é o melhor' (Art. 14, II, 'g') e 'me devolveu a saúde retornando a vida normal' (Art. 11, XII). Não sobra texto depois do corte.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-04.png",
+      "transcricao": "O Sr é o melhor... Sou grata a Deus por tudo que fez por mim 🙏",
+      "autor_visivel": "miriamrozzo",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["superlativo", "identificacao_autor", "foto_rosto", "religioso"],
+      "veredito": "descartar",
+      "motivo": "'é o melhor' abre o depoimento; o resto é agradecimento genérico sem conteúdo. Nada a preservar.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-05.png",
+      "transcricao": "[1] adriana_thomaz: \"Gratidão por tudo Dr. Hugo... Sua equipe é sensacional! 🙌❤️👏👏👏👏\" | [2] rayferreira2431: \"👏👏👏👏❤️ O melhor confio plenamente\"",
+      "autor_visivel": "adriana_thomaz / rayferreira2431",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["superlativo", "identificacao_autor", "foto_rosto"],
+      "veredito": "descartar",
+      "motivo": "Os dois comentários são só adjetivação laudatória: 'sensacional' e 'O melhor'. Nenhum descreve experiência assistencial.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-06.png",
+      "transcricao": "Certeza absoluta tiveram o privilégio de ouvir o mestre o Dr anjo iluminado aquele aquém Deus deu o dom da sabedoria,sabes que sou eternamente grata.",
+      "autor_visivel": "evanigonesilva",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["superlativo", "identificacao_autor", "foto_rosto", "religioso"],
+      "veredito": "descartar",
+      "motivo": "'o mestre', 'anjo iluminado', 'dom da sabedoria' — superioridade sobrenatural, o oposto de sobriedade (Art. 14, II, 'g').",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-07.png",
+      "transcricao": "Essa foi a imagem que vi saindo da cirurgia, você sorrindo e falando: Thaís, está tudo bem a cirurgia foi ótima! Que privilégio e presente de Deus ter tido a chance de ter você o Dr Ricardo e toda equipe! Vcs foram incríveis! Tinha e ainda tenho tanto a viver... até mãe sou!!! O medo se transforma em esperança com fé em Deus e nas mãos de profissionais como vcs!",
+      "autor_visivel": "thaistcb",
+      "tem_foto_rosto": true,
+      "terceiros_citados": ["Thaís (a própria autora, nominada no corpo do texto)", "Dr Ricardo"],
+      "problemas": ["promessa_resultado", "superlativo", "identificacao_autor", "foto_rosto", "terceiro_identificado", "religioso", "mencao_procedimento"],
+      "veredito": "descartar",
+      "motivo": "O primeiro nome da paciente está DENTRO do texto ('Thaís, está tudo bem') — anonimizar o @ não anonimiza nada. Divulga resultado ('a cirurgia foi ótima') e nomeia outro profissional.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-08.png",
+      "transcricao": "Que Deus continue abençoando ao senhor Dr. Hugo e a sua família, você é uma pessoa muito especial, que Deus continue fazendo milagres através de você!!! Você é um instrumento de Deus nas vidas de tantas pessoas. Continue Humilde e dedicado a sua profissão e aos seus pacientes... Que você alcance todos os sonhos que Deus tem pra você!!!",
+      "autor_visivel": "julianatp",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["promessa_resultado", "identificacao_autor", "foto_rosto", "religioso"],
+      "veredito": "descartar",
+      "motivo": "'fazendo milagres através de você' insinua resultado extraordinário (Art. 11, XII). O restante é bênção, não relato de atendimento.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-09.png",
+      "transcricao": "[1] grazielascatena: \"Excelente neurocirurgiao! Gratidão por tudo! 😍\" | [2] ju_abondanza_: \"Parabéns Dr Hugo por seu conhecimento, por sua competência, que o Senhor continue curando doenças e devolvendo vidas, que nosso Pai Celestial abençoe sua vida\" | [3] selmadasilvasampaio: \"Parabéns Dr Hugo por toda sua dedicação e empenho com seus pacientes. Que Deus sempre abençoe sua vida e te aprimore cada dia mais! Deus te abençoe sempre!\"",
+      "autor_visivel": "grazielascatena / ju_abondanza_ / selmadasilvasampaio",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["promessa_resultado", "superlativo", "identificacao_autor", "foto_rosto", "religioso"],
+      "veredito": "descartar",
+      "motivo": "Print cai pelos comentários 1 e 2. O comentário 3 é aproveitável — ver array 'comentarios'.",
+      "texto_sugerido": null,
+      "comentarios": [
+        {
+          "autor_visivel": "grazielascatena",
+          "transcricao": "Excelente neurocirurgiao! Gratidão por tudo! 😍",
+          "problemas": ["superlativo", "identificacao_autor", "foto_rosto"],
+          "veredito": "descartar",
+          "texto_sugerido": null,
+          "motivo": "'Excelente' é o adjetivo; tirando ele sobra 'Gratidão por tudo', que não é depoimento."
+        },
+        {
+          "autor_visivel": "ju_abondanza_",
+          "transcricao": "Parabéns Dr Hugo por seu conhecimento, por sua competência, que o Senhor continue curando doenças e devolvendo vidas, que nosso Pai Celestial abençoe sua vida",
+          "problemas": ["promessa_resultado", "identificacao_autor", "foto_rosto", "religioso"],
+          "veredito": "descartar",
+          "texto_sugerido": null,
+          "motivo": "'curando doenças e devolvendo vidas' — Art. 11, XII."
+        },
+        {
+          "autor_visivel": "selmadasilvasampaio",
+          "transcricao": "Parabéns Dr Hugo por toda sua dedicação e empenho com seus pacientes. Que Deus sempre abençoe sua vida e te aprimore cada dia mais! Deus te abençoe sempre!",
+          "problemas": ["identificacao_autor", "foto_rosto", "religioso"],
+          "veredito": "aproveitavel",
+          "texto_sugerido": "Parabéns, Dr. Hugo, por toda sua dedicação e empenho com seus pacientes.",
+          "atribuicao": "Selma S."
+        }
+      ]
+    },
+    {
+      "arquivo": "depo-10.png",
+      "transcricao": "Tudo Deus sabe o que faz, o lugar , o caminho e seu filho médico sensacional, a minha gratidão por sua dedicação incansável à minha saúde e a minha vida será sempre caminhada comigo, EU VIVO..... DEUS colocou vc Dr. Hugo pra me salvar se hoje tô aqui foi por vc e sua equipe e concerteza por DEUS 🙏 hoje quero só Agradecer por tudo que fez e faz por mim🙏 que Deus continue abençoando imensamente sua vida e que vc continue sendo um guerreiro de vidas por Deus , de um coração estramamente feito com AMOR e BONDADE.... Parabénssss.... Dr Hugo Guerreiro de Deus, tenha sempre Fé, esperança, Amor e coragem pois Deus caminha com vc Dr. 🙏",
+      "autor_visivel": "mariaamelia_spizzca",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["promessa_resultado", "superlativo", "identificacao_autor", "foto_rosto", "religioso"],
+      "veredito": "descartar",
+      "motivo": "'EU VIVO', 'colocou vc pra me salvar', 'se hoje tô aqui foi por vc' — atribui a sobrevivência ao médico. É a formulação mais forte possível de promessa de resultado.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-11.png",
+      "transcricao": "Não tenho palavras para definir a nobreza desse médico, além de um excelente profissional, um ser humano fantástico, onde o respeito e empatia é predominante... acompanhei de perto por 5 anos, a dedicação e o cuidado que teve com o meu marido e tbm para com a família... Deus lhe abençoe Dr Hugo🙏",
+      "autor_visivel": "cicipadua",
+      "tem_foto_rosto": true,
+      "terceiros_citados": ["meu marido (identificável pelo perfil da autora)"],
+      "problemas": ["superlativo", "identificacao_autor", "foto_rosto", "terceiro_identificado", "religioso"],
+      "veredito": "descartar",
+      "motivo": "'excelente', 'fantástico' + expõe o marido como paciente por 5 anos. Quem é o paciente não escreveu nem autorizou; o @ da esposa o identifica.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-12.png",
+      "transcricao": "[1] isahh_silvaahhh: \"Parabéns, fui sua paciente em acompanhamento sobre meus meus cavernomas.\" | [2] mayrasenna_perfumaria: \"Sou grata a Deus e ao Senhor Dr. Hugo, este ano completa 6 anos da minha cirurgia e cura...que Deus continue conduzindo suas mãos sempre. Abraço 🙌\" | [3] navals.cake: \"Há 14 anos atrás o senhor Dr. Hugo realizava uma cirurgia na minha coluna, sou muito grata, que Deus continue abençoando grandemente a sua vida. Obrigada ❤️🙏 @drhugodoria\"",
+      "autor_visivel": "isahh_silvaahhh / mayrasenna_perfumaria / navals.cake",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["promessa_resultado", "identificacao_autor", "foto_rosto", "religioso", "mencao_procedimento"],
+      "veredito": "descartar",
+      "motivo": "Print cai pelo comentário 2 ('cirurgia e cura'). Os comentários 1 e 3 rendem texto — ver array 'comentarios'. Nota: os avatares 2 e 3 são logotipos de negócio, não rostos, mas o @ identifica a pessoa igual.",
+      "texto_sugerido": null,
+      "comentarios": [
+        {
+          "autor_visivel": "isahh_silvaahhh",
+          "transcricao": "Parabéns, fui sua paciente em acompanhamento sobre meus meus cavernomas.",
+          "problemas": ["identificacao_autor", "foto_rosto", "mencao_procedimento"],
+          "veredito": "aproveitavel_com_corte",
+          "corte": "Retirar o diagnóstico ('cavernomas') — nome de doença + @ do autor é prontuário público.",
+          "texto_sugerido": "Parabéns. Fui sua paciente em acompanhamento.",
+          "atribuicao": "Isa S.",
+          "nota": "Depois do corte o texto não afirma nada — sugiro descartar por irrelevância editorial, não por risco."
+        },
+        {
+          "autor_visivel": "mayrasenna_perfumaria",
+          "transcricao": "Sou grata a Deus e ao Senhor Dr. Hugo, este ano completa 6 anos da minha cirurgia e cura...que Deus continue conduzindo suas mãos sempre. Abraço 🙌",
+          "problemas": ["promessa_resultado", "identificacao_autor", "religioso", "mencao_procedimento"],
+          "veredito": "descartar",
+          "texto_sugerido": null,
+          "motivo": "'minha cirurgia e cura' — declaração de cura é o núcleo do Art. 11, XII."
+        },
+        {
+          "autor_visivel": "navals.cake",
+          "transcricao": "Há 14 anos atrás o senhor Dr. Hugo realizava uma cirurgia na minha coluna, sou muito grata, que Deus continue abençoando grandemente a sua vida. Obrigada ❤️🙏 @drhugodoria",
+          "problemas": ["identificacao_autor", "religioso", "mencao_procedimento"],
+          "veredito": "aproveitavel_com_corte",
+          "corte": "Retirar a marcação '@drhugodoria' e a bênção final. Avaliar com o cliente se mantém 'na minha coluna' — o procedimento por si só não viola, mas soma exposição.",
+          "texto_sugerido": "Há 14 anos o senhor realizava uma cirurgia na minha coluna. Sou muito grata. Obrigada.",
+          "atribuicao": "A CONFIRMAR",
+          "atribuicao_nota": "O @ é de uma confeitaria; não dá para inferir primeiro nome. Pedir ao cliente ou publicar como 'Paciente, cirurgia de coluna — 2012'."
+        }
+      ]
+    },
+    {
+      "arquivo": "depo-13.png",
+      "transcricao": "[1] joseanebernardi: \"Peço que Deus continue te guiando neste chamado, renovando suas forças e te proporcionando o reconhecimento de cumprir o propósito!\" | [2] jaderxavier: \"Parabéns pelo dia do Neurocirurgião! Agradeço pelo acolhimento antes da minha cirurgia. O senhor me passou muita tranquilidade. Que Deus o abençoe sempre 🙌\" | [3] bugdanoviczana: \"eu só tenho agradecer ao doutor passei pelas mão do doutor Hugo sem palavras pra espressar e excelente muito humano que Deus sempre abençoe VC Hugo um grande profissional só gratidão\"",
+      "autor_visivel": "joseanebernardi / jaderxavier / bugdanoviczana",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["superlativo", "identificacao_autor", "foto_rosto", "religioso", "mencao_procedimento"],
+      "veredito": "descartar",
+      "motivo": "Print cai pelo comentário 3 ('excelente', 'grande profissional'). O comentário 2 é o MELHOR texto do lote inteiro — ver array 'comentarios'.",
+      "texto_sugerido": null,
+      "comentarios": [
+        {
+          "autor_visivel": "joseanebernardi",
+          "transcricao": "Peço que Deus continue te guiando neste chamado, renovando suas forças e te proporcionando o reconhecimento de cumprir o propósito!",
+          "problemas": ["identificacao_autor", "foto_rosto", "religioso"],
+          "veredito": "descartar",
+          "texto_sugerido": null,
+          "motivo": "Não é depoimento — é bênção. Não relata nenhuma experiência de atendimento. Descartar por vazio, não por risco."
+        },
+        {
+          "autor_visivel": "jaderxavier",
+          "transcricao": "Parabéns pelo dia do Neurocirurgião! Agradeço pelo acolhimento antes da minha cirurgia. O senhor me passou muita tranquilidade. Que Deus o abençoe sempre 🙌",
+          "problemas": ["identificacao_autor", "foto_rosto", "religioso", "mencao_procedimento"],
+          "veredito": "aproveitavel",
+          "texto_sugerido": "Agradeço pelo acolhimento antes da minha cirurgia. O senhor me passou muita tranquilidade.",
+          "atribuicao": "Jader X.",
+          "nota": "Único do lote que elogia o CUIDADO (acolhimento, tranquilidade) e não o RESULTADO. É o modelo a mostrar ao cliente do que é publicável."
+        },
+        {
+          "autor_visivel": "bugdanoviczana",
+          "transcricao": "eu só tenho agradecer ao doutor passei pelas mão do doutor Hugo sem palavras pra espressar e excelente muito humano que Deus sempre abençoe VC Hugo um grande profissional só gratidão",
+          "problemas": ["superlativo", "identificacao_autor", "foto_rosto", "religioso"],
+          "veredito": "descartar",
+          "texto_sugerido": null,
+          "motivo": "'excelente', 'grande profissional' — o texto é quase inteiro adjetivação."
+        }
+      ]
+    },
+    {
+      "arquivo": "depo-14.png",
+      "transcricao": "[1] geiseglauciac: \"Deus lhe abençoe sempre, graças a Deus e a dedicação sua e da sua equipe, hoje faz um ano e três dias que tive alta da internação de quatro meses e quarenta dias de UTI. Obrigada Dr Hugo!!\" | [2] solangepiresdias: \"Parabéns Dr Hugo pela competência, humanidade, e carinho com seus pacientes. Peço a Deus que continue abençoando sua vida e o capacitando cada dia mais, para salvar vidas no Nome de Jesus Cristo !!!🙏\"",
+      "autor_visivel": "geiseglauciac / solangepiresdias",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["promessa_resultado", "identificacao_autor", "foto_rosto", "religioso", "mencao_procedimento"],
+      "veredito": "descartar",
+      "motivo": "[1] narra alta após 4 meses de internação e 40 dias de UTI atribuindo o desfecho ao médico — divulgação de resultado de tratamento (Art. 13 / Art. 11, XII), e um quadro tão específico é reidentificável mesmo anônimo. [2] 'salvar vidas'.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-15.png",
+      "transcricao": "[1] joyy_arcanjoo: \"Parabéns Dr. Hugo! Que Deus te abençoe e lhe dê muita saúde para ajudar e curar muitas vidas.\" | [2] dedanascimento: \"Deus é tão maravilhoso que me levou até você @drhugodoria e através da sua humanidade como um belo profissional eu entreguei a minha vida em suas mãos e hoje estou curado, após as cirurgias que passei de prevenção de aneurisma celebral. Sempre acreditei primeiramente em Deus e segundo em Você. Terça-feira estarei indo levar o exame da angiografia e nele mostra que estou curado.\"",
+      "autor_visivel": "joyy_arcanjoo / dedanascimento",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["promessa_resultado", "identificacao_autor", "foto_rosto", "religioso", "mencao_procedimento"],
+      "veredito": "descartar",
+      "motivo": "[2] declara 'hoje estou curado' DUAS vezes, nomeia diagnóstico (aneurisma cerebral), cirurgias e exame de controle (angiografia), e marca o perfil do médico. É um prontuário publicado como propaganda. [1] 'curar muitas vidas'.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-16.png",
+      "transcricao": "[1] limakelline: \"Parabéns Dr. Hugo, que o talento e amor em salvar vidas e fazer a diferença continue a cada dia da sua jornada.\" | [2] julia.batistacarvalho: \"Parabéns pela definição a sua missão enviada por deus para salvar vidas Deus abençoe você cada dia mais 🙏\" | [3] adriana_thomaz: \"Sempre alegre nos recebendo quando saímos da sala de cirurgia. Parabéns Dr. Hugo, que Deus continue abençoado seu lindo trabalho que é curar os pacientes! 🙌❤️😍\"",
+      "autor_visivel": "limakelline / julia.batistacarvalho / adriana_thomaz",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["promessa_resultado", "identificacao_autor", "foto_rosto", "religioso", "mencao_procedimento"],
+      "veredito": "descartar",
+      "motivo": "Os três falam em salvar/curar. O comentário 3 tem uma primeira frase aproveitável — ver array 'comentarios'.",
+      "texto_sugerido": null,
+      "comentarios": [
+        {
+          "autor_visivel": "limakelline",
+          "transcricao": "Parabéns Dr. Hugo, que o talento e amor em salvar vidas e fazer a diferença continue a cada dia da sua jornada.",
+          "problemas": ["promessa_resultado", "identificacao_autor", "foto_rosto"],
+          "veredito": "descartar",
+          "texto_sugerido": null
+        },
+        {
+          "autor_visivel": "julia.batistacarvalho",
+          "transcricao": "Parabéns pela definição a sua missão enviada por deus para salvar vidas Deus abençoe você cada dia mais 🙏",
+          "problemas": ["promessa_resultado", "identificacao_autor", "foto_rosto", "religioso"],
+          "veredito": "descartar",
+          "texto_sugerido": null
+        },
+        {
+          "autor_visivel": "adriana_thomaz",
+          "transcricao": "Sempre alegre nos recebendo quando saímos da sala de cirurgia. Parabéns Dr. Hugo, que Deus continue abençoado seu lindo trabalho que é curar os pacientes! 🙌❤️😍",
+          "problemas": ["promessa_resultado", "identificacao_autor", "foto_rosto", "religioso", "mencao_procedimento"],
+          "veredito": "aproveitavel_com_corte",
+          "corte": "Retirar tudo a partir de 'Parabéns Dr. Hugo' — 'seu lindo trabalho que é curar os pacientes' é promessa de resultado.",
+          "texto_sugerido": "Sempre alegre nos recebendo quando saímos da sala de cirurgia.",
+          "atribuicao": "Adriana T.",
+          "nota": "É voz de acompanhante, não de paciente. Se publicar, rotular como acompanhante para não induzir a leitura de que é relato de tratamento próprio."
+        }
+      ]
+    },
+    {
+      "arquivo": "depo-17.png",
+      "transcricao": "Vc é anjo,aquém Deus deu sabedoria conhecimento capacidade para aliviar sofrimento e trazer vida escura aos que confiam em vc na ciência e em DEUS pois vc é merecedor dos dons que tem,eu sou grata é minha família tbm",
+      "autor_visivel": "evanigonesilva",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["promessa_resultado", "superlativo", "identificacao_autor", "foto_rosto", "religioso"],
+      "veredito": "descartar",
+      "motivo": "'Vc é anjo', 'dons' + 'aliviar sofrimento e trazer vida'. Segunda aparição da mesma autora (também em depo-06) — dois prints da mesma pessoa reforçam o caráter sistemático do Art. 8º, §4º.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-18.png",
+      "transcricao": "Tenha certeza disso Dr. Hugo, Deus colocou o Dr nesse mundo, com esse dom magnífico de curar vidas. Meus mais sinceros agradecimentos pela minha cura e pela minha nova vida!!!",
+      "autor_visivel": "alves.digao",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["promessa_resultado", "superlativo", "identificacao_autor", "foto_rosto", "religioso"],
+      "veredito": "descartar",
+      "motivo": "'dom magnífico de curar vidas', 'minha cura', 'minha nova vida' — três formulações de promessa de resultado no mesmo parágrafo.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-19.png",
+      "transcricao": "[1] bernadethyarzon: \"Parabéns meu querido Dr Hugo, eu Amo o Senhor e peço a Deus que Ele lhe proteja e abençoe sempre. Parabéns pelo seu dia!!!\" | [2] RESPOSTA DO PRÓPRIO MÉDICO — drhugodoria: \"@bernadethyarzon amém . Muito obrigado\" | [3] pri.pris: \"Vcs são definitivamente especiais! Salvam as vidas de seus pacientes sim, mas salvam também os familiares, com carinho e apoio incondicionais. Que Deus lhe abençoe e ilumine sempre!!😍😍\"",
+      "autor_visivel": "bernadethyarzon / drhugodoria (o próprio) / pri.pris",
+      "tem_foto_rosto": true,
+      "terceiros_citados": ["@bernadethyarzon (citada pelo próprio médico na resposta)"],
+      "problemas": ["promessa_resultado", "identificacao_autor", "foto_rosto", "religioso"],
+      "veredito": "descartar",
+      "motivo": "AGRAVANTE ESPECÍFICO: este print mostra o próprio médico respondendo e repetindo o @ da paciente. É prova documental de que ele endossou e amplificou o conteúdo — exatamente o que o Art. 8º, §3º transforma em publicação DELE. Além disso, [3] traz 'salvam as vidas'.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-20.png",
+      "transcricao": "Sabe aquela pessoa importante na sua vida? É este incrivel neurocirurgião e esse enorme coraçao chamado Dr.Hugo Dória, foi escolhido a dedo por Deus paara transformar a vida das pessoas. Parabéns sempre!!!",
+      "autor_visivel": "greicydestro",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["promessa_resultado", "superlativo", "identificacao_autor", "foto_rosto", "religioso"],
+      "veredito": "descartar",
+      "motivo": "'incrível', 'escolhido a dedo por Deus', 'transformar a vida das pessoas'. Segunda aparição da mesma autora (também em depo-02).",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-21.png",
+      "transcricao": "Com certeza humanidade, Dom Divino aliados a vocação e extrema competência, só poderia resultar um sucesso efetivo em salvar vidas, garantir qualidade de vida futura e acalmar corações dos nossos familiares, que Deus o abençoe imensamente e gratidão eterna, por abraçar essa magnífica missão ! 👏 Obrigada Dr. Hugo",
+      "autor_visivel": "homa.tafnes",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["promessa_resultado", "superlativo", "identificacao_autor", "foto_rosto", "religioso"],
+      "veredito": "descartar",
+      "motivo": "PIOR DO LOTE. Usa o verbo literal da vedação: 'GARANTIR qualidade de vida futura' (Art. 11, XII veda garantir/prometer bons resultados), somado a 'sucesso efetivo em salvar vidas' e 'extrema competência'.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-22.png",
+      "transcricao": "Dr. Hugo que papai do céu continue te abençoando infinitamente, parabéns pela profissão maravilhosa e pelo profissional que vc é, o que posso dizer, te levo pra vida, gratidão ❤️",
+      "autor_visivel": "semiramispezuto",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["identificacao_autor", "foto_rosto", "religioso"],
+      "veredito": "aproveitavel_com_corte",
+      "motivo": "ÚNICO print do lote cujo texto não promete resultado nem afirma superioridade sobre outros médicos. 'maravilhosa' qualifica a PROFISSÃO, não o médico — mesmo assim, retirar por prudência.",
+      "corte": "Retirar 'profissão maravilhosa' e a bênção de abertura; ficar só com o reconhecimento pessoal.",
+      "texto_sugerido": "Dr. Hugo, parabéns pelo profissional que você é. O que posso dizer? Te levo pra vida, gratidão.",
+      "atribuicao": "Semíramis P.",
+      "nota": "Único arquivo que não é descarte. Ainda assim, publicar exige texto puro (sem o print) — o avatar mostra duas pessoas identificáveis."
+    },
+    {
+      "arquivo": "depo-23.png",
+      "transcricao": "Que tradução perfeita desse dom brilhante! Que Jesus lhe abençoe, proteja e Ilumine sempre, Dr Hugo! Eternamente grata! ❤️🙌",
+      "autor_visivel": "marjouri.garcia",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["superlativo", "identificacao_autor", "foto_rosto", "religioso"],
+      "veredito": "descartar",
+      "motivo": "'perfeita', 'dom brilhante' — adjetivação de superioridade; sem relato de atendimento.",
+      "texto_sugerido": null
+    },
+    {
+      "arquivo": "depo-24.png",
+      "transcricao": "Eu tinha um angioma cavernoso no cerebelo, o meu sangrou e fiz cirurgia de emergência e deu tudo certo sem nenhuma sequela🙏🙏",
+      "autor_visivel": "criss_costasouza",
+      "tem_foto_rosto": true,
+      "terceiros_citados": [],
+      "problemas": ["promessa_resultado", "identificacao_autor", "foto_rosto", "mencao_procedimento"],
+      "veredito": "descartar",
+      "motivo": "Caso-escola de divulgação de resultado de tratamento: diagnóstico ('angioma cavernoso no cerebelo'), intercorrência ('sangrou'), procedimento ('cirurgia de emergência') e desfecho ('deu tudo certo sem nenhuma sequela'). É o depoimento mais tecnicamente descritivo do lote e, por isso, o mais indefensável — induz o leitor a esperar o mesmo desfecho.",
+      "texto_sugerido": null
+    }
+  ]
+}

@@ -4,71 +4,65 @@ import svgPaths from "../../imports/svg-nx92b0rij3";
 import { gsap } from "../../lib/gsap";
 import { isPrerender } from "../../lib/prerender";
 
-// Depoimentos reais de pacientes — excertos das avaliações verificadas no
-// Doctoralia (perfil do Dr. Hugo Doria-Netto), levemente encurtados.
-// `roleKey` aponta para o i18n (home.casos.roles.*); quote e name são a fala e
-// o nome reais do paciente e NÃO se traduzem.
+// ⚠️ COMPLIANCE — ler antes de mexer aqui.
+// Excertos de avaliações públicas de pacientes (Doctoralia). Três regras
+// governam este bloco, e todas nasceram de norma, não de gosto:
+//
+// 1. ANONIMATO (CFM 2.336/2023, Art. 14, II, "i", 3). A identificação do
+//    paciente é vedada MESMO COM AUTORIZAÇÃO dele. Por isso a atribuição é
+//    primeiro nome + inicial. Não repor nome completo.
+// 2. SEM DIAGNÓSTICO ATRELADO A PESSOA. Antes cada card dizia "Paciente —
+//    Cirurgia de Aneurisma", "— Meningioma". Nome de gente somado a doença é
+//    dado pessoal SENSÍVEL (LGPD, Art. 5º, II) publicado abertamente, e a
+//    exposição é do paciente, não nossa. Todos usam o papel genérico.
+// 3. SEM AFIRMAÇÃO DE DESFECHO NEM SUPERLATIVO (Art. 11, XII e Art. 14, II,
+//    "g"). Saíram as falas com "estou curada", "hoje estou curado", "salvaram
+//    minha vida", "tratamento super eficaz" e "expertise de nível
+//    internacional" — a norma veda garantir, prometer ou INSINUAR resultado, e
+//    o depoimento tem de ser sóbrio. O que ficou fala de conduta, acolhimento
+//    e comunicação, que é o que o paciente de fato tem a dizer sem prometer
+//    nada a quem lê.
+//
+// Também vale o Art. 8º, §4º: elogio reiterado e sistemático vai para a
+// Codame. Manter o conjunto curto é parte da proteção — não voltar a encher.
+// A lista completa e a triagem caso a caso estão em docs/triagem-depoimentos.json.
 type Testimonial = { quote: string; name: string; roleKey: string; photo?: string | null };
 const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "Com muita competência, atenção e sensibilidade, conduziu minha cirurgia de forma impecável, sempre me transmitindo segurança, calma e confiança desde o primeiro contato.",
-    name: "Rita Cássia Nogueira",
-    roleKey: "home.casos.roles.aneurisma",
+    name: "Rita N.",
+    roleKey: "home.casos.roles.paciente",
   },
   {
     quote:
-      "Não há palavras que possam expressar minha sincera gratidão e admiração pelo Dr. Hugo! É evidente a capacidade dele como profissional. Mas é a forma como trata os pacientes, com respeito e dedicação, que o transforma em um ser humano único.",
-    name: "Marjouri Garcia",
-    roleKey: "home.casos.roles.tumores",
-  },
-  {
-    quote:
-      "Excelente profissional. Atendimento humanizado, muito empático. Dr. Hugo e sua equipe salvaram minha vida. A cirurgia foi um sucesso e me recupero muito bem.",
-    name: "Rita de Cássia de Jesus Silva",
-    roleKey: "home.casos.roles.schwannoma",
+      "Não há palavras que possam expressar minha gratidão. É evidente a capacidade dele como profissional, mas é a forma como trata os pacientes, com respeito e dedicação, que faz a diferença.",
+    name: "Marjouri G.",
+    roleKey: "home.casos.roles.paciente",
   },
   {
     quote:
       "Dr. Hugo demonstra muito domínio técnico e conhecimento científico em sua área de atuação; mas possui um diferencial: respeitar os momentos humanos que passamos como pacientes de cirurgias tão delicadas.",
-    name: "Rebecca F. A. Silva",
-    roleKey: "home.casos.roles.meningioma",
-  },
-  {
-    quote:
-      "Eu só tenho a agradecer a Deus, ao meu anjo da guarda Dr. Hugo Doria e toda equipe médica, que esteve ao meu lado durante todo o período que estive hospitalizada. Eterna gratidão!",
-    name: "Maria José da Silva Barbosa",
-    roleKey: "home.casos.roles.aneurisma",
-  },
-  {
-    quote:
-      "Neurocirurgião com expertise de nível internacional. Médico de altíssimo conhecimento científico e alma iluminada.",
-    name: "Reginaldo Queiroz",
+    name: "Rebecca S.",
     roleKey: "home.casos.roles.paciente",
   },
   {
     quote:
-      "Desde a primeira consulta me passou total confiança, foi muito atencioso e prestativo. Faz 5 anos que fiz a cirurgia e estou totalmente curada.",
-    name: "Marli de Fátima Pereira Viana",
-    roleKey: "home.casos.roles.aneurisma",
-  },
-  {
-    quote:
-      "Dr. Hugo e sua equipe, com a graça de Deus, conseguiram me livrar dessa angústia — hoje estou curado e minha gratidão é eterna!",
-    name: "James Cássio de Miranda",
-    roleKey: "home.casos.roles.aneurisma",
-  },
-  {
-    quote:
-      "Ótimo profissional, muito atencioso antes, durante e após o procedimento. Tratamento super eficaz! Sou grato por tudo!",
-    name: "Renato Santos",
+      "Desde a primeira consulta me passou total confiança. Foi muito atencioso e prestativo, e explicou cada etapa até eu entender.",
+    name: "Marli V.",
     roleKey: "home.casos.roles.paciente",
   },
   {
     quote:
-      "Na minha primeira consulta fui muito bem recebida, com muita atenção e carinho. Me senti totalmente segura e confiante. Minha recuperação tem sido rápida e tranquila graças à atenção e profissionalismo do Dr. Hugo e toda sua equipe.",
-    name: "Ana Maria Rosini",
-    roleKey: "home.casos.roles.meningioma",
+      "Na minha primeira consulta fui muito bem recebida, com muita atenção e carinho. Me senti segura e confiante para seguir com o tratamento.",
+    name: "Ana R.",
+    roleKey: "home.casos.roles.paciente",
+  },
+  {
+    quote:
+      "Muito atencioso antes, durante e depois do procedimento. A equipe esteve disponível sempre que precisei tirar uma dúvida.",
+    name: "Renato S.",
+    roleKey: "home.casos.roles.paciente",
   },
 ];
 
@@ -148,33 +142,25 @@ export default function SectionCasosDeSucesso() {
     if (!cardsRef.current) return;
     const cards = cardsRef.current.querySelectorAll("[data-card]");
     const dir = dirRef.current;
+    // Uma camada de movimento só. Antes o card deslizava E o conteúdo dele
+    // deslizava por dentro, com stagger próprio: duas velocidades na mesma
+    // peça fazem o texto parecer solto dentro da caixa. Trocar de página é
+    // ação direta do usuário — tem de responder rápido e parar.
     gsap.fromTo(
       cards,
-      dir === 0
-        ? { y: 24, opacity: 0 }
-        : { x: dir * 56, y: 0, opacity: 0, scale: 0.985 },
+      dir === 0 ? { y: 20, opacity: 0 } : { x: dir * 28, opacity: 0 },
       {
         x: 0,
         y: 0,
         opacity: 1,
-        scale: 1,
-        stagger: dir === 0 ? 0.08 : 0.07,
-        duration: dir === 0 ? 0.5 : 0.55,
-        ease: "power3.out",
+        stagger: 0.04,
+        duration: dir === 0 ? 0.45 : 0.32,
+        ease: "power2.out",
         onComplete: () => {
           animatingRef.current = false;
         },
       },
     );
-    // micro-stagger interno: aspas → texto → autor
-    if (dir !== 0) {
-      const parts = cardsRef.current.querySelectorAll("[data-card] > *");
-      gsap.fromTo(
-        parts,
-        { x: dir * 24, opacity: 0 },
-        { x: 0, opacity: 1, stagger: 0.05, duration: 0.5, delay: 0.08, ease: "power3.out" },
-      );
-    }
   }, [page]);
 
   // Saída direcional: anima os cards atuais para fora e só então troca a página
@@ -184,12 +170,15 @@ export default function SectionCasosDeSucesso() {
     animatingRef.current = true;
     dirRef.current = dir;
     const cards = cardsRef.current.querySelectorAll("[data-card]");
+    // Saída curta de propósito: o ciclo inteiro (sair + entrar) ficava perto de
+    // 1s, e nesse tempo um segundo clique já não responde. Agora são ~0,46s.
+    // Sem `scale`: escalar caixa com texto dentro borra a leitura no meio do
+    // movimento, e a informação é o que importa aqui.
     gsap.to(cards, {
-      x: dir * -56,
+      x: dir * -20,
       opacity: 0,
-      scale: 0.985,
-      stagger: 0.05,
-      duration: 0.3,
+      stagger: 0.03,
+      duration: 0.14,
       ease: "power2.in",
       onComplete: () => setPage((p) => p + dir),
     });
@@ -301,7 +290,7 @@ export default function SectionCasosDeSucesso() {
               type="button"
               onClick={() => paginate(-1)}
               disabled={!canPrev}
-              className="inline-flex items-center gap-3 rounded-full border border-navy px-5 py-3 font-['Arimo',sans-serif] font-normal text-navy transition-opacity duration-200 disabled:opacity-30"
+              className="inline-flex cursor-pointer items-center gap-3 rounded-full border border-navy px-5 py-3 font-['Arimo',sans-serif] font-normal text-navy transition-[opacity,background-color] duration-200 hover:bg-navy/[0.06] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent"
               style={{ fontSize: "clamp(16px, 1.2vw, 24px)" }}
             >
               <ArrowIcon flipped />
@@ -311,7 +300,7 @@ export default function SectionCasosDeSucesso() {
               type="button"
               onClick={() => paginate(1)}
               disabled={!canNext}
-              className="inline-flex items-center gap-3 rounded-full border border-navy px-5 py-3 font-['Arimo',sans-serif] font-normal text-navy transition-opacity duration-200 disabled:opacity-30"
+              className="inline-flex cursor-pointer items-center gap-3 rounded-full border border-navy px-5 py-3 font-['Arimo',sans-serif] font-normal text-navy transition-[opacity,background-color] duration-200 hover:bg-navy/[0.06] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent"
               style={{ fontSize: "clamp(16px, 1.2vw, 24px)" }}
             >
               {t("home.casos.proximo")}

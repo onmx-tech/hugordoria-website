@@ -138,15 +138,19 @@ export function Button({
 export function Stat({ value, label, tone = "dark" }: { value: string; label: string; tone?: "dark" | "light" }) {
   const main = tone === "light" ? "text-white" : "text-navy-600";
   const sub = tone === "light" ? "text-white/60" : "text-black/60";
+  // Mesma virada de escala do bloco da home (ver SectionSobreMim): o valor
+  // deixou de ser um número curto e passou a ser credencial, então rótulo
+  // pequeno em cima e prova embaixo, em corpo contido. Um "RQE 48918" a 64px
+  // grita; a sobriedade é o que sustenta a credibilidade aqui.
   return (
-    <div className="flex flex-col gap-5 w-full">
+    <div className="flex flex-col gap-4 w-full">
       <Divider tone={tone} />
-      <div className="flex items-baseline justify-between gap-4 w-full">
-        <span className={`font-display ${main} tracking-[-0.03em] text-[clamp(40px,5vw,64px)]`} style={{ fontWeight: 400, lineHeight: 1.05 }}>
-          {value}
-        </span>
-        <span className={`font-display ${sub} tracking-[-0.01em] text-[clamp(15px,1.4vw,20px)] text-right`} style={{ fontWeight: 400 }}>
+      <div className="flex flex-col gap-2 w-full">
+        <span className={`font-mono ${sub} uppercase tracking-[0.12em] text-[clamp(10px,0.8vw,12px)]`} style={{ fontWeight: 400 }}>
           {label}
+        </span>
+        <span className={`font-display ${main} tracking-[-0.02em] text-[clamp(22px,2.2vw,32px)]`} style={{ fontWeight: 500, lineHeight: 1.05 }}>
+          {value}
         </span>
       </div>
     </div>

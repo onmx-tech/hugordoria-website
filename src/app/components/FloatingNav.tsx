@@ -12,11 +12,8 @@ const NAV_LINKS = [
   { key: "depoimentos", to: "/depoimentos" },
 ] as const;
 
-const SHOW_THRESHOLD = 480;
-
 export default function FloatingNav() {
-  const [visible, setVisible] = useState(false);
-  const [noRodape, setNoRodape] = useState(false);
+  const [cedeVez, setCedeVez] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const { pathname } = useLocation();
   const { t } = useTranslation();
@@ -28,42 +25,38 @@ export default function FloatingNav() {
     return basePath.startsWith(to);
   };
 
-  useEffect(() => {
-    let lastY = window.scrollY;
-    let ticking = false;
-    const update = () => {
-      const y = window.scrollY;
-      const goingDown = y > lastY + 4;
-      const goingUp = y < lastY - 4;
-      // Só a PILL de navegação (desktop) obedece à direção do scroll: enquanto
-      // a pessoa desce lendo ela sai da frente, e volta ao subir. O botão de
-      // agendar NÃO participa disso — ver o comentário do CTA abaixo.
-      if (y <= SHOW_THRESHOLD) setVisible(false);
-      else if (goingDown) setVisible(false);
-      else if (goingUp) setVisible(true);
-      lastY = y;
-      ticking = false;
-    };
-    const onScroll = () => {
-      if (!ticking) { ticking = true; requestAnimationFrame(update); }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    update();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  // NADA aqui depende mais da direção do scroll. A pill de navegação também
+  // escondia ao descer e voltava ao subir, e o cliente reencontrou a mesma
+  // sensação de "não aparece" nela depois de eu ter consertado só o botão.
+  // Corrigir um elemento e deixar o irmão com a regra antiga é consertar pela
+  // metade: quem usa não distingue os dois, distingue "some do nada".
+  // Regra única agora: os dois flutuantes aparecem quando a página NÃO está
+  // oferecendo o mesmo caminho, e somem quando está — conteúdo, não gesto.
 
-  // O CTA cede a vez ao rodapé. Ele é fixo no canto inferior direito, que é
-  // exatamente onde mora a barra final do rodapé — sem isso os dois se
-  // sobrepõem (o cliente mandou print). Não é perda de conversão: quando o
-  // rodapé está na tela, telefone, WhatsApp e "Como chegar" já estão visíveis.
+  // O CTA flutuante existe para quando a página NÃO está oferecendo o caminho
+  // de agendar. Enquanto um equivalente estiver na tela, ele sai:
+  //   • os dois botões do hero — maiores, e o flutuante ainda cairia em cima do
+  //     letreiro "DR. HUGO DORIA", que é a assinatura da marca;
+  //   • a barra final do rodapé — mesmo canto inferior direito, os dois se
+  //     sobrepunham (o cliente mandou print).
+  // Isso NÃO recria o problema que o cliente relatou: lá o botão dependia da
+  // direção do dedo e podia não voltar nunca. Aqui a regra é o conteúdo, não o
+  // gesto — passou dos botões do hero, ele aparece e fica até o rodapé.
   useEffect(() => {
-    const alvo = document.querySelector("[data-footer-bar]");
-    if (!alvo) return;
+    const alvos = document.querySelectorAll('[data-hero="cta"], [data-footer-bar]');
+    if (!alvos.length) return;
+    const naTela = new Set<Element>();
     const io = new IntersectionObserver(
-      ([entrada]) => setNoRodape(entrada.isIntersecting),
+      (entradas) => {
+        for (const e of entradas) {
+          if (e.isIntersecting) naTela.add(e.target);
+          else naTela.delete(e.target);
+        }
+        setCedeVez(naTela.size > 0);
+      },
       { rootMargin: "0px 0px -8px 0px" },
     );
-    io.observe(alvo);
+    alvos.forEach((a) => io.observe(a));
     return () => io.disconnect();
   }, [pathname]);
 
@@ -78,10 +71,10 @@ export default function FloatingNav() {
       aria-label="Navegação flutuante"
       // Pill de navegação — só no desktop, e só depois que a leitura começa.
       // No mobile ela não existe: lá o polegar tem uma ação só, que é agendar.
-      className={`hidden md:flex fixed bottom-6 left-1/2 -translate-x-1/2 z-50 items-center rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] gap-1 px-1.5 py-1.5 ${visible ? "translate-y-0" : "translate-y-[calc(100%+2.5rem)]"}`}
+      className={`hidden md:flex fixed bottom-6 left-1/2 -translate-x-1/2 z-50 items-center rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] gap-1 px-1.5 py-1.5 ${!cedeVez ? "translate-y-0" : "translate-y-[calc(100%+2.5rem)]"}`}
       style={{
-        opacity: visible ? 1 : 0,
-        pointerEvents: visible ? "auto" : "none",
+        opacity: cedeVez ? 0 : 1,
+        pointerEvents: cedeVez ? "none" : "auto",
         background: "rgba(18, 33, 54, 0.75)",
         backdropFilter: "blur(24px) saturate(1.6)",
         WebkitBackdropFilter: "blur(24px) saturate(1.6)",
@@ -141,7 +134,7 @@ export default function FloatingNav() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t("nav.agendarAria")}
-      className={`fixed bottom-6 right-5 z-50 flex min-h-[48px] items-center gap-2.5 rounded-full px-5 text-[15px] font-medium leading-none tracking-[-0.01em] whitespace-nowrap transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${noRodape ? "pointer-events-none translate-y-[calc(100%+2.5rem)] opacity-0" : "translate-y-0 opacity-100"}`}
+      className={`fixed bottom-6 right-5 z-50 flex min-h-[48px] items-center gap-2.5 rounded-full px-5 text-[15px] font-medium leading-none tracking-[-0.01em] whitespace-nowrap transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${cedeVez ? "pointer-events-none translate-y-[calc(100%+2.5rem)] opacity-0" : "translate-y-0 opacity-100"}`}
       style={{
         fontFamily: "'Geist', sans-serif",
         textDecoration: "none",

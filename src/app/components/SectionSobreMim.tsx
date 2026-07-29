@@ -89,22 +89,32 @@ export default function SectionSobreMim() {
 
             <div className="flex flex-col">
               {STATS.map((stat) => (
+                /* Antes: número gigante numa coluna de largura fixa + rótulo
+                   minúsculo ao lado. Funcionava para "+20" e quebrou quando o
+                   conteúdo virou credencial — "RQE 48918" estourava a coluna e
+                   empurrava o rótulo para duas linhas. E, mais de fundo: um
+                   número de registro gritando a 54px é o oposto de sobriedade,
+                   que é justamente o que dá credibilidade a um site médico.
+                   Agora é uma entrada de certificado — o descritor em cima, em
+                   caixa alta espaçada, e a prova embaixo num corpo contido. A
+                   ordem inverte de propósito: o rótulo é o que significa, o
+                   número é o que comprova. */
                 <div
                   key={stat.labelKey}
                   data-reveal
-                  className="flex items-baseline gap-5 border-t border-navy/12 py-5 md:py-6"
+                  className="flex flex-col gap-2 border-t border-navy/12 py-5 md:py-6"
                 >
                   <span
-                    className="font-['Geist',sans-serif] font-semibold text-navy leading-none tracking-[-0.04em] shrink-0"
-                    style={{ fontSize: "clamp(34px, 3.6vw, 54px)", minWidth: "clamp(120px, 12vw, 190px)" }}
-                  >
-                    {stat.value}
-                  </span>
-                  <span
-                    className="font-['Geist',sans-serif] font-normal uppercase tracking-[0.06em] text-navy/50"
-                    style={{ fontSize: "clamp(12px, 0.95vw, 15px)" }}
+                    className="font-['Geist_Mono',ui-monospace,monospace] font-normal uppercase tracking-[0.12em] text-navy/45"
+                    style={{ fontSize: "clamp(10px, 0.8vw, 12px)" }}
                   >
                     {t(stat.labelKey)}
+                  </span>
+                  <span
+                    className="font-['Geist',sans-serif] font-medium text-navy leading-none tracking-[-0.02em]"
+                    style={{ fontSize: "clamp(22px, 2vw, 30px)" }}
+                  >
+                    {stat.value}
                   </span>
                 </div>
               ))}
