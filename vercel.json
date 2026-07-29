@@ -3,6 +3,11 @@
   "framework": "vite",
   "buildCommand": "npm run build:ssg",
   "outputDirectory": "dist",
+  "git": {
+    "deploymentEnabled": {
+      "main": false
+    }
+  },
   "redirects": [
     {
       "source": "/especialidades/aneurisma",

@@ -84,6 +84,30 @@ Regras:
 
 O overlay de edição visual é importado com `lazy()` sob `import.meta.env.DEV` no `main.tsx`. Ele não faz nada em produção, mas ia inteiro no bundle — o import dinâmico cortou **1.204 kB → 680 kB** (375 → 233 kB gzip). **Não voltar para o import estático.**
 
+## Deploy — produção é SEMPRE prebuilt local
+
+Domínio: **`hugodoria.merinno.com`** (projeto Vercel `hugordoria-website`, scope `onmx-techs-projects`). ⚠️ Não confundir com `hugodoria.com.br`, que ainda é o WordPress antigo do cliente.
+
+O prerender (`scripts/prerender.mjs`) usa puppeteer, e **o build server do Vercel não tem Chrome** — se o deploy sair de lá, o site vai ao ar como SPA vazio (`<div id="root"></div>`), o que já derrubou o PageSpeed de 100 para 66. Por isso:
+
+```bash
+vercel build --prod --scope onmx-techs-projects        # roda build:ssg LOCAL, com Chrome
+vercel deploy --prebuilt --prod --scope onmx-techs-projects
+```
+
+O `--prod` tem que estar nos **dois** comandos (build e deploy precisam do mesmo target, senão dá `prebuilt-environment-mismatch`).
+
+**Auto-deploy do `main` está DESLIGADO** via `git.deploymentEnabled` no `vercel.json` — é o que impede um `git push` de sobrescrever a produção com uma versão sem prerender. Não reativar enquanto o prerender depender de Chrome local (a saída definitiva é `@sparticuz/chromium` no build, ou migrar para `vite-react-ssg`).
+
+**Verificar o que está no ar por identidade, nunca pelo "deploy ok":**
+
+```bash
+curl -s https://hugodoria.merinno.com/ | grep -cE 'id="root"><(header|div|main)'   # 1 = prerenderizado, 0 = SPA vazio
+curl -s https://hugodoria.merinno.com/ | grep -o 'CRM/SP 118350'                   # rodapé CFM Art. 4º/6º
+```
+
+O HTML da home tem ~129 KB quando prerenderizado, ~5,5 KB quando não.
+
 ## Verificação
 
 - **Não existe `tsconfig.json` nem TypeScript instalado neste projeto** — o Vite transpila com esbuild, sem checagem de tipos. A verificação real é `npm run build` (deve terminar com `✓ built`). Ignore instruções antigas mandando rodar `npx tsc --noEmit`.
