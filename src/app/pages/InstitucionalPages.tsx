@@ -33,6 +33,34 @@ import {
   getInstitucional,
 } from "../content/institucional";
 
+import { TESTIMONIALS } from "../components/SectionCasosDeSucesso";
+
+/**
+ * Avaliações em texto, anonimizadas — o que substituiu a galeria de prints.
+ * Mesma fonte da home, para não existirem duas listas divergindo com o tempo.
+ * Grade simples e legível: sem carrossel, porque aqui a pessoa veio ler.
+ */
+function TestimonialsSobrios() {
+  const { t } = useTranslation();
+  return (
+    <div className="grid gap-5 md:grid-cols-2">
+      {TESTIMONIALS.map((d) => (
+        <figure
+          key={d.name}
+          className="flex flex-col justify-between gap-6 rounded-2xl border border-white/10 bg-white/[0.04] p-7 md:p-8"
+        >
+          <blockquote className="font-body text-[16px] leading-[1.55] text-cream/85">
+            “{d.quote}”
+          </blockquote>
+          <figcaption className="border-t border-white/10 pt-4 font-['Geist_Mono',ui-monospace,monospace] text-[11px] uppercase tracking-[0.12em] text-cream/45">
+            {d.name} · {t(d.roleKey)}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  );
+}
+
 // Casca compartilhada — navy + Navbar/Footer + scroll-to-top.
 // Exportada para as demais páginas institucionais (ex.: SegundaOpiniao.tsx)
 // usarem exatamente a mesma casca, sem clonar a estrutura.
@@ -433,14 +461,25 @@ export function DepoimentosPage() {
            depoimentos — contagem de pacientes anunciada sobre uma galeria de
            elogios é a leitura mais promocional possível do Art. 11, XVI. */
       />
+      {/* ⚠️ A galeria de 24 prints de avaliações foi RETIRADA daqui, e a
+          remoção não é editorial — é jurídica. As 24 imagens foram lidas uma a
+          uma (triagem completa em docs/triagem-depoimentos.json):
+            • 24 de 24 traziam o @ do autor E foto de rosto identificável, o
+              que a CFM 2.336/2023 veda mesmo com autorização do paciente
+              (Art. 14, II, "i", 3);
+            • 16 afirmavam ou insinuavam desfecho ("curar", "salvou"), vedado
+              pelo Art. 11, XII;
+            • 7 citavam o procedimento, expondo a condição de saúde de uma
+              pessoa identificada — dado sensível, LGPD Art. 5º, II;
+            • 3 nomeavam TERCEIROS que sequer escreveram o comentário.
+          Só 1 das 24 se salvaria, e ainda com corte. Além disso, a própria
+          reunião de 24 elogios em grade é o "reiterado e sistemático" do
+          Art. 8º, §4º — ou seja, mesmo prints individualmente inofensivos
+          somariam risco por estarem juntos.
+          Não recolocar. Se o consultório quiser voltar a exibir avaliações, o
+          caminho é texto anonimizado e sóbrio, como o bloco da home. */}
       <Section>
-        <div className="gap-5 sm:columns-2 lg:columns-3" style={{ columnFill: "balance" }}>
-          {DEPOIMENTOS_GALERIA.map((src, i) => (
-            <div key={i} className="mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
-              <img {...responsiveImg(src, "(max-width: 768px) 100vw, 400px")} alt={t("forms.depoimentos.itemAlt", { n: i + 1 })} loading="lazy" decoding="async" className="w-full" />
-            </div>
-          ))}
-        </div>
+        <TestimonialsSobrios />
       </Section>
     </Shell>
   );

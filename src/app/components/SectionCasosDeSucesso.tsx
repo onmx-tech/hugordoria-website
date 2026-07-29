@@ -27,7 +27,7 @@ import { isPrerender } from "../../lib/prerender";
 // Codame. Manter o conjunto curto é parte da proteção — não voltar a encher.
 // A lista completa e a triagem caso a caso estão em docs/triagem-depoimentos.json.
 type Testimonial = { quote: string; name: string; roleKey: string; photo?: string | null };
-const TESTIMONIALS: Testimonial[] = [
+export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "Com muita competência, atenção e sensibilidade, conduziu minha cirurgia de forma impecável, sempre me transmitindo segurança, calma e confiança desde o primeiro contato.",
