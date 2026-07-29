@@ -6,17 +6,11 @@ export const article: ArticleContent = {
   slug: "neuralgia-do-trigemeo",
   category: "Funcional",
   readingTime: "3 min",
-  lead: "Dor facial lancinante em crises, com ótimo resultado cirúrgico — até 85% dos pacientes sem sintomas.",
+  lead: "Dor facial lancinante em crises.",
   heroMeta: [
     { label: "Abordagem", value: "Descompressão ou rizotomia" },
     { label: "Incidência", value: "> 50 anos, mais em mulheres" },
-    { label: "Resultado", value: "Até 85% sem dor" },
   ],
-  quote: {
-    text: "A cirurgia apresenta ótimo resultado, com regressão completa dos sintomas em até 85% dos casos.",
-    emphasis: "regressão completa",
-    afterSectionId: "tratamento",
-  },
   sections: [
     {
       id: "o-que-e",
@@ -72,7 +66,7 @@ export const article: ArticleContent = {
         {
           title: "Descompressão microvascular",
           description:
-            "Com microscópio de alta resolução, o nervo e a alça vascular são identificados, dissecados e separados, com interposição de prótese entre as estruturas — regressão completa dos sintomas em até 85% dos casos.",
+            "Com microscópio de alta resolução, o nervo e a alça vascular são identificados, dissecados e separados, com interposição de prótese entre as estruturas.",
         },
       ],
     },

@@ -6,17 +6,11 @@ export const article: ArticleContent = {
   slug: "neuralgia-do-trigemeo",
   category: "Functional",
   readingTime: "3 min read",
-  lead: "Lancinating facial pain in bouts, with excellent surgical outcomes — up to 85% of patients symptom-free.",
+  lead: "Lancinating facial pain in bouts.",
   heroMeta: [
     { label: "Approach", value: "Decompression or rhizotomy" },
     { label: "Incidence", value: "> 50 years, more in women" },
-    { label: "Outcome", value: "Up to 85% pain-free" },
   ],
-  quote: {
-    text: "Surgery offers excellent outcomes, with complete resolution of symptoms in up to 85% of cases.",
-    emphasis: "complete resolution",
-    afterSectionId: "tratamento",
-  },
   sections: [
     {
       id: "o-que-e",
@@ -72,7 +66,7 @@ export const article: ArticleContent = {
         {
           title: "Microvascular decompression",
           description:
-            "Using a high-resolution microscope, the nerve and the vascular loop are identified, dissected, and separated, with the interposition of a prosthesis between the structures — complete resolution of symptoms in up to 85% of cases.",
+            "Using a high-resolution microscope, the nerve and the vascular loop are identified, dissected, and separated, with the interposition of a prosthesis between the structures.",
         },
       ],
     },

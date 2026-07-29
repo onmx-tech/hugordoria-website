@@ -6,17 +6,11 @@ export const article: ArticleContent = {
   slug: "neuralgia-do-trigemeo",
   category: "Funcional",
   readingTime: "3 min",
-  lead: "Dolor facial punzante en crisis, con excelente resultado quirúrgico — hasta el 85% de los pacientes sin síntomas.",
+  lead: "Dolor facial punzante en crisis.",
   heroMeta: [
     { label: "Abordaje", value: "Descompresión o rizotomía" },
     { label: "Incidencia", value: "> 50 años, más en mujeres" },
-    { label: "Resultado", value: "Hasta 85% sin dolor" },
   ],
-  quote: {
-    text: "La cirugía presenta un excelente resultado, con regresión completa de los síntomas en hasta el 85% de los casos.",
-    emphasis: "regresión completa",
-    afterSectionId: "tratamento",
-  },
   sections: [
     {
       id: "o-que-e",
@@ -72,7 +66,7 @@ export const article: ArticleContent = {
         {
           title: "Descompresión microvascular",
           description:
-            "Con microscopio de alta resolución, el nervio y el asa vascular se identifican, disecan y separan, con interposición de una prótesis entre las estructuras — regresión completa de los síntomas en hasta el 85% de los casos.",
+            "Con microscopio de alta resolución, el nervio y el asa vascular se identifican, disecan y separan, con interposición de una prótesis entre las estructuras.",
         },
       ],
     },

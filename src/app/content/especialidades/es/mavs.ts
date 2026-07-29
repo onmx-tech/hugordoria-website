@@ -13,8 +13,7 @@ export const article: ArticleContent = {
     { label: "Localización", value: "90% supratentorial" },
   ],
   quote: {
-    text: "La resección debe ser siempre completa, garantizando la plena cura de la enfermedad.",
-    emphasis: "plena cura",
+    text: "La resección debe ser siempre completa.",
     afterSectionId: "tratamento",
   },
   sections: [

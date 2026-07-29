@@ -13,8 +13,7 @@ export const article: ArticleContent = {
     { label: "Location", value: "90% supratentorial" },
   ],
   quote: {
-    text: "The resection must always be complete, ensuring the full cure of the disease.",
-    emphasis: "full cure",
+    text: "The resection must always be complete.",
     afterSectionId: "tratamento",
   },
   sections: [

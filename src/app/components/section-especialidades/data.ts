@@ -172,7 +172,6 @@ export const cards: CardData[] = [
     highlights: [
       "Bypass direto (STA-MCA)",
       "Técnicas indiretas de revascularização",
-      "Referência nacional nesta patologia",
     ],
     testimonials: [
       {
@@ -195,7 +194,6 @@ export const cards: CardData[] = [
     image: "/images/especialidades/neuralgia.jpg",
     highlights: [
       "Descompressão microvascular (Jannetta)",
-      "Alívio duradouro da dor",
       "Preservação da sensibilidade facial",
     ],
   },
@@ -210,7 +208,6 @@ export const cards: CardData[] = [
       "O espasmo hemifacial consiste em contrações involuntárias e repetitivas da musculatura de um lado da face, geralmente iniciando ao redor do olho e progredindo para a boca. Na maioria dos casos, é causado pela compressão do nervo facial por uma artéria na saída do tronco cerebral. O tratamento cirúrgico por descompressão microvascular oferece cura definitiva em mais de 90% dos casos. O Dr. Hugo Doria realiza esse procedimento com monitorização neurofisiológica contínua para máxima segurança e eficácia.",
     image: "/images/especialidades/espasmo.jpg",
     highlights: [
-      "Cura definitiva em +90% dos casos",
       "Monitorização neurofisiológica contínua",
       "Procedimento minimamente invasivo",
     ],
@@ -227,7 +224,6 @@ export const cards: CardData[] = [
     image: "/images/especialidades/revascularizacao.jpg",
     highlights: [
       "Bypass EC-IC altamente especializado",
-      "Um dos poucos no Brasil com esta expertise",
       "Indicado para múltiplas patologias vasculares",
     ],
   },
