@@ -13,8 +13,7 @@ export const article: ArticleContent = {
     { label: "Location", value: "60–80% supratentorial" },
   ],
   quote: {
-    text: "Microsurgical resection is the treatment of choice and the only definitive and curative one.",
-    emphasis: "definitive and curative",
+    text: "Microsurgical resection is the treatment of choice.",
     afterSectionId: "tratamento",
   },
   sections: [
@@ -69,7 +68,7 @@ export const article: ArticleContent = {
         {
           title: "Microsurgical resection",
           description:
-            "The treatment of choice and the only definitive and curative one. Indicated in multiple hemorrhages, neurological deficit, or progressive seizures, with planning by neuronavigation and electroneurophysiological methods. Complete removal, together with the hemosiderin ring, prevents bleeding and epileptogenic foci.",
+            "The treatment of choice. Indicated in multiple hemorrhages, neurological deficit, or progressive seizures, with planning by neuronavigation and electroneurophysiological methods. Complete removal, together with the hemosiderin ring, prevents bleeding and epileptogenic foci.",
         },
         {
           title: "Stereotactic radiosurgery",

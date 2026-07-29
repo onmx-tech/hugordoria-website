@@ -12,11 +12,6 @@ export const article: ArticleContent = {
     { label: "Risk ranges", value: "5–10 and 30–40 years" },
     { label: "Goal", value: "Prevent stroke" },
   ],
-  quote: {
-    text: "Specialized surgical treatment significantly reduces the risk of strokes and improves quality of life.",
-    emphasis: "the risk of strokes",
-    afterSectionId: "tratamento",
-  },
   sections: [
     {
       id: "o-que-e",
@@ -64,7 +59,7 @@ export const article: ArticleContent = {
         {
           title: "Direct revascularization (bypass)",
           description:
-            "Creation of new connections between blood vessels to ensure adequate circulation to the brain. It is highly effective in cases of significant obstruction and must be performed by a neurosurgeon experienced in vascular microsurgery.",
+            "Creation of new connections between blood vessels to ensure adequate circulation to the brain. It must be performed by a neurosurgeon experienced in vascular microsurgery.",
         },
         {
           title: "Indirect revascularization",

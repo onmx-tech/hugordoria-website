@@ -69,7 +69,7 @@ export const article: ArticleContent = {
         {
           title: "Microcirugía (clipaje)",
           description:
-            "Colocación de uno o más clips de titanio en el cuello del aneurisma mediante craneotomía, excluyéndolo de la circulación sin comprometer los vasos vecinos. Se realiza con microscopio, angiografía intraoperatoria con indocianina y monitorización neurofisiológica continua. En casos complejos, las técnicas de bypass (EC-IC o IC-IC) garantizan la revascularización.",
+            "Colocación de uno o más clips de titanio en el cuello del aneurisma mediante craneotomía, excluyéndolo de la circulación sin comprometer los vasos vecinos. Se realiza con microscopio, angiografía intraoperatoria con indocianina y monitorización neurofisiológica continua. En casos complejos, las técnicas de bypass (EC-IC o IC-IC) se utilizan para la revascularización.",
         },
         {
           title: "Tratamiento endovascular",

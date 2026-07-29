@@ -12,11 +12,6 @@ export const article: ArticleContent = {
     { label: "Faixas de risco", value: "5–10 e 30–40 anos" },
     { label: "Objetivo", value: "Prevenir AVC" },
   ],
-  quote: {
-    text: "O tratamento cirúrgico especializado reduz significativamente o risco de AVCs e melhora a qualidade de vida.",
-    emphasis: "o risco de AVCs",
-    afterSectionId: "tratamento",
-  },
   sections: [
     {
       id: "o-que-e",
@@ -64,7 +59,7 @@ export const article: ArticleContent = {
         {
           title: "Revascularização direta (bypass)",
           description:
-            "Criação de novas conexões entre vasos sanguíneos para garantir a circulação adequada ao cérebro. É altamente eficaz em casos de obstrução significativa e deve ser realizada por neurocirurgião experiente em microcirurgia vascular.",
+            "Criação de novas conexões entre vasos sanguíneos para garantir a circulação adequada ao cérebro. Deve ser realizada por neurocirurgião experiente em microcirurgia vascular.",
         },
         {
           title: "Revascularização indireta",

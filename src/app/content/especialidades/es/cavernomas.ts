@@ -13,8 +13,7 @@ export const article: ArticleContent = {
     { label: "Localización", value: "60–80% supratentorial" },
   ],
   quote: {
-    text: "La resección microquirúrgica es el tratamiento de elección y el único definitivo y curativo.",
-    emphasis: "definitivo y curativo",
+    text: "La resección microquirúrgica es el tratamiento de elección.",
     afterSectionId: "tratamento",
   },
   sections: [
@@ -69,7 +68,7 @@ export const article: ArticleContent = {
         {
           title: "Resección microquirúrgica",
           description:
-            "Tratamiento de elección y el único definitivo y curativo. Indicada en hemorragias múltiples, déficit neurológico o convulsiones progresivas, con planificación por neuronavegación y métodos electroneurofisiológicos. La remoción completa, con el anillo de hemosiderina, evita sangrados y focos epileptógenos.",
+            "Tratamiento de elección. Indicada en hemorragias múltiples, déficit neurológico o convulsiones progresivas, con planificación por neuronavegación y métodos electroneurofisiológicos. La remoción completa, con el anillo de hemosiderina, evita sangrados y focos epileptógenos.",
         },
         {
           title: "Radiocirugía estereotáctica",

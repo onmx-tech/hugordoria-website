@@ -1,8 +1,8 @@
-# https://hugodoria.com.br
+# https://hugodoria.merinno.com
 User-agent: *
 Allow: /
 
 # Ferramenta interna de aprovação de imagens — fora do índice.
 Disallow: /aprovacao/
 
-Sitemap: https://hugodoria.com.br/sitemap.xml
+Sitemap: https://hugodoria.merinno.com/sitemap.xml

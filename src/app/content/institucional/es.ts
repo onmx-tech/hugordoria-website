@@ -75,10 +75,10 @@ export const SOBRE_MIM = {
 export const DOUTORADO = {
   pdf: "/docs/tese-doutorado-hugo-doria.pdf",
   paragrafos: [
-    "Con el propósito de distinguir los tipos de aneurismas cerebrales llamados paraclinoideos y elegir el tratamiento más adecuado para ellos, a fin de ofrecer al paciente el mejor tratamiento posible: conservador en el caso de los aneurismas intracavernosos, o intervencionista en el caso de los aneurismas extracavernosos.",
-    "Este descubrimiento innovador se desarrolló en cuatro etapas: la etapa anatómica, la radiológica, la etapa de confirmación mediante la impresión de biomodelos 3D y la quirúrgica.",
+    "Con el propósito de distinguir los tipos de aneurismas cerebrales llamados paraclinoideos y elegir el tratamiento más adecuado para ellos: conservador en el caso de los aneurismas intracavernosos, o intervencionista en el caso de los aneurismas extracavernosos.",
+    "Este descubrimiento se desarrolló en cuatro etapas: la etapa anatómica, la radiológica, la etapa de confirmación mediante la impresión de biomodelos 3D y la quirúrgica.",
     "El hallazgo permite distinguir con exactitud los aneurismas intracavernosos —que en su mayoría no necesitan tratamiento— de los aneurismas extracavernosos, que presentan riesgo de hemorragia cerebral y, en consecuencia, requieren tratamiento intervencionista, mediante un protocolo de resonancia magnética fácilmente reproducible junto con la impresión de biomodelos en 3D y pacientes sometidos a cirugía para comprobar la tesis.",
-    "Este artículo científico y su relevante publicación en una de las mejores revistas internacionales de neurocirugía es fruto del trabajo conjunto entre neurocirujanos, neurorradiólogos y un físico estadístico, para llegar a resultados que son extremadamente importantes para los pacientes con aneurisma cerebral en esta región.",
+    "Este artículo científico y su relevante publicación en una revista internacional de neurocirugía es fruto del trabajo conjunto entre neurocirujanos, neurorradiólogos y un físico estadístico, para llegar a resultados que son extremadamente importantes para los pacientes con aneurisma cerebral en esta región.",
     "Mi más sincero agradecimiento al servicio de neurocirugía y neurorradiología de la Escola Paulista de Medicina (EPM) de la Universidad Federal de São Paulo (Unifesp) y del Hospital Beneficência de São Paulo.",
     "Agradezco a todos los profesionales de la salud que componen un equipo entregado al éxito de cada cirugía realizada por mí: instrumentadores quirúrgicos, personal circulante de quirófano, enfermeros, anestesiólogos y neurofisiólogos.",
     "A los pacientes que participaron en este trabajo, por el fruto científico que gracias a ellos fue posible y que, a partir de ellos, nació para poder replicarse en innumerables otros pacientes.",
@@ -89,7 +89,7 @@ export const DOUTORADO = {
 export const PUBLICACOES = {
   pdfArtigo: "/docs/artigo-world-neurosurgery-2022.pdf",
   intro:
-    "Con mucho honor y alegría, comunico la publicación del artículo científico correspondiente a mi tesis doctoral en la reconocida revista internacional World Neurosurgery, un trabajo revolucionario para la neurocirugía, fruto de cuatro años de investigación en la Universidad Federal de São Paulo (UNIFESP) y en el Hospital Beneficência Portuguesa de São Paulo, elaborado entre los años 2018 y 2022.",
+    "Con mucho honor y alegría, comunico la publicación del artículo científico correspondiente a mi tesis doctoral en la revista internacional World Neurosurgery, fruto de cuatro años de investigación en la Universidad Federal de São Paulo (UNIFESP) y en el Hospital Beneficência Portuguesa de São Paulo, elaborado entre los años 2018 y 2022.",
 } as const;
 
 export const EVENTOS = [

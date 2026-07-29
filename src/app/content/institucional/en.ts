@@ -74,10 +74,10 @@ export const SOBRE_MIM = {
 export const DOUTORADO = {
   pdf: "/docs/tese-doutorado-hugo-doria.pdf",
   paragrafos: [
-    "The purpose is to distinguish the types of cerebral aneurysms known as paraclinoid and to choose the most appropriate treatment for them, in order to offer the patient the best possible care — conservative in the case of intracavernous aneurysms, or interventional in the case of extracavernous aneurysms.",
-    "This innovative discovery was developed in four stages: the anatomical stage, the radiological stage, the confirmation stage through 3D-printed biomodels, and the surgical stage.",
+    "The purpose is to distinguish the types of cerebral aneurysms known as paraclinoid and to choose the most appropriate treatment for them — conservative in the case of intracavernous aneurysms, or interventional in the case of extracavernous aneurysms.",
+    "This discovery was developed in four stages: the anatomical stage, the radiological stage, the confirmation stage through 3D-printed biomodels, and the surgical stage.",
     "The finding makes it possible to distinguish, with precision, intracavernous aneurysms — which for the most part do not require treatment — from extracavernous aneurysms, which carry a risk of cerebral hemorrhage and therefore require interventional treatment, using an easily reproducible magnetic resonance protocol together with 3D-printed biomodels and patients who underwent surgery to substantiate the thesis.",
-    "This scientific article and its significant publication in one of the leading international neurosurgery journals is the fruit of joint work among neurosurgeons, neuroradiologists and a statistical physicist, leading us to results that are extremely important for patients with cerebral aneurysms in this region.",
+    "This scientific article and its significant publication in an international neurosurgery journal is the fruit of joint work among neurosurgeons, neuroradiologists and a statistical physicist, leading us to results that are extremely important for patients with cerebral aneurysms in this region.",
     "My most sincere thanks to the neurosurgery and neuroradiology services of the Escola Paulista de Medicina (EPM) of the Federal University of São Paulo (Unifesp) and of the Hospital Beneficência de São Paulo.",
     "I thank all the healthcare professionals who make up a team devoted to the success of every surgery I perform: surgical technicians, circulating staff, nurses, anesthesiologists and neurophysiologists.",
     "To the patients who took part in this work, for the scientific fruit they made possible and which, from them, was born so that it may be replicated for countless other patients.",
@@ -88,7 +88,7 @@ export const DOUTORADO = {
 export const PUBLICACOES = {
   pdfArtigo: "/docs/artigo-world-neurosurgery-2022.pdf",
   intro:
-    "With great honor and joy, I announce the publication of the scientific article on my doctoral thesis in the renowned international journal World Neurosurgery — a groundbreaking work for neurosurgery, the fruit of four years of research at the Federal University of São Paulo (UNIFESP) and the Hospital Beneficência Portuguesa de São Paulo, carried out from 2018 to 2022.",
+    "With great honor and joy, I announce the publication of the scientific article on my doctoral thesis in the international journal World Neurosurgery — the fruit of four years of research at the Federal University of São Paulo (UNIFESP) and the Hospital Beneficência Portuguesa de São Paulo, carried out from 2018 to 2022.",
 } as const;
 
 export const EVENTOS = [

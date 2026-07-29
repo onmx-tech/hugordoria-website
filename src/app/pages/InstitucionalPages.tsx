@@ -41,7 +41,11 @@ import { TESTIMONIALS } from "../components/SectionCasosDeSucesso";
  * Grade simples e legível: sem carrossel, porque aqui a pessoa veio ler.
  */
 function TestimonialsSobrios() {
-  const { t } = useTranslation();
+  // Namespace "home" — os roleKey vivem em home.json. Com o namespace padrão o
+  // i18next não acha a chave e imprime a PRÓPRIA CHAVE na tela ("home.casos.
+  // roles.paciente"), ao lado do nome de cada paciente. Ficou 6× por idioma no
+  // ar. Chave que não resolve não quebra o build nem o teste: só aparece.
+  const { t } = useTranslation("home");
   return (
     <div className="grid gap-5 md:grid-cols-2">
       {TESTIMONIALS.map((d) => (

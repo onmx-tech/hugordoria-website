@@ -16,9 +16,11 @@ import { isPrerender } from "../../lib/prerender";
 //    dado pessoal SENSÍVEL (LGPD, Art. 5º, II) publicado abertamente, e a
 //    exposição é do paciente, não nossa. Todos usam o papel genérico.
 // 3. SEM AFIRMAÇÃO DE DESFECHO NEM SUPERLATIVO (Art. 11, XII e Art. 14, II,
-//    "g"). Saíram as falas com "estou curada", "hoje estou curado", "salvaram
-//    minha vida", "tratamento super eficaz" e "expertise de nível
-//    internacional" — a norma veda garantir, prometer ou INSINUAR resultado, e
+//    "g"). Saíram as falas que afirmavam cura, salvamento, eficácia do
+//    tratamento ou expertise de nível internacional. (Os trechos não são
+//    citados aqui de propósito: comentário que reproduz a string removida
+//    dispara em toda varredura de compliance futura.) A norma veda
+//    garantir, prometer ou INSINUAR resultado, e
 //    o depoimento tem de ser sóbrio. O que ficou fala de conduta, acolhimento
 //    e comunicação, que é o que o paciente de fato tem a dizer sem prometer
 //    nada a quem lê.
@@ -30,7 +32,7 @@ type Testimonial = { quote: string; name: string; roleKey: string; photo?: strin
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "Com muita competência, atenção e sensibilidade, conduziu minha cirurgia de forma impecável, sempre me transmitindo segurança, calma e confiança desde o primeiro contato.",
+      "Com muita competência, atenção e sensibilidade, conduziu todo o processo sempre me transmitindo segurança, calma e confiança desde o primeiro contato.",
     name: "Rita N.",
     roleKey: "home.casos.roles.paciente",
   },

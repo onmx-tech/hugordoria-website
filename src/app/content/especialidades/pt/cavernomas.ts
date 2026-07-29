@@ -13,8 +13,7 @@ export const article: ArticleContent = {
     { label: "Localização", value: "60–80% supratentorial" },
   ],
   quote: {
-    text: "A ressecção microcirúrgica é o tratamento de escolha e o único definitivo e curativo.",
-    emphasis: "definitivo e curativo",
+    text: "A ressecção microcirúrgica é o tratamento de escolha.",
     afterSectionId: "tratamento",
   },
   sections: [
@@ -69,7 +68,7 @@ export const article: ArticleContent = {
         {
           title: "Ressecção microcirúrgica",
           description:
-            "Tratamento de escolha e o único definitivo e curativo. Indicada em hemorragias múltiplas, déficit neurológico ou convulsões progressivas, com planejamento por neuronavegação e métodos eletroneurofisiológicos. A remoção completa, com o anel de hemossiderina, evita sangramentos e focos epileptogênicos.",
+            "Tratamento de escolha. Indicada em hemorragias múltiplas, déficit neurológico ou convulsões progressivas, com planejamento por neuronavegação e métodos eletroneurofisiológicos. A remoção completa, com o anel de hemossiderina, evita sangramentos e focos epileptogênicos.",
         },
         {
           title: "Radiocirurgia estereotáxica",

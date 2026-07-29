@@ -12,11 +12,6 @@ export const article: ArticleContent = {
     { label: "Franjas de riesgo", value: "5–10 y 30–40 años" },
     { label: "Objetivo", value: "Prevenir ACV" },
   ],
-  quote: {
-    text: "El tratamiento quirúrgico especializado reduce significativamente el riesgo de ACV y mejora la calidad de vida.",
-    emphasis: "el riesgo de ACV",
-    afterSectionId: "tratamento",
-  },
   sections: [
     {
       id: "o-que-e",
@@ -64,7 +59,7 @@ export const article: ArticleContent = {
         {
           title: "Revascularización directa (bypass)",
           description:
-            "Creación de nuevas conexiones entre vasos sanguíneos para garantizar la circulación adecuada al cerebro. Es altamente eficaz en casos de obstrucción significativa y debe ser realizada por un neurocirujano experimentado en microcirugía vascular.",
+            "Creación de nuevas conexiones entre vasos sanguíneos para garantizar la circulación adecuada al cerebro. Debe ser realizada por un neurocirujano experimentado en microcirugía vascular.",
         },
         {
           title: "Revascularización indirecta",

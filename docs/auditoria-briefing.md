@@ -56,7 +56,7 @@ Este documento tem duas partes independentes:
 
 | Item | Prior. | Estado | Evidência medida |
 |---|---|---|---|
-| §3.1 Título técnico | P0 | `divergente` **e** `feito_no_codigo_nao_publicado` | Ver quadro abaixo. |
+| §3.1 Título técnico | P0 | `divergente` | Publicado no deploy desta sessão — e **ainda diverge**. Ver quadro abaixo. |
 | §3.2 Título promocional ("Melhor Neurocirurgia e Cuidados Neurológicos") | P0 | `feito` | `grep -F "Melhor Neurocirurgia"` → **0** em 50 arquivos. O hero traz "Neurocirurgia vascular e craniana de alta complexidade". |
 | §3.3 Promessa ampla ("Proporcionar o melhor tratamento") | P0 | `parcial` | A frase literal sumiu da home, **mas `/doutorado` está no ar com "oferecer ao paciente o melhor tratamento possível"** — mesma promessa, outra redação. Também traz "Essa descoberta inovadora". |
 | §3.4 Promessa emocional ("Transformar sua vida") | P0 | `feito` | `grep -F` → **0** ocorrências em qualquer idioma. |
@@ -71,11 +71,11 @@ Este documento tem duas partes independentes:
 | | Redação |
 |---|---|
 | Texto que o briefing registra como problema | `Dr. Hugo Doria — Neurocirurgião vascular em São Paulo` |
-| **Recomendado pelo briefing** | `Dr. Hugo Doria \| Neurocirurgião vascular e craniano em São Paulo` |
-| **No ar hoje** | `Dr. Hugo Doria — Neurocirurgia vascular e craniana \| São Paulo` |
-| **No código local** (`aceba1a`, não publicado) | `Dr. Hugo Doria \| Neurocirurgia vascular e craniana em São Paulo` |
+| **Recomendado pelo briefing** | `Dr. Hugo Doria \| Neurocirurgi**ão** vascular e crani**ano** em São Paulo` |
+| Antes do deploy desta sessão | `Dr. Hugo Doria — Neurocirurgia vascular e craniana \| São Paulo` |
+| **No ar agora** | `Dr. Hugo Doria \| Neurocirurgi**a** vascular e crani**ana** em São Paulo` |
 
-Duas divergências, e a segunda sobrevive à correção: o que está no ar usa travessão e joga "São Paulo" para depois da barra; o que está no código já corrigiu a pontuação **mas trocou a pessoa pela especialidade** — "Neurocirurgi**a** vascular e crani**ana**" (o campo) em vez de "Neurocirurgi**ão** vascular e crani**ano**" (o profissional). O briefing pede o substantivo que qualifica o médico. Só o `og:title` e o `twitter:title` acompanham o `<title>`, então a divergência se propaga para o card social.
+O deploy corrigiu a pontuação (barra no lugar do travessão, "em São Paulo" no fim) e **manteve a especialidade no lugar do profissional**: "Neurocirurgi**a** vascular e crani**ana**" (o campo) em vez de "Neurocirurgi**ão** vascular e crani**ano**" (a pessoa). O briefing pede o substantivo que qualifica o médico — é o que faz o título dizer *quem ele é* e não *do que o site trata*. Como `og:title` e `twitter:title` espelham o `<title>`, a divergência vai junto para o card social.
 
 ### §3.6 — Chamada comercial
 
@@ -99,38 +99,31 @@ Duas divergências, e a segunda sobrevive à correção: o que está no ar usa t
 
 ## §4 — Correções de precisão médica (P0)
 
-**Estado global: `nao_feito` no ar / `feito_no_codigo_nao_publicado` (parcialmente).**
+**Estado global: `feito` na camada do card / `feito_no_codigo_nao_publicado` no texto longo — e incompleto onde o briefing não olhou.**
 
-Os cinco textos-problema listados no briefing continuam sendo servidos, **e não só nas páginas internas: estão no card da home**, que é a página mais vista do site.
+Os cinco textos-problema **saíram do ar** no deploy desta sessão. Medido na segunda passagem: `"técnicas minimamente invasivas"` → **0 ocorrências** na home; `"preservação funcional"` → 2 (a redação nova, duplicada pelo §8.1). Vale para PT, EN e ES.
 
-| Tema | Estado no ar | Onde o texto-problema aparece |
+| Tema | Estado | Evidência |
 |---|---|---|
-| §4.1 Tumores cerebrais | `nao_feito` | `"Tratamento cirúrgico de tumores cerebrais primários e metastáticos com técnicas minimamente invasivas"` — **2× na home** (duplicação do §8.1), 1× em `/especialidades`, + EN (`minimally invasive`) e ES (`mínimamente invasiva`). |
-| §4.2 Tumores hipofisários | `nao_feito` | `"Remoção de adenomas hipofisários por via endoscópica endonasal, preservando a função glandular"` — 2× home, 1× `/especialidades`, + EN/ES. |
-| §4.3 Neuralgia do trigêmeo | `nao_feito` | `"...tratada por descompressão microvascular ou radiocirurgia estereotáxica"` — 2× home, 1× `/especialidades`, + EN/ES. |
-| §4.4 Doença de Moyamoya | `nao_feito` | `"Tratamento da doença rara com estreitamento progressivo das artérias cerebrais via revascularização"` — 2× home, 1× `/especialidades`, + EN/ES. |
-| §4.5 Cavernomas | `nao_feito` | `"Malformações vasculares de baixo fluxo, cerebrais ou medulares, tratadas por microcirurgia"` — 2× home, 1× `/especialidades`, + EN/ES. |
+| §4.1 Tumores cerebrais | `feito` | Card no ar: *"Avaliação e tratamento microcirúrgico de tumores cerebrais primários, metastáticos e de localização complexa, com planejamento individualizado e técnicas voltadas à preservação funcional."* — literal ao recomendado. |
+| §4.2 Tumores hipofisários | `feito` | Redação recomendada no ar, literal. |
+| §4.3 Neuralgia do trigêmeo | `feito` | Redação recomendada no ar, literal. |
+| §4.4 Doença de Moyamoya | `feito` | Redação recomendada no ar, literal. |
+| §4.5 Cavernomas | `feito` | Redação recomendada no ar, literal. |
 
-**No código local (`aceba1a`) os 5 já foram reescritos** com a redação recomendada, literalmente, em PT/EN/ES. Falta publicar.
+### ⚠️ A correção alcançou o card, não a página
 
-### ⚠️ O §4 foi corrigido só na camada do card — o texto longo ficou de fora
+O §4 foi cumprido no campo `description` (o resumo do card, que aparece na home e em `/especialidades`). Dois flancos ficaram abertos:
 
-A correção alcançou o campo `description` (o resumo do card). O campo `detailedDescription`, na mesma estrutura, **não foi tocado** e continua com material que o §5 veda expressamente:
+**a) O `detailedDescription`, na mesma estrutura, não foi tocado** (`feito_no_codigo_nao_publicado` invertido: está no código, errado, e hoje não renderiza):
+- `data.ts:170` (Moyamoya) — *"O Dr. Hugo Doria **é referência** nessa técnica cirúrgica altamente especializada."*
+- `data.ts:140` (Tumores cerebrais) — *"...técnicas **avançadas** ... **maximizando** a remoção tumoral e **preservando a qualidade de vida do paciente**."* → o §5 proíbe frase que implique garantia de preservação funcional. Replicado em `cards-i18n/en.ts` e `es.ts`.
 
-- `data.ts:170` (Moyamoya) — *"O Dr. Hugo Doria **é referência** nessa técnica cirúrgica altamente especializada."* → superlativo de superioridade.
-- `data.ts:140` (Tumores cerebrais) — *"...técnicas **avançadas** ... **maximizando** a remoção tumoral e **preservando a qualidade de vida do paciente**."* → o §5 proíbe frase que implique **garantia de preservação funcional**. Replicado em `cards-i18n/es.ts` e `en.ts`.
+Medido: `grep -F "é referência"` → 0 no HTML servido, 1 no bundle JS. Risco latente, não violação publicada — volta no instante em que o texto longo reaparecer numa página.
 
-Hoje esse texto **não é renderizado em nenhuma rota** (medido: `grep -F "é referência"` → 0 no HTML servido; presente 1× no bundle JS). É um risco latente, não uma violação publicada — mas volta a aparecer no instante em que alguém reativar o texto longo na página de especialidade.
+**b) O corpo das páginas de especialidade nunca esteve no escopo do §4** — e é onde estão as promessas mais graves do site. Ver **Parte B**.
 
-### ⚠️ Promessa clínica já publicada, fora da lista do §4
-
-`/especialidade/doenca-de-moyamoya` está no ar com:
-
-> "Criação de novas conexões entre vasos sanguíneos para **garantir** a circulação adequada ao cérebro. **É altamente eficaz** em casos de obstrução significativa..."
-
-"Garantir" é o verbo da vedação e "altamente eficaz" é afirmação de resultado. Não consta do §4 porque o briefing não auditou o corpo das páginas internas — mas cai direto no §5.
-
-**Falsos positivos que verifiquei e descarto:** "é o melhor método para o diagnóstico" (`/especialidade/espasmo-hemifacial`, sobre ressonância magnética) e "melhor para pequenos tumores intracanaliculares" (`/especialidade/schwannoma-vestibular`, comparando abordagens cirúrgicas). Os dois comparam **técnicas**, não profissionais. Não são superlativo no sentido do §14.
+**Falsos positivos que verifiquei e descarto:** "é o melhor método para o diagnóstico" (`/especialidade/espasmo-hemifacial`, sobre ressonância magnética) e "melhor para pequenos tumores intracanaliculares" (`/especialidade/schwannoma-vestibular`, comparando abordagens cirúrgicas). Os dois comparam **técnicas**, não profissionais. Não são superlativo no sentido do Art. 14.
 
 ---
 
@@ -288,15 +281,109 @@ EN e ES espelham o mesmo desenho (`Home / About / Reviews / Specialties / Doctor
 
 ---
 
-## O que falta para cumprir o briefing
+# PARTE B — Riscos que o briefing NÃO viu
 
-Em ordem de gravidade. Os cinco primeiros são os que eu não deixaria passar de hoje.
+O briefing é a lista do **cliente**, não a lista dos riscos. Ele foi montado olhando a home, o título, o endereço e cinco descrições de card. **Nunca leu o corpo das 11 páginas de especialidade** — que é justamente onde mora o texto clínico mais afirmativo do site.
+
+Varri o site inteiro por padrão de risco, sem consultar o briefing: garantia, cura, absolutos ("sempre", "todos", "único"), percentual de resultado e superlativo comparativo. Nas 3 línguas. Foram **11 achados**, e nove deles têm gravidade igual ou maior que os P0 da lista do cliente.
+
+## A régua aplicada aos percentuais
+
+Adotei o critério formulado nesta rodada: **percentual sobre a DOENÇA é epidemiologia e pode ficar; percentual sobre o RESULTADO do tratamento é promessa e não pode.**
+
+Extraí **os 30 percentuais do site** com contexto e classifiquei um a um. O resultado é uma boa notícia antes da má:
+
+| Veredito | Qtde | Exemplos |
+|---|---|---|
+| **Epidemiologia / história natural — legítimo** | 26 | "90% são saculares"; "0,1% da população"; "risco anual de hemorragia de 2% a 4%"; "30–50% dos casos são familiares"; "94% perda auditiva unilateral"; "40–70% vasoespasmo" |
+| **Acurácia de exame diagnóstico — legítimo** | 1 | "TC positiva em 98–100% dos casos nas primeiras 12 horas" (desempenho do exame, não do tratamento) |
+| **RESULTADO DE TRATAMENTO — promessa** | **4** | todos na mesma página: neuralgia do trigêmeo |
+| Descrição clínica que o grep pegou por engano | 1 | "Remissão completa entre as crises" (característica da doença, não desfecho cirúrgico) |
+
+**O lastro epidemiológico do site é sério e deve ser preservado** — 27 dos 30 números são dados de doença, corretamente contextualizados. O problema é cirúrgico e está concentrado em um lugar só.
+
+## B1 — As três promessas de cura publicadas (P0, gravidade máxima)
+
+Estão em **citações destacadas** — o único elemento tipograficamente enfatizado de cada página. Nos três idiomas.
+
+| Página | Citação no ar | Por quê |
+|---|---|---|
+| `/especialidade/mavs` | *"A ressecção deve ser **sempre** completa, **garantindo** a **plena cura** da doença."* | Três vedações numa frase de 11 palavras: absoluto + o verbo literal da vedação + cura. Replicado: `esp-en-mavs` ("full cure"), `esp-es-mavs` ("garantizando… plena cura"). |
+| `/especialidade/cavernomas` | *"A ressecção microcirúrgica é o tratamento de escolha e **o único definitivo e curativo**."* | Cura + exclusividade. Aparece **2×** na página (corpo + citação). Replicado em EN ("only definitive") e ES ("único definitivo"). |
+| `/especialidade/espasmo-hemifacial` | *"…o tratamento cirúrgico é **o único definitivo**"* + no lead do card: *"tratadas de forma **definitiva** por descompressão microvascular"* | Definitividade afirmada duas vezes, uma delas no resumo que aparece na listagem. Replicado em EN/ES. |
+
+## B2 — A página de neuralgia do trigêmeo é construída sobre um percentual de resultado (P0)
+
+Não é "um número solto". **O mesmo dado aparece 4 vezes**, em quatro camadas diferentes da página:
+
+1. **No lead**, logo abaixo do título: *"Dor facial lancinante em crises, com **ótimo resultado cirúrgico — até 85% dos pacientes sem sintomas**."*
+2. **No corpo**, na descrição da técnica: *"…regressão completa dos sintomas em até 85% dos casos."*
+3. **Na citação destacada**: *"A cirurgia apresenta **ótimo resultado**, com regressão completa dos sintomas em até 85% dos casos."*
+4. **Na "Ficha rápida"**, como dado estruturado: campo rotulado **"Resultado — Até 85% sem dor"**.
+
+O item 4 é o mais grave dos quatro, e há uma prova de que é anomalia e não escolha editorial: **das 10 fichas rápidas do site, essa é a única com um campo chamado "Resultado".** As outras nove usam rótulos neutros — Abordagem, Diagnóstico, Incidência, Acompanhamento, Localização, Causa, Classificação, Complemento, Taxa de hemorragia. A de Moyamoya inclusive usa **"Objetivo — Prevenir AVC"**, que é exatamente a formulação correta.
+
+O padrão do sistema já está certo. Só essa página saiu dele.
+
+## B3 — Garantia técnica em mais duas páginas (P0)
+
+| Página | Trecho no ar |
+|---|---|
+| `/especialidade/aneurisma-cerebral` | *"…técnicas de bypass (EC-IC ou IC-IC) **garantem** a revascularização."* |
+| `/especialidade/doenca-de-moyamoya` | *"Criação de novas conexões entre vasos sanguíneos para **garantir** a circulação adequada ao cérebro. **É altamente eficaz** em casos de obstrução significativa."* |
+
+## B4 — Duas citações de benefício, gravidade média
+
+- `/especialidade/doenca-de-moyamoya` — *"O tratamento cirúrgico especializado **reduz significativamente** o risco de AVCs e **melhora a qualidade de vida**."* Afirmação de benefício sem qualificador de caso.
+- `/especialidade/aneurisma-cerebral` — *"O diagnóstico precoce muda **completamente** o prognóstico."* Absoluto, mas dirigido à **doença** e à urgência, não ao médico. O mais defensável dos dois.
+
+**Citações que estão certas e servem de molde:** `/tumores-cerebrais` — *"O objetivo é a retirada mais ampla possível, com o menor acometimento neurológico do paciente"* (descreve **objetivo**, não desfecho); `/tumores-hipofisarios` e `/tumores-medulares` — descrevem **técnica**; `/schwannoma-vestibular` — *"**pode** levar a um melhor resultado"* (condicional explícito).
+
+## B5 — `/doutorado` e `/publicacoes`: o §3.7 foi cumprido só na home
+
+O briefing mandou remover "revistas renomadas", "formador de opinião" e "vasta experiência de 20 anos". Saiu da home. **Sobreviveu nas duas páginas que o briefing não abriu:**
+
+| Página | Trecho no ar |
+|---|---|
+| `/doutorado` | *"…afim de oferecer ao paciente **o melhor tratamento possível**"* — é a "Promessa ampla" do §3.3, viva em outra redação |
+| `/doutorado` | *"Essa **descoberta inovadora** foi desenvolvida em 4 etapas"* |
+| `/doutorado` | *"publicação em **uma das melhores** revistas internacionais de neurocirurgia"* — superlativo comparativo |
+| `/publicacoes` | *"na **renomada** revista internacional World Neurosurgery, um trabalho **revolucionário**"* — exatamente o termo que o §3.7 mandou tirar |
+| `/sobre-mim` | *"…a **melhor** oportunidade de recuperar sua saúde"* e *"A **excelência** não se revela apenas no resultado final"* |
+
+## B6 — O que a Parte B **não** encontrou (e é bom registrar)
+
+Varri e **não** achei: "um dos poucos", "referência nacional/mundial" (fora do `detailedDescription` não renderizado), "pioneiro", "líder", "taxa de sucesso", "índice de sucesso", "sem riscos", "sem sequelas", "resultados excepcionais", "100% dos pacientes". Nenhum número de volume (pacientes, cirurgias, anos) em texto.
+
+E há um contraexemplo notável: **`/segunda-opiniao` publica exatamente o texto que o resto do site deveria imitar** — *"Não há promessa de resultado. Nenhuma análise garante desfecho, cura ou ausência de complicações — o que existe é informação clara para decidir melhor."* Essa página deve ser mostrada ao cliente como prova de que o padrão correto já existe dentro do próprio site.
+
+## Onde a Parte B não alcança
+
+Toda a Parte B é varredura de **texto**. As 17 imagens da home e as 11 de `/v4/procedimentos/` não foram inspecionadas visualmente — uma legenda ou selo com percentual de resultado dentro de uma arte passaria por aqui sem ser vista. Exige revisão a olho.
+
+---
+
+# O que falta para cumprir o briefing
+
+Ordem de gravidade **consolidada**, misturando a lista do cliente (Parte A) com a varredura própria (Parte B). Os quatro primeiros são de compliance médico e nenhum deles estava no briefing.
+
+### 0-A. As três promessas de cura publicadas (B1) — **acima de tudo**
+`/mavs` ("sempre completa, garantindo a plena cura"), `/cavernomas` ("o único definitivo e curativo", 2×) e `/espasmo-hemifacial` ("de forma definitiva", "o único definitivo"). Nos três idiomas, em citação destacada. São afirmações de **cura garantida** — a vedação mais direta da Res. CFM 2.336/2023 e o único item desta auditoria que expõe pessoalmente o médico no conselho. Nada mais na lista chega perto.
+
+### 0-B. A página de neuralgia construída sobre "até 85%" (B2)
+Quatro camadas da mesma página afirmam percentual de **resultado de tratamento**, incluindo um campo estruturado rotulado **"Resultado"** — o único assim em 10 fichas. Correção barata e de alto impacto: alinhar ao padrão que as outras nove já usam (a de Moyamoya diz "Objetivo — Prevenir AVC").
+
+### 0-C. Garantia técnica em aneurisma e Moyamoya (B3)
+"garantem a revascularização", "garantir a circulação adequada… altamente eficaz". "Garantir" é o verbo literal da vedação.
+
+### 0-D. Superlativos em `/doutorado`, `/publicacoes` e `/sobre-mim` (B5)
+O §3.7 foi cumprido só na home. "o melhor tratamento possível", "descoberta inovadora", "uma das melhores revistas", "renomada revista", "trabalho revolucionário", "excelência". São as mesmas expressões que o cliente pediu para remover — vivas nas páginas que ele não abriu.
 
 ### 1. Resolver o conflito de domínio (§8.4, P0)
 O site está no ar em `merinno.com` com canonical, OG, hreflang e sitemap apontando para `hugodoria.com.br`, que ainda é o WordPress antigo. Consequência já medida e visível para qualquer pessoa: **o `og:image` responde 404 e todo compartilhamento em WhatsApp/LinkedIn sai sem imagem**. Ou migra de verdade, ou aponta `site.config.json` para o domínio onde o site efetivamente está. O estado intermediário é o pior dos três.
 
-### 2. Publicar o §4 — e completá-lo (§4, P0)
-Os 5 textos clínicos estão corrigidos no código e **errados no ar**, inclusive nos cards da home, nos 3 idiomas. Além do deploy, falta a metade que o commit não alcançou: o `detailedDescription` ainda diz "é referência" e "preservando a qualidade de vida do paciente", e `/especialidade/doenca-de-moyamoya` publica "garantir a circulação adequada… altamente eficaz".
+### 2. Completar o §4 na camada que ficou de fora (§4, P0)
+Os 5 cards já estão corretos no ar — o deploy desta sessão resolveu. Falta o que o commit não alcançou: o `detailedDescription` ainda diz "é referência" e "maximizando… preservando a qualidade de vida do paciente" nos 3 idiomas (hoje não renderiza, mas volta ao ar junto com o texto longo).
 
 ### 3. Instrumentação zerada (§8.5, P0)
 Nenhum GA4, nenhum GTM, nenhum evento — nem no HTML nem no bundle. Não há como medir cliques no WhatsApp, envio de formulário, origem do lead ou consulta marcada. Um site de conversão que não mede conversão não pode ser considerado homologado.
@@ -329,7 +416,15 @@ Não existe. É o bloco que sustenta o posicionamento inteiro — explicar diagn
 A política existe; o banner de consentimento não. O critério de aceite pede os três: política, cookies e consentimentos.
 
 ### 13. Título técnico (§3.1, P0)
-Mesmo depois do commit local, a redação diverge: o briefing pede **"Neurocirurgião vascular e craniano"** (o profissional) e o código traz "Neurocirurgia vascular e craniana" (a especialidade).
+Mesmo depois do deploy, a redação diverge: o briefing pede **"Neurocirurgião vascular e craniano"** (o profissional) e o que está no ar traz "Neurocirurgia vascular e craniana" (a especialidade). Uma palavra, mas é a que faz o título dizer quem ele é.
+
+---
+
+## Recomendação de método para a conversa com o cliente
+
+O briefing tem 12 seções e mapeou 5 textos clínicos. A varredura própria achou **11 riscos que ele não viu, e três deles são mais graves que qualquer P0 da lista**. A conclusão a levar à mesa não é "faltam N itens" — é que **a lista do cliente não é a medida do risco**.
+
+Sugiro apresentar nesta ordem: (1) o que a lista dele pedia e já está feito, para estabelecer que o trabalho andou; (2) as três promessas de cura, que ele não pediu e que são o motivo real de não publicar; (3) `/segunda-opiniao` como prova de que o padrão correto já existe dentro do site — não é uma exigência externa, é coerência com o que o próprio site já sabe fazer.
 
 ---
 

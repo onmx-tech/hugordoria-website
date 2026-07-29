@@ -6,7 +6,7 @@ export const article: ArticleContent = {
   slug: "espasmo-hemifacial",
   category: "Functional",
   readingTime: "3 min read",
-  lead: "Involuntary contractions of one side of the face, treated definitively by microvascular decompression.",
+  lead: "Involuntary contractions of one side of the face, treated by microvascular decompression.",
   heroMeta: [
     { label: "Approach", value: "Microvascular decompression" },
     { label: "Diagnosis", value: "Magnetic resonance imaging" },
@@ -55,7 +55,7 @@ export const article: ArticleContent = {
       tocLabel: "Treatment",
       heading: "Management and treatment",
       paragraphs: [
-        "There is no effective clinical treatment for hemifacial spasm — surgical treatment is the only definitive one. Elderly patients or those with severe clinical comorbidities are not candidates for surgery:",
+        "There is no effective clinical treatment for hemifacial spasm. Elderly patients or those with severe clinical comorbidities are not candidates for surgery:",
       ],
       options: [
         {

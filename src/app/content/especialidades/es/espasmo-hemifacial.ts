@@ -6,7 +6,7 @@ export const article: ArticleContent = {
   slug: "espasmo-hemifacial",
   category: "Funcional",
   readingTime: "3 min",
-  lead: "Contracciones involuntarias de un lado de la cara, tratadas de forma definitiva por descompresión microvascular.",
+  lead: "Contracciones involuntarias de un lado de la cara, tratadas por descompresión microvascular.",
   heroMeta: [
     { label: "Abordaje", value: "Descompresión microvascular" },
     { label: "Diagnóstico", value: "Resonancia magnética" },
@@ -55,7 +55,7 @@ export const article: ArticleContent = {
       tocLabel: "Tratamiento",
       heading: "Conducta y tratamiento",
       paragraphs: [
-        "No hay tratamiento clínico efectivo para el espasmo hemifacial — el tratamiento quirúrgico es el único definitivo. Los ancianos o pacientes con graves comorbilidades clínicas no son candidatos a la cirugía:",
+        "No hay tratamiento clínico efectivo para el espasmo hemifacial. Los ancianos o pacientes con graves comorbilidades clínicas no son candidatos a la cirugía:",
       ],
       options: [
         {

@@ -69,7 +69,7 @@ export const article: ArticleContent = {
         {
           title: "Microsurgery (clipping)",
           description:
-            "Placement of one or more titanium clips on the neck of the aneurysm through a craniotomy, excluding it from the circulation without compromising the neighboring vessels. Performed with a microscope, intraoperative indocyanine angiography, and continuous neurophysiological monitoring. In complex cases, bypass techniques (EC-IC or IC-IC) ensure revascularization.",
+            "Placement of one or more titanium clips on the neck of the aneurysm through a craniotomy, excluding it from the circulation without compromising the neighboring vessels. Performed with a microscope, intraoperative indocyanine angiography, and continuous neurophysiological monitoring. In complex cases, bypass techniques (EC-IC or IC-IC) are used for revascularization.",
         },
         {
           title: "Endovascular treatment",
