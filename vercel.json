@@ -10,6 +10,16 @@
   },
   "redirects": [
     {
+      "source": "/estado",
+      "destination": "/checklist",
+      "statusCode": 301
+    },
+    {
+      "source": "/estado/",
+      "destination": "/checklist",
+      "statusCode": 301
+    },
+    {
       "source": "/especialidades/aneurisma",
       "destination": "/especialidade/aneurisma-cerebral",
       "statusCode": 301
