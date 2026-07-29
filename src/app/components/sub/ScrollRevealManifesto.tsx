@@ -26,11 +26,11 @@ export function ScrollRevealManifesto() {
       lines.forEach((line) => {
         gsap.fromTo(
           line,
-          // A frase acende MUITO antes e termina rápido. Antes ela começava em
-          // opacity 0.14 e só completava com a linha a 48% da tela: no celular
-          // isso deixava um bloco navy vazio por quase uma tela inteira, e a
-          // leitura parecia quebrada. Piso de 0.35 (sempre legível), gatilho
-          // logo que a linha aparece e fim no meio do caminho.
+          // A linha começa a acender ANTES de entrar na tela (start em 110%) e
+          // termina de acender logo que sobe um pouco (86%) — ou seja, quando
+          // ela chega à altura de leitura já está inteira. Antes só completava
+          // com a linha no meio da tela, e no celular isso deixava um bloco
+          // escuro e vazio por quase uma tela. Piso de 0.35: nunca some.
           { opacity: 0.35, y: 18 },
           {
             opacity: 1,
@@ -38,8 +38,8 @@ export function ScrollRevealManifesto() {
             ease: "none",
             scrollTrigger: {
               trigger: line,
-              start: "top 98%",
-              end: "top 72%",
+              start: "top 110%",
+              end: "top 86%",
               scrub: 0.35,
             },
           },
