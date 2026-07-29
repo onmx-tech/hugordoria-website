@@ -12,11 +12,6 @@ export const article: ArticleContent = {
     { label: "Diagnosis", value: "Magnetic resonance imaging" },
     { label: "Cause", value: "Vascular loop over the facial nerve" },
   ],
-  quote: {
-    text: "Microsurgical decompression of the facial nerve is the effective treatment.",
-    emphasis: "the effective treatment",
-    afterSectionId: "tratamento",
-  },
   sections: [
     {
       id: "o-que-e",
@@ -55,7 +50,7 @@ export const article: ArticleContent = {
       tocLabel: "Treatment",
       heading: "Management and treatment",
       paragraphs: [
-        "There is no effective clinical treatment for hemifacial spasm. Elderly patients or those with severe clinical comorbidities are not candidates for surgery:",
+        "Drug treatment has a limited response in this condition. Botulinum toxin acts on the contractions, with a temporary effect. Elderly patients or those with severe clinical comorbidities are not candidates for the surgical procedure:",
       ],
       options: [
         {
@@ -66,7 +61,7 @@ export const article: ArticleContent = {
         {
           title: "Microvascular decompression",
           description:
-            "The effective treatment: microsurgical decompression of the facial nerve with interposition of a prosthesis between the nerve and the vascular loop. Indicated for patients fit for the neurosurgical procedure.",
+            "Microsurgical decompression of the facial nerve with interposition of a prosthesis between the nerve and the vascular loop. Indicated for patients fit for the neurosurgical procedure.",
         },
       ],
     },

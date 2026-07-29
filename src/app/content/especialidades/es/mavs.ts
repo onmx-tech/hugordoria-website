@@ -66,7 +66,7 @@ export const article: ArticleContent = {
         {
           title: "Resección microquirúrgica",
           description:
-            "Tratamiento más eficaz: microdisección, coagulación y corte de cada vaso aferente hasta desconectar el nidus de la circulación, preservando la vena de drenaje hasta el final. Cuenta con angiografía intraoperatoria con indocianina y monitorización neurofisiológica continua.",
+            "Microdisección, coagulación y corte de cada vaso aferente hasta desconectar el nidus de la circulación, preservando la vena de drenaje hasta el final. Cuenta con angiografía intraoperatoria con indocianina y monitorización neurofisiológica continua.",
         },
         {
           title: "Cirugía con paciente despierto",

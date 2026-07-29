@@ -66,7 +66,7 @@ export const article: ArticleContent = {
         {
           title: "Ressecção microcirúrgica",
           description:
-            "Tratamento mais eficaz: microdissecção, coagulação e corte de cada vaso aferente até desconectar o nidus da circulação, preservando a veia de drenagem até o fim. Conta com angiografia intraoperatória com indocianina e monitorização neurofisiológica contínua.",
+            "Microdissecção, coagulação e corte de cada vaso aferente até desconectar o nidus da circulação, preservando a veia de drenagem até o fim. Conta com angiografia intraoperatória com indocianina e monitorização neurofisiológica contínua.",
         },
         {
           title: "Cirurgia com paciente acordado",

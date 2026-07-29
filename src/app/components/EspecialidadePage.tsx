@@ -301,6 +301,13 @@ export default function EspecialidadePage() {
                         </details>
                       ))}
                     </div>
+                    {/* O schema FAQPage faz o Google exibir UMA resposta isolada
+                        como resultado rico, fora da página — sem o rodapé e sem
+                        o aviso de que o site não substitui consulta. A nota
+                        viaja junto com a resposta e fecha essa exposição. */}
+                    <p className="font-body text-[12px] leading-[1.55] text-white/40">
+                      {ts("sub.especialidadeDetalhe.faqNota")}
+                    </p>
                   </div>
                 )}
 

@@ -12,11 +12,6 @@ export const article: ArticleContent = {
     { label: "Incidence", value: "6–8% of intracranial tumors" },
     { label: "Follow-up", value: "Serial MRI" },
   ],
-  quote: {
-    text: "If preserving hearing is a goal, early intervention may lead to a better outcome.",
-    emphasis: "early intervention",
-    afterSectionId: "tratamento",
-  },
   sections: [
     {
       id: "o-que-e",

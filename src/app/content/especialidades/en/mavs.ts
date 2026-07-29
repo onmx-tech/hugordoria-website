@@ -66,7 +66,7 @@ export const article: ArticleContent = {
         {
           title: "Microsurgical resection",
           description:
-            "The most effective treatment: microdissection, coagulation, and cutting of each feeding vessel until the nidus is disconnected from the circulation, preserving the draining vein until the end. It relies on intraoperative indocyanine angiography and continuous neurophysiological monitoring.",
+            "Microdissection, coagulation, and cutting of each feeding vessel until the nidus is disconnected from the circulation, preserving the draining vein until the end. It relies on intraoperative indocyanine angiography and continuous neurophysiological monitoring.",
         },
         {
           title: "Awake surgery",

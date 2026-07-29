@@ -12,11 +12,6 @@ export const article: ArticleContent = {
     { label: "Diagnóstico", value: "Ressonância magnética" },
     { label: "Causa", value: "Alça vascular sobre o nervo facial" },
   ],
-  quote: {
-    text: "A descompressão microcirúrgica do nervo facial consiste no tratamento efetivo.",
-    emphasis: "tratamento efetivo",
-    afterSectionId: "tratamento",
-  },
   sections: [
     {
       id: "o-que-e",
@@ -55,7 +50,7 @@ export const article: ArticleContent = {
       tocLabel: "Tratamento",
       heading: "Conduta e tratamento",
       paragraphs: [
-        "Não há tratamento clínico efetivo para o espasmo hemifacial. Idosos ou pacientes com graves comorbidades clínicas não são candidatos à cirurgia:",
+        "O tratamento medicamentoso tem resposta limitada nessa condição. A toxina botulínica atua sobre as contrações, com efeito temporário. Idosos ou pacientes com graves comorbidades clínicas não são candidatos ao procedimento cirúrgico:",
       ],
       options: [
         {
@@ -66,7 +61,7 @@ export const article: ArticleContent = {
         {
           title: "Descompressão microvascular",
           description:
-            "Tratamento efetivo: descompressão microcirúrgica do nervo facial com interposição de prótese entre o nervo e a alça vascular. Indicada para pacientes aptos ao procedimento neurocirúrgico.",
+            "Descompressão microcirúrgica do nervo facial com interposição de prótese entre o nervo e a alça vascular. Indicada para pacientes aptos ao procedimento neurocirúrgico.",
         },
       ],
     },

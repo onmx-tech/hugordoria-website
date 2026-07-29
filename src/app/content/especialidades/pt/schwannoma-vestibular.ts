@@ -12,11 +12,6 @@ export const article: ArticleContent = {
     { label: "Incidência", value: "6–8% dos tumores intracranianos" },
     { label: "Acompanhamento", value: "RM seriada" },
   ],
-  quote: {
-    text: "Se a preservação da audição é um objetivo, a intervenção precoce pode levar a um melhor resultado.",
-    emphasis: "intervenção precoce",
-    afterSectionId: "tratamento",
-  },
   sections: [
     {
       id: "o-que-e",

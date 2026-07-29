@@ -12,11 +12,6 @@ export const article: ArticleContent = {
     { label: "Diagnóstico", value: "Resonancia magnética" },
     { label: "Causa", value: "Asa vascular sobre el nervio facial" },
   ],
-  quote: {
-    text: "La descompresión microquirúrgica del nervio facial constituye el tratamiento efectivo.",
-    emphasis: "tratamiento efectivo",
-    afterSectionId: "tratamento",
-  },
   sections: [
     {
       id: "o-que-e",
@@ -55,7 +50,7 @@ export const article: ArticleContent = {
       tocLabel: "Tratamiento",
       heading: "Conducta y tratamiento",
       paragraphs: [
-        "No hay tratamiento clínico efectivo para el espasmo hemifacial. Los ancianos o pacientes con graves comorbilidades clínicas no son candidatos a la cirugía:",
+        "El tratamiento farmacológico tiene una respuesta limitada en esta condición. La toxina botulínica actúa sobre las contracciones, con efecto temporal. Los ancianos o pacientes con graves comorbilidades clínicas no son candidatos al procedimiento quirúrgico:",
       ],
       options: [
         {
@@ -66,7 +61,7 @@ export const article: ArticleContent = {
         {
           title: "Descompresión microvascular",
           description:
-            "Tratamiento efectivo: descompresión microquirúrgica del nervio facial con interposición de una prótesis entre el nervio y el asa vascular. Indicada para pacientes aptos para el procedimiento neuroquirúrgico.",
+            "Descompresión microquirúrgica del nervio facial con interposición de una prótesis entre el nervio y el asa vascular. Indicada para pacientes aptos para el procedimiento neuroquirúrgico.",
         },
       ],
     },
