@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Estado do site — Dr. Hugo Doria</title>
+<style>
+  :root{
+    color-scheme: light;
+    --creme:#f1f1f1; --branco:#fff; --preto:#0a0a0a; --quente:#e7e6e4; --grafite:#6c6a67;
+    --sans: system-ui,-apple-system,"Segoe UI",Inter,sans-serif;
+    --serif:"Iowan Old Style",Georgia,"Times New Roman",serif;
+    --mono: ui-monospace,"SF Mono",SFMono-Regular,Menlo,monospace;
+    --r:22px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--creme); color:var(--preto);
+    font-family:var(--serif); font-size:17px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:820px; margin:0 auto; padding:72px 28px 96px}
+  .lbl{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--grafite)}
+  h1{font-family:var(--sans); font-weight:600; font-size:2.6rem; line-height:1.05; letter-spacing:-.03em; margin:14px 0 0}
+  .lead{font-size:1.18rem; line-height:1.45; margin:22px 0 0; max-width:60ch}
+  h2{font-family:var(--sans); font-weight:600; font-size:1.32rem; letter-spacing:-.02em; margin:0 0 4px}
+  section{margin-top:64px}
+  .num{font-family:var(--mono); font-size:11px; color:var(--grafite); letter-spacing:.14em}
+  p{margin:14px 0 0; max-width:62ch}
+  .card{background:var(--branco); border-radius:var(--r); padding:28px 30px; margin-top:22px}
+  .card.escuro{background:var(--preto); color:var(--branco)}
+  .card.escuro .lbl{color:rgba(255,255,255,.65)}
+  .card.escuro p{color:rgba(255,255,255,.82)}
+  ul{margin:14px 0 0; padding-left:20px; max-width:62ch}
+  li{margin:9px 0}
+  table{width:100%; border-collapse:collapse; margin-top:22px; background:var(--branco); border-radius:var(--r); overflow:hidden}
+  th,td{text-align:left; padding:14px 18px; vertical-align:top; font-size:.94rem; line-height:1.4}
+  th{font-family:var(--sans); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--grafite); font-weight:600; border-bottom:1px solid var(--quente)}
+  td{border-bottom:1px solid var(--quente)}
+  tr:last-child td{border-bottom:0}
+  td:first-child{font-family:var(--sans); font-weight:500}
+  .est{font-family:var(--sans); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap; font-weight:600}
+  .est.ok{color:#1c6b3f}
+  .est.voces{color:#8a5a12}
+  .est.depois{color:var(--grafite)}
+  .medida{font-family:var(--mono); font-size:.8rem; color:var(--grafite)}
+  footer{margin-top:80px; padding-top:26px; border-top:1px solid var(--quente); font-size:.9rem; color:var(--grafite)}
+  @media print{ body{background:#fff} .card{border:1px solid var(--quente)} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="lbl">Homologação · 29 de julho de 2026</span>
+  <h1>Estado do site</h1>
+  <p class="lead">O checklist de vocês, devolvido item a item, com o que foi medido em cada ponto. Esta página fica no ar e é atualizada a cada rodada — dá para conferir daqui o que já entrou antes de abrir um item novo.</p>
+
+  <section>
+    <span class="num">01</span>
+    <h2>O que entrou hoje</h2>
+    <p>Tudo abaixo já está publicado em <strong>hugodoria.merinno.com</strong> e pode ser conferido agora.</p>
+    <ul>
+      <li><strong>CRM e RQE no rodapé.</strong> Com o certificado do CREMESP que vocês enviaram, a identificação profissional exigida pelo Art. 4º ficou completa: <span class="medida">CRM/SP 118350 · RQE 48918</span>, nas três versões de idioma.</li>
+      <li><strong>Botão de agendar permanente.</strong> Ele deixou de depender da direção da rolagem — aparece desde o topo, em todas as páginas, com o ícone do WhatsApp.</li>
+      <li><strong>Área de toque aumentada.</strong> De 34px para <span class="medida">48px</span>, acima do mínimo recomendado de 44px.</li>
+      <li><strong>Ícones sociais agora abrem os perfis.</strong> Estavam desenhados no rodapé, mas sem link — obrigado por notar.</li>
+      <li><strong>Botão “Como chegar”.</strong> Abre o GPS com a rota já traçada até o consultório. Foi pensado exatamente no cenário que vocês descreveram: a orientação por telefone para o paciente mais velho.</li>
+      <li><strong>Instalação na tela do celular (PWA).</strong> Manifesto, ícones e atalhos de “Agendar” e “Como chegar”.</li>
+      <li><strong>Título técnico e endereço</strong> no formato do briefing.</li>
+    </ul>
+  </section>
+
+  <section>
+    <span class="num">02</span>
+    <h2>Uma mudança que vocês vão notar</h2>
+    <div class="card escuro">
+      <span class="lbl">Números públicos</span>
+      <p>Saíram do site “+20 anos”, “+100 artigos” e “+9.500 pacientes”. O briefing pedia retirar todo número sem metodologia de contagem documentada, e nenhum dos três tinha — “9.500”, por exemplo, não definia se contava pessoas, consultas ou cirurgias.</p>
+      <p>No lugar entraram duas credenciais que qualquer pessoa consegue conferir: <strong>MD PhD</strong> e o <strong>registro de especialista</strong>. A autoridade passa a vir de um documento em vez de uma contagem — e some o flanco que os números abriam.</p>
+      <p>Se o consultório tiver a base documental de algum deles, com o critério de contagem definido, o número volta. É só nos mandar.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="num">03</span>
+    <h2>O checklist, item a item</h2>
+    <table>
+      <tr><th>Item</th><th>Estado</th><th>O que foi medido</th></tr>
+      <tr><td>Título da página</td><td><span class="est ok">Entregue</span></td><td>Passou a acompanhar o posicionamento visível. As 67 páginas têm título próprio — nenhuma repetida.</td></tr>
+      <tr><td>PWA / instalar no celular</td><td><span class="est ok">Entregue</span></td><td>Estava fora do escopo original; entrou. No iPhone funciona pelo manifesto, no Android pelo componente que o Chrome exige.</td></tr>
+      <tr><td>Botão de agendar sempre visível</td><td><span class="est ok">Entregue</span></td><td>Fixo desde o topo, em todas as páginas.</td></tr>
+      <tr><td>Área de toque no celular</td><td><span class="est ok">Entregue</span></td><td>34px → 48px. A medição de vocês estava certa.</td></tr>
+      <tr><td>Agendar sobrepondo “Voltar ao topo”</td><td><span class="est ok">Entregue</span></td><td>Os dois ocupavam o mesmo canto. O botão agora recua quando o rodapé aparece.</td></tr>
+      <tr><td>Ícones sociais sem destino</td><td><span class="est ok">Entregue</span></td><td>Os três abrem os perfis oficiais.</td></tr>
+      <tr><td>GPS no rodapé</td><td><span class="est ok">Entregue</span></td><td>Abre a rota traçada, no aplicativo que a pessoa já tiver.</td></tr>
+      <tr><td>Estabilidade visual das imagens</td><td><span class="est ok">Entregue</span></td><td>Cada imagem passou a reservar o próprio espaço antes de carregar.</td></tr>
+      <tr><td>Peso da animação de fundo</td><td><span class="est ok">Aliviado</span></td><td>Medimos: no celular ela já carregava 31 dos 122 quadros, cerca de 1,2 MB. Ficou <span class="medida">2,7 MB no conjunto</span>, contra 4,8 MB. Sobre trocar por vídeo, ver a observação abaixo.</td></tr>
+      <tr><td>Menu flutuante oculto nos testes</td><td><span class="est ok">Entregue</span></td><td>Vocês tinham razão no diagnóstico prático. Ele obedecia à direção da rolagem; agora não obedece mais.</td></tr>
+      <tr><td>Incluir “Dr.” na primeira tela</td><td><span class="est voces">Para decidir</span></td><td>Mexe na abertura, que é a peça mais delicada do site. Preferimos propor com uma prévia antes de aplicar.</td></tr>
+      <tr><td>Acolhimento nos textos de condição</td><td><span class="est depois">Próxima rodada</span></td><td>Concordamos com a leitura. É reescrita clínica com revisão do Dr. Hugo, não ajuste de layout.</td></tr>
+      <tr><td>Triagem de dúvidas / assistente</td><td><span class="est depois">Fora desta fase</span></td><td>É produto novo, com implicação de responsabilidade sobre o que se responde a um paciente. Vale conversa própria.</td></tr>
+    </table>
+    <p><strong>Sobre trocar a animação por vídeo:</strong> o travamento relatado vem da decodificação durante a rolagem, não do download — por isso a sequência de imagens ficou mais leve em vez de virar vídeo. No Safari do iPhone, vídeo controlado por rolagem trava mais do que a sequência; foi justamente para evitar isso que ela existe.</p>
+  </section>
+
+  <section>
+    <span class="num">04</span>
+    <h2>Dois trechos que procuramos e não encontramos</h2>
+    <p>Os dois blocos editoriais que faltavam ajustar — o “Experimente tratamentos… excelência mundial” e o “Extensa lista de publicações… vasta experiência de 20 anos” — nós procuramos em todas as páginas do ambiente de homologação e não localizamos.</p>
+    <p>Eles batem com o texto que está hoje no <strong>hugodoria.com.br</strong>, que continua sendo o site antigo, no WordPress. É a diferença entre os dois endereços, e ela desaparece assim que a migração acontecer. Se aparecerem aí em algum caminho específico, mandem o link da página que a gente corrige na hora.</p>
+  </section>
+
+  <section>
+    <span class="num">05</span>
+    <h2>O que falta para publicar</h2>
+    <p>Quatro pontos, e os quatro dependem de uma decisão de vocês:</p>
+    <ul>
+      <li><strong>Os 26 depoimentos.</strong> A norma não os proíbe, mas pede sobriedade e anonimato mesmo com autorização do paciente. A saída que sugerimos é manter as avaliações, identificar por primeiro nome e inicial, e retirar as que citam resultado. Precisa do aval do Dr. Hugo.</li>
+      <li><strong>Conta do Google Analytics.</strong> A medição está construída e desligada, esperando o identificador de vocês. Enquanto isso, o site não grava cookie nenhum — por isso o aviso de cookies ainda não aparece.</li>
+      <li><strong>Data da virada do domínio.</strong> Os redirecionamentos das 20 páginas antigas estão prontos e testados.</li>
+      <li><strong>Base documental dos números</strong>, caso queiram algum de volta.</li>
+    </ul>
+  </section>
+
+  <section>
+    <span class="num">06</span>
+    <h2>Como fechar</h2>
+    <div class="card">
+      <span class="lbl">Proposta de critério</span>
+      <p>Para não ficarmos revisando indefinidamente, propomos combinar agora a régua da publicação: identificação profissional completa, nenhum superlativo ou promessa de resultado, nenhum número sem base, todas as páginas com título próprio, redirecionamentos testados, política de privacidade e consentimento no ar, e desempenho medido em celular.</p>
+      <p>Tudo isso já está cumprido, e esta página mostra onde. Com o aval de vocês nesses pontos e a decisão sobre os depoimentos, o site pode ir para o ar — e o que vier depois entra como evolução, com prioridade combinada, em vez de segurar a publicação.</p>
+    </div>
+    <p>E, sempre que a dúvida for técnica, perguntem direto: a gente responde com o número medido, na hora.</p>
+  </section>
+
+  <footer>
+    Merinno · para o Dr. Hugo Doria e equipe · atualizado em 29 de julho de 2026
+  </footer>
+
+</div>
+</body>
+</html>
