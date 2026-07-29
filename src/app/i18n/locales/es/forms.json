@@ -2,7 +2,7 @@
   "forms": {
     "stats": {
       "titulacao": "Doctorado en Neurociencia · UNIFESP",
-      "registro": "Especialista registrado en el CREMESP"
+      "registro": "Dr. Hugo Leonardo Doria Netto · Médico - CRM-SP 118350"
     },
     "sobre": {
       "heroEyebrow": "Acerca de",
@@ -194,7 +194,7 @@
         {
           "titulo": "Quién trata sus datos",
           "paragrafos": [
-            "Los datos recopilados en este sitio son tratados por el Dr. Hugo Leonardo Doria-Netto y por el equipo de su consultorio, en Rua Teixeira da Silva, 54 — conjunto 73, Bela Vista, São Paulo — SP, CEP 04002-030, Brasil.",
+            "Los datos recopilados en este sitio son tratados por el Dr. Hugo Leonardo Doria Netto y por el equipo de su consultorio, en Rua Teixeira da Silva, 54 — conjunto 73, Bela Vista, São Paulo — SP, CEP 04002-030, Brasil.",
             "Esta política se aplica al sitio y a los formularios publicados en él. No se aplica a otros servicios a los que usted acceda desde aquí, como WhatsApp, Google Maps o los perfiles en redes sociales, que tienen políticas propias."
           ]
         },
@@ -303,7 +303,7 @@
       ]
     },
     "identificacao": {
-      "linha": "Dr. Hugo Leonardo Doria-Netto — MÉDICO — CRM/SP 118350 · RQE 48918 — Neurocirurgia (Neurocirugía). Este sitio tiene finalidad informativa y no sustituye la consulta médica. En caso de emergencia, llame al servicio de urgencias local."
+      "linha": "Dr. Hugo Leonardo Doria Netto — Médico - CRM-SP 118350 — Neurocirurgia (Neurocirugía) - RQE 48918. Este sitio tiene finalidad informativa y no sustituye la consulta médica. En caso de emergencia, llame al servicio de urgencias local."
     }
   }
 }

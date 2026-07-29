@@ -13,7 +13,7 @@
       "fotoAlt": "El Dr. Hugo Doria en su consultorio",
       "stats": {
         "titulacao": "Doctorado en Neurociencia · UNIFESP",
-        "registro": "Especialista registrado en el CREMESP"
+        "registro": "Dr. Hugo Leonardo Doria Netto · Médico - CRM-SP 118350"
       }
     },
     "casos": {
@@ -40,9 +40,9 @@
         "publicacoes": "Publicaciones e Investigación"
       },
       "texts": {
-        "hospitals": "Neurocirujano en los hospitales BP, Santa Catarina, Albert Einstein y Sírio-Libanês.",
+        "hospitals": "Neurocirujano en BP - A Beneficência Portuguesa de São Paulo, Hospital Santa Catarina - Paulista, Hospital Israelita Albert Einstein y Hospital Sírio-Libanês.",
         "coordination": "Coordinador del Departamento de Neurocirugía Vascular de la Sociedad Brasileña de Neurocirugía.",
-        "publications": "Publicaciones en revistas nacionales e internacionales de neurocirugía, con actuación como revisor a lo largo de su carrera.",
+        "publications": "Publicaciones en revistas nacionales e internacionales de neurocirugía, con actuación como revisor a lo largo de su carrera y participación activa en actividades de enseñanza, investigación y formación en neurocirugía.",
         "surgery": "Práctica quirúrgica en casos de alta complejidad vascular y neurológica, con técnicas microquirúrgicas modernas."
       },
       "alts": {
@@ -54,17 +54,17 @@
     },
     "quote": {
       "text": "La Neurocirugía es un arte y es un honor poder ejercerla. Actuar en un área de enorme importancia para devolver la vida a los pacientes es mucho más que una profesión: es un gran privilegio.",
-      "attribution": "Así lo define el Dr. Hugo Leonardo Doria-Netto, MD, PhD, que ejerce la neurocirugía como responsabilidad y vocación, poniendo conocimiento y técnica al servicio de la vida."
+      "attribution": "Así lo define el Dr. Hugo Leonardo Doria Netto, MD, PhD, que ejerce la neurocirugía como responsabilidad y vocación, poniendo conocimiento y técnica al servicio de la vida."
     },
     "brain": {
-      "heading": "Cuidados Esenciales para tu Salud Neurológica",
-      "paragraph": "Tratamiento de condiciones cerebrovasculares y tumores craneales con técnica microquirúrgica, evaluación individualizada y seguimiento cercano en cada etapa.",
+      "heading": "Evaluación especializada en neurocirugía vascular y craneal",
+      "paragraph": "Póngase en contacto con el equipo para agendar una consulta o solicitar una segunda opinión especializada.",
       "cta": "Ponte en Contacto"
     },
     "especialidades": {
       "eyebrow": "Servicios de Neurocirugía",
       "heading": "Mis Especialidades",
-      "description": "El Dr. Hugo Doria ofrece tratamientos avanzados en neurocirugía, incluyendo aneurismas cerebrales, malformaciones arteriovenosas, tumores cerebrales y medulares, enfermedad de Moyamoya, neuralgia del trigémino, espasmo hemifacial y revascularización cerebral.",
+      "description": "El Dr. Hugo Doria actúa en neurocirugía vascular y craneal, incluyendo aneurismas cerebrales, malformaciones arteriovenosas, tumores cerebrales y medulares, enfermedad de Moyamoya, neuralgia del trigémino, espasmo hemifacial y revascularización cerebral.",
       "saibaMais": "Saber más"
     }
   }

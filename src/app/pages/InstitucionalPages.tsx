@@ -140,7 +140,7 @@ export function SobreMimPage() {
     <Shell>
       <PageHero
         eyebrow={t("forms.sobre.heroEyebrow")}
-        title="Dr. Hugo Leonardo Doria-Netto"
+        title="Dr. Hugo Leonardo Doria Netto"
         intro={t("forms.sobre.heroIntro")}
         image="/v4/photos/sobre-portrait.jpg"
         imageAlt="Dr. Hugo Doria"

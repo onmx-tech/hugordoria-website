@@ -11,12 +11,12 @@ export const SOBRE_MIM = {
     {
       titulo: "Actuación Profesional",
       texto:
-        "Neurocirujano en los hospitales BP, Santa Catarina, Albert Einstein y Sírio-Libanês.",
+        "Neurocirujano en BP - A Beneficência Portuguesa de São Paulo, Hospital Santa Catarina - Paulista, Hospital Israelita Albert Einstein y Hospital Sírio-Libanês.",
     },
     {
       titulo: "Publicaciones e Investigación",
       texto:
-        "Publicaciones en revistas nacionales e internacionales de neurocirugía, con actuación como revisor a lo largo de su carrera.",
+        "Publicaciones en revistas nacionales e internacionales de neurocirugía, con actuación como revisor a lo largo de su carrera y participación activa en actividades de enseñanza, investigación y formación en neurocirugía.",
     },
     {
       titulo: "Coordinación y Liderazgo",

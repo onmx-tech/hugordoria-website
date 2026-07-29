@@ -10,12 +10,12 @@ export const SOBRE_MIM = {
     {
       titulo: "Clinical Practice",
       texto:
-        "Neurosurgeon at BP, Santa Catarina, Albert Einstein and Sírio-Libanês hospitals.",
+        "Neurosurgeon at BP - A Beneficência Portuguesa de São Paulo, Hospital Santa Catarina - Paulista, Hospital Israelita Albert Einstein and Hospital Sírio-Libanês.",
     },
     {
       titulo: "Publications and Research",
       texto:
-        "Publications in national and international neurosurgery journals, serving as a reviewer throughout his career.",
+        "Publications in national and international neurosurgery journals, serving as a reviewer throughout his career and actively taking part in teaching, research and training activities in neurosurgery.",
     },
     {
       titulo: "Coordination and Leadership",
