@@ -41,12 +41,19 @@ const STATIC_ROUTES = [
   "/privacidade",
 ];
 
-// Especialidades com artigo clínico (as indexáveis).
-const espDir = path.join(root, "src/app/content/especialidades/pt");
-const espSlugs = fs
-  .readdirSync(espDir)
-  .filter((f) => f.endsWith(".ts") && f !== "types.ts")
-  .map((f) => f.replace(/\.ts$/, ""));
+// TODAS as especialidades que têm CARD — não só as que têm artigo clínico.
+// Antes a lista vinha da pasta de artigos, e a especialidade sem artigo ficava
+// sem HTML próprio: o rewrite de SPA devolvia o index.html, ou seja, a página
+// respondia 200 servindo a HOME byte a byte. Passava em qualquer teste de link
+// quebrado e continuava linkada na home e no rodapé.
+// Sem artigo a página renderiza hero + CTA + "outras especialidades", e o
+// módulo de SEO já a marca noindex por thin content — o que é correto. O que
+// não podia era ela não existir.
+const dataTs = fs.readFileSync(
+  path.join(root, "src/app/components/section-especialidades/data.ts"),
+  "utf8",
+);
+const espSlugs = [...dataTs.matchAll(/slug:\s*"([^"]+)"/g)].map((m) => m[1]);
 const baseRoutes = [
   ...STATIC_ROUTES,
   ...espSlugs.map((s) => `/especialidade/${s}`),

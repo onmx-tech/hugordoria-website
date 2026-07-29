@@ -8,13 +8,18 @@ import { LanguageSwitcher } from "../i18n/LanguageSwitcher";
 // hero, rola junto com a página (não fixo). A navegação persistente fica na
 // FloatingNav fixa embaixo. Links por rotas (cientes de idioma); ativo conforme
 // o path base (sem o prefixo de locale). Rótulos vêm do i18n (namespace nav).
+// Ordem do §9 do briefing do cliente: o menu é de PACIENTE, não currículo.
+// "Contato" e "Segunda opinião" estavam fora do header — a página de contato,
+// com formulário e consentimento, só era alcançável pelo rodapé, e a segunda
+// opinião é um dos dois CTAs aprovados. "Doutorado" e "Eventos" saem da
+// posição prioritária: continuam publicados e linkados no rodapé.
 const NAV_ITEMS: Array<{ key: string; to: string }> = [
   { key: "inicio", to: "/" },
   { key: "sobreMim", to: "/sobre-mim" },
-  { key: "depoimentos", to: "/depoimentos" },
   { key: "especialidades", to: "/especialidades" },
-  { key: "doutorado", to: "/doutorado" },
-  { key: "eventos", to: "/eventos" },
+  { key: "segundaOpiniao", to: "/segunda-opiniao" },
+  { key: "depoimentos", to: "/depoimentos" },
+  { key: "contato", to: "/contato" },
 ];
 
 export function SiteHeader() {
