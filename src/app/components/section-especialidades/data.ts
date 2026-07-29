@@ -83,7 +83,7 @@ export const cards: CardData[] = [
     description:
       "Os aneurismas cerebrais são dilatações anormais nas paredes das artérias cerebrais.",
     detailedDescription:
-      "Os aneurismas cerebrais são dilatações anormais nas paredes das artérias do cérebro, geralmente em pontos de bifurcação. Quando rompem, causam hemorragia subaracnoidea — uma emergência neurológica com alta morbimortalidade. O tratamento pode ser realizado por clipagem microcirúrgica ou embolização endovascular. O Dr. Hugo Doria é especialista no tratamento microcirúrgico de aneurismas complexos, incluindo aneurismas gigantes e de circulação posterior, utilizando técnicas de bypass cerebral quando necessário.",
+      "Os aneurismas cerebrais são dilatações anormais nas paredes das artérias do cérebro, geralmente em pontos de bifurcação. Quando rompem, causam hemorragia subaracnoidea — uma emergência neurológica com alta morbimortalidade. O tratamento pode ser realizado por clipagem microcirúrgica ou embolização endovascular. O Dr. Hugo Doria tem atuação no tratamento microcirúrgico de aneurismas complexos, incluindo aneurismas gigantes e de circulação posterior, utilizando técnicas de bypass cerebral quando necessário.",
     image: "/images/especialidades/aneurisma.jpg",
     highlights: [
       "Clipagem microcirúrgica de alta complexidade",

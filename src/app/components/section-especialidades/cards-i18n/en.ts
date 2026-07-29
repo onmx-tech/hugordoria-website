@@ -13,7 +13,7 @@ export const CARDS_TEXT: Record<string, CardText> = {
     description:
       "Cerebral aneurysms are abnormal dilations in the walls of the cerebral arteries.",
     detailedDescription:
-      "Cerebral aneurysms are abnormal dilations in the walls of the brain's arteries, usually at bifurcation points. When they rupture, they cause subarachnoid hemorrhage — a neurological emergency with high morbidity and mortality. Treatment can be performed by microsurgical clipping or endovascular embolization. Dr. Hugo Doria specializes in the microsurgical treatment of complex aneurysms, including giant and posterior circulation aneurysms, using cerebral bypass techniques when necessary.",
+      "Cerebral aneurysms are abnormal dilations in the walls of the brain's arteries, usually at bifurcation points. When they rupture, they cause subarachnoid hemorrhage — a neurological emergency with high morbidity and mortality. Treatment can be performed by microsurgical clipping or endovascular embolization. Dr. Hugo Doria's practice includes the microsurgical treatment of complex aneurysms, including giant and posterior circulation aneurysms, using cerebral bypass techniques when necessary.",
   },
   "mavs": {
     title: "AVMs",
