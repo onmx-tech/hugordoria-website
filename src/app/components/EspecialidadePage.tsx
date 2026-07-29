@@ -12,7 +12,9 @@ import FloatingNav from "./FloatingNav";
 import { PageHero } from "./sub/PageHero";
 import { Eyebrow, SectionHeading, Divider, Button, Container } from "./sub/primitives";
 import { useSeo } from "../seo/useSeo";
-import { breadcrumbSchema, medicalPageSchema } from "../seo/schema";
+import { breadcrumbSchema, medicalPageSchema, faqSchema } from "../seo/schema";
+import { ChevronDown } from "lucide-react";
+import FAQ_ESPECIALIDADES from "../content/faq/especialidades.json";
 import { responsiveImg } from "@/lib/img";
 
 // Figuras médicas Magnific (navy). A legenda escolhe a figura por palavra-chave.
@@ -57,6 +59,13 @@ export default function EspecialidadePage() {
   const { t: ts } = useTranslation("sub");
   const { locale } = useLocale();
   const card = slug ? getCard(slug, locale) : undefined;
+  // Perguntas frequentes por condição (§8.3 do briefing). As respostas foram
+  // extraídas do próprio artigo da página — nada de fato clínico novo. Sem
+  // artigo (ex.: revascularização) simplesmente não há FAQ.
+  const faq: Array<{ pergunta: string; resposta: string }> =
+    (slug &&
+      (FAQ_ESPECIALIDADES as Record<string, Record<string, Array<{ pergunta: string; resposta: string }>>>)[slug]?.[locale]) ||
+    [];
   const article = slug ? getArticle(slug, locale) : undefined;
 
   const currentIndex = cards.findIndex((c) => c.slug === slug);
@@ -81,6 +90,9 @@ export default function EspecialidadePage() {
           // do índice até o texto existir (e volta sozinha quando existir).
           noindex: !article,
           jsonLd: [
+            ...(faq.length
+              ? [faqSchema(faq.map((f) => ({ question: f.pergunta, answer: f.resposta })))]
+              : []),
             medicalPageSchema({
               name: card.title,
               description: article?.lead ?? card.description,
@@ -266,6 +278,27 @@ export default function EspecialidadePage() {
                           <span className="block font-mono uppercase tracking-[0.16em] text-mist text-[11px]">{m.label}</span>
                           <span className="mt-1 block font-display text-white text-[16px]" style={{ fontWeight: 500 }}>{m.value}</span>
                         </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {faq.length > 0 && (
+                  <div className="flex flex-col gap-5">
+                    <Eyebrow>{ts("sub.especialidadeDetalhe.faqEyebrow")}</Eyebrow>
+                    <div className="flex flex-col overflow-hidden rounded-2xl bg-white/[0.04]">
+                      {faq.map((item) => (
+                        <details key={item.pergunta} className="group border-b border-white/10 last:border-b-0">
+                          <summary className="flex cursor-pointer list-none items-start justify-between gap-4 p-5 transition-colors hover:bg-white/[0.03]">
+                            <h3 className="font-display text-white text-[15px] leading-[1.35]" style={{ fontWeight: 500 }}>
+                              {item.pergunta}
+                            </h3>
+                            <ChevronDown className="mt-0.5 size-4 shrink-0 text-gold-600 transition-transform duration-300 group-open:rotate-180" strokeWidth={1.7} />
+                          </summary>
+                          <p className="px-5 pb-5 font-body text-white/65 text-[14px]" style={{ lineHeight: 1.7 }}>
+                            {item.resposta}
+                          </p>
+                        </details>
                       ))}
                     </div>
                   </div>

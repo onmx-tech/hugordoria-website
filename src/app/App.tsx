@@ -5,6 +5,7 @@ import SectionSobre from "./components/SectionSobre";
 import SectionQuote from "./components/SectionQuote";
 import SectionEspecialidades from "./components/SectionEspecialidades";
 import SectionSobreMim from "./components/SectionSobreMim";
+import SectionAvaliacaoEspecializada from "./components/SectionAvaliacaoEspecializada";
 import SectionCasosDeSucesso from "./components/SectionCasosDeSucesso";
 import SectionBrain from "./components/SectionBrain";
 import Footer from "./components/Footer";
@@ -53,6 +54,12 @@ export default function App() {
       <div id="especialidades">
         <SectionEspecialidades />
       </div>
+      {/* §10.3 do briefing — entra DEPOIS das especialidades e ANTES do "sobre":
+          a pessoa acabou de ver o que é tratado e a pergunta seguinte é por que
+          procurar alguém para isso. Só então faz sentido falar de quem é o
+          médico. */}
+      <SectionAvaliacaoEspecializada />
+
       <div id="sobre-mim">
         <SectionSobreMim />
       </div>

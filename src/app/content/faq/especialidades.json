@@ -1,0 +1,646 @@
+{
+ "aneurisma-cerebral": {
+  "pt": [
+   {
+    "pergunta": "Descobri um aneurisma em um exame feito por outro motivo. Isso é comum?",
+    "resposta": "É. A maioria dos aneurismas não rotos aparece assim, incidentalmente, numa neuroimagem pedida por outra razão. Aneurismas íntegros costumam ser silenciosos e não dão sintoma até que algo mude."
+   },
+   {
+    "pergunta": "Quais sinais indicam que devo procurar atendimento imediatamente?",
+    "resposta": "Cefaleia súbita e intensa, rigidez de nuca, náusea e vômitos e alteração de consciência. Uma dor de cabeça forte que aparece dias ou semanas antes — a chamada cefaleia sentinela — também merece avaliação, porque sinaliza risco maior."
+   },
+   {
+    "pergunta": "Tenho um familiar com aneurisma. Preciso investigar?",
+    "resposta": "Vale conversar. A contribuição genética é relevante, e síndromes hereditárias devem ser consideradas quando há mais de um familiar com aneurismas intracranianos. Pessoas de alto risco podem ser rastreadas com angiorressonância ou angiotomografia."
+   },
+   {
+    "pergunta": "Existe alternativa à cirurgia aberta?",
+    "resposta": "Existe. Além da microcirurgia com clipagem, há o tratamento endovascular, feito por microcateteres guiados por fluoroscopia, com molas ou dispositivos de desvio de fluxo. As duas vias podem ser usadas isoladamente ou em conjunto."
+   },
+   {
+    "pergunta": "O que define qual das duas vias será usada no meu caso?",
+    "resposta": "A decisão é multifatorial e considera história clínica, sexo, comorbidades, os exames de imagem, o tamanho e a localização do aneurisma, a anatomia do vaso, a história familiar e eventuais condições genéticas. Não há resposta que valha para todos os casos."
+   }
+  ],
+  "en": [
+   {
+    "pergunta": "I found out about an aneurysm during a scan done for another reason. Is that common?",
+    "resposta": "It is. Most unruptured aneurysms are found exactly this way, incidentally, on neuroimaging requested for another reason. Intact aneurysms are usually silent and cause no symptoms until something changes."
+   },
+   {
+    "pergunta": "Which signs mean I should seek care immediately?",
+    "resposta": "Sudden, severe headache, neck stiffness, nausea and vomiting, and altered consciousness. A severe headache appearing days or weeks earlier — the sentinel headache — also deserves assessment, because it signals higher risk."
+   },
+   {
+    "pergunta": "A relative of mine has an aneurysm. Should I be screened?",
+    "resposta": "It is worth discussing. The genetic contribution is relevant, and hereditary syndromes should be considered when more than one family member has intracranial aneurysms. High-risk individuals may be screened with MR or CT angiography."
+   },
+   {
+    "pergunta": "Is there an alternative to open surgery?",
+    "resposta": "There is. Besides microsurgical clipping, there is endovascular treatment, performed through intra-arterial microcatheters guided by fluoroscopy, using coils or flow-diverting devices. The two approaches may be used alone or together."
+   },
+   {
+    "pergunta": "What determines which of the two approaches applies to my case?",
+    "resposta": "The decision is multifactorial and takes into account clinical history, sex, comorbidities, imaging, the size and location of the aneurysm, vessel anatomy, family history and any genetic conditions. There is no single answer that fits every case."
+   }
+  ],
+  "es": [
+   {
+    "pergunta": "Descubrí un aneurisma en un examen hecho por otro motivo. ¿Es habitual?",
+    "resposta": "Lo es. La mayoría de los aneurismas no rotos aparece así, de forma incidental, en una neuroimagen solicitada por otra razón. Los aneurismas íntegros suelen ser silenciosos y no dan síntomas hasta que algo cambia."
+   },
+   {
+    "pergunta": "¿Qué señales indican que debo buscar atención de inmediato?",
+    "resposta": "Cefalea súbita e intensa, rigidez de nuca, náuseas y vómitos, y alteración de la consciencia. Un dolor de cabeza fuerte que aparece días o semanas antes — la llamada cefalea centinela — también merece evaluación, porque señala mayor riesgo."
+   },
+   {
+    "pergunta": "Tengo un familiar con aneurisma. ¿Debo investigar?",
+    "resposta": "Conviene conversarlo. La contribución genética es relevante, y deben considerarse síndromes hereditarios cuando hay más de un familiar con aneurismas intracraneales. Las personas de alto riesgo pueden ser estudiadas con angiorresonancia o angiotomografía."
+   },
+   {
+    "pergunta": "¿Existe alternativa a la cirugía abierta?",
+    "resposta": "Existe. Además de la microcirugía con clipado, está el tratamiento endovascular, realizado con microcatéteres intraarteriales guiados por fluoroscopia, con coils o dispositivos desviadores de flujo. Ambas vías pueden usarse solas o en conjunto."
+   },
+   {
+    "pergunta": "¿Qué define cuál de las dos vías se usará en mi caso?",
+    "resposta": "La decisión es multifactorial y considera historia clínica, sexo, comorbilidades, los exámenes de imagen, el tamaño y la localización del aneurisma, la anatomía del vaso, los antecedentes familiares y eventuales condiciones genéticas. No hay una respuesta que sirva para todos los casos."
+   }
+  ]
+ },
+ "cavernomas": {
+  "pt": [
+   {
+    "pergunta": "Todo cavernoma precisa de cirurgia?",
+    "resposta": "Não. O manejo conservador é favorecido em pacientes assintomáticos ou com risco pré-cirúrgico elevado. A conduta é definida caso a caso, em discussão multidisciplinar, considerando os sintomas, a localização da lesão, a idade e o histórico de saúde."
+   },
+   {
+    "pergunta": "Tive uma crise convulsiva. Tem relação com o cavernoma?",
+    "resposta": "Pode ter. As crises epilépticas são o sintoma mais frequente dos cavernomas, associadas ao potencial epileptogênico dos produtos de degradação do sangue. Nas lesões do tronco encefálico, o que predomina são os déficits neurológicos."
+   },
+   {
+    "pergunta": "Minha angiografia não mostrou nada. Ainda assim pode ser um cavernoma?",
+    "resposta": "Pode. Cavernomas não são evidentes na angiografia, e é por isso que o diagnóstico é mais difícil que o de outras doenças vasculares. A ressonância magnética é o exame central, capaz de distinguir lesões em diferentes estágios de sangramento."
+   },
+   {
+    "pergunta": "É hereditário?",
+    "resposta": "Pode ser. Existem duas formas: a esporádica, comumente com lesão única, e a familiar, hereditária, de padrão autossômico dominante, que corresponde a 30% a 50% dos casos e frequentemente se apresenta com múltiplas lesões."
+   },
+   {
+    "pergunta": "A radiocirurgia serve para o meu caso?",
+    "resposta": "Depende de onde está a lesão. É considerada uma opção para cavernomas supratentoriais em locais desfavoráveis ou de alto risco cirúrgico, e não é recomendada para cavernomas do tronco cerebral."
+   }
+  ],
+  "en": [
+   {
+    "pergunta": "Does every cavernoma need surgery?",
+    "resposta": "No. Conservative management is favoured in asymptomatic patients or those with elevated surgical risk. The approach is defined case by case, in multidisciplinary discussion, considering symptoms, lesion location, age and health history."
+   },
+   {
+    "pergunta": "I had a seizure. Is it related to the cavernoma?",
+    "resposta": "It may be. Seizures are the most frequent symptom of cavernomas, linked to the epileptogenic potential of blood degradation products. In brainstem lesions, neurological deficits predominate instead."
+   },
+   {
+    "pergunta": "My angiogram showed nothing. Could it still be a cavernoma?",
+    "resposta": "It could. Cavernomas are not visible on angiography, which is why they are harder to diagnose than other vascular conditions. MRI is the central exam, able to distinguish lesions at different stages of bleeding."
+   },
+   {
+    "pergunta": "Is it hereditary?",
+    "resposta": "It can be. There are two forms: sporadic, usually a single lesion, and familial, hereditary with an autosomal dominant pattern, which accounts for 30% to 50% of cases and often presents with multiple lesions."
+   },
+   {
+    "pergunta": "Is radiosurgery an option for me?",
+    "resposta": "It depends on where the lesion is. It is considered an option for supratentorial cavernomas in unfavourable locations or with high surgical risk, and it is not recommended for brainstem cavernomas."
+   }
+  ],
+  "es": [
+   {
+    "pergunta": "¿Todo cavernoma necesita cirugía?",
+    "resposta": "No. El manejo conservador se prefiere en pacientes asintomáticos o con riesgo prequirúrgico elevado. La conducta se define caso a caso, en discusión multidisciplinaria, considerando los síntomas, la localización de la lesión, la edad y los antecedentes de salud."
+   },
+   {
+    "pergunta": "Tuve una crisis convulsiva. ¿Tiene relación con el cavernoma?",
+    "resposta": "Puede tenerla. Las crisis epilépticas son el síntoma más frecuente de los cavernomas, asociadas al potencial epileptógeno de los productos de degradación de la sangre. En las lesiones del tronco encefálico predominan los déficits neurológicos."
+   },
+   {
+    "pergunta": "Mi angiografía no mostró nada. ¿Aun así puede ser un cavernoma?",
+    "resposta": "Puede serlo. Los cavernomas no son evidentes en la angiografía, y por eso su diagnóstico es más difícil que el de otras enfermedades vasculares. La resonancia magnética es el examen central, capaz de distinguir lesiones en distintas etapas de sangrado."
+   },
+   {
+    "pergunta": "¿Es hereditario?",
+    "resposta": "Puede serlo. Existen dos formas: la esporádica, comúnmente con lesión única, y la familiar, hereditaria, de patrón autosómico dominante, que corresponde al 30%–50% de los casos y con frecuencia se presenta con múltiples lesiones."
+   },
+   {
+    "pergunta": "¿La radiocirugía sirve para mi caso?",
+    "resposta": "Depende de dónde esté la lesión. Se considera una opción para cavernomas supratentoriales en lugares desfavorables o de alto riesgo quirúrgico, y no se recomienda para cavernomas del tronco cerebral."
+   }
+  ]
+ },
+ "mavs": {
+  "pt": [
+   {
+    "pergunta": "Descobri uma MAV e não tenho sintoma nenhum. Preciso tratar?",
+    "resposta": "A conduta é individualizada e definida em discussão multidisciplinar. Cerca de 15% das MAVs permanecem assintomáticas durante toda a vida, e a decisão considera o tamanho do nidus, o tipo de drenagem venosa e a localização — se em área eloquente ou não."
+   },
+   {
+    "pergunta": "Qual é o risco de a minha MAV sangrar?",
+    "resposta": "MAVs não rotas têm risco anual de hemorragia entre 2% e 4%, e o risco é maior nas que já romperam, especialmente no primeiro ano após a ruptura. Drenagem venosa profunda, localização cerebral profunda e nidus pequeno aumentam esse risco."
+   },
+   {
+    "pergunta": "Já fiz ressonância. Por que ainda preciso de angiografia?",
+    "resposta": "Porque os exames respondem coisas diferentes. A ressonância define a localização do nidus e suas relações anatômicas; a angiografia digital é um exame dinâmico, que discrimina os vasos que alimentam o nidus daqueles apenas de passagem e demonstra aneurismas associados."
+   },
+   {
+    "pergunta": "A embolização substitui a cirurgia?",
+    "resposta": "Nesse contexto, ela precede a cirurgia. Em MAVs de alto fluxo ou de localização profunda, a embolização seletiva dos vasos que irrigam o nidus é feita antes, para reduzir o volume de sangue que chega à malformação e o tempo da ressecção."
+   },
+   {
+    "pergunta": "Minha MAV está numa área que controla a fala. É possível operar?",
+    "resposta": "Existe uma abordagem para essa situação. Em MAVs em áreas eloquentes — fala, córtex motor, sensitivo ou visual — a craniotomia acordada com estimulação cortical direta permite avaliar as regiões adjacentes em tempo real durante o procedimento."
+   }
+  ],
+  "en": [
+   {
+    "pergunta": "I found out I have an AVM and I have no symptoms. Do I need treatment?",
+    "resposta": "The approach is individualised and decided in multidisciplinary discussion. About 15% of AVMs remain asymptomatic throughout life, and the decision considers the size of the nidus, the type of venous drainage and the location — whether in an eloquent area or not."
+   },
+   {
+    "pergunta": "What is the risk that my AVM will bleed?",
+    "resposta": "Unruptured AVMs carry an annual haemorrhage risk of 2% to 4%, and the risk is higher in those that have already ruptured, especially in the first year after rupture. Deep venous drainage, deep brain location and a small nidus increase that risk."
+   },
+   {
+    "pergunta": "I have already had an MRI. Why do I still need an angiogram?",
+    "resposta": "Because the two exams answer different questions. MRI defines the location of the nidus and its anatomical relationships; digital angiography is a dynamic exam that distinguishes the vessels feeding the nidus from those merely passing by, and reveals associated aneurysms."
+   },
+   {
+    "pergunta": "Does embolisation replace surgery?",
+    "resposta": "In this context it comes before surgery. In high-flow or deeply located AVMs, selective embolisation of the vessels supplying the nidus is performed beforehand, to reduce the volume of blood reaching the malformation and the duration of the resection."
+   },
+   {
+    "pergunta": "My AVM is in an area that controls speech. Can it still be operated on?",
+    "resposta": "There is an approach for that situation. In AVMs in eloquent areas — speech, motor, sensory or visual cortex — awake craniotomy with direct cortical stimulation allows the adjacent regions to be assessed in real time during the procedure."
+   }
+  ],
+  "es": [
+   {
+    "pergunta": "Descubrí una MAV y no tengo ningún síntoma. ¿Necesito tratarla?",
+    "resposta": "La conducta es individualizada y se define en discusión multidisciplinaria. Cerca del 15% de las MAV permanece asintomática toda la vida, y la decisión considera el tamaño del nido, el tipo de drenaje venoso y la localización — si está en área elocuente o no."
+   },
+   {
+    "pergunta": "¿Cuál es el riesgo de que mi MAV sangre?",
+    "resposta": "Las MAV no rotas tienen un riesgo anual de hemorragia del 2% al 4%, y el riesgo es mayor en las ya rotas, especialmente en el primer año tras la ruptura. El drenaje venoso profundo, la localización cerebral profunda y un nido pequeño aumentan ese riesgo."
+   },
+   {
+    "pergunta": "Ya me hice una resonancia. ¿Por qué necesito además una angiografía?",
+    "resposta": "Porque los exámenes responden cosas distintas. La resonancia define la localización del nido y sus relaciones anatómicas; la angiografía digital es un examen dinámico que distingue los vasos que alimentan el nido de los que solo pasan por allí, y muestra aneurismas asociados."
+   },
+   {
+    "pergunta": "¿La embolización sustituye a la cirugía?",
+    "resposta": "En este contexto la antecede. En MAV de alto flujo o de localización profunda, la embolización selectiva de los vasos que irrigan el nido se realiza antes, para reducir el volumen de sangre que llega a la malformación y el tiempo de la resección."
+   },
+   {
+    "pergunta": "Mi MAV está en un área que controla el habla. ¿Se puede operar?",
+    "resposta": "Existe un abordaje para esa situación. En MAV en áreas elocuentes — habla, corteza motora, sensitiva o visual — la craneotomía con paciente despierto y estimulación cortical directa permite evaluar las regiones adyacentes en tiempo real durante el procedimiento."
+   }
+  ]
+ },
+ "doenca-de-moyamoya": {
+  "pt": [
+   {
+    "pergunta": "A doença se manifesta igual em criança e em adulto?",
+    "resposta": "Não. Os sintomas variam com a idade. Em crianças predominam os AVCs isquêmicos e os ataques isquêmicos transitórios — cerca de 65% a 70% têm fraqueza, dormência ou dificuldade de fala como primeiros sinais. Em adultos predomina a hemorragia intracerebral."
+   },
+   {
+    "pergunta": "O remédio resolve, ou vou precisar operar?",
+    "resposta": "Medicamentos como a aspirina não curam a doença. Eles podem reduzir o risco de formação de coágulos até que a cirurgia seja realizada. Cada caso é avaliado individualmente."
+   },
+   {
+    "pergunta": "Qual é a diferença entre revascularização direta e indireta?",
+    "resposta": "A direta cria novas conexões entre vasos sanguíneos para levar circulação ao cérebro, e deve ser realizada por neurocirurgião experiente em microcirurgia vascular. A indireta — técnicas como EMS, EDAS e EMAS — coloca tecido vascularizado sobre o cérebro para estimular, ao longo do tempo, o desenvolvimento de novos vasos."
+   },
+   {
+    "pergunta": "É uma doença hereditária?",
+    "resposta": "A causa exata ainda é desconhecida, mas fatores genéticos têm papel importante. A condição pode ser primária ou aparecer associada a outras doenças, como anemia falciforme, síndrome de Down ou condições autoimunes."
+   },
+   {
+    "pergunta": "Ouvi dizer que só acontece em populações asiáticas. É verdade?",
+    "resposta": "É mais comum em populações asiáticas, mas ocorre em todo o mundo, inclusive no Brasil. Afeta crianças e adultos, com maior risco entre 5 e 10 anos na infância e entre 30 e 40 anos na vida adulta."
+   }
+  ],
+  "en": [
+   {
+    "pergunta": "Does the disease present the same way in children and adults?",
+    "resposta": "No. Symptoms vary with age. In children, ischaemic strokes and transient ischaemic attacks predominate — around 65% to 70% present weakness, numbness or difficulty speaking as first signs. In adults, intracerebral haemorrhage predominates."
+   },
+   {
+    "pergunta": "Will medication be enough, or will I need surgery?",
+    "resposta": "Medications such as aspirin do not cure the disease. They may reduce the risk of clot formation until surgery is performed. Each case is assessed individually."
+   },
+   {
+    "pergunta": "What is the difference between direct and indirect revascularisation?",
+    "resposta": "The direct approach creates new connections between blood vessels to bring circulation to the brain, and should be performed by a neurosurgeon experienced in vascular microsurgery. The indirect approach — techniques such as EMS, EDAS and EMAS — places vascularised tissue over the brain to stimulate, over time, the development of new vessels."
+   },
+   {
+    "pergunta": "Is it a hereditary disease?",
+    "resposta": "The exact cause remains unknown, but genetic factors play an important role. The condition may be primary or appear associated with other diseases, such as sickle cell anaemia, Down syndrome or autoimmune conditions."
+   },
+   {
+    "pergunta": "I heard it only happens in Asian populations. Is that true?",
+    "resposta": "It is more common in Asian populations, but it occurs worldwide, including in Brazil. It affects children and adults, with higher risk between ages 5 and 10 in childhood and between 30 and 40 in adulthood."
+   }
+  ],
+  "es": [
+   {
+    "pergunta": "¿La enfermedad se manifiesta igual en niños y en adultos?",
+    "resposta": "No. Los síntomas varían con la edad. En niños predominan los ACV isquémicos y los ataques isquémicos transitorios — cerca del 65% al 70% presenta debilidad, entumecimiento o dificultad para hablar como primeros signos. En adultos predomina la hemorragia intracerebral."
+   },
+   {
+    "pergunta": "¿El medicamento resuelve, o voy a necesitar cirugía?",
+    "resposta": "Medicamentos como la aspirina no curan la enfermedad. Pueden reducir el riesgo de formación de coágulos hasta que se realice la cirugía. Cada caso se evalúa individualmente."
+   },
+   {
+    "pergunta": "¿Cuál es la diferencia entre revascularización directa e indirecta?",
+    "resposta": "La directa crea nuevas conexiones entre vasos sanguíneos para llevar circulación al cerebro, y debe ser realizada por un neurocirujano con experiencia en microcirugía vascular. La indirecta — técnicas como EMS, EDAS y EMAS — coloca tejido vascularizado sobre el cerebro para estimular, con el tiempo, el desarrollo de nuevos vasos."
+   },
+   {
+    "pergunta": "¿Es una enfermedad hereditaria?",
+    "resposta": "La causa exacta aún se desconoce, pero los factores genéticos tienen un papel importante. La condición puede ser primaria o aparecer asociada a otras enfermedades, como anemia falciforme, síndrome de Down o condiciones autoinmunes."
+   },
+   {
+    "pergunta": "Escuché que solo ocurre en poblaciones asiáticas. ¿Es cierto?",
+    "resposta": "Es más común en poblaciones asiáticas, pero ocurre en todo el mundo, incluido Brasil. Afecta a niños y adultos, con mayor riesgo entre los 5 y 10 años en la infancia y entre los 30 y 40 en la vida adulta."
+   }
+  ]
+ },
+ "neuralgia-do-trigemeo": {
+  "pt": [
+   {
+    "pergunta": "Como sei se a minha dor é no dente ou no nervo?",
+    "resposta": "A neuralgia do trigêmeo causa dor lancinante, em crises de curta duração, limitada a um lado da face — nos olhos, na asa do nariz, na mandíbula e dentes, ou em todas essas regiões. Entre as crises há remissão completa. O diagnóstico é clínico, com auxílio da ressonância magnética."
+   },
+   {
+    "pergunta": "Por que a dor aparece quando escovo os dentes ou falo?",
+    "resposta": "Porque são gatilhos típicos. As crises podem ser provocadas por um sorriso, pelo ato de falar, escovar os dentes, mastigar ou pelo atrito com vento frio."
+   },
+   {
+    "pergunta": "Vou precisar operar logo?",
+    "resposta": "Não necessariamente. O tratamento inicial é medicamentoso. A intervenção cirúrgica passa a ser considerada quando há falha ou intolerância ao tratamento clínico."
+   },
+   {
+    "pergunta": "Se a medicação não funcionar, quais são as opções?",
+    "resposta": "Há duas linhas descritas. Os procedimentos percutâneos, por balão ou por radiofrequência, em que uma agulha penetra o crânio pelo forame oval e promove lesão controlada da raiz do nervo. E a descompressão microvascular, em que o nervo e a alça vascular são identificados, dissecados e separados, com interposição de prótese entre as estruturas."
+   }
+  ],
+  "en": [
+   {
+    "pergunta": "How do I know whether my pain is dental or from the nerve?",
+    "resposta": "Trigeminal neuralgia causes stabbing pain in short attacks, limited to one side of the face — around the eye, the side of the nose, the jaw and teeth, or all of these. Between attacks there is complete remission. Diagnosis is clinical, supported by MRI."
+   },
+   {
+    "pergunta": "Why does the pain appear when I brush my teeth or speak?",
+    "resposta": "Because those are typical triggers. Attacks may be set off by smiling, speaking, brushing the teeth, chewing, or contact with cold wind."
+   },
+   {
+    "pergunta": "Will I need surgery right away?",
+    "resposta": "Not necessarily. Initial treatment is medical. Surgical intervention is considered when clinical treatment fails or is not tolerated."
+   },
+   {
+    "pergunta": "If medication does not work, what are the options?",
+    "resposta": "Two lines are described. Percutaneous procedures, by balloon or radiofrequency, in which a needle enters the skull through the foramen ovale and produces a controlled lesion of the nerve root. And microvascular decompression, in which the nerve and the vascular loop are identified, dissected and separated, with a prosthesis interposed between the structures."
+   }
+  ],
+  "es": [
+   {
+    "pergunta": "¿Cómo sé si mi dolor es dental o del nervio?",
+    "resposta": "La neuralgia del trigémino provoca dolor lancinante, en crisis de corta duración, limitado a un lado de la cara — en los ojos, el ala de la nariz, la mandíbula y los dientes, o en todas esas regiones. Entre las crisis hay remisión completa. El diagnóstico es clínico, con apoyo de la resonancia magnética."
+   },
+   {
+    "pergunta": "¿Por qué aparece el dolor cuando me cepillo los dientes o hablo?",
+    "resposta": "Porque son desencadenantes típicos. Las crisis pueden provocarse con una sonrisa, al hablar, al cepillarse los dientes, al masticar o por el roce con viento frío."
+   },
+   {
+    "pergunta": "¿Voy a necesitar operarme pronto?",
+    "resposta": "No necesariamente. El tratamiento inicial es farmacológico. La intervención quirúrgica se considera cuando hay fracaso o intolerancia al tratamiento clínico."
+   },
+   {
+    "pergunta": "Si la medicación no funciona, ¿cuáles son las opciones?",
+    "resposta": "Se describen dos líneas. Los procedimientos percutáneos, por balón o radiofrecuencia, en los que una aguja penetra el cráneo por el foramen oval y produce una lesión controlada de la raíz del nervio. Y la descompresión microvascular, en la que el nervio y el asa vascular se identifican, disecan y separan, con interposición de una prótesis entre las estructuras."
+   }
+  ]
+ },
+ "espasmo-hemifacial": {
+  "pt": [
+   {
+    "pergunta": "É a mesma coisa que um tique nervoso?",
+    "resposta": "São coisas diferentes. O espasmo hemifacial é uma doença rara, caracterizada por contração involuntária de um lado da face. Aparece espontaneamente e costuma piorar de forma progressiva."
+   },
+   {
+    "pergunta": "O que causa o espasmo?",
+    "resposta": "A causa principal é semelhante à da neuralgia do trigêmeo: com frequência uma alça vascular fica sobreposta ao nervo facial e, pelo pulsar contínuo sobre ele, provoca inflamação e despolarização involuntária e repetida."
+   },
+   {
+    "pergunta": "Que exame confirma o diagnóstico?",
+    "resposta": "A ressonância magnética, que permite identificar a alça vascular em conflito com o nervo facial."
+   },
+   {
+    "pergunta": "Todo paciente pode ser operado?",
+    "resposta": "Não. A descompressão microcirúrgica do nervo facial é indicada para pacientes aptos ao procedimento neurocirúrgico. Idosos ou pacientes com comorbidades clínicas graves não são candidatos à cirurgia — nesses casos, a toxina botulínica é usada para tratar as contrações, com efeito temporário."
+   }
+  ],
+  "en": [
+   {
+    "pergunta": "Is it the same as a nervous tic?",
+    "resposta": "They are different things. Hemifacial spasm is a rare condition characterised by involuntary contraction of one side of the face. It appears spontaneously and usually worsens progressively."
+   },
+   {
+    "pergunta": "What causes the spasm?",
+    "resposta": "The main cause is similar to that of trigeminal neuralgia: a vascular loop often lies over the facial nerve and, through its continuous pulsation against it, causes inflammation and repeated involuntary depolarisation."
+   },
+   {
+    "pergunta": "Which exam confirms the diagnosis?",
+    "resposta": "MRI, which allows the vascular loop in conflict with the facial nerve to be identified."
+   },
+   {
+    "pergunta": "Can every patient have surgery?",
+    "resposta": "No. Microsurgical decompression of the facial nerve is indicated for patients fit for the neurosurgical procedure. Elderly patients or those with severe clinical comorbidities are not surgical candidates — in those cases, botulinum toxin is used to treat the contractions, with a temporary effect."
+   }
+  ],
+  "es": [
+   {
+    "pergunta": "¿Es lo mismo que un tic nervioso?",
+    "resposta": "Son cosas distintas. El espasmo hemifacial es una enfermedad rara, caracterizada por contracción involuntaria de un lado de la cara. Aparece espontáneamente y suele empeorar de forma progresiva."
+   },
+   {
+    "pergunta": "¿Qué causa el espasmo?",
+    "resposta": "La causa principal es similar a la de la neuralgia del trigémino: con frecuencia un asa vascular queda sobrepuesta al nervio facial y, por su pulsar continuo sobre él, provoca inflamación y despolarización involuntaria y repetida."
+   },
+   {
+    "pergunta": "¿Qué examen confirma el diagnóstico?",
+    "resposta": "La resonancia magnética, que permite identificar el asa vascular en conflicto con el nervio facial."
+   },
+   {
+    "pergunta": "¿Todos los pacientes pueden operarse?",
+    "resposta": "No. La descompresión microquirúrgica del nervio facial está indicada para pacientes aptos para el procedimiento neuroquirúrgico. Las personas mayores o con comorbilidades clínicas graves no son candidatas a la cirugía — en esos casos se usa la toxina botulínica para tratar las contracciones, con efecto temporal."
+   }
+  ]
+ },
+ "schwannoma-vestibular": {
+  "pt": [
+   {
+    "pergunta": "Perdi audição de um ouvido só. Pode ser isso?",
+    "resposta": "É o sinal mais comum. A maioria dos pacientes apresenta perda auditiva neurossensorial de um lado só (94%) e zumbido (83%). Sintomas de equilíbrio variam bastante e costumam ser subnotificados."
+   },
+   {
+    "pergunta": "É câncer?",
+    "resposta": "Não. O schwannoma vestibular é um tumor benigno, derivado das células de Schwann, com origem no nervo vestibulococlear. Apesar de benigno, pelo efeito de massa pode comprometer estruturas intracranianas vizinhas."
+   },
+   {
+    "pergunta": "Posso apenas acompanhar, sem operar?",
+    "resposta": "É uma conduta possível em casos selecionados. A observação é oferecida a pacientes idosos, com tumor muito pequeno e assintomático, com ressonância seriada a cada 6 a 12 meses, dado o crescimento lento da maioria desses tumores."
+   },
+   {
+    "pergunta": "A cirurgia afeta a audição?",
+    "resposta": "Isso depende da via de acesso escolhida, e é parte da conversa antes da decisão. A via retrossigmoide oferece a possibilidade de preservação auditiva; a translabiríntica envolve labirintectomia e leva à perda completa da audição daquele lado; a fossa média é usada em tumores pequenos intracanaliculares quando a preservação da audição é um objetivo."
+   },
+   {
+    "pergunta": "Por que a ressonância precisa ser com contraste?",
+    "resposta": "Porque a sequência T1 com contraste é o padrão para a avaliação inicial e para o acompanhamento pós-operatório. O tumor aparece com forte realce após o gadolínio, o que permite delimitá-lo com precisão."
+   }
+  ],
+  "en": [
+   {
+    "pergunta": "I lost hearing in one ear only. Could this be it?",
+    "resposta": "It is the most common sign. Most patients present one-sided sensorineural hearing loss (94%) and tinnitus (83%). Balance symptoms vary considerably and tend to be under-reported."
+   },
+   {
+    "pergunta": "Is it cancer?",
+    "resposta": "No. Vestibular schwannoma is a benign tumour derived from Schwann cells, arising from the vestibulocochlear nerve. Although benign, its mass effect can compromise neighbouring intracranial structures."
+   },
+   {
+    "pergunta": "Can I just monitor it instead of operating?",
+    "resposta": "That is a possible approach in selected cases. Observation is offered to elderly patients with very small, asymptomatic tumours, with serial MRI every 6 to 12 months, given the slow growth of most of these tumours."
+   },
+   {
+    "pergunta": "Does surgery affect hearing?",
+    "resposta": "That depends on the surgical approach chosen, and it is part of the conversation before the decision. The retrosigmoid approach offers the possibility of hearing preservation; the translabyrinthine approach involves labyrinthectomy and leads to complete loss of hearing on that side; the middle fossa approach is used for small intracanalicular tumours when hearing preservation is a goal."
+   },
+   {
+    "pergunta": "Why does the MRI need contrast?",
+    "resposta": "Because the contrast-enhanced T1 sequence is the standard for initial assessment and postoperative follow-up. The tumour shows strong enhancement after gadolinium, which allows it to be delineated precisely."
+   }
+  ],
+  "es": [
+   {
+    "pergunta": "Perdí audición de un solo oído. ¿Puede ser esto?",
+    "resposta": "Es la señal más común. La mayoría de los pacientes presenta pérdida auditiva neurosensorial de un solo lado (94%) y zumbido (83%). Los síntomas de equilibrio varían bastante y suelen estar subnotificados."
+   },
+   {
+    "pergunta": "¿Es cáncer?",
+    "resposta": "No. El schwannoma vestibular es un tumor benigno, derivado de las células de Schwann, con origen en el nervio vestibulococlear. Aunque benigno, por efecto de masa puede comprometer estructuras intracraneales vecinas."
+   },
+   {
+    "pergunta": "¿Puedo solo hacer seguimiento, sin operar?",
+    "resposta": "Es una conducta posible en casos seleccionados. La observación se ofrece a pacientes mayores, con tumor muy pequeño y asintomático, con resonancia seriada cada 6 a 12 meses, dado el crecimiento lento de la mayoría de estos tumores."
+   },
+   {
+    "pergunta": "¿La cirugía afecta la audición?",
+    "resposta": "Eso depende de la vía de acceso elegida, y es parte de la conversación previa a la decisión. La vía retrosigmoidea ofrece la posibilidad de preservación auditiva; la translaberíntica implica labirintectomía y lleva a la pérdida completa de la audición de ese lado; la fosa media se usa en tumores pequeños intracanaliculares cuando la preservación de la audición es un objetivo."
+   },
+   {
+    "pergunta": "¿Por qué la resonancia debe ser con contraste?",
+    "resposta": "Porque la secuencia T1 con contraste es el estándar para la evaluación inicial y para el seguimiento posoperatorio. El tumor aparece con fuerte realce tras el gadolinio, lo que permite delimitarlo con precisión."
+   }
+  ]
+ },
+ "tumores-cerebrais": {
+  "pt": [
+   {
+    "pergunta": "Quais sintomas costumam levar ao diagnóstico?",
+    "resposta": "As manifestações mais frequentes são dores de cabeça de forte intensidade ou a mudança do padrão da cefaleia habitual. Também podem surgir déficits neurológicos progressivos e crises convulsivas. A investigação começa por exame de imagem — tomografia e, de forma mais detalhada, ressonância do crânio."
+   },
+   {
+    "pergunta": "Por que a cirurgia precisa coletar material para análise?",
+    "resposta": "Porque o tipo celular orienta o que vem depois. As lesões são classificadas por suas características celulares e, hoje, também por caracterização molecular e genética, com o objetivo de individualizar o tratamento e traçar o prognóstico."
+   },
+   {
+    "pergunta": "Vou precisar de radioterapia ou quimioterapia?",
+    "resposta": "Pode ser necessário, e isso é definido depois. Após a análise do tecido retirado, o tratamento pode ser complementado com radioterapia e quimioterapia, conforme o tipo tumoral identificado."
+   },
+   {
+    "pergunta": "Meu tumor está numa área que controla a fala ou o movimento. É possível operar?",
+    "resposta": "Existem recursos para essa situação. A eletrocorticografia permite identificar áreas cerebrais eloquentes e a cirurgia pode ser feita com o paciente acordado. Também são usados neuronavegador, aspirador ultrassônico e monitorização neurofisiológica de potencial evocado sensitivo-motor."
+   },
+   {
+    "pergunta": "É hereditário?",
+    "resposta": "Na maioria dos casos não há herança direta, mas existem doenças herdadas geneticamente — como a neurofibromatose e a esclerose tuberosa — que favorecem o surgimento desses tumores."
+   }
+  ],
+  "en": [
+   {
+    "pergunta": "Which symptoms usually lead to the diagnosis?",
+    "resposta": "The most frequent are severe headaches or a change in the pattern of a habitual headache. Progressive neurological deficits and seizures may also appear. Investigation begins with imaging — CT and, in more detail, brain MRI."
+   },
+   {
+    "pergunta": "Why does surgery need to collect tissue for analysis?",
+    "resposta": "Because the cell type guides what comes next. Lesions are classified by their cellular characteristics and, today, also by molecular and genetic characterisation, in order to individualise treatment and establish prognosis."
+   },
+   {
+    "pergunta": "Will I need radiotherapy or chemotherapy?",
+    "resposta": "It may be necessary, and that is decided afterwards. Once the removed tissue has been analysed, treatment may be complemented with radiotherapy and chemotherapy, according to the tumour type identified."
+   },
+   {
+    "pergunta": "My tumour is in an area that controls speech or movement. Can it be operated on?",
+    "resposta": "There are resources for that situation. Electrocorticography allows eloquent brain areas to be identified, and surgery may be performed with the patient awake. Neuronavigation, ultrasonic aspiration and neurophysiological monitoring of sensorimotor evoked potentials are also used."
+   },
+   {
+    "pergunta": "Is it hereditary?",
+    "resposta": "In most cases there is no direct inheritance, but there are genetically inherited conditions — such as neurofibromatosis and tuberous sclerosis — that favour the development of these tumours."
+   }
+  ],
+  "es": [
+   {
+    "pergunta": "¿Qué síntomas suelen llevar al diagnóstico?",
+    "resposta": "Las manifestaciones más frecuentes son dolores de cabeza de fuerte intensidad o el cambio del patrón de la cefalea habitual. También pueden surgir déficits neurológicos progresivos y crisis convulsivas. La investigación comienza con un examen de imagen — tomografía y, de forma más detallada, resonancia del cráneo."
+   },
+   {
+    "pergunta": "¿Por qué la cirugía necesita recoger material para análisis?",
+    "resposta": "Porque el tipo celular orienta lo que viene después. Las lesiones se clasifican por sus características celulares y, hoy, también por caracterización molecular y genética, con el objetivo de individualizar el tratamiento y trazar el pronóstico."
+   },
+   {
+    "pergunta": "¿Voy a necesitar radioterapia o quimioterapia?",
+    "resposta": "Puede ser necesario, y eso se define después. Tras el análisis del tejido extraído, el tratamiento puede complementarse con radioterapia y quimioterapia, según el tipo tumoral identificado."
+   },
+   {
+    "pergunta": "Mi tumor está en un área que controla el habla o el movimiento. ¿Se puede operar?",
+    "resposta": "Existen recursos para esa situación. La electrocorticografía permite identificar áreas cerebrales elocuentes y la cirugía puede realizarse con el paciente despierto. También se usan neuronavegador, aspirador ultrasónico y monitorización neurofisiológica de potencial evocado sensitivo-motor."
+   },
+   {
+    "pergunta": "¿Es hereditario?",
+    "resposta": "En la mayoría de los casos no hay herencia directa, pero existen enfermedades heredadas genéticamente — como la neurofibromatosis y la esclerosis tuberosa — que favorecen la aparición de estos tumores."
+   }
+  ]
+ },
+ "tumores-hipofisarios": {
+  "pt": [
+   {
+    "pergunta": "A cirurgia deixa cicatriz no rosto?",
+    "resposta": "A via preferencial é o acesso trans-nasal endoscópico, feito pelo nariz, sem incisões externas."
+   },
+   {
+    "pergunta": "Estou com alteração na visão. Tem relação com o tumor?",
+    "resposta": "Pode ter. Macroadenomas — tumores maiores que 1 cm — comprimem estruturas neurovasculares vizinhas, e cefaleia e alterações visuais por compressão dos nervos ópticos estão entre os sintomas mais comuns."
+   },
+   {
+    "pergunta": "Por que preciso de exames de sangue, se a ressonância já mostrou o tumor?",
+    "resposta": "Porque os dois exames respondem coisas diferentes. A ressonância identifica a massa tumoral; o estudo dos hormônios do eixo hipotálamo-hipofisário mostra se o tumor é secretor e qual hormônio está em excesso, o que muda o quadro clínico."
+   },
+   {
+    "pergunta": "Todos os tumores da hipófise dão sintoma?",
+    "resposta": "Não. Os sintomas dependem das características do tumor. Microadenomas não secretores costumam ser assintomáticos; nos secretores, os sintomas variam conforme o hormônio produzido em excesso."
+   },
+   {
+    "pergunta": "Em que situação é necessária uma craniotomia?",
+    "resposta": "A escolha do acesso depende do volume e da extensão do tumor. A craniotomia é indicada em grandes volumes tumorais, com extensão para-selar ou supra-selar e compressão de estruturas cerebrais."
+   }
+  ],
+  "en": [
+   {
+    "pergunta": "Does the surgery leave a scar on my face?",
+    "resposta": "The preferred route is the endoscopic endonasal approach, performed through the nose, without external incisions."
+   },
+   {
+    "pergunta": "I have changes in my vision. Is that related to the tumour?",
+    "resposta": "It may be. Macroadenomas — tumours larger than 1 cm — compress neighbouring neurovascular structures, and headache and visual changes from compression of the optic nerves are among the most common symptoms."
+   },
+   {
+    "pergunta": "Why do I need blood tests if the MRI already showed the tumour?",
+    "resposta": "Because the two exams answer different questions. MRI identifies the tumour mass; the study of the hypothalamic-pituitary axis hormones shows whether the tumour is secreting and which hormone is in excess, which changes the clinical picture."
+   },
+   {
+    "pergunta": "Do all pituitary tumours cause symptoms?",
+    "resposta": "No. Symptoms depend on the characteristics of the tumour. Non-secreting microadenomas are usually asymptomatic; in secreting tumours, symptoms vary according to the hormone produced in excess."
+   },
+   {
+    "pergunta": "In which situations is a craniotomy needed?",
+    "resposta": "The choice of approach depends on the volume and extent of the tumour. Craniotomy is indicated in large tumour volumes, with parasellar or suprasellar extension and compression of brain structures."
+   }
+  ],
+  "es": [
+   {
+    "pergunta": "¿La cirugía deja cicatriz en el rostro?",
+    "resposta": "La vía preferencial es el acceso transnasal endoscópico, realizado por la nariz, sin incisiones externas."
+   },
+   {
+    "pergunta": "Tengo alteración en la visión. ¿Tiene relación con el tumor?",
+    "resposta": "Puede tenerla. Los macroadenomas — tumores mayores de 1 cm — comprimen estructuras neurovasculares vecinas, y la cefalea y las alteraciones visuales por compresión de los nervios ópticos están entre los síntomas más comunes."
+   },
+   {
+    "pergunta": "¿Por qué necesito análisis de sangre, si la resonancia ya mostró el tumor?",
+    "resposta": "Porque los dos exámenes responden cosas distintas. La resonancia identifica la masa tumoral; el estudio de las hormonas del eje hipotálamo-hipofisario muestra si el tumor es secretor y qué hormona está en exceso, lo que cambia el cuadro clínico."
+   },
+   {
+    "pergunta": "¿Todos los tumores de hipófisis dan síntomas?",
+    "resposta": "No. Los síntomas dependen de las características del tumor. Los microadenomas no secretores suelen ser asintomáticos; en los secretores, los síntomas varían según la hormona producida en exceso."
+   },
+   {
+    "pergunta": "¿En qué situación es necesaria una craneotomía?",
+    "resposta": "La elección del acceso depende del volumen y la extensión del tumor. La craneotomía está indicada en grandes volúmenes tumorales, con extensión paraselar o supraselar y compresión de estructuras cerebrales."
+   }
+  ]
+ },
+ "tumores-medulares": {
+  "pt": [
+   {
+    "pergunta": "Dor nas costas pode ser tumor?",
+    "resposta": "A dor é o principal sintoma das metástases vertebrais, localizada ou irradiada no trajeto dos nervos. Já nos tumores da medula predominam alterações de força e de sensibilidade. O diagnóstico é feito por exame neurológico acurado somado a exames de imagem."
+   },
+   {
+    "pergunta": "Um tumor na coluna começou na coluna?",
+    "resposta": "Nem sempre. Na maioria das vezes, os tumores vertebrais são metástases — consequência de tumores primários localizados em outros órgãos, como pulmão, mama, próstata, ovários ou intestinos."
+   },
+   {
+    "pergunta": "Quais exames são usados no diagnóstico?",
+    "resposta": "Exame neurológico acurado somado a exames de imagem: ressonância magnética, cintilografia e tomografia computadorizada."
+   },
+   {
+    "pergunta": "Vou precisar de tratamento além da cirurgia?",
+    "resposta": "Pode ser. O tratamento é fundamentado na técnica microcirúrgica e pode ser associado a terapias complementares, definidas de acordo com o tipo celular identificado pela biópsia."
+   }
+  ],
+  "en": [
+   {
+    "pergunta": "Can back pain be a tumour?",
+    "resposta": "Pain is the main symptom of vertebral metastases, either localised or radiating along the nerve path. In spinal cord tumours, changes in strength and sensation predominate. Diagnosis is made through careful neurological examination combined with imaging."
+   },
+   {
+    "pergunta": "Did a spinal tumour start in the spine?",
+    "resposta": "Not always. Most vertebral tumours are metastases — a consequence of primary tumours located in other organs, such as lung, breast, prostate, ovaries or bowel."
+   },
+   {
+    "pergunta": "Which exams are used for diagnosis?",
+    "resposta": "Careful neurological examination combined with imaging: MRI, scintigraphy and computed tomography."
+   },
+   {
+    "pergunta": "Will I need treatment beyond surgery?",
+    "resposta": "Possibly. Treatment is based on microsurgical technique and may be combined with complementary therapies, defined according to the cell type identified by biopsy."
+   }
+  ],
+  "es": [
+   {
+    "pergunta": "¿El dolor de espalda puede ser un tumor?",
+    "resposta": "El dolor es el principal síntoma de las metástasis vertebrales, localizado o irradiado en el trayecto de los nervios. En los tumores de la médula predominan las alteraciones de fuerza y de sensibilidad. El diagnóstico se hace mediante un examen neurológico minucioso sumado a exámenes de imagen."
+   },
+   {
+    "pergunta": "¿Un tumor en la columna empezó en la columna?",
+    "resposta": "No siempre. La mayoría de las veces los tumores vertebrales son metástasis — consecuencia de tumores primarios localizados en otros órganos, como pulmón, mama, próstata, ovarios o intestinos."
+   },
+   {
+    "pergunta": "¿Qué exámenes se usan en el diagnóstico?",
+    "resposta": "Examen neurológico minucioso sumado a exámenes de imagen: resonancia magnética, gammagrafía y tomografía computarizada."
+   },
+   {
+    "pergunta": "¿Voy a necesitar tratamiento además de la cirugía?",
+    "resposta": "Puede ser. El tratamiento se fundamenta en la técnica microquirúrgica y puede asociarse a terapias complementarias, definidas de acuerdo con el tipo celular identificado por la biopsia."
+   }
+  ]
+ }
+}
