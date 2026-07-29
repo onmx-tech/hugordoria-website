@@ -47,7 +47,7 @@ export const article: ArticleContent = {
       tocLabel: "Diagnosis",
       heading: "Imaging diagnosis",
       paragraphs: [
-        "The diagnosis is made by a thorough neurological examination and imaging exams, such as magnetic resonance imaging, scintigraphy, and computed tomography.",
+        "The diagnosis is made by a thorough neurological examination and imaging studies, such as magnetic resonance imaging, scintigraphy, and computed tomography.",
       ],
     },
     {
@@ -55,7 +55,7 @@ export const article: ArticleContent = {
       tocLabel: "Treatment",
       heading: "Management and treatment",
       paragraphs: [
-        "Specific treatment is based on microsurgical technique, and may be combined with complementary therapies according to the cell type:",
+        "Specific treatment is based on microsurgical technique, and may be combined with adjuvant therapies according to the cell type:",
       ],
       options: [
         {

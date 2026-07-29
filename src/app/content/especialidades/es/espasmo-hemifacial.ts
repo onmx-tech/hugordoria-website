@@ -21,7 +21,7 @@ export const article: ArticleContent = {
       figureCaption: "Fig. 01 — Conflicto neurovascular del nervio facial",
       paragraphs: [
         "El espasmo hemifacial es una enfermedad rara caracterizada por la contracción involuntaria de un lado de la cara. Aparece espontáneamente y generalmente empeora de forma progresiva. Presenta un efecto estético y psicológicamente dañino para el paciente.",
-        "La principal causa es similar a la de la neuralgia del trigémino: frecuentemente un asa vascular está sobrepuesta al nervio facial, promoviendo, por el pulsar continuo sobre el nervio, inflamación y despolarización involuntaria y repetida.",
+        "La principal causa es similar a la de la neuralgia del trigémino: frecuentemente un asa vascular está sobrepuesta al nervio facial, promoviendo, por la pulsación continua sobre el nervio, inflamación y despolarización involuntaria y repetida.",
       ],
     },
     {

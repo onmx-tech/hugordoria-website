@@ -6,7 +6,7 @@ export const article: ArticleContent = {
   slug: "tumores-cerebrais",
   category: "Tumoral",
   readingTime: "4 min read",
-  lead: "Expansive lesions of the central nervous system treated with precision microsurgery and complementary therapies.",
+  lead: "Expansive lesions of the central nervous system treated with precision microsurgery and adjuvant therapies.",
   heroMeta: [
     { label: "Approach", value: "Precision microsurgery" },
     { label: "Diagnosis", value: "CT and MRI" },
@@ -48,7 +48,7 @@ export const article: ArticleContent = {
       tocLabel: "Diagnosis",
       heading: "Imaging diagnosis",
       paragraphs: [
-        "The investigation begins with an imaging exam — computed tomography and, in greater detail, MRI of the skull. After surgery, the removed tissue is analyzed and follow-up continues with neurological observation and serial MRI.",
+        "The investigation begins with an imaging study — computed tomography and, in greater detail, MRI of the skull. After surgery, the removed tissue is analyzed and follow-up continues with neurological observation and serial MRI.",
       ],
     },
     {
@@ -72,7 +72,7 @@ export const article: ArticleContent = {
         {
           title: "Complementary therapies",
           description:
-            "After tissue analysis, treatment may be complemented with radiotherapy and chemotherapy, according to the tumor type.",
+            "After tissue analysis, treatment may be followed by radiotherapy and chemotherapy, according to the tumor type.",
         },
       ],
     },

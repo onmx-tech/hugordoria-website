@@ -121,7 +121,7 @@ export const SEGUNDA_OPINIAO = {
 
   abertura: [
     "Receiving a complex neurological diagnosis — a cerebral aneurysm, an arteriovenous malformation, a tumor — usually comes with a difficult decision and little time to understand it. Seeking a second opinion is not a matter of distrusting your doctor: it is a recognized practice in medicine and a patient's right.",
-    "Here, a second opinion is a review of the material you already have — imaging exams, reports and the letter from your attending physician — to reassess the picture and discuss with you the possible courses of action, their criteria and what usually weighs on each choice.",
+    "Here, a second opinion is a review of the material you already have — imaging studies, reports and the letter from your attending physician — to reassess the picture and discuss with you the possible courses of action, their criteria and what usually weighs on each choice.",
   ],
 
   quemDevePedir: [
@@ -209,7 +209,7 @@ export const SEGUNDA_OPINIAO = {
 
   faq: [
     {
-      pergunta: "Do I need to have already had imaging exams?",
+      pergunta: "Do I need to have already had imaging studies?",
       resposta:
         "Yes. A second opinion is a review of exams that have already been performed. Without imaging, there is no material to analyze — in that case, the path is an evaluation consultation, in which the investigation is requested.",
     },

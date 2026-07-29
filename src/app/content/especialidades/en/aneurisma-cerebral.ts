@@ -54,7 +54,7 @@ export const article: ArticleContent = {
       figureCaption: "Fig. 02 — Digital subtraction angiography",
       paragraphs: [
         "Most unruptured aneurysms are identified incidentally on neuroimaging performed for another reason. High-risk individuals can be screened with MR angiography or CT angiography.",
-        "For ruptured aneurysms, the reliable initial exam is non-contrast head CT — positive in 98–100% of cases within the first 12 hours. When the CT is negative but clinical suspicion is strong, MRI sequences (FLAIR, SWI, GRE) or lumbar puncture with xanthochromia testing help confirm the bleeding.",
+        "For ruptured aneurysms, the reliable initial test is non-contrast head CT — positive in 98–100% of cases within the first 12 hours. When the CT is negative but clinical suspicion is strong, MRI sequences (FLAIR, SWI, GRE) or lumbar puncture with xanthochromia testing help confirm the bleeding.",
         "Digital subtraction angiography remains the gold standard: with 3D reconstruction it identifies small aneurysms, assesses the morphology, and the relationship with nearby perforating branches. The goal of diagnosing early is to establish appropriate treatment as quickly as possible, preventing subarachnoid hemorrhage and its consequences.",
       ],
     },
@@ -63,7 +63,7 @@ export const article: ArticleContent = {
       tocLabel: "Treatment",
       heading: "Management and treatment",
       paragraphs: [
-        "The decision is always multifactorial — clinical history, sex, comorbidities, imaging exams, size, location and anatomy of the vessel, family history, and genetic conditions. There are two main therapeutic pathways:",
+        "The decision is always multifactorial — clinical history, sex, comorbidities, imaging studies, size, location and anatomy of the vessel, family history, and genetic conditions. There are two main therapeutic pathways:",
       ],
       options: [
         {

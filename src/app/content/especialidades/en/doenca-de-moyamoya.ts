@@ -20,7 +20,7 @@ export const article: ArticleContent = {
       emphasis: "puff of smoke",
       figureCaption: "Fig. 01 — Moya-Moya collateral network",
       paragraphs: [
-        "Moya-Moya Disease affects the blood vessels of the brain: it causes the progressive narrowing of the arteries that carry blood to the brain, resulting in the formation of abnormal collateral vessels with the appearance of a “puff of smoke” on imaging exams — hence the name, which means “smoke” in Japanese.",
+        "Moya-Moya Disease affects the blood vessels of the brain: it causes the progressive narrowing of the arteries that carry blood to the brain, resulting in the formation of abnormal collateral vessels with the appearance of a “puff of smoke” on imaging studies — hence the name, which means “smoke” in Japanese.",
         "The exact cause is still unknown, but genetic factors play an important role. The condition can be primary or characterize a syndrome when associated with other diseases, such as sickle cell anemia, Down Syndrome, or autoimmune conditions.",
         "It is more common in Asian populations, but it occurs worldwide, including in Brazil. It affects children and adults, with a higher risk between 5 and 10 years of age in children and between 30 and 40 years of age in adults.",
       ],

@@ -57,7 +57,7 @@ export const article: ArticleContent = {
       tocLabel: "Tratamiento",
       heading: "Conducta y tratamiento",
       paragraphs: [
-        "La presencia de síntomas, la localización, la edad y el historial de salud son los determinantes más importantes de la conducta, que requiere discusión multidisciplinaria:",
+        "La presencia de síntomas, la localización, la edad y el historial de salud son los determinantes más importantes del manejo, que requiere discusión multidisciplinaria:",
       ],
       options: [
         {

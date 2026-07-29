@@ -55,7 +55,7 @@ export const article: ArticleContent = {
       tocLabel: "Tratamiento",
       heading: "Conducta y abordajes",
       paragraphs: [
-        "La conducta considera el tamaño y la morfología del tumor, los síntomas y las comorbilidades. En tumores grandes (Koos IV), la cirugía es el tratamiento primario; el objetivo es la resección total o casi total, ya que el volumen residual se correlaciona con la recurrencia. Las vías de acceso incluyen:",
+        "El manejo considera el tamaño y la morfología del tumor, los síntomas y las comorbilidades. En tumores grandes (Koos IV), la cirugía es el tratamiento primario; el objetivo es la resección total o casi total, ya que el volumen residual se correlaciona con la recurrencia. Las vías de acceso incluyen:",
       ],
       options: [
         {

@@ -12,10 +12,6 @@ export const article: ArticleContent = {
     { label: "Annual hemorrhage risk", value: "2–4%" },
     { label: "Location", value: "90% supratentorial" },
   ],
-  quote: {
-    text: "The resection must always be complete.",
-    afterSectionId: "tratamento",
-  },
   sections: [
     {
       id: "o-que-e",
@@ -50,9 +46,9 @@ export const article: ArticleContent = {
       heading: "Imaging diagnosis",
       figureCaption: "Fig. 02 — Digital angiography",
       paragraphs: [
-        "Imaging studies are essential to establish the diagnosis and characterize the lesion for planning. Head CT is usually the first exam, used to rule out a hemorrhage.",
+        "Imaging studies are essential to establish the diagnosis and characterize the lesion for planning. Head CT is usually the first study, used to rule out a hemorrhage.",
         "Magnetic resonance imaging defines the location of the nidus, its neuroanatomical relationships, and the associated draining vein; MR angiography characterizes the venous drainage and other vascular features with high precision.",
-        "Digital angiography is the gold standard — a dynamic exam that reveals the anatomy and physiology of the nidus, distinguishes the vessels that feed it from those in transit, locates the drainage, and demonstrates associated aneurysms, which carry a higher risk of bleeding.",
+        "Digital angiography is the gold standard — a dynamic study that reveals the anatomy and physiology of the nidus, distinguishes the vessels that feed it from those in transit, locates the drainage, and demonstrates associated aneurysms, which carry a higher risk of bleeding.",
       ],
     },
     {

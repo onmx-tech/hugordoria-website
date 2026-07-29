@@ -20,7 +20,7 @@ export const article: ArticleContent = {
       figureCaption: "Fig. 01 — Conflicto neurovascular del trigémino",
       paragraphs: [
         "La neuralgia del trigémino, también llamada “tic douloureux”, se caracteriza por un dolor punzante, en crisis, limitado a un lado de la cara — en la región de los ojos, del ala de la nariz, de la mandíbula y los dientes, o en todas esas localizaciones. Los dolores son de corta duración, con completa remisión entre las crisis.",
-        "Generalmente ocurre en pacientes mayores de 50 años y con mucha mayor frecuencia en las mujeres. La causa más frecuente es la inflamación del nervio como consecuencia del pulsar continuo de un asa vascular sobre el nervio trigémino.",
+        "Generalmente ocurre en pacientes mayores de 50 años y con mucha mayor frecuencia en las mujeres. La causa más frecuente es la inflamación del nervio como consecuencia de la pulsación continua de un asa vascular sobre el nervio trigémino.",
       ],
     },
     {

@@ -6,7 +6,7 @@ export const article: ArticleContent = {
   slug: "tumores-cerebrais",
   category: "Tumoral",
   readingTime: "4 min",
-  lead: "Lesiones expansivas del sistema nervioso central tratadas por microcirugía de precisión y terapias complementarias.",
+  lead: "Lesiones expansivas del sistema nervioso central tratadas por microcirugía de precisión y terapias adyuvantes.",
   heroMeta: [
     { label: "Abordaje", value: "Microcirugía de precisión" },
     { label: "Diagnóstico", value: "TC y resonancia" },

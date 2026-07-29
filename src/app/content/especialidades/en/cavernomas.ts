@@ -48,7 +48,7 @@ export const article: ArticleContent = {
       tocLabel: "Diagnosis",
       heading: "Imaging diagnosis",
       paragraphs: [
-        "Diagnosis is more difficult than that of other vascular diseases, because cavernomas are not evident on angiography. Plain CT is the first exam when bleeding is suspected, but it is limited.",
+        "Diagnosis is more difficult than that of other vascular diseases, because cavernomas are not evident on angiography. Plain CT is the first study when bleeding is suspected, but it is limited.",
         "Magnetic resonance imaging — with T1, T2, gradient echo, and susceptibility-weighted sequences — is the central tool, capable of distinguishing lesions at different stages of bleeding (acute, subacute, and chronic) and of assisting intraoperative navigation in deep lesions.",
       ],
     },

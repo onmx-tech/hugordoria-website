@@ -1,74 +1,74 @@
 {
- "pt": {
-  "eyebrow": "Avaliação especializada",
-  "titulo": "Por que procurar uma avaliação especializada",
-  "lead": "Um diagnóstico em neurocirurgia vascular e craniana costuma chegar com mais perguntas do que respostas. Uma avaliação especializada serve para entender o que os exames mostram, quais condutas existem e o que cada uma significa no seu caso.",
-  "blocos": [
-   {
-    "rotulo": "O diagnóstico",
-    "texto": "Nomear a lesão com precisão orienta tudo o que vem depois: o exame que se pede, o intervalo de acompanhamento, a conduta que se discute. Boa parte do trabalho está em detalhar o que ainda não foi detalhado — tamanho, localização e relação com as estruturas vizinhas."
-   },
-   {
-    "rotulo": "A decisão terapêutica",
-    "texto": "Nem toda lesão pede cirurgia, e nem toda cirurgia pede pressa. Há condições em que o acompanhamento clínico e por imagem é a conduta indicada, e outras em que existe mais de uma via possível. Entender por que uma conduta foi proposta faz parte de decidir sobre ela."
-   },
-   {
-    "rotulo": "A revisão de exames",
-    "texto": "Os exames que você já tem costumam bastar para uma segunda leitura. Ressonância, angiografia e tomografia guardam informação que nem sempre foi toda extraída na primeira análise. Uma leitura atenta pode confirmar a conduta proposta ou apontar o que ainda falta investigar."
-   },
-   {
-    "rotulo": "O risco e o benefício",
-    "texto": "Idade, comorbidades, localização da lesão e histórico pessoal deslocam o equilíbrio entre o que se ganha e o que se arrisca em cada conduta. Duas pessoas com o mesmo diagnóstico podem receber indicações diferentes por razões clínicas legítimas. O que se discute é onde o seu caso está nesse quadro."
-   }
-  ],
-  "nota": "Nenhuma avaliação antecipa desfecho ou assegura ausência de complicações. O propósito é que a decisão seja tomada com clareza sobre o que está em jogo."
- },
- "en": {
-  "eyebrow": "Specialist assessment",
-  "titulo": "Why seek a specialist assessment",
-  "lead": "A diagnosis in vascular and cranial neurosurgery usually arrives with more questions than answers. A specialist assessment exists so you can understand what the scans show, which approaches are available and what each one means in your case.",
-  "blocos": [
-   {
-    "rotulo": "The diagnosis",
-    "texto": "Naming the lesion precisely guides everything that follows: which exam is requested, the follow-up interval, the approach under discussion. Much of the work lies in detailing what has not yet been detailed — size, location and the relationship with neighbouring structures."
-   },
-   {
-    "rotulo": "The treatment decision",
-    "texto": "Not every lesion calls for surgery, and not every surgery calls for haste. There are conditions in which clinical and imaging follow-up is the indicated approach, and others in which more than one route is possible. Understanding why an approach was proposed is part of deciding on it."
-   },
-   {
-    "rotulo": "Reviewing the exams",
-    "texto": "The exams you already have are usually enough for a second reading. MRI, angiography and CT hold information that was not always fully drawn out in the first analysis. A careful reading may confirm the proposed approach or point to what still needs investigating."
-   },
-   {
-    "rotulo": "Risk and benefit",
-    "texto": "Age, comorbidities, lesion location and personal history shift the balance between what is gained and what is risked in each approach. Two people with the same diagnosis may receive different recommendations for legitimate clinical reasons. What gets discussed is where your case sits within that picture."
-   }
-  ],
-  "nota": "No assessment anticipates outcome or assures the absence of complications. The purpose is for the decision to be made with clarity about what is at stake."
- },
- "es": {
-  "eyebrow": "Evaluación especializada",
-  "titulo": "Por qué buscar una evaluación especializada",
-  "lead": "Un diagnóstico en neurocirugía vascular y craneal suele llegar con más preguntas que respuestas. Una evaluación especializada sirve para entender qué muestran los exámenes, qué conductas existen y qué significa cada una en tu caso.",
-  "blocos": [
-   {
-    "rotulo": "El diagnóstico",
-    "texto": "Nombrar la lesión con precisión orienta todo lo que viene después: el examen que se solicita, el intervalo de seguimiento, la conducta que se discute. Buena parte del trabajo está en detallar lo que aún no se detalló — tamaño, localización y relación con las estructuras vecinas."
-   },
-   {
-    "rotulo": "La decisión terapéutica",
-    "texto": "No toda lesión requiere cirugía, ni toda cirugía requiere prisa. Hay condiciones en las que el seguimiento clínico y por imagen es la conducta indicada, y otras en las que existe más de una vía posible. Entender por qué se propuso una conducta es parte de decidir sobre ella."
-   },
-   {
-    "rotulo": "La revisión de exámenes",
-    "texto": "Los exámenes que ya tienes suelen bastar para una segunda lectura. Resonancia, angiografía y tomografía guardan información que no siempre se extrajo por completo en el primer análisis. Una lectura atenta puede confirmar la conducta propuesta o señalar lo que aún falta investigar."
-   },
-   {
-    "rotulo": "El riesgo y el beneficio",
-    "texto": "La edad, las comorbilidades, la localización de la lesión y los antecedentes personales desplazan el equilibrio entre lo que se gana y lo que se arriesga en cada conducta. Dos personas con el mismo diagnóstico pueden recibir indicaciones distintas por razones clínicas legítimas. Lo que se discute es dónde está tu caso en ese cuadro."
-   }
-  ],
-  "nota": "Ninguna evaluación anticipa el desenlace ni asegura la ausencia de complicaciones. El propósito es que la decisión se tome con claridad sobre lo que está en juego."
- }
+  "pt": {
+    "eyebrow": "Avaliação especializada",
+    "titulo": "Por que procurar uma avaliação especializada",
+    "lead": "Um diagnóstico em neurocirurgia vascular e craniana costuma chegar com mais perguntas do que respostas. Uma avaliação especializada serve para entender o que os exames mostram, quais condutas existem e o que cada uma significa no seu caso.",
+    "blocos": [
+      {
+        "rotulo": "O diagnóstico",
+        "texto": "Nomear a lesão com precisão orienta tudo o que vem depois: o exame que se pede, o intervalo de acompanhamento, a conduta que se discute. Boa parte do trabalho está em detalhar o que ainda não foi detalhado — tamanho, localização e relação com as estruturas vizinhas."
+      },
+      {
+        "rotulo": "A decisão terapêutica",
+        "texto": "Nem toda lesão pede cirurgia, e nem toda cirurgia pede pressa. Há condições em que o acompanhamento clínico e por imagem é a conduta indicada, e outras em que existe mais de uma via possível. Entender por que uma conduta foi proposta faz parte de decidir sobre ela."
+      },
+      {
+        "rotulo": "A revisão de exames",
+        "texto": "Os exames que você já tem costumam bastar para uma segunda leitura. Ressonância, angiografia e tomografia guardam informação que nem sempre foi toda extraída na primeira análise. Uma leitura atenta pode confirmar a conduta proposta ou apontar o que ainda falta investigar."
+      },
+      {
+        "rotulo": "O risco e o benefício",
+        "texto": "Idade, comorbidades, localização da lesão e histórico pessoal deslocam o equilíbrio entre o que se ganha e o que se arrisca em cada conduta. Duas pessoas com o mesmo diagnóstico podem receber indicações diferentes por razões clínicas legítimas. O que se discute é onde o seu caso está nesse quadro."
+      }
+    ],
+    "nota": "Nenhuma avaliação antecipa desfecho ou assegura ausência de complicações. O propósito é que a decisão seja tomada com clareza sobre o que está em jogo."
+  },
+  "en": {
+    "eyebrow": "Specialist assessment",
+    "titulo": "Why seek a specialist assessment",
+    "lead": "A diagnosis in vascular and cranial neurosurgery usually arrives with more questions than answers. A specialist assessment exists so you can understand what the scans show, which approaches are available and what each one means in your case.",
+    "blocos": [
+      {
+        "rotulo": "The diagnosis",
+        "texto": "Naming the lesion precisely guides everything that follows: which scan is requested, the follow-up interval, the approach under discussion. Much of the work lies in detailing what has not yet been detailed — size, location and the relationship with neighboring structures."
+      },
+      {
+        "rotulo": "The treatment decision",
+        "texto": "Not every lesion calls for surgery, and not every surgery calls for haste. There are conditions in which clinical and imaging follow-up is the indicated approach, and others in which more than one route is possible. Understanding why an approach was proposed is part of deciding on it."
+      },
+      {
+        "rotulo": "Reviewing the scans",
+        "texto": "The scans you already have are usually enough for a second reading. MRI, angiography and CT hold information that was not always fully drawn out in the first analysis. A careful reading may confirm the proposed approach or point to what still needs investigating."
+      },
+      {
+        "rotulo": "Risk and benefit",
+        "texto": "Age, comorbidities, lesion location and personal history shift the balance between what is gained and what is risked in each approach. Two people with the same diagnosis may receive different recommendations for legitimate clinical reasons. What gets discussed is where your case sits within that picture."
+      }
+    ],
+    "nota": "No assessment anticipates outcome or assures the absence of complications. The purpose is for the decision to be made with clarity about what is at stake."
+  },
+  "es": {
+    "eyebrow": "Evaluación especializada",
+    "titulo": "Por qué buscar una evaluación especializada",
+    "lead": "Un diagnóstico en neurocirugía vascular y craneal suele llegar con más preguntas que respuestas. Una evaluación especializada sirve para entender qué muestran los exámenes, qué opciones de manejo existen y qué significa cada una en tu caso.",
+    "blocos": [
+      {
+        "rotulo": "El diagnóstico",
+        "texto": "Nombrar la lesión con precisión orienta todo lo que viene después: el examen que se solicita, el intervalo de seguimiento, el manejo que se discute. Buena parte del trabajo está en detallar lo que aún no se detalló — tamaño, localización y relación con las estructuras vecinas."
+      },
+      {
+        "rotulo": "La decisión terapéutica",
+        "texto": "No toda lesión requiere cirugía, ni toda cirugía requiere prisa. Hay condiciones en las que el seguimiento clínico y por imagen es el manejo indicado, y otras en las que existe más de una vía posible. Entender por qué se propuso un manejo es parte de decidir sobre ella."
+      },
+      {
+        "rotulo": "La revisión de exámenes",
+        "texto": "Los exámenes que ya tienes suelen bastar para una segunda lectura. Resonancia, angiografía y tomografía guardan información que no siempre se extrajo por completo en el primer análisis. Una lectura atenta puede confirmar el manejo propuesto o señalar lo que aún falta investigar."
+      },
+      {
+        "rotulo": "El riesgo y el beneficio",
+        "texto": "La edad, las comorbilidades, la localización de la lesión y los antecedentes personales desplazan el equilibrio entre lo que se gana y lo que se arriesga en cada abordaje. Dos personas con el mismo diagnóstico pueden recibir indicaciones distintas por razones clínicas legítimas. Lo que se discute es dónde está tu caso en ese cuadro."
+      }
+    ],
+    "nota": "Ninguna evaluación anticipa el desenlace ni asegura la ausencia de complicaciones. El propósito es que la decisión se tome con claridad sobre lo que está en juego."
+  }
 }

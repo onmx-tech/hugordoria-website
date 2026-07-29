@@ -55,7 +55,7 @@ export const article: ArticleContent = {
       tocLabel: "Tratamiento",
       heading: "Conducta y tratamiento",
       paragraphs: [
-        "El tratamiento específico se fundamenta en la técnica microquirúrgica, pudiendo asociarse a terapias complementarias de acuerdo con el tipo celular:",
+        "El tratamiento específico se fundamenta en la técnica microquirúrgica, pudiendo asociarse a terapias adyuvantes de acuerdo con el tipo celular:",
       ],
       options: [
         {

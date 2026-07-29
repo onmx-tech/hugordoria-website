@@ -12,10 +12,6 @@ export const article: ArticleContent = {
     { label: "Risco anual de hemorragia", value: "2–4%" },
     { label: "Localização", value: "90% supratentorial" },
   ],
-  quote: {
-    text: "A ressecção deve ser sempre completa.",
-    afterSectionId: "tratamento",
-  },
   sections: [
     {
       id: "o-que-e",
