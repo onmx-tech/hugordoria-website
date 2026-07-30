@@ -73,15 +73,45 @@ export default function SectionBrain() {
     const mobileFrameCount = Math.ceil(FRAME_COUNT / MOBILE_STEP);
     const totalFrames = isDesktop ? FRAME_COUNT : mobileFrameCount;
 
+    // Os frames NÃO são baixados no load da página. Antes eram: 122 requests
+    // (2,7 MB) disparavam junto com o first paint e competiam com as fotos e
+    // os retratos do resto da home — em conexão de escritório o visitante
+    // rolava e encontrava blocos ainda não pintados, que foi exatamente o que
+    // o cliente filmou. O PageSpeed não pega isso porque a rajada acontece
+    // DEPOIS do LCP.
+    // Agora: o primeiro frame vem imediatamente (para o canvas nunca ficar
+    // chapado) e o resto só começa quando a seção se aproxima, com uma folga
+    // de duas telas para chegar antes do usuário.
     const images: HTMLImageElement[] = [];
-    for (let i = 0; i < totalFrames; i++) {
-      const img = new Image();
-      const srcIdx = isDesktop ? i : Math.min(i * MOBILE_STEP, FRAME_COUNT - 1);
-      img.src = buildFramePath(srcIdx);
-      if (i === 0) img.onload = () => renderFrame(0);
-      images.push(img);
-    }
+    const srcFor = (i: number) =>
+      buildFramePath(isDesktop ? i : Math.min(i * MOBILE_STEP, FRAME_COUNT - 1));
+
+    for (let i = 0; i < totalFrames; i++) images.push(new Image());
     framesRef.current = images;
+
+    images[0].onload = () => renderFrame(0);
+    images[0].src = srcFor(0);
+
+    let carregou = false;
+    const carregarResto = () => {
+      if (carregou) return;
+      carregou = true;
+      for (let i = 1; i < totalFrames; i++) images[i].src = srcFor(i);
+    };
+    const io = new IntersectionObserver(
+      (entradas) => {
+        if (entradas.some((e) => e.isIntersecting)) {
+          carregarResto();
+          io.disconnect();
+        }
+      },
+      { rootMargin: "200% 0px" },
+    );
+    io.observe(trigger);
+    // Rede de segurança: se por algum motivo o observer não disparar (layout
+    // recalculado por pin, por exemplo), carrega quando o navegador estiver
+    // ocioso — nunca deixa a sequência sem chegar.
+    const ocioso = window.setTimeout(carregarResto, 6000);
 
     const textEls = trigger.querySelectorAll("[data-brain-text]");
     const overlayEl = trigger.querySelector("[data-brain-overlay]");
@@ -151,6 +181,8 @@ export default function SectionBrain() {
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      io.disconnect();
+      window.clearTimeout(ocioso);
       gsapCtx.revert();
     };
   }, [renderFrame]);
