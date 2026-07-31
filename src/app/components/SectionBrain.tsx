@@ -28,6 +28,28 @@ function drawCover(
   ctx.drawImage(img, (cw - dw) / 2, (ch - dh) * 0.15, dw, dh);
 }
 
+function pronta(img: HTMLImageElement | undefined): img is HTMLImageElement {
+  return !!img && img.complete && img.naturalWidth > 0;
+}
+
+// Antes, pedir um frame que ainda não tinha chegado simplesmente não pintava
+// nada — o canvas ficava na imagem anterior. Em rede de escritório isso
+// produzia o pior sintoma possível: o visitante atravessava as quatro telas da
+// seção pinada vendo a MESMA foto parada, e lia como travamento ("tô descendo
+// um monte e não tá vindo"). Medido em 3G: ao chegar na seção havia 1 frame
+// dos 122, e o pin inteiro rolava com uma única imagem.
+// Agora o frame que falta é substituído pelo carregado mais próximo: a
+// animação fica mais grosseira enquanto a rede não alcança, mas ela ANDA — e
+// andar mal é incomparavelmente melhor do que parecer quebrado.
+function pegarFrameMaisProximo(frames: HTMLImageElement[], index: number) {
+  if (pronta(frames[index])) return frames[index];
+  for (let d = 1; d < frames.length; d++) {
+    if (pronta(frames[index - d])) return frames[index - d];
+    if (pronta(frames[index + d])) return frames[index + d];
+  }
+  return null;
+}
+
 export default function SectionBrain() {
   const { t } = useTranslation("home");
   const triggerRef = useRef<HTMLDivElement | null>(null);
@@ -40,8 +62,8 @@ export default function SectionBrain() {
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    const img = framesRef.current[index];
-    if (!img || !img.complete || !img.naturalWidth) return;
+    const img = pegarFrameMaisProximo(framesRef.current, index);
+    if (!img) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawCover(ctx, img, canvas.width, canvas.height);
   }, []);
@@ -80,8 +102,7 @@ export default function SectionBrain() {
     // o cliente filmou. O PageSpeed não pega isso porque a rajada acontece
     // DEPOIS do LCP.
     // Agora: o primeiro frame vem imediatamente (para o canvas nunca ficar
-    // chapado) e o resto só começa quando a seção se aproxima, com uma folga
-    // de duas telas para chegar antes do usuário.
+    // chapado) e o resto vem em duas ondas — ver o bloco DUAS ONDAS abaixo.
     const images: HTMLImageElement[] = [];
     const srcFor = (i: number) =>
       buildFramePath(isDesktop ? i : Math.min(i * MOBILE_STEP, FRAME_COUNT - 1));
@@ -92,12 +113,61 @@ export default function SectionBrain() {
     images[0].onload = () => renderFrame(0);
     images[0].src = srcFor(0);
 
+    const pedir = (i: number) => {
+      // Se o visitante estiver parado exatamente neste ponto da sequência,
+      // repinta assim que a imagem certa chegar — senão ele fica olhando o
+      // frame aproximado até mexer o scroll de novo.
+      images[i].onload = () => {
+        if (i === currentFrameRef.current) renderFrame(i);
+      };
+      images[i].src = srcFor(i);
+    };
+
+    // DUAS ONDAS, e a diferença entre elas é o que conserta o "travou".
+    //
+    // Onda esparsa: um frame a cada oito (~15 imagens, ~330 KB). É pouco peso e
+    // já é o bastante para a sequência ANIMAR — aos saltos, mas andando, porque
+    // o render pega o frame carregado mais próximo. Ela sai do forno depois do
+    // `load`, no primeiro momento ocioso: não disputa nada com o first paint
+    // (o pecado original, que derrubou o PageSpeed para 68), e chega muito
+    // antes de o visitante rolar até a seção.
+    //
+    // Onda completa: os 2,7 MB restantes, só quando a seção se aproxima.
+    //
+    // O que havia antes era uma onda só, disparada a duas telas da seção. Em
+    // rede de escritório o visitante chegava lá com UM frame na mão e
+    // atravessava quatro telas de pin com a imagem parada.
+    const PASSO_ESPARSO = 8;
+    let esparsaFeita = false;
+    const carregarEsparsa = () => {
+      if (esparsaFeita) return;
+      esparsaFeita = true;
+      for (let i = PASSO_ESPARSO; i < totalFrames; i += PASSO_ESPARSO) pedir(i);
+    };
     let carregou = false;
     const carregarResto = () => {
+      carregarEsparsa();
       if (carregou) return;
       carregou = true;
-      for (let i = 1; i < totalFrames; i++) images[i].src = srcFor(i);
+      for (let i = 1; i < totalFrames; i++) if (i % PASSO_ESPARSO !== 0) pedir(i);
     };
+
+    // O `load` dispara antes de a maior imagem terminar de pintar, então
+    // agendar a onda esparsa nele a colocaria disputando banda com o LCP —
+    // exatamente o erro que se quis corrigir. 1,5s depois do load a página já
+    // pintou e ainda faltam muitos segundos de leitura até a seção.
+    let esperaEsparsa = 0;
+    const agendarEsparsa = () => {
+      esperaEsparsa = window.setTimeout(() => {
+        const ric = (window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number })
+          .requestIdleCallback;
+        if (ric) ric(carregarEsparsa, { timeout: 2000 });
+        else carregarEsparsa();
+      }, 1500);
+    };
+    if (document.readyState === "complete") agendarEsparsa();
+    else window.addEventListener("load", agendarEsparsa, { once: true });
+
     const io = new IntersectionObserver(
       (entradas) => {
         if (entradas.some((e) => e.isIntersecting)) {
@@ -105,7 +175,9 @@ export default function SectionBrain() {
           io.disconnect();
         }
       },
-      { rootMargin: "200% 0px" },
+      // Quatro telas de folga, não duas: em rede lenta o download da sequência
+      // leva mais tempo do que o visitante leva para rolar até aqui.
+      { rootMargin: "400% 0px" },
     );
     io.observe(trigger);
     // Rede de segurança: se por algum motivo o observer não disparar (layout
@@ -124,7 +196,11 @@ export default function SectionBrain() {
         scrollTrigger: {
           trigger,
           start: "top top",
-          end: isDesktop ? "+=400%" : "+=250%",
+          // A timeline fecha em 0.90 (o último texto entra em 0.75 e dura
+          // 0.15): os 10% restantes eram pin rolando sem nada acontecer.
+          // 360% termina o pin junto com a animação, e a próxima seção entra
+          // logo — que é o que o cliente pediu.
+          end: isDesktop ? "+=360%" : "+=225%",
           pin: true,
           scrub: 0.5,
           anticipatePin: 1,
@@ -181,6 +257,8 @@ export default function SectionBrain() {
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("load", agendarEsparsa);
+      window.clearTimeout(esperaEsparsa);
       io.disconnect();
       window.clearTimeout(ocioso);
       gsapCtx.revert();

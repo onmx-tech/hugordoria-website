@@ -100,16 +100,19 @@ export function initQuoteAnimation(refs: Refs) {
         { strokeDashoffset: 0, duration: 1.2, stagger: 0.06, ease: "none" },
         ">-0.1"
       )
+      // A assinatura ficava PRONTA por um sopro de scroll antes de a saída
+      // começar — o cliente descreveu como "pegou e sumiu, tem que ir na
+      // porrada pra ele pegar". Um traço que leva 1,2 para ser desenhado não
+      // pode viver 0,4. O respiro agora é maior que o desenho, e a saída ficou
+      // mais curta para o pin não crescer por causa disso.
       .to(
         split.lines,
-        { yPercent: -110, duration: 1, stagger: 0.08, ease: "power3.in" },
-        "+=0.4"
+        { yPercent: -110, duration: 0.7, stagger: 0.06, ease: "power3.in" },
+        "+=1.3"
       )
-      .to(
-        paths,
-        { autoAlpha: 0, duration: 0.6, stagger: 0.04, ease: "none" },
-        "<"
-      )
+      // A assinatura NÃO é apagada por conta própria: ela sai assinada, subindo
+      // junto com o bloco (o `group` abaixo já leva o conjunto em autoAlpha).
+      // Apagá-la antes era o que produzia a leitura de falha.
       .to(
         mark,
         {
