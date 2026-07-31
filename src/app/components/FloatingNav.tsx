@@ -43,7 +43,10 @@ export default function FloatingNav() {
   // direção do dedo e podia não voltar nunca. Aqui a regra é o conteúdo, não o
   // gesto — passou dos botões do hero, ele aparece e fica até o rodapé.
   useEffect(() => {
-    const alvos = document.querySelectorAll('[data-hero="cta"], [data-footer-bar]');
+    // `data-footer-cta` = o par Agendar/Como chegar do rodapé. Entrou aqui pelo
+    // mesmo motivo dos outros dois: onde a página já oferece o caminho, o
+    // flutuante sai — sem isso ficariam dois "Agendar" dourados na mesma tela.
+    const alvos = document.querySelectorAll('[data-hero="cta"], [data-footer-cta], [data-footer-bar]');
     if (!alvos.length) return;
     const naTela = new Set<Element>();
     const io = new IntersectionObserver(
