@@ -36,7 +36,7 @@ export const CONTATO = {
 export const SOCIAL = {
   instagram: "https://www.instagram.com/drhugodoria/",
   facebook: "https://www.facebook.com/hugoleonardo.dorianetto/",
-  linkedin: "https://www.linkedin.com/in/hugo-doria-107b834b/",
+  linkedin: "https://www.linkedin.com/in/hugo-doria-md-phd-107b834b/",
 } as const;
 
 // 24 screenshots reais de avaliações (public/v4/depoimentos/depo-01..24.png).

@@ -83,7 +83,7 @@ function LogoSection() {
 
 function SocialLinkedin() {
   return (
-    <svg className="size-10" viewBox="0 0 40 40" fill="none">
+    <svg className="size-11" viewBox="0 0 40 40" fill="none">
       <rect
         height="39"
         rx="19.5"
@@ -99,8 +99,8 @@ function SocialLinkedin() {
 
 function SocialInstagram() {
   return (
-    <div className="size-10 rounded-full border border-steel flex items-center justify-center">
-      <svg className="size-[15px]" viewBox="0 0 14.99 15.31" fill="none">
+    <div className="size-11 rounded-full border border-steel flex items-center justify-center">
+      <svg className="size-[17px]" viewBox="0 0 14.99 15.31" fill="none">
         <path d={svgPaths.p9948b0} fill="var(--color-text-tertiary)" />
         <path d={svgPaths.p39b0fc80} fill="var(--color-icon-muted)" />
         <path d={svgPaths.p36950100} fill="var(--color-text-tertiary)" />
@@ -112,7 +112,7 @@ function SocialInstagram() {
 
 function SocialFacebook() {
   return (
-    <svg className="size-10" viewBox="0 0 40 40" fill="none">
+    <svg className="size-11" viewBox="0 0 40 40" fill="none">
       <rect
         height="39"
         rx="19.5"
@@ -297,7 +297,13 @@ export default function Footer() {
               não clicáveis — o cliente reportou "os ícones não estão levando
               para as páginas correspondentes". As URLs já existiam em SOCIAL,
               só nunca tinham sido ligadas. */}
-          <div className="flex items-center gap-2">
+          {/* 44px de diâmetro e 16px de respiro entre eles: o marketing testou
+              no celular e a queixa foi literal — "tá tudo muito junto, fica
+              difícil de acessar as redes sociais, eu separaria mais". Três
+              alvos de 40px encostados viram um alvo só para um dedo grande.
+              44px é o mínimo recomendado de área de toque, e é a mesma régua
+              já aplicada nos botões desta página. */}
+          <div className="flex items-center gap-4">
             {[
               { href: SOCIAL.linkedin, rotulo: "LinkedIn", Icone: SocialLinkedin },
               { href: SOCIAL.instagram, rotulo: "Instagram", Icone: SocialInstagram },
