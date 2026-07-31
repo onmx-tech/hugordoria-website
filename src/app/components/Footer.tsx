@@ -238,7 +238,7 @@ export default function Footer() {
                     href={CONTATO.whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-[52px] flex-1 min-w-[9.5rem] items-center justify-center gap-2.5 rounded-full px-5 font-['Geist',sans-serif] text-[15px] font-medium leading-none tracking-[-0.01em] transition-opacity duration-200 hover:opacity-90"
+                    className="cta-luz inline-flex min-h-[52px] flex-1 min-w-[9.5rem] items-center justify-center gap-2.5 rounded-full px-5 font-['Geist',sans-serif] text-[15px] font-medium leading-none tracking-[-0.01em]"
                     style={{
                       color: "var(--color-bg-deeper)",
                       background: "var(--color-accent-gold-light)",
