@@ -125,7 +125,7 @@ O `--prod` tem que estar nos **dois** comandos (build e deploy precisam do mesmo
 
 ```bash
 curl -s https://hugodoria.merinno.com/ | grep -cE 'id="root"><(header|div|main)'   # 1 = prerenderizado, 0 = SPA vazio
-curl -s https://hugodoria.merinno.com/ | grep -o 'CRM/SP 118350'                   # rodapé CFM Art. 4º/6º
+curl -s https://hugodoria.merinno.com/ | grep -o 'CRM-SP 118350'                   # rodapé CFM Art. 4º/6º
 ```
 
 O HTML da home tem ~129 KB quando prerenderizado, ~5,5 KB quando não.
