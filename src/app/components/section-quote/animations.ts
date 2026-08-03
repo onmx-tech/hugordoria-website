@@ -12,6 +12,14 @@ type Refs = {
 export function initQuoteAnimation(refs: Refs) {
   const { section, group, mark, quote, signature } = refs;
 
+  const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+
+  // Fora do desktop a frase é ESTÁTICA: sem pin, o scrub apenas fazia o bloco
+  // subir, revelar e sair enquanto o dedo rolava — no celular isso lê como
+  // texto que foge da leitura. A seção já nasce visível no HTML; não animar é
+  // a versão certa, não a versão pobre.
+  if (!isDesktop) return () => {};
+
   const ctx = gsap.context(() => {
     const split = new SplitText(quote, {
       type: "lines",
@@ -57,8 +65,6 @@ export function initQuoteAnimation(refs: Refs) {
       },
     });
 
-    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
-
     // Pinned timeline: bg round-trips blue → dark → blue so the section never
     // shows a seam against the preceding/following navy sections. Quote
     // lines and signature reveal while held in the dark middle.
@@ -67,8 +73,8 @@ export function initQuoteAnimation(refs: Refs) {
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: isDesktop ? "+=1600" : "bottom top",
-        pin: isDesktop,
+        end: "+=1600",
+        pin: true,
         scrub: 0.8,
         invalidateOnRefresh: true,
       },
