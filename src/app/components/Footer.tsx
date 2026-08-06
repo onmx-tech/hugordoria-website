@@ -231,12 +231,12 @@ export default function Footer() {
                     Altura de 52px e corpo de 15px pelo mesmo motivo do FAB:
                     o público é majoritariamente idoso, e "Como chegar" é o
                     botão que a secretária instrui por telefone. */}
-                <div data-footer-cta className="mt-4 flex flex-wrap items-center gap-3">
+                <div data-footer-cta className="mt-4 flex flex-wrap items-center gap-4 md:gap-5">
                   <a
                     href={CONTATO.whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="cta-luz inline-flex min-h-[52px] flex-1 min-w-[9.5rem] items-center justify-center gap-2.5 rounded-full px-5 font-['Geist',sans-serif] text-[15px] font-medium leading-none tracking-[-0.01em]"
+                    className="cta-luz inline-flex min-h-[56px] flex-1 min-w-[9.5rem] items-center justify-center gap-2.5 rounded-full px-5 font-['Geist',sans-serif] text-[17px] font-medium leading-none tracking-[-0.01em]"
                     style={{
                       color: "var(--color-on-gold)",
                       background: "var(--color-accent-gold-light)",
@@ -259,7 +259,7 @@ export default function Footer() {
                     href={CONTATO.rotaLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-[52px] flex-1 min-w-[9.5rem] items-center justify-center gap-2 rounded-full border px-5 font-['Geist',sans-serif] text-[15px] font-medium leading-none tracking-[-0.01em] text-cream transition-colors duration-200 hover:bg-white/5"
+                    className="inline-flex min-h-[56px] flex-1 min-w-[9.5rem] items-center justify-center gap-2 rounded-full border px-5 font-['Geist',sans-serif] text-[17px] font-medium leading-none tracking-[-0.01em] text-cream transition-colors duration-200 hover:bg-white/5"
                     style={{ borderColor: "color-mix(in srgb, var(--color-bg-cream) 34%, transparent)" }}
                   >
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

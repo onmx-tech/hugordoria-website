@@ -13,7 +13,8 @@
     "agendar": "Book",
     "agendarAria": "Book an appointment via WhatsApp",
     "ligarAria": "Call the practice",
-    "whatsappAria": "Chat on WhatsApp"
+    "whatsappAria": "Chat on WhatsApp",
+    "agendarConsulta": "Book a consultation"
   },
   "cta": {
     "agendar": "Book an appointment",

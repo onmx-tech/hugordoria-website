@@ -368,7 +368,7 @@ export function EventosPage() {
     jsonLd: [
       breadcrumbSchema([
         { name: "Início", path: "/" },
-        { name: "Eventos e mídia", path: "/eventos" },
+        { name: "Mídia e eventos", path: "/eventos" },
       ]),
     ],
   });
@@ -383,7 +383,22 @@ export function EventosPage() {
         imageAlt={t("forms.eventos.heroImageAlt")}
         badge={{ value: String(EVENTOS.length).padStart(2, "0"), label: t("forms.eventos.heroBadgeLabel") }}
       />
+      {/* Ordem pedida na reunião de 06/08: "deixa a parte de mídias por cima e
+          eventos embaixo", mantendo a foto da presença na comunidade como
+          abertura. Vídeo é o que se consome; a lista de congressos é lastro. */}
       <Section>
+        <Eyebrow>{t("forms.midia.heroEyebrow")}</Eyebrow>
+        <SectionHeading tone="light" className="mt-5">{t("forms.midia.heroTitle")}</SectionHeading>
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {MIDIA_VIDEOS.map((id, i) => (
+            <Reveal key={id} delay={(i % 3) * 0.08}>
+              <VideoCard id={id} />
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="navy-800">
         <Eyebrow>{t("forms.eventos.palestrasEyebrow")}</Eyebrow>
         <Divider tone="light" className="mt-6" />
         <div className="mt-8 flex flex-col overflow-hidden rounded-2xl bg-white/[0.04]">
@@ -392,19 +407,6 @@ export function EventosPage() {
               <Mic className="size-6 shrink-0 text-gold-700" strokeWidth={1.5} />
               <span className="font-body text-white/80 text-[16px]" style={{ lineHeight: 1.5 }}>{e}</span>
             </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Vídeos e aparições — o que era a página /midia. */}
-      <Section tone="navy-800">
-        <Eyebrow>{t("forms.midia.heroEyebrow")}</Eyebrow>
-        <SectionHeading tone="light" className="mt-5">{t("forms.midia.heroTitle")}</SectionHeading>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {MIDIA_VIDEOS.map((id, i) => (
-            <Reveal key={id} delay={(i % 3) * 0.08}>
-              <VideoCard id={id} />
-            </Reveal>
           ))}
         </div>
       </Section>
