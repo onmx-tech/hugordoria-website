@@ -1,3 +1,4 @@
+import INSTAGRAM from "../content/instagram.json";
 import { useEffect, useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import {
@@ -30,6 +31,7 @@ import { responsiveImg } from "@/lib/img";
 import {
   CONTATO,
   DEPOIMENTOS_GALERIA,
+  SOCIAL,
   getInstitucional,
 } from "../content/institucional";
 
@@ -397,6 +399,57 @@ export function EventosPage() {
           ))}
         </div>
       </Section>
+
+      {/* Instagram — pedido de 06/08 ("deixar os vídeos do Instagram num
+          carrossel"). As imagens são baixadas NA BUILD (scripts/fetch-instagram
+          .mjs) e servidas daqui: widget de terceiro traria script e iframe de
+          outro domínio, e é isso que derruba o desempenho da página. Sem token
+          configurado a lista fica vazia e a seção simplesmente não existe —
+          nunca um bloco vazio no ar. */}
+      {INSTAGRAM.posts.length > 0 && (
+        <Section>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <Eyebrow>{t("forms.midia.instagramEyebrow")}</Eyebrow>
+              <SectionHeading tone="light" className="mt-5">{t("forms.midia.instagramHeading")}</SectionHeading>
+            </div>
+            <a
+              href={SOCIAL.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-display text-[15px] text-gold-600 underline underline-offset-4 transition-colors hover:text-gold-500"
+            >
+              {t("forms.midia.instagramLink")}
+            </a>
+          </div>
+          {/* Carrossel por scroll-snap do próprio navegador: arrasta no dedo,
+              roda no trackpad e não custa uma linha de JavaScript. */}
+          <ul className="-mx-6 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:-mx-12 md:px-12 lg:-mx-16 lg:px-16">
+            {INSTAGRAM.posts.map((post) => (
+              <li key={post.id} className="w-[264px] shrink-0 snap-start md:w-[300px]">
+                <a href={post.permalink} target="_blank" rel="noopener noreferrer" className="group block">
+                  <div className="relative aspect-square overflow-hidden bg-white/[0.04]">
+                    <img
+                      src={post.imagem}
+                      alt={post.legenda || t("forms.midia.instagramAltPadrao")}
+                      loading="lazy"
+                      decoding="async"
+                      width={600}
+                      height={600}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  {post.legenda && (
+                    <p className="font-body mt-3 line-clamp-2 text-white/60 text-[14px]" style={{ lineHeight: 1.5 }}>
+                      {post.legenda}
+                    </p>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
 
       <Section tone="navy-800">
         <Eyebrow>{t("forms.eventos.palestrasEyebrow")}</Eyebrow>

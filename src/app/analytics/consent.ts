@@ -16,6 +16,8 @@
 // e é isso que a política de privacidade afirma.
 // ─────────────────────────────────────────────────────────────────────────
 
+import { CLARITY_ENABLED, CLARITY_PROJECT_ID } from "./config";
+
 const KEY = "hd.consent.v1";
 
 export type ConsentChoice = "granted" | "denied";
@@ -42,6 +44,31 @@ export function writeConsent(choice: ConsentChoice): void {
     /* segue sem persistir */
   }
   pushConsentUpdate(choice);
+  if (choice === "granted") carregarClarity();
+}
+
+/**
+ * Microsoft Clarity — mapa de calor, gravação de sessão e clique morto.
+ *
+ * Carregado por CÓDIGO e só DEPOIS do aceite, nunca pelo `<head>`: o Clarity
+ * não fala Consent Mode, então não existe versão dele "sem cookie esperando
+ * permissão" como no GA4. Ou não está na página, ou já está gravando — e
+ * gravar a sessão de quem procura um neurocirurgião antes de a pessoa
+ * consentir não é uma opção.
+ *
+ * Idempotente: o botão de aceitar pode ser clicado uma vez por carga, mas
+ * `restoreConsent` também chama isso, e duas cópias do script gravariam a
+ * mesma sessão duas vezes.
+ */
+let clarityCarregado = false;
+export function carregarClarity(): void {
+  if (clarityCarregado || !CLARITY_ENABLED) return;
+  if (typeof document === "undefined") return;
+  clarityCarregado = true;
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = `https://www.clarity.ms/tag/${CLARITY_PROJECT_ID}`;
+  document.head.appendChild(s);
 }
 
 /**
@@ -75,5 +102,8 @@ export function pushConsentUpdate(choice: ConsentChoice): void {
  */
 export function restoreConsent(): void {
   const saved = readConsent();
-  if (saved === "granted") pushConsentUpdate("granted");
+  if (saved === "granted") {
+    pushConsentUpdate("granted");
+    carregarClarity();
+  }
 }

@@ -29,3 +29,17 @@ function isPlaceholder(id: string): boolean {
 
 /** true assim que GTM_CONTAINER_ID deixar de ser o placeholder acima. */
 export const ANALYTICS_ENABLED = !isPlaceholder(GTM_CONTAINER_ID);
+
+// ── Microsoft Clarity ────────────────────────────────────────────────────
+// Mapa de calor, gravação de sessão e "clique morto" (onde a pessoa clica e
+// nada acontece). Foi a recomendação levada à reunião de 06/08 como
+// alternativa gratuita ao Hotjar. Basta trocar o ID pelo do projeto.
+//
+// ⚠️ Clarity GRAVA SESSÃO — é dado pessoal, e num site de paciente isso pesa
+// mais do que em qualquer outro. Por isso ele entra pelo MESMO portão do GA4:
+// só carrega quando o aviso de cookies existir e o visitante tiver aceitado.
+// Não injetar por fora desse caminho.
+export const CLARITY_PROJECT_ID = "";
+
+/** true quando o projeto do Clarity foi preenchido E a medição está ligada. */
+export const CLARITY_ENABLED = ANALYTICS_ENABLED && CLARITY_PROJECT_ID.length > 0;

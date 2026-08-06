@@ -7,10 +7,11 @@
     "build": "vite build",
     "build:ssg": "vite build && node scripts/prerender.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/gen-sitemap.mjs && node scripts/optimize-images.mjs",
+    "prebuild": "node scripts/gen-sitemap.mjs && node scripts/fetch-instagram.mjs && node scripts/optimize-images.mjs",
     "images": "node scripts/optimize-images.mjs",
     "prerender": "node scripts/prerender.mjs",
-    "sitemap": "node scripts/gen-sitemap.mjs"
+    "sitemap": "node scripts/gen-sitemap.mjs",
+    "instagram": "node scripts/fetch-instagram.mjs"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

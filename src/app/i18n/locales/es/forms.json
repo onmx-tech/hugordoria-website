@@ -54,7 +54,11 @@
       "heroTitle": "Vídeos y apariciones",
       "heroIntro": "Entrevistas, clases y contenidos sobre neurocirugía vascular, diagnóstico y tratamiento de las principales afecciones neurológicas.",
       "heroImageAlt": "Medios y vídeos",
-      "heroBadgeLabel": "vídeos"
+      "heroBadgeLabel": "vídeos",
+      "instagramEyebrow": "Instagram",
+      "instagramHeading": "En el día a día",
+      "instagramLink": "Ver el perfil",
+      "instagramAltPadrao": "Publicación de Instagram del Dr. Hugo Doria"
     },
     "depoimentos": {
       "heroEyebrow": "Opiniones",
@@ -139,7 +143,7 @@
       "enviarEyebrow": "Qué enviar",
       "enviarHeading": "Exámenes y documentos para el análisis",
       "comoEyebrow": "Cómo funciona",
-      "comoHeading": "Del primer contacto a la respuesta",
+      "comoHeading": "Su recorrido con nosotros",
       "limitesEyebrow": "Importante",
       "limitesHeading": "Lo que la segunda opinión no es",
       "solicitacaoEyebrow": "Solicitud",

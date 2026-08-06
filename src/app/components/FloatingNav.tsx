@@ -57,14 +57,13 @@ export default function FloatingNav() {
         }
         const rodape = [...naTela].some((el) => !el.matches('[data-hero="cta"]'));
         const heroNaTela = [...naTela].some((el) => el.matches('[data-hero="cta"]'));
-        // No DESKTOP o flutuante volta a ceder a vez na primeira dobra: os CTAs
-        // do hero estão ali, grandes, e o cliente pediu na reunião de 06/08
-        // ("nessa primeira scroll não vai ter isso aqui, porque já tem aqui").
-        // No CELULAR ele continua desde o primeiro pixel — lá o hero é estreito,
-        // o botão é a ação da tela e a equipe já havia pedido três vezes que ele
-        // não dependesse de rolagem.
-        const noDesktop = window.matchMedia("(min-width: 1024px)").matches;
-        setCedeVez(rodape || (noDesktop && heroNaTela));
+        // O flutuante cede a vez na PRIMEIRA DOBRA, nos dois tamanhos: ali o
+        // hero já tem "Agendar consulta" escrito, e no celular o cabeçalho fixo
+        // agora leva o botão de agendar também. Três chamadas para a mesma ação
+        // na mesma tela foi a queixa literal do cliente em 06/08 — "eu tô com
+        // dois, não tá legal". Ele reaparece assim que a leitura começa, que é
+        // o que a equipe pediu quando exigiu um botão que não some.
+        setCedeVez(rodape || heroNaTela);
         setNavCedeVez(naTela.size > 0);
       },
       { rootMargin: "0px 0px -8px 0px" },

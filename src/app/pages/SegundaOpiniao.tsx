@@ -203,28 +203,55 @@ export function SegundaOpiniaoPage() {
           {t("forms.segundaOpiniao.comoHeading")}
         </SectionHeading>
         <Divider tone="light" className="mt-8" />
-        <ol className="mt-10 flex flex-col overflow-hidden rounded-2xl bg-white/[0.04]">
-          {SEGUNDA_OPINIAO.comoFunciona.map((passo, i) => (
-            <li
-              key={passo.titulo}
-              className="grid gap-4 border-b border-white/10 p-6 last:border-b-0 md:grid-cols-[80px_1fr] md:gap-8 md:p-8"
-            >
-              <span
-                className="font-display text-gold-600 text-[28px] leading-none"
-                style={{ fontWeight: 400 }}
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div className="flex flex-col gap-2">
-                <h3 className="font-display text-white text-[19px]" style={{ fontWeight: 500 }}>
-                  {passo.titulo}
-                </h3>
-                <p className="font-body text-white/65 text-[15px]" style={{ lineHeight: 1.65 }}>
-                  {passo.texto}
-                </p>
-              </div>
-            </li>
-          ))}
+        {/* TRILHA — pedido de 06/08: "faz uma coisa bonita, sofisticada aí de
+            trilha e jornada". Era uma lista numerada dentro de uma caixa, que
+            informa mas não conta percurso. Agora os passos ficam pendurados num
+            fio contínuo: o fio é o que transforma itens em caminho, e o nó
+            preenchido no último passo mostra onde a jornada termina — que é o
+            retorno, a informação que o paciente veio buscar.
+            Sem caixa e sem sombra: o traço já é a estrutura. */}
+        <ol className="relative mt-12 flex flex-col">
+          {SEGUNDA_OPINIAO.comoFunciona.map((passo, i) => {
+            const ultimo = i === SEGUNDA_OPINIAO.comoFunciona.length - 1;
+            return (
+              <li key={passo.titulo} className="relative grid grid-cols-[38px_1fr] gap-5 pb-10 last:pb-0 md:grid-cols-[64px_1fr] md:gap-8">
+                {/* O fio desce do nó até o próximo passo; o último não tem fio,
+                    senão a trilha parece continuar depois do fim. */}
+                {!ultimo && (
+                  <span
+                    aria-hidden
+                    className="absolute left-[7px] top-5 h-full w-px md:left-[11px]"
+                    style={{ background: "color-mix(in srgb, var(--color-accent-gold-light) 34%, transparent)" }}
+                  />
+                )}
+                <div className="flex items-start gap-3 md:gap-4">
+                  <span
+                    aria-hidden
+                    className="mt-[7px] size-[15px] shrink-0 rounded-full md:size-[23px]"
+                    style={
+                      ultimo
+                        ? { background: "var(--color-accent-gold-light)" }
+                        : {
+                            background: "var(--color-bg-deep)",
+                            boxShadow: "inset 0 0 0 1.5px color-mix(in srgb, var(--color-accent-gold-light) 70%, transparent)",
+                          }
+                    }
+                  />
+                </div>
+                <div className="flex flex-col gap-2 pt-0.5">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-700">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-display text-white text-[19px] md:text-[21px]" style={{ fontWeight: 500 }}>
+                    {passo.titulo}
+                  </h3>
+                  <p className="font-body max-w-[620px] text-white/65 text-[15px]" style={{ lineHeight: 1.65 }}>
+                    {passo.texto}
+                  </p>
+                </div>
+              </li>
+            );
+          })}
         </ol>
       </Section>
 

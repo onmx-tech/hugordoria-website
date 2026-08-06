@@ -54,7 +54,11 @@
       "heroTitle": "Videos and appearances",
       "heroIntro": "Interviews, lectures and content on vascular neurosurgery, diagnosis and treatment of the main neurological conditions.",
       "heroImageAlt": "Media and videos",
-      "heroBadgeLabel": "videos"
+      "heroBadgeLabel": "videos",
+      "instagramEyebrow": "Instagram",
+      "instagramHeading": "Day to day",
+      "instagramLink": "View profile",
+      "instagramAltPadrao": "Instagram post by Dr. Hugo Doria"
     },
     "depoimentos": {
       "heroEyebrow": "Reviews",
@@ -139,7 +143,7 @@
       "enviarEyebrow": "What to send",
       "enviarHeading": "Exams and documents for the analysis",
       "comoEyebrow": "How it works",
-      "comoHeading": "From first contact to response",
+      "comoHeading": "Your journey with us",
       "limitesEyebrow": "Important",
       "limitesHeading": "What a second opinion is not",
       "solicitacaoEyebrow": "Request",
