@@ -9,20 +9,12 @@
       "description": "Trajetória, formação e atuação do Dr. Hugo Leonardo Doria Netto: neurocirurgia vascular com precisão técnica, pesquisa avançada e cuidado humano."
     },
     "doutorado": {
-      "title": "Doutorado — tese sobre aneurismas paraclinóideos",
-      "description": "Tese de doutorado em Neurociência (UNIFESP): protocolo inédito, em quatro etapas, para distinguir quais aneurismas cerebrais paraclinóideos exigem tratamento."
-    },
-    "publicacoes": {
-      "title": "Publicações científicas",
-      "description": "Produção científica do Dr. Hugo Doria em neurocirurgia vascular — artigos, capítulos e pesquisa publicada em periódicos internacionais."
+      "title": "Doutorado e publicações científicas",
+      "description": "Tese de doutorado em Neurociência (UNIFESP), artigo em periódico internacional e capítulos em obras de neurocirurgia."
     },
     "eventos": {
-      "title": "Eventos e congressos",
-      "description": "Participação em congressos nacionais e internacionais, aulas para residentes e simpósios de neurocirurgia vascular."
-    },
-    "midia": {
-      "title": "Mídia — vídeos e aparições",
-      "description": "Entrevistas, aulas e conteúdos do Dr. Hugo Doria sobre neurocirurgia vascular, diagnóstico e tratamento das principais condições neurológicas."
+      "title": "Eventos, congressos e mídia",
+      "description": "Participação em congressos nacionais e internacionais, aulas para residentes, simpósios de neurocirurgia vascular e vídeos das aparições."
     },
     "depoimentos": {
       "title": "Depoimentos de pacientes",

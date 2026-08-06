@@ -260,11 +260,18 @@ export function SobreMimPage() {
 }
 
 // ───────────────────────── /doutorado ─────────────────────────
+// ───────────────────────── /doutorado (doutorado + publicações) ─────────
+// Eram duas páginas — /doutorado e /publicacoes — e o visitante que chegava
+// numa não sabia que a outra existia: tese, artigo e capítulos são a MESMA
+// coisa vista em três formatos, produção acadêmica. Viraram uma só, com
+// /publicacoes redirecionando para cá (301 no vercel.json). A ordem segue a
+// profundidade: a tese, que é o trabalho longo; depois o artigo que saiu dela;
+// e por fim os capítulos.
 export function DoutoradoPage() {
   const { locale } = useLocale();
   const { t } = useTranslation("forms");
   const { t: tSeo } = useTranslation("seo");
-  const { DOUTORADO } = getInstitucional(locale);
+  const { DOUTORADO, PUBLICACOES, SOBRE_MIM } = getInstitucional(locale);
 
   useSeo({
     title: tSeo("seo.doutorado.title"),
@@ -273,7 +280,7 @@ export function DoutoradoPage() {
     jsonLd: [
       breadcrumbSchema([
         { name: "Início", path: "/" },
-        { name: "Doutorado", path: "/doutorado" },
+        { name: "Doutorado e publicações", path: "/doutorado" },
       ]),
     ],
   });
@@ -311,48 +318,21 @@ export function DoutoradoPage() {
           </div>
         </div>
       </Section>
-    </Shell>
-  );
-}
 
-// ───────────────────────── /publicacoes ─────────────────────────
-export function PublicacoesPage() {
-  const { locale } = useLocale();
-  const { t } = useTranslation("forms");
-  const { t: tSeo } = useTranslation("seo");
-  const { PUBLICACOES, SOBRE_MIM } = getInstitucional(locale);
-
-  useSeo({
-    title: tSeo("seo.publicacoes.title"),
-    description: tSeo("seo.publicacoes.description"),
-    image: "/v4/photos/retrato-bracos.jpg",
-    jsonLd: [
-      breadcrumbSchema([
-        { name: "Início", path: "/" },
-        { name: "Publicações", path: "/publicacoes" },
-      ]),
-    ],
-  });
-
-  return (
-    <Shell>
-      <PageHero
-        eyebrow={t("forms.publicacoes.heroEyebrow")}
-        title={t("forms.publicacoes.heroTitle")}
-        intro={PUBLICACOES.intro}
-        image="/v4/photos/retrato-bracos.jpg"
-        imageAlt={t("forms.publicacoes.heroImageAlt")}
-        badge={{ value: "2022", label: "World Neurosurgery" }}
-      />
+      {/* Produção científica — o que era a página /publicacoes. */}
       <Section>
         <div className="flex flex-col gap-6">
           <Eyebrow>{t("forms.publicacoes.artigoEyebrow")}</Eyebrow>
           <SectionHeading tone="light" className="max-w-[760px]">
             {t("forms.publicacoes.artigoHeading")}
           </SectionHeading>
+          <p className="font-body max-w-[760px] text-white/70 text-[clamp(15px,1.15vw,17px)]" style={{ lineHeight: 1.75 }}>
+            {PUBLICACOES.intro}
+          </p>
           <Button href={PUBLICACOES.pdfArtigo} variant="gold" icon="arrow" className="mt-2 self-start">{t("forms.publicacoes.lerArtigo")}</Button>
         </div>
       </Section>
+
       <Section tone="navy-800">
         <Eyebrow>{t("forms.publicacoes.capitulosEyebrow")}</Eyebrow>
         <SectionHeading tone="light" className="mt-5">{t("forms.publicacoes.capitulosHeading")}</SectionHeading>
@@ -370,21 +350,25 @@ export function PublicacoesPage() {
   );
 }
 
-// ───────────────────────── /eventos ─────────────────────────
+// ───────────────────────── /eventos (eventos + mídia) ───────────────────
+// /midia era uma página inteira para uma grade de vídeos das mesmas aparições
+// listadas aqui em texto. Agora a palestra e o registro dela vivem juntos:
+// primeiro onde ele falou, depois o que dá para assistir. /midia redireciona
+// para cá (301 no vercel.json).
 export function EventosPage() {
   const { locale } = useLocale();
   const { t } = useTranslation("forms");
   const { t: tSeo } = useTranslation("seo");
-  const { EVENTOS } = getInstitucional(locale);
+  const { EVENTOS, MIDIA_VIDEOS } = getInstitucional(locale);
 
   useSeo({
     title: tSeo("seo.eventos.title"),
     description: tSeo("seo.eventos.description"),
-    image: "/v4/photos/palestra-painel.jpg",
+    image: "/v4/photos/eventos.jpg",
     jsonLd: [
       breadcrumbSchema([
         { name: "Início", path: "/" },
-        { name: "Eventos", path: "/eventos" },
+        { name: "Eventos e mídia", path: "/eventos" },
       ]),
     ],
   });
@@ -395,7 +379,7 @@ export function EventosPage() {
         eyebrow={t("forms.eventos.heroEyebrow")}
         title={t("forms.eventos.heroTitle")}
         intro={t("forms.eventos.heroIntro")}
-        image="/v4/photos/palestra-painel.jpg"
+        image="/v4/photos/eventos.jpg"
         imageAlt={t("forms.eventos.heroImageAlt")}
         badge={{ value: String(EVENTOS.length).padStart(2, "0"), label: t("forms.eventos.heroBadgeLabel") }}
       />
@@ -411,41 +395,12 @@ export function EventosPage() {
           ))}
         </div>
       </Section>
-    </Shell>
-  );
-}
 
-// ───────────────────────── /midia ─────────────────────────
-export function MidiaPage() {
-  const { locale } = useLocale();
-  const { t } = useTranslation("forms");
-  const { t: tSeo } = useTranslation("seo");
-  const { MIDIA_VIDEOS } = getInstitucional(locale);
-
-  useSeo({
-    title: tSeo("seo.midia.title"),
-    description: tSeo("seo.midia.description"),
-    image: "/v4/photos/eventos.jpg",
-    jsonLd: [
-      breadcrumbSchema([
-        { name: "Início", path: "/" },
-        { name: "Mídia", path: "/midia" },
-      ]),
-    ],
-  });
-
-  return (
-    <Shell>
-      <PageHero
-        eyebrow={t("forms.midia.heroEyebrow")}
-        title={t("forms.midia.heroTitle")}
-        intro={t("forms.midia.heroIntro")}
-        image="/v4/photos/eventos.jpg"
-        imageAlt={t("forms.midia.heroImageAlt")}
-        badge={{ value: String(MIDIA_VIDEOS.length).padStart(2, "0"), label: t("forms.midia.heroBadgeLabel") }}
-      />
-      <Section>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {/* Vídeos e aparições — o que era a página /midia. */}
+      <Section tone="navy-800">
+        <Eyebrow>{t("forms.midia.heroEyebrow")}</Eyebrow>
+        <SectionHeading tone="light" className="mt-5">{t("forms.midia.heroTitle")}</SectionHeading>
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {MIDIA_VIDEOS.map((id, i) => (
             <Reveal key={id} delay={(i % 3) * 0.08}>
               <VideoCard id={id} />

@@ -11,9 +11,7 @@ import { CONTATO, SOCIAL } from "../content/institucional";
 const NAV_LINKS = [
   { labelKey: "sub.footer.nav.sobreMim", to: "/sobre-mim" },
   { labelKey: "sub.footer.nav.doutorado", to: "/doutorado" },
-  { labelKey: "sub.footer.nav.publicacoes", to: "/publicacoes" },
   { labelKey: "sub.footer.nav.eventos", to: "/eventos" },
-  { labelKey: "sub.footer.nav.midia", to: "/midia" },
   { labelKey: "sub.footer.nav.depoimentos", to: "/depoimentos" },
   { labelKey: "sub.footer.nav.segundaOpiniao", to: "/segunda-opiniao" },
   { labelKey: "sub.footer.nav.contato", to: "/contato" },

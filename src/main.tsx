@@ -15,9 +15,7 @@ const EspecialidadesPage = lazy(() =>
 );
 const SobreMimPage = lazy(() => import("./app/pages/InstitucionalPages.tsx").then((m) => ({ default: m.SobreMimPage })));
 const DoutoradoPage = lazy(() => import("./app/pages/InstitucionalPages.tsx").then((m) => ({ default: m.DoutoradoPage })));
-const PublicacoesPage = lazy(() => import("./app/pages/InstitucionalPages.tsx").then((m) => ({ default: m.PublicacoesPage })));
 const EventosPage = lazy(() => import("./app/pages/InstitucionalPages.tsx").then((m) => ({ default: m.EventosPage })));
-const MidiaPage = lazy(() => import("./app/pages/InstitucionalPages.tsx").then((m) => ({ default: m.MidiaPage })));
 const DepoimentosPage = lazy(() => import("./app/pages/InstitucionalPages.tsx").then((m) => ({ default: m.DepoimentosPage })));
 const ContatoPage = lazy(() => import("./app/pages/InstitucionalPages.tsx").then((m) => ({ default: m.ContatoPage })));
 const LocalizacaoPage = lazy(() => import("./app/pages/InstitucionalPages.tsx").then((m) => ({ default: m.LocalizacaoPage })));
@@ -57,9 +55,7 @@ function appRoutes() {
       <Route path="especialidade/:slug" element={<EspecialidadePage />} />
       <Route path="sobre-mim" element={<SobreMimPage />} />
       <Route path="doutorado" element={<DoutoradoPage />} />
-      <Route path="publicacoes" element={<PublicacoesPage />} />
       <Route path="eventos" element={<EventosPage />} />
-      <Route path="midia" element={<MidiaPage />} />
       <Route path="depoimentos" element={<DepoimentosPage />} />
       <Route path="contato" element={<ContatoPage />} />
       <Route path="localizacao" element={<LocalizacaoPage />} />

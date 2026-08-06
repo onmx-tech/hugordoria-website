@@ -21,8 +21,8 @@
       "heroBadgeLabel": "Coordinator · Vascular Neurosurgery"
     },
     "doutorado": {
-      "heroEyebrow": "Doctorate",
-      "heroTitle": "Doctoral Thesis in Neuroscience",
+      "heroEyebrow": "PhD and publications",
+      "heroTitle": "PhD and scientific output",
       "heroIntro": "Paraclinoid cerebral aneurysms: an unprecedented protocol to distinguish, with precision, which ones require treatment — developed in four stages.",
       "videoEyebrow": "About the research",
       "videoTitle": "The thesis in four stages, explained.",
@@ -42,7 +42,7 @@
       "capitulosHeading": "Chapters in neurosurgery books"
     },
     "eventos": {
-      "heroEyebrow": "Events",
+      "heroEyebrow": "Events and media",
       "heroTitle": "A presence in the neurosurgical community",
       "heroIntro": "Experience shared at national and international congresses, lectures for residents and vascular neurosurgery symposia.",
       "heroImageAlt": "Dr. Hugo Doria speaking at a congress",

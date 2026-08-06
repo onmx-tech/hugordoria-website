@@ -20,6 +20,36 @@
       "statusCode": 301
     },
     {
+      "source": "/publicacoes",
+      "destination": "/doutorado",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/publicacoes",
+      "destination": "/en/doutorado",
+      "statusCode": 301
+    },
+    {
+      "source": "/es/publicacoes",
+      "destination": "/es/doutorado",
+      "statusCode": 301
+    },
+    {
+      "source": "/midia",
+      "destination": "/eventos",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/midia",
+      "destination": "/en/eventos",
+      "statusCode": 301
+    },
+    {
+      "source": "/es/midia",
+      "destination": "/es/eventos",
+      "statusCode": 301
+    },
+    {
       "source": "/especialidades/aneurisma",
       "destination": "/especialidade/aneurisma-cerebral",
       "statusCode": 301
