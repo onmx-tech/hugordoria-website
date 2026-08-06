@@ -47,15 +47,70 @@ export function initSobreAnimation({ section, track }: Refs) {
     // 3. End hold — segura na última coluna antes de soltar o pin
     masterTween.to({}, { duration: getEndHold() });
 
-    // A entrada individual de cada item saiu a pedido: as fotos revelavam por
-    // clip-path e os textos subiam com inclinação 3D conforme a coluna entrava
-    // pela direita. Agora tudo já está posto, e o que se move é só a
-    // panorâmica — que é a mecânica da seção, não um efeito de chegada.
+    // Individual entrance per item. Image frames reveal via clip-path + scale;
+    // text elements rise with a subtle 3D tilt. Images also get parallax on
+    // their inner <img> while the card travels through the viewport.
     const items = Array.from(track.children) as HTMLElement[];
+    const scale = getScale();
+    const viewportW = window.innerWidth;
 
     items.forEach((el) => {
       const innerImg = el.querySelector<HTMLElement>("img");
       const isImageFrame = !!innerImg;
+      const itemLeftPx = el.offsetLeft * scale;
+      const isPreVisible = itemLeftPx < viewportW * 0.85;
+
+      // Initial states
+      if (isImageFrame && innerImg) {
+        gsap.set(el, {
+          clipPath: "inset(100% 0% 0% 0%)",
+          autoAlpha: 1,
+        });
+        gsap.set(innerImg, { scale: 1.2 });
+      } else {
+        gsap.set(el, {
+          y: 72,
+          autoAlpha: 0,
+          rotateX: 14,
+          transformPerspective: 800,
+          transformOrigin: "top center",
+        });
+      }
+
+      const entranceTrigger = isPreVisible
+        ? {
+            trigger: section,
+            start: "top 85%",
+            end: "top 20%",
+            scrub: 0.6,
+          }
+        : {
+            // Revela conforme a foto entra pela direita e completa quando ela
+            // já está inteira na tela (borda direita) — assim a ÚLTIMA coluna,
+            // que para na direita e nunca chega ao centro, também revela 100%.
+            trigger: el,
+            containerAnimation: masterTween,
+            start: "left right",
+            end: "right right",
+            scrub: 0.6,
+          };
+
+      if (isImageFrame && innerImg) {
+        const tl = gsap.timeline({
+          scrollTrigger: entranceTrigger,
+          defaults: { ease: "power3.out" },
+        });
+        tl.to(el, { clipPath: "inset(0% 0% 0% 0%)", duration: 1 }, 0)
+          .to(innerImg, { scale: 1, duration: 1 }, 0);
+      } else {
+        gsap.to(el, {
+          y: 0,
+          autoAlpha: 1,
+          rotateX: 0,
+          ease: "power3.out",
+          scrollTrigger: entranceTrigger,
+        });
+      }
 
       // Parallax on the inner image as the card travels across the viewport.
       // Using containerAnimation so it's tied to horizontal progress.

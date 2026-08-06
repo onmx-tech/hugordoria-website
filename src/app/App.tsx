@@ -14,20 +14,6 @@ import { useLenis } from "../hooks/useLenis";
 import { useSeo } from "./seo/useSeo";
 import { websiteSchema } from "./seo/schema";
 
-/**
- * A HOME NÃO TEM MAIS ENTRADA POR SCROLL.
- *
- * Todas as seções nasciam escondidas (`autoAlpha: 0`, deslocadas, com clip-path
- * ou máscara) e só se montavam conforme a rolagem passava por elas. Saiu a
- * pedido, na home inteira: o conteúdo já vem pintado no HTML pré-renderizado e
- * é assim que ele fica — nada de aparecer ao ser alcançado.
- *
- * O que continua se movendo, porque é a MECÂNICA da seção e não um efeito de
- * chegada: a panorâmica horizontal do "Sobre" e das "Especialidades", a
- * sequência de frames do `SectionBrain`, o parallax dentro das fotos, e a
- * entrada dos cards de depoimento — essa última responde ao clique de
- * paginação, não à rolagem.
- */
 export default function App() {
   useLenis();
   const { t } = useTranslation("seo");
@@ -47,19 +33,23 @@ export default function App() {
         <Hero />
       </div>
 
-      {/* Breathing room before SectionSobre — shorter on mobile (no pin) */}
+      {/* Respiro entre o hero e o "Sobre". Eram 40vh no desktop — 326px de navy
+          vazio numa tela de 816, meia dobra de nada antes de a seção começar, e
+          foi exatamente isso que o cliente apontou no print. Respiro é pausa,
+          não intervalo: 6vh separam sem abrir buraco. */}
       <div
         aria-hidden
-        className="w-full h-[8vh] lg:h-[40vh]"
+        className="w-full h-[2vh] lg:h-[6vh]"
         style={{ backgroundColor: "var(--color-bg-deep)" }}
       />
 
       <SectionSobre />
 
-      {/* Respiro entre as seções — handoff contínuo, sem buracos */}
+      {/* Mesmo critério do respiro acima: o handoff entre as duas seções
+          escuras é contínuo, então quase não precisa de intervalo. */}
       <div
         aria-hidden
-        className="w-full h-[6vh] lg:h-[18vh]"
+        className="w-full h-[2vh] lg:h-[4vh]"
         style={{ backgroundColor: "var(--color-bg-deep)" }}
       />
 
