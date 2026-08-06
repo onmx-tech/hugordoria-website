@@ -286,18 +286,19 @@
      usa `transform`, e não a propriedade `translate` — é essa segunda que o
      Tailwind escreve no `translate-y-*` que tira o botão da tela; em
      propriedades separadas os dois convivem em vez de um zerar o outro.
-     Dois toques curtos (um alto, um baixo, como bola quicando) e depois
-     silêncio: o ciclo de 2,8s deixa o movimento presente sem virar pisca. */
+     Não é bola quicando: é uma flutuada. A queda de uma bola tem aceleração —
+     entra rápido e bate no chão —, e era isso que pesava. Aqui sobe e desce
+     na mesma curva macia, com um eco menor logo atrás, e o ciclo de 3,4s
+     deixa mais silêncio do que movimento. */
   .cta-pula {
-    animation: cta-pulo 2.8s cubic-bezier(0.32, 0, 0.24, 1) 1.2s infinite;
+    animation: cta-pulo 3.4s ease-in-out 1.2s infinite;
   }
 
   @keyframes cta-pulo {
-    0%, 60%, 100% { transform: translateY(0); }
-    12% { transform: translateY(-9px); }
-    24% { transform: translateY(0); }
-    32% { transform: translateY(-4px); }
-    42% { transform: translateY(0); }
+    0%, 52%, 100% { transform: translateY(0); }
+    13% { transform: translateY(-5px); }
+    26% { transform: translateY(0); }
+    36% { transform: translateY(-2px); }
   }
 
   /* Quem pediu menos movimento fica sem o reflexo e sem o pulo — o hover
