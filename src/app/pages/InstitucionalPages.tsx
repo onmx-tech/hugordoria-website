@@ -425,7 +425,7 @@ export function MidiaPage() {
   useSeo({
     title: tSeo("seo.midia.title"),
     description: tSeo("seo.midia.description"),
-    image: "/v4/photos/palestra-podium.jpg",
+    image: "/v4/photos/eventos.jpg",
     jsonLd: [
       breadcrumbSchema([
         { name: "Início", path: "/" },
@@ -440,7 +440,7 @@ export function MidiaPage() {
         eyebrow={t("forms.midia.heroEyebrow")}
         title={t("forms.midia.heroTitle")}
         intro={t("forms.midia.heroIntro")}
-        image="/v4/photos/palestra-podium.jpg"
+        image="/v4/photos/eventos.jpg"
         imageAlt={t("forms.midia.heroImageAlt")}
         badge={{ value: String(MIDIA_VIDEOS.length).padStart(2, "0"), label: t("forms.midia.heroBadgeLabel") }}
       />

@@ -307,8 +307,17 @@ export default function SectionBrain() {
           href="https://wa.me/5511971622777"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 md:mt-10 inline-flex items-center gap-2.5 rounded-full bg-gold-light px-7 py-4 text-cream font-['Roboto',sans-serif] font-medium transition-all duration-300 hover:bg-gold-hover hover:shadow-lg hover:shadow-gold-light/20 opacity-0"
-          style={{ fontSize: "clamp(15px, 1.2vw, 18px)" }}
+          // Padronizado com os outros botões de agendar do site: era o único em
+          // Roboto (herança do Figma), com texto cream sobre o bege — a pior
+          // combinação de contraste da página — e sem a camada de luz que os
+          // demais têm. Agora é o mesmo objeto: pílula `.cta-luz`, Geist, texto
+          // preto sobre o dourado.
+          className="cta-luz mt-8 md:mt-10 inline-flex min-h-[56px] items-center gap-2.5 rounded-full px-7 font-['Geist',sans-serif] font-medium leading-none tracking-[-0.01em] opacity-0"
+          style={{
+            fontSize: "clamp(15px, 1.2vw, 17px)",
+            color: "var(--color-on-gold)",
+            background: "var(--color-accent-gold-light)",
+          }}
         >
           {/* Glyph do WhatsApp (o CTA abre o wa.me). Substitui o antigo ícone
               de 5 paths do Figma, que renderizava um "sino" quebrado. */}

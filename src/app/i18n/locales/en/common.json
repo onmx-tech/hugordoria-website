@@ -11,7 +11,9 @@
     "contato": "Contact",
     "segundaOpiniao": "Second opinion",
     "agendar": "Book",
-    "agendarAria": "Book an appointment via WhatsApp"
+    "agendarAria": "Book an appointment via WhatsApp",
+    "ligarAria": "Call the practice",
+    "whatsappAria": "Chat on WhatsApp"
   },
   "cta": {
     "agendar": "Book an appointment",

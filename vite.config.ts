@@ -16,7 +16,22 @@ const { siteUrl } = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, './site.config.json'), 'utf8'),
 )
 
+// Certificado de especialista (RQE) para download. A consulta pública do
+// CREMESP não aceita link direto por médico, então a única forma de o visitante
+// conferir o registro é o PDF. Ele ainda não chegou do cliente — por isso a
+// existência é checada na build em vez de hard-coded: basta soltar o arquivo em
+// `public/documentos/rqe-48918.pdf` e o link aparece sozinho no rodapé, sem
+// tocar em código. Sem o arquivo, o rodapé segue só com o texto exigido pelo
+// CFM, e nenhum link quebrado vai ao ar.
+const RQE_PDF = '/documentos/rqe-48918.pdf'
+const rqePdfDisponivel = fs.existsSync(
+  path.resolve(__dirname, `./public${RQE_PDF}`),
+)
+
 export default defineConfig({
+  define: {
+    __RQE_PDF__: JSON.stringify(rqePdfDisponivel ? RQE_PDF : null),
+  },
   plugins: [
     {
       name: 'inject-site-url',

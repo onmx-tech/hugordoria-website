@@ -70,7 +70,7 @@ export default function CookieConsent() {
           <button
             type="button"
             onClick={() => decidir("granted")}
-            className="border border-gold-600 bg-gold-600 px-5 py-2.5 font-display text-[14px] text-navy-900 transition-colors hover:bg-gold-500 hover:border-gold-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-600"
+            className="border border-gold-600 bg-gold-600 px-5 py-2.5 font-display text-[14px] text-black transition-colors hover:bg-gold-500 hover:border-gold-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-600"
           >
             {t("cookies.aceitar")}
           </button>

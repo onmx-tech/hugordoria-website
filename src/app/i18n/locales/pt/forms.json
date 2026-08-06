@@ -303,7 +303,8 @@
       ]
     },
     "identificacao": {
-      "linha": "Dr. Hugo Leonardo Doria Netto — Médico - CRM-SP 118350 — Neurocirurgia - RQE 48918. Este site tem finalidade informativa e não substitui a consulta médica. Em caso de emergência, ligue 192 (SAMU)."
+      "linha": "Dr. Hugo Leonardo Doria Netto — Médico - CRM-SP 118350 — Neurocirurgia - RQE 48918. Este site tem finalidade informativa e não substitui a consulta médica. Em caso de emergência, ligue 192 (SAMU).",
+      "verCertificado": "Ver certificado de especialista (PDF)"
     }
   }
 }

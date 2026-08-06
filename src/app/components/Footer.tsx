@@ -240,7 +240,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="cta-luz inline-flex min-h-[52px] flex-1 min-w-[9.5rem] items-center justify-center gap-2.5 rounded-full px-5 font-['Geist',sans-serif] text-[15px] font-medium leading-none tracking-[-0.01em]"
                     style={{
-                      color: "var(--color-bg-deeper)",
+                      color: "var(--color-on-gold)",
                       background: "var(--color-accent-gold-light)",
                     }}
                   >
@@ -284,6 +284,24 @@ export default function Footer() {
             Não remover nem esconder em mobile. */}
         <p className="mt-14 border-t border-white/10 pt-8 font-['Geist',sans-serif] text-[13px] leading-relaxed text-cream/45">
           {tForms("forms.identificacao.linha")}
+          {/* O RQE é conferível — mas só pelo documento: a consulta pública do
+              CREMESP não abre por médico. Enquanto o PDF não estiver em
+              public/documentos/, `__RQE_PDF__` é null e nada aparece aqui.
+              Definido na build (vite.config.ts) justamente para o arquivo
+              ligar o link sozinho, sem depender de alguém lembrar. */}
+          {__RQE_PDF__ ? (
+            <>
+              {" "}
+              <a
+                href={__RQE_PDF__}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 transition-colors hover:text-gold-600"
+              >
+                {tForms("forms.identificacao.verCertificado")}
+              </a>
+            </>
+          ) : null}
         </p>
       </div>
 

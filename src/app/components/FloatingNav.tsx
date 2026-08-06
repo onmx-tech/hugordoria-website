@@ -95,7 +95,7 @@ export default function FloatingNav() {
             style={{
               fontFamily: "'Geist', sans-serif",
               textDecoration: "none",
-              color: active ? "var(--color-bg-deep)" : "color-mix(in srgb, var(--color-bg-cream) 60%, transparent)",
+              color: active ? "var(--color-on-gold)" : "color-mix(in srgb, var(--color-bg-cream) 60%, transparent)",
               background: active ? "var(--color-accent-gold-light)" : "transparent",
             }}
           >
@@ -114,7 +114,7 @@ export default function FloatingNav() {
           fontFamily: "'Geist', sans-serif",
           textDecoration: "none",
           color: isActive("/segunda-opiniao")
-            ? "var(--color-bg-deep)"
+            ? "var(--color-on-gold)"
             : "var(--color-bg-cream)",
           background: isActive("/segunda-opiniao")
             ? "var(--color-accent-gold-light)"
@@ -146,7 +146,7 @@ export default function FloatingNav() {
       style={{
         fontFamily: "'Geist', sans-serif",
         textDecoration: "none",
-        color: "var(--color-bg-deep)",
+        color: "var(--color-on-gold)",
         background: "var(--color-accent-gold-light)",
       }}
     >

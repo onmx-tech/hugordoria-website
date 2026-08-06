@@ -11,7 +11,9 @@
     "contato": "Contacto",
     "segundaOpiniao": "Segunda opinión",
     "agendar": "Agendar",
-    "agendarAria": "Agendar consulta por WhatsApp"
+    "agendarAria": "Agendar consulta por WhatsApp",
+    "ligarAria": "Llamar al consultorio",
+    "whatsappAria": "Hablar por WhatsApp"
   },
   "cta": {
     "agendar": "Agendar consulta",

@@ -96,7 +96,7 @@ export function Button({
     disabled ? "cursor-not-allowed opacity-45" : "cursor-pointer hover:-translate-y-0.5"
   }`;
   const styles: Record<string, string> = {
-    gold: "bg-gold-600 text-white hover:bg-gold-500",
+    gold: "bg-gold-600 text-black hover:bg-gold-500",
     "outline-dark": "border border-navy-600/40 text-navy-600 hover:bg-navy-600 hover:text-white",
     "outline-light": "border border-white/30 text-white hover:bg-white hover:text-navy-600",
   };

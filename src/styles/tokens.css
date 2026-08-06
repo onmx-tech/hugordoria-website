@@ -10,6 +10,11 @@
   --color-accent-gold: #b78e30;
   --color-accent-gold-light: #c5a471;
   --color-accent-gold-hover: #d4b584;
+  /* Texto sobre superfície dourada/bege. Era o navy da página em uns lugares,
+     cream em outro e branco num terceiro — três respostas para a mesma
+     pergunta, e as duas claras ficavam lavadas sobre o bege. Preto, uma vez
+     só: 8,9:1 de contraste sobre o dourado e a mesma leitura em todo botão. */
+  --color-on-gold: #000000;
 
   /* ── Brand neutrals ────────────────────────────────────────── */
   --color-text-muted: #d9d3ca;
