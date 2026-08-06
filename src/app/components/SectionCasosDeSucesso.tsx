@@ -152,29 +152,8 @@ export default function SectionCasosDeSucesso() {
     page * CARDS_PER_PAGE + CARDS_PER_PAGE,
   );
 
-  useEffect(() => {
-    // Snapshot de pré-render captura o DOM estático (sem pin-spacers/canvas).
-    if (isPrerender()) return;
-    const root = sectionRef.current;
-    if (!root) return;
-    const ctx = gsap.context(() => {
-      const items = root.querySelectorAll("[data-reveal]");
-      gsap.set(items, { y: 40, autoAlpha: 0 });
-      gsap.to(items, {
-        y: 0,
-        autoAlpha: 1,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: root,
-          start: "top 75%",
-          end: "top 25%",
-          scrub: 0.6,
-        },
-      });
-    }, root);
-    return () => ctx.revert();
-  }, []);
+  // Sem entrada por scroll — ver o comentário no topo de App.tsx. A animação
+  // abaixo fica: ela responde ao CLIQUE de paginação, não à rolagem.
 
   // Entrada dos cards: direcional quando vem da paginação, vertical na carga
   useEffect(() => {

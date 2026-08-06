@@ -1,6 +1,4 @@
-import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "../../lib/gsap";
-import { isPrerender } from "../../lib/prerender";
+import { useRef } from "react";
 import { useLocale } from "../i18n/LocaleProvider";
 import CONTEUDO from "../content/faq/avaliacao-especializada.json";
 
@@ -28,29 +26,8 @@ export default function SectionAvaliacaoEspecializada() {
   const ref = useRef<HTMLElement | null>(null);
   const c = (CONTEUDO as Record<string, Conteudo>)[locale] ?? (CONTEUDO as Record<string, Conteudo>).pt;
 
-  useEffect(() => {
-    if (isPrerender()) return;
-    const root = ref.current;
-    if (!root) return;
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        "[data-reveal]",
-        { opacity: 0, y: 18 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.07,
-          ease: "power2.out",
-          scrollTrigger: { trigger: root, start: "top 82%" },
-        },
-      );
-    }, root);
-    return () => {
-      ctx.revert();
-      ScrollTrigger.refresh();
-    };
-  }, [locale]);
+  // Sem entrada por scroll: o conteúdo já nasce visível no HTML pré-renderizado
+  // e é assim que ele fica. Ver o comentário no topo de App.tsx.
 
   return (
     <section ref={ref} className="w-full bg-cream py-20 md:py-28 lg:py-32">

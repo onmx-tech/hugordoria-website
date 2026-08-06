@@ -1,8 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 const imgMedicalRoom = "/v4/photos/sobre-portrait.jpg";
-import { gsap } from "../../lib/gsap";
-import { isPrerender } from "../../lib/prerender";
 import { responsiveImg } from "../../lib/img";
 
 // ⚠️ COMPLIANCE (CFM 2.336/2023). Aqui havia três contagens — anos de
@@ -26,24 +24,7 @@ export default function SectionSobreMim() {
   const { t } = useTranslation("home");
   const sectionRef = useRef<HTMLElement | null>(null);
 
-  useEffect(() => {
-    // Snapshot de pré-render captura o DOM estático (sem pin-spacers/canvas).
-    if (isPrerender()) return;
-    const root = sectionRef.current;
-    if (!root) return;
-    const ctx = gsap.context(() => {
-      const items = root.querySelectorAll("[data-reveal]");
-      gsap.set(items, { y: 44, autoAlpha: 0 });
-      gsap.to(items, {
-        y: 0,
-        autoAlpha: 1,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: { trigger: root, start: "top 70%", end: "top 25%", scrub: 0.8 },
-      });
-    }, root);
-    return () => ctx.revert();
-  }, []);
+  // Sem entrada por scroll — ver o comentário no topo de App.tsx.
 
   return (
     <section

@@ -142,7 +142,7 @@ export default function FloatingNav() {
       // vai usar o site — "eu sei que é hiper chique e bonito, só que eu tô
       // pensando nos idosos, ele está bem pequenininho". 48px cumpria o mínimo
       // de acessibilidade; não é a mesma coisa que ser a ação evidente da tela.
-      className={`cta-luz fixed bottom-6 right-5 z-50 flex min-h-[56px] items-center gap-2.5 rounded-full px-6 text-[16px] font-medium leading-none tracking-[-0.01em] whitespace-nowrap transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${cedeVez ? "pointer-events-none translate-y-[calc(100%+2.5rem)] opacity-0" : "translate-y-0 opacity-100"}`}
+      className={`cta-luz cta-pula fixed bottom-6 right-5 z-50 flex min-h-[56px] items-center gap-2.5 rounded-full px-6 text-[16px] font-medium leading-none tracking-[-0.01em] whitespace-nowrap transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${cedeVez ? "pointer-events-none translate-y-[calc(100%+2.5rem)] opacity-0" : "translate-y-0 opacity-100"}`}
       style={{
         fontFamily: "'Geist', sans-serif",
         textDecoration: "none",

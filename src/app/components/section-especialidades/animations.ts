@@ -29,21 +29,9 @@ export function initEspecialidadesAnimation({
   };
   applyScale();
 
-  // Entrance: the whole content slides up from below the section.
-  // Short travel (40%) and early end so it's at rest before pin kicks in.
-  gsap.set(content, { yPercent: 40, autoAlpha: 0 });
-  gsap.to(content, {
-    yPercent: 0,
-    autoAlpha: 1,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: section,
-      start: "top 90%",
-      end: "top 40%",
-      scrub: 0.6,
-      invalidateOnRefresh: true,
-    },
-  });
+  // A entrada por scroll (o bloco inteiro subindo de baixo, de autoAlpha 0)
+  // saiu a pedido: a seção já nasce visível. O que continua é a panorâmica
+  // horizontal — essa é a mecânica da seção, não um efeito de chegada.
 
   const mm = gsap.matchMedia();
   mm.add("(min-width: 1024px)", () => {

@@ -281,9 +281,30 @@
     filter: brightness(1.06);
   }
 
-  /* Quem pediu menos movimento fica sem o reflexo — o hover permanece. */
+  /* ── O botão flutuante também PULA ────────────────────────────────────────
+     Pedido direto: "o botão de agendar deve ficar movendo, pulando". O salto
+     usa `transform`, e não a propriedade `translate` — é essa segunda que o
+     Tailwind escreve no `translate-y-*` que tira o botão da tela; em
+     propriedades separadas os dois convivem em vez de um zerar o outro.
+     Dois toques curtos (um alto, um baixo, como bola quicando) e depois
+     silêncio: o ciclo de 2,8s deixa o movimento presente sem virar pisca. */
+  .cta-pula {
+    animation: cta-pulo 2.8s cubic-bezier(0.32, 0, 0.24, 1) 1.2s infinite;
+  }
+
+  @keyframes cta-pulo {
+    0%, 60%, 100% { transform: translateY(0); }
+    12% { transform: translateY(-9px); }
+    24% { transform: translateY(0); }
+    32% { transform: translateY(-4px); }
+    42% { transform: translateY(0); }
+  }
+
+  /* Quem pediu menos movimento fica sem o reflexo e sem o pulo — o hover
+     permanece. */
   @media (prefers-reduced-motion: reduce) {
     .cta-luz::after { animation: none; }
     .cta-luz { transition: box-shadow 200ms ease; }
+    .cta-pula { animation: none; }
   }
 }

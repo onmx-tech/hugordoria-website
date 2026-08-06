@@ -14,6 +14,20 @@ import { useLenis } from "../hooks/useLenis";
 import { useSeo } from "./seo/useSeo";
 import { websiteSchema } from "./seo/schema";
 
+/**
+ * A HOME NÃO TEM MAIS ENTRADA POR SCROLL.
+ *
+ * Todas as seções nasciam escondidas (`autoAlpha: 0`, deslocadas, com clip-path
+ * ou máscara) e só se montavam conforme a rolagem passava por elas. Saiu a
+ * pedido, na home inteira: o conteúdo já vem pintado no HTML pré-renderizado e
+ * é assim que ele fica — nada de aparecer ao ser alcançado.
+ *
+ * O que continua se movendo, porque é a MECÂNICA da seção e não um efeito de
+ * chegada: a panorâmica horizontal do "Sobre" e das "Especialidades", a
+ * sequência de frames do `SectionBrain`, o parallax dentro das fotos, e a
+ * entrada dos cards de depoimento — essa última responde ao clique de
+ * paginação, não à rolagem.
+ */
 export default function App() {
   useLenis();
   const { t } = useTranslation("seo");
