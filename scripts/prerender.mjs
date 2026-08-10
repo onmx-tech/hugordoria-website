@@ -152,9 +152,30 @@ for (const route of routes) {
   ok++;
 }
 
+// ── 404 de verdade ────────────────────────────────────────────────────────
+// Sem isto, o servidor cai no index.html da home para QUALQUER endereço que
+// não exista e responde 200: o Google trata como página válida duplicada da
+// home (soft 404) em vez de tirar do índice. Visitamos uma rota que só casa
+// com o `path="*"` do router para capturar o NotFound já renderizado, e o
+// nginx serve este arquivo com status 404.
+{
+  const page = await browser.newPage();
+  await page.evaluateOnNewDocument(() => {
+    window.__PRERENDER__ = true;
+  });
+  await page.goto(`http://localhost:${PORT}/__404__`, { waitUntil: "domcontentloaded" });
+  await page
+    .waitForFunction(() => document.getElementById("root")?.childElementCount > 0, { timeout: 15000 })
+    .catch(() => {});
+  await new Promise((r) => setTimeout(r, 250));
+  const html = await page.evaluate(() => "<!doctype html>\n" + document.documentElement.outerHTML);
+  await page.close();
+  fs.writeFileSync(path.join(dist, "404.html"), html);
+}
+
 await browser.close();
 server.close();
-console.log(`prerender: ${ok}/${routes.length} rotas → dist/**/index.html`);
+console.log(`prerender: ${ok}/${routes.length} rotas + 404.html → dist/**/index.html`);
 
 // silencia lint de import não usado em alguns ambientes
 void fileURLToPath;
