@@ -35,7 +35,7 @@ export const OG_IMAGE_W = 1200;
 export const OG_IMAGE_H = 630;
 
 export const DEFAULT_DESCRIPTION =
-  "Neurocirurgia vascular e craniana de alta complexidade em São Paulo. Tratamento microcirúrgico e endovascular de aneurismas, MAVs e tumores cranianos.";
+  "Neurocirurgia e microneurocirurgia vascular e craniana de alta complexidade em São Paulo. Aneurismas, MAVs e tumores cranianos.";
 
 /** Endereço estruturado do consultório (Bela Vista, São Paulo). */
 export const ADDRESS = {
