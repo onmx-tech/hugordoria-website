@@ -1,5 +1,5 @@
 {
   "_comment": "Domínio canônico do site. TROCAR AQUI e em lugar nenhum mais: o index.html recebe por injeção (vite.config.ts), o app lê em src/app/seo/site.ts e o sitemap em scripts/gen-sitemap.mjs. Canonical errado divide o ranqueamento entre dois endereços.",
-  "_estado": "Aponta para onde o site REALMENTE está. Enquanto apontava para hugodoria.com.br (que segue sendo o WordPress antigo), o site novo se publicava creditando outro endereço: o og:image caía em 404 — todo compartilhamento no WhatsApp e no LinkedIn saía sem imagem — e o sitemap listava 33 URLs que respondem 404 no destino. Na virada do DNS, trocar de volta para https://hugodoria.com.br nesta única linha.",
-  "siteUrl": "https://hugodoria.merinno.com"
+  "_estado": "Aponta para onde o site REALMENTE está. VIRADO em 2026-08-10: o site passou a ser produção em hugodoria.com.br, servido pela VPS do cliente (Hostinger/Easypanel, 179.198.121.44). O endereço hugodoria.merinno.com (Vercel) fica como preview. Regra que não muda: este valor acompanha o endereço que o público acessa — canonical, og:image e sitemap saem daqui.",
+  "siteUrl": "https://hugodoria.com.br"
 }
