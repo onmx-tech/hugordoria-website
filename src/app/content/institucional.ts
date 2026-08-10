@@ -30,7 +30,7 @@ export const CONTATO = {
   mapsEmbed:
     "https://maps.google.com/maps?q=R.%20Teixeira%20da%20Silva%2C%2054%20-%2073%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004002-030%2C%20Brasil&t=m&z=16&output=embed&iwloc=near",
   // E-mail PROVISÓRIO — o original usa placeholder do Hostinger; confirmar com o cliente.
-  email: "contato@hugodoria.com.br",
+  email: "atendimento@centrodorianeuro.com.br",
 } as const;
 
 export const SOCIAL = {
