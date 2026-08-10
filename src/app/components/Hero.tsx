@@ -122,7 +122,7 @@ export default function Hero() {
       {/* Doctor photo — centered, full height behind content */}
       <div
         data-hero="photo"
-        className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-center z-0"
+        className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-center max-lg:landscape:justify-end max-lg:landscape:pr-[3vw] z-0"
       >
         <div data-hero="photo-inner" className="will-change-[clip-path,transform]">
           <img
@@ -135,7 +135,7 @@ export default function Hero() {
             fetchPriority="high"
             loading="eager"
             decoding="async"
-            className="h-[65vh] sm:h-[88vh] lg:h-[96vh] max-h-none min-h-[420px] sm:min-h-[480px] lg:min-h-[520px] w-auto max-w-none object-contain object-bottom select-none block"
+            className="h-[65vh] sm:h-[72vh] max-lg:landscape:h-[92vh] lg:h-[96vh] max-h-none min-h-[420px] sm:min-h-[460px] lg:min-h-[520px] w-auto max-w-none object-contain object-bottom select-none block"
             draggable={false}
           />
         </div>
@@ -271,7 +271,7 @@ export default function Hero() {
       <div className="relative z-10 mt-auto w-full">
         {/* Descrição no mobile: cai sobre o terno/braços (área escura),
             não sobre o rosto do Dr. */}
-        <div className="lg:hidden px-6 md:px-8 mb-7">
+        <div className="lg:hidden px-6 md:px-8 mb-7 max-lg:landscape:max-w-[54%]">
           <div data-hero="description" className="max-w-[440px] md:max-w-[560px] flex flex-col gap-1.5">
             <p
               className="font-['Geist_Mono',sans-serif] font-medium uppercase text-[12px] leading-none tracking-[0.08em]"
