@@ -5,10 +5,12 @@
       "title": "Vascular and cranial neurosurgery of high complexity",
       "ctaAgendar": "Book a consultation",
       "ctaSegundaOpiniao": "Request a second opinion",
+      "experience": "+25 years of experience",
+      "patients": "+20,000 patients treated",
       "description": "Specialized evaluation of cerebral aneurysms, arteriovenous malformations, cavernomas, Moyamoya disease, cerebral revascularization, and complex cranial tumors."
     },
     "sobreMim": {
-      "heading": "A career dedicated to vascular neurosurgery",
+      "heading": "A career dedicated to vascular microneurosurgery",
       "paragraph": "Microsurgical training with Prof. Dr. Evandro de Oliveira, international experience at the University of California, San Francisco, and at the Barrow Neurological Institute, a doctorate in neuroscience and coordination of the Vascular Neurosurgery Department of the Brazilian Society of Neurosurgery.",
       "fotoAlt": "Dr. Hugo Doria in his office",
       "stats": {
@@ -32,7 +34,7 @@
     },
     "sobre": {
       "eyebrow": "MD PhD — Neurosurgeon",
-      "heading": "Practice in Vascular and Cranial Neurosurgery",
+      "heading": "Practice in Cranial Microneurosurgery.",
       "labels": {
         "atuacao": "Professional Practice",
         "coordenacao": "Coordination & Leadership",
@@ -57,14 +59,14 @@
       "attribution": "So says Dr. Hugo Leonardo Doria Netto, MD, PhD, who practices neurosurgery as a responsibility and a calling, putting knowledge and technique at the service of life."
     },
     "brain": {
-      "heading": "Specialized evaluation in vascular and cranial neurosurgery",
+      "heading": "Specialized evaluation in vascular and cranial microneurosurgery",
       "paragraph": "Get in touch with the team to schedule a consultation or request a specialized second opinion.",
       "cta": "Get in touch"
     },
     "especialidades": {
-      "eyebrow": "Neurosurgery Services",
+      "eyebrow": "Microneurosurgery Services",
       "heading": "My Specialties",
-      "description": "Dr. Hugo Doria's practice covers vascular and cranial neurosurgery, including cerebral aneurysms, arteriovenous malformations, brain and spinal tumors, Moyamoya disease, trigeminal neuralgia, hemifacial spasm, and cerebral revascularization.",
+      "description": "Dr. Hugo Doria's practice covers vascular and cranial microneurosurgery, including cerebral aneurysms, arteriovenous malformations, brain and spinal tumors, Moyamoya disease, trigeminal neuralgia, hemifacial spasm, and cerebral revascularization.",
       "saibaMais": "Learn more"
     }
   }

@@ -31,7 +31,7 @@
     },
     "especialidades": {
       "seo": {
-        "title": "Áreas clínicas — neurocirurgia vascular e craniana",
+        "title": "Áreas clínicas — microneurocirurgia vascular e craniana",
         "description": "Aneurisma cerebral, MAVs, moyamoya, tumores cerebrais, hipofisários e medulares, schwannoma, cavernomas, neuralgia do trigêmeo e espasmo hemifacial."
       },
       "breadcrumb": {
@@ -39,7 +39,7 @@
         "especialidades": "Especialidades"
       },
       "hero": {
-        "eyebrow": "Serviços de Neurocirurgia",
+        "eyebrow": "Serviços de Microneurocirurgia",
         "title": "Minhas Especialidades",
         "intro": "Condições cerebrovasculares, conflitos neurovasculares e tumores cranianos complexos — do diagnóstico à decisão de tratamento.",
         "imageAlt": "Dr. Hugo Doria, neurocirurgião",
@@ -78,7 +78,7 @@
       },
       "familias": {
         "vascular": {
-          "title": "Neurocirurgia vascular",
+          "title": "Microneurocirurgia vascular",
           "intro": "Doenças dos vasos do cérebro — quando a parede da artéria, a conexão entre vasos ou o fluxo sanguíneo estão comprometidos."
         },
         "conflitos": {

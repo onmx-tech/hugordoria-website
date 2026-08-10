@@ -228,9 +228,30 @@ export default function Hero() {
             data-hero="divider"
             className="h-px w-full bg-white/24"
           />
+          {/* Par de rótulos curtos — mesma família da eyebrow (Geist Mono,
+              tracked), mas em gold (não text-soft) e sem repetir "MD PhD -
+              Neurocirurgião": a distância espacial da eyebrow (coluna oposta)
+              já evita o eco, a cor reforça que é um dado diferente (tempo de
+              prática + volume, não título). Os dois números são IRMÃOS — gap
+              apertado entre eles, mais folgado até o parágrafo abaixo — pra
+              não lerem como uma terceira linha solta do parágrafo. */}
+          <div data-hero="description" className="mt-5 lg:mt-[22px] flex flex-col gap-1.5">
+            <p
+              className="font-['Geist_Mono',sans-serif] font-medium uppercase text-[12px] lg:text-[13px] leading-none tracking-[0.08em]"
+              style={{ color: "var(--color-accent-gold-light)" }}
+            >
+              {t("home.hero.experience")}
+            </p>
+            <p
+              className="font-['Geist_Mono',sans-serif] font-medium uppercase text-[12px] lg:text-[13px] leading-none tracking-[0.08em]"
+              style={{ color: "var(--color-accent-gold-light)" }}
+            >
+              {t("home.hero.patients")}
+            </p>
+          </div>
           <p
             data-hero="description"
-            className="mt-5 lg:mt-[22px] font-['Geist',sans-serif] font-normal text-cream leading-[1.41]"
+            className="mt-3 lg:mt-4 font-['Geist',sans-serif] font-normal text-cream leading-[1.41]"
             style={{ fontSize: "clamp(15px, 1.4vw, 24px)" }}
           >
             {t("home.hero.description")}
@@ -244,9 +265,23 @@ export default function Hero() {
             não sobre o rosto do Dr. */}
         <div className="md:hidden px-6 mb-7">
           <div data-hero="divider" className="h-px w-full max-w-[440px] bg-white/24" />
+          <div data-hero="description" className="mt-5 max-w-[440px] flex flex-col gap-1.5">
+            <p
+              className="font-['Geist_Mono',sans-serif] font-medium uppercase text-[12px] leading-none tracking-[0.08em]"
+              style={{ color: "var(--color-accent-gold-light)" }}
+            >
+              {t("home.hero.experience")}
+            </p>
+            <p
+              className="font-['Geist_Mono',sans-serif] font-medium uppercase text-[12px] leading-none tracking-[0.08em]"
+              style={{ color: "var(--color-accent-gold-light)" }}
+            >
+              {t("home.hero.patients")}
+            </p>
+          </div>
           <p
             data-hero="description"
-            className="mt-5 max-w-[440px] font-['Geist',sans-serif] font-normal text-cream leading-[1.41] text-[16px]"
+            className="mt-3 max-w-[440px] font-['Geist',sans-serif] font-normal text-cream leading-[1.41] text-[16px]"
           >
             {t("home.hero.description")}
           </p>

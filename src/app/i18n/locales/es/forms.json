@@ -6,7 +6,7 @@
     },
     "sobre": {
       "heroEyebrow": "Acerca de",
-      "heroIntro": "MD, PhD — Neurocirujano dedicado a la neurocirugía vascular, uniendo precisión técnica, investigación avanzada y un cuidado profundamente humano.",
+      "heroIntro": "MD, PhD — Neurocirujano dedicado a la microneurocirugía vascular, uniendo precisión técnica, investigación avanzada y un cuidado profundamente humano.",
       "videoEyebrow": "Conozca mi trayectoria",
       "videoTitle": "Una conversación sobre técnica, decisión y el cuidado de cada paciente.",
       "videoCaption": "Vídeo · Dr. Hugo Doria",
@@ -44,7 +44,7 @@
     "eventos": {
       "heroEyebrow": "Medios y eventos",
       "heroTitle": "Presencia en la comunidad neuroquirúrgica",
-      "heroIntro": "Experiencia compartida en congresos nacionales e internacionales, clases para residentes y simposios de neurocirugía vascular.",
+      "heroIntro": "Experiencia compartida en congresos nacionales e internacionales, clases para residentes y simposios de microneurocirugía vascular.",
       "heroImageAlt": "El Dr. Hugo Doria dando una conferencia en un congreso",
       "heroBadgeLabel": "conferencias y congresos",
       "palestrasEyebrow": "Conferencias y congresos"
@@ -52,7 +52,7 @@
     "midia": {
       "heroEyebrow": "Medios",
       "heroTitle": "Vídeos y apariciones",
-      "heroIntro": "Entrevistas, clases y contenidos sobre neurocirugía vascular, diagnóstico y tratamiento de las principales afecciones neurológicas.",
+      "heroIntro": "Entrevistas, clases y contenidos sobre microneurocirugía vascular, diagnóstico y tratamiento de las principales afecciones neurológicas.",
       "heroImageAlt": "Medios y vídeos",
       "heroBadgeLabel": "vídeos",
       "instagramEyebrow": "Instagram",

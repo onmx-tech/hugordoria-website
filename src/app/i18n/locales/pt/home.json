@@ -5,10 +5,12 @@
       "title": "Neurocirurgia vascular e craniana de alta complexidade",
       "ctaAgendar": "Agendar consulta",
       "ctaSegundaOpiniao": "Solicitar segunda opinião",
+      "experience": "+25 anos de experiência",
+      "patients": "+20 mil pacientes atendidos",
       "description": "Avaliação especializada de aneurismas cerebrais, malformações arteriovenosas, cavernomas, doença de Moyamoya, revascularização cerebral e tumores cranianos complexos."
     },
     "sobreMim": {
-      "heading": "Uma trajetória dedicada à neurocirurgia vascular",
+      "heading": "Uma trajetória dedicada à microneurocirurgia vascular",
       "paragraph": "Formação microcirúrgica com o Prof. Dr. Evandro de Oliveira, experiência internacional na University of California, San Francisco, e no Barrow Neurological Institute, doutorado em neurociência e coordenação do Departamento de Neurocirurgia Vascular da Sociedade Brasileira de Neurocirurgia.",
       "fotoAlt": "Dr. Hugo Doria em seu consultório",
       "stats": {
@@ -32,7 +34,7 @@
     },
     "sobre": {
       "eyebrow": "MD PhD — Neurocirurgião",
-      "heading": "Atuação em Neurocirurgia Vascular e Craniana",
+      "heading": "Atuação em Microneurocirurgia Craniana.",
       "labels": {
         "atuacao": "Atuação Profissional",
         "coordenacao": "Coordenação e Liderança",
@@ -57,14 +59,14 @@
       "attribution": "Assim define Dr. Hugo Leonardo Doria Netto, MD, PhD, que exerce a neurocirurgia como responsabilidade e vocação, colocando conhecimento e técnica a serviço da vida."
     },
     "brain": {
-      "heading": "Avaliação especializada em neurocirurgia vascular e craniana",
+      "heading": "Avaliação especializada em microneurocirurgia vascular e craniana",
       "paragraph": "Entre em contato com a equipe para agendar uma consulta ou solicitar uma segunda opinião especializada.",
       "cta": "Fale conosco"
     },
     "especialidades": {
-      "eyebrow": "Serviços de Neurocirurgia",
+      "eyebrow": "Serviços de Microneurocirurgia",
       "heading": "Minhas Especialidades",
-      "description": "Dr. Hugo Doria atua em neurocirurgia vascular e craniana, incluindo aneurismas cerebrais, malformações arteriovenosas, tumores cerebrais e medulares, doença de Moyamoya, neuralgia do trigêmeo, espasmo hemifacial e revascularização cerebral.",
+      "description": "Dr. Hugo Doria atua em microneurocirurgia vascular e craniana, incluindo aneurismas cerebrais, malformações arteriovenosas, tumores cerebrais e medulares, doença de Moyamoya, neuralgia do trigêmeo, espasmo hemifacial e revascularização cerebral.",
       "saibaMais": "Saiba mais"
     }
   }
