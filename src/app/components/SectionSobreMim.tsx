@@ -20,6 +20,11 @@ import { responsiveImg } from "../../lib/img";
 const STATS = [
   { value: "MD PhD", labelKey: "home.sobreMim.stats.titulacao" },
   { value: "RQE 48918", labelKey: "home.sobreMim.stats.registro" },
+  // Reintroduzido a pedido do cliente em 10/ago/2026, com o risco acima
+  // comunicado por escrito. Fica como o terceiro item da mesma lista para não
+  // virar um número solto: ao lado da titulação e do registro, ele é lido como
+  // parte de um conjunto de credenciais, e não como um cartaz de volume.
+  { value: "+20 mil", labelKey: "home.sobreMim.stats.pacientes" },
 ] as const;
 
 export default function SectionSobreMim() {
