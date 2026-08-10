@@ -170,7 +170,13 @@ export default function Hero() {
       {/* Content grid (header agora é o SiteHeader global, fixo no topo) */}
       <div className="relative z-10 flex-1 grid grid-cols-12 gap-x-6 gap-y-10 px-6 md:px-8 pt-24 sm:pt-28 lg:pt-[18vh] content-start">
         {/* Left: eyebrow + title */}
-        <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-4">
+        {/* O corte para duas colunas é `lg` (1024px), não `md`. Em md o hero
+            virava duas colunas de 50% com a FOTO do Dr. no meio: o título
+            espremido de um lado, a descrição do outro, e a cabeça dele entre os
+            dois. É a largura do iPad em retrato — o primeiro aparelho em que o
+            cliente abre o site. Abaixo de 1024 o layout empilhado do celular,
+            que tem ar de sobra nessa largura, é o certo. */}
+        <div className="col-span-12 lg:col-span-5 xl:col-span-4">
           <p
             data-hero="eyebrow"
             className="w-full max-w-[440px] font-['Geist_Mono',sans-serif] font-medium uppercase text-soft text-[13px] sm:text-[15px] lg:text-[17px] leading-[1] tracking-[0.07em]"
@@ -223,7 +229,7 @@ export default function Hero() {
 
         {/* Right: description — tablet/desktop (no mobile vai para o rodapé,
             para não cair sobre o rosto do Dr.). */}
-        <div className="hidden md:block md:col-start-7 md:col-span-6 lg:col-start-10 lg:col-span-3 md:justify-self-end lg:justify-self-end w-full max-w-[420px]">
+        <div className="hidden lg:block lg:col-start-8 lg:col-span-5 xl:col-start-10 xl:col-span-3 lg:justify-self-end w-full max-w-[420px]">
           {/* Par de rótulos curtos — mesma família da eyebrow (Geist Mono,
               tracked), mas em gold (não text-soft) e sem repetir "MD PhD -
               Neurocirurgião": a distância espacial da eyebrow (coluna oposta)
@@ -265,8 +271,8 @@ export default function Hero() {
       <div className="relative z-10 mt-auto w-full">
         {/* Descrição no mobile: cai sobre o terno/braços (área escura),
             não sobre o rosto do Dr. */}
-        <div className="md:hidden px-6 mb-7">
-          <div data-hero="description" className="max-w-[440px] flex flex-col gap-1.5">
+        <div className="lg:hidden px-6 md:px-8 mb-7">
+          <div data-hero="description" className="max-w-[440px] md:max-w-[560px] flex flex-col gap-1.5">
             <p
               className="font-['Geist_Mono',sans-serif] font-medium uppercase text-[12px] leading-none tracking-[0.08em]"
               style={{ color: "var(--color-accent-gold-light)" }}
@@ -280,10 +286,10 @@ export default function Hero() {
               {t("home.hero.patients")}
             </p>
           </div>
-          <div data-hero="divider" className="mt-4 h-px w-full max-w-[440px] bg-white/24" />
+          <div data-hero="divider" className="mt-4 h-px w-full max-w-[440px] md:max-w-[560px] bg-white/24" />
           <p
             data-hero="description"
-            className="mt-5 max-w-[440px] font-['Geist',sans-serif] font-normal text-cream leading-[1.41] text-[16px]"
+            className="mt-5 max-w-[440px] md:max-w-[560px] font-['Geist',sans-serif] font-normal text-cream leading-[1.41] text-[16px] md:text-[18px]"
           >
             {t("home.hero.description")}
           </p>
