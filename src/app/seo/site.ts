@@ -26,7 +26,7 @@ export const DOCTOR = {
   // próprio briefing do cliente proíbe nomenclatura divergente do cadastro).
   // O `schema.ts` interpola isto em `Neurocirurgião MD PhD — ${specialty}.`,
   // então a frase tem de fechar sozinha depois do travessão.
-  specialty: "atuação em neurocirurgia vascular e craniana",
+  specialty: "atuação em microneurocirurgia craniana",
 } as const;
 
 /** Imagem padrão de compartilhamento (WhatsApp, LinkedIn, Facebook). */
