@@ -33,14 +33,24 @@ import { responsiveImg } from "@/lib/img";
 //
 // Continua havendo repetição ENTRE páginas (são 4 figuras para 11 condições) —
 // isso só se resolve gerando figuras próprias por condição, não em código.
-const FIGURAS = ["angiografia", "mri", "reconstrucao3d", "microscopio"] as const;
+// ⚠️ `microscopio` FOI REMOVIDO do pool em 11/08/2026 e o arquivo apagado: a
+// imagem tinha o texto "COLO FRU @0B100" CRAVADO NO PIXEL (sobra de um export
+// quebrado), em dourado sobre navy com moldura, imitando a marca. Ela nunca
+// tinha aparecido no ar por acaso — nenhuma legenda existente casava a regra —
+// mas a regra que a selecionava incluía `cirúrg`, e "tratamento cirúrgico" é
+// das palavras mais prováveis de aparecer numa legenda deste site. Estava a UMA
+// legenda de ir ao ar. Não repor sem abrir o arquivo e olhar o canto superior
+// esquerdo.
+// Tirar o 4º item não muda nenhuma escolha atual: o default é
+// `FIGURAS[idx % length]` e nenhuma página tem 4 figuras, então idx nunca passa
+// de 2 — os três primeiros índices resolvem igual com length 3 ou 4.
+const FIGURAS = ["angiografia", "mri", "reconstrucao3d"] as const;
 
 function escolherFigura(caption: string, idx: number, usadas: Set<string>): string {
   const c = caption.toLowerCase();
   let key: string = FIGURAS[idx % FIGURAS.length];
 
   if (/3d|reconstru|anatom|nidus|malforma|lesão|tumor|represent/.test(c)) key = "reconstrucao3d";
-  else if (/microcirurg|cirúrg|clipagem|microsc|intraoper|ressec/.test(c)) key = "microscopio";
   else if (/resson|rm\b|mri|tomograf|scan/.test(c)) key = "mri";
   else if (/angiograf|vascul|arteri|fluxo|bypass/.test(c)) key = "angiografia";
 
