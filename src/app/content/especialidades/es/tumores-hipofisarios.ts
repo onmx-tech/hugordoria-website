@@ -23,7 +23,8 @@ export const article: ArticleContent = {
       tocLabel: "Qué es",
       heading: "Tumores de la glándula maestra del cuerpo.",
       emphasis: "glándula maestra",
-      figureCaption: "Fig. 01 — Región selar",
+      figureCaption: "Fig. 01 — Ilustración: representación tridimensional del encéfalo",
+      figureSrc: "reconstrucao3d",
       paragraphs: [
         "La región selar comprende la silla turca, estructura ósea en forma de silla dentro de la cual se encuentra la glándula hipófisis — también llamada glándula pituitaria o glándula maestra, por producir o almacenar la mayoría de las hormonas implicadas en el funcionamiento del cuerpo.",
         "Los tumores de la región selar comprenden principalmente los adenomas hipofisarios, craneofaringiomas y meningiomas. Los tumores hipofisarios se dividen en secretores y no secretores de hormonas y, en cuanto al tamaño, en microadenomas (< 1 cm) y macroadenomas (> 1 cm).",

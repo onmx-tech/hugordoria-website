@@ -23,7 +23,8 @@ export const article: ArticleContent = {
       tocLabel: "O que é",
       heading: "Uma lesão expansiva dentro da caixa craniana.",
       emphasis: "caixa craniana",
-      figureCaption: "Fig. 01 — Lesão expansiva supratentorial",
+      figureCaption: "Fig. 01 — Ilustração: representação tridimensional do encéfalo",
+      figureSrc: "reconstrucao3d",
       paragraphs: [
         "Os tumores cerebrais resultam da multiplicação desordenada de células no sistema nervoso central, formando uma lesão expansiva dentro de um sistema fechado, a caixa craniana. Todas as faixas etárias são acometidas — em crianças há predomínio do andar inferior do crânio (fossa posterior) e em adultos do andar superior (supratentorial).",
         "Existem doenças herdadas geneticamente, como a neurofibromatose e a esclerose tuberosa, que favorecem o seu surgimento. As lesões são classificadas por suas características celulares — astrocitomas, oligodendrogliomas, ependimomas, meningeomas, neurinomas — e, hoje, também por caracterização molecular e genética, com o objetivo de individualizar o tratamento e traçar o prognóstico.",

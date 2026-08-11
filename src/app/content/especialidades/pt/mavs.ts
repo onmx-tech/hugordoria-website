@@ -18,7 +18,8 @@ export const article: ArticleContent = {
       tocLabel: "O que é",
       heading: "Conexões anormais entre artérias e veias cerebrais.",
       emphasis: "artérias e veias cerebrais",
-      figureCaption: "Fig. 01 — Nidus arteriovenoso",
+      figureCaption: "Fig. 01 — Ilustração: representação tridimensional do encéfalo",
+      figureSrc: "reconstrucao3d",
       paragraphs: [
         "As malformações arteriovenosas (MAVs) são shunts diretos entre artérias e veias cerebrais displásicas, em que um nidus de vasos anormais, de paredes finas e frágeis, está interposto sem parênquima dentro dele. Considera-se que têm origem congênita, podendo mudar seu comportamento hemodinâmico ao longo da vida do paciente.",
         "Podem localizar-se em qualquer parte do sistema nervoso central, sendo mais comuns nos hemisférios cerebrais e, em ordem decrescente, cerebelo, núcleos cerebrais, tronco encefálico e medula espinhal. A morfologia é bastante variável, de poucos milímetros a mais de seis centímetros.",
@@ -44,7 +45,8 @@ export const article: ArticleContent = {
       id: "diagnostico",
       tocLabel: "Diagnóstico",
       heading: "Diagnóstico por imagem",
-      figureCaption: "Fig. 02 — Angiografia digital",
+      figureCaption: "Fig. 02 — Ilustração: árvore vascular cerebral",
+      figureSrc: "angiografia",
       paragraphs: [
         "Os estudos de imagem são essenciais para estabelecer o diagnóstico e caracterizar a lesão para o planejamento. A tomografia de crânio costuma ser o primeiro exame, usada para descartar uma hemorragia.",
         "A ressonância magnética define a localização do nidus, suas relações neuroanatômicas e a veia de drenagem associada; a angio-RM caracteriza a drenagem venosa e outras características vasculares com alta precisão.",

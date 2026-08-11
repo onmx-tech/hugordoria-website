@@ -22,7 +22,8 @@ export const article: ArticleContent = {
       tocLabel: "O que é",
       heading: "Malformações vasculares de baixo fluxo.",
       emphasis: "baixo fluxo",
-      figureCaption: "Fig. 01 — Cavernoma encefálico",
+      figureCaption: "Fig. 01 — Ilustração: árvore vascular cerebral",
+      figureSrc: "angiografia",
       paragraphs: [
         "As malformações cavernosas — também conhecidas como angiomas cavernosos ou cavernomas — são malformações vasculares de baixo fluxo localizadas no encéfalo e na medula espinhal, formadas por um conglomerado de canais sinusoidais dilatados revestidos por células endoteliais. Os vasos carecem das camadas musculares e elásticas normais, e não há tecido neural no interior da lesão.",
         "Podem ser esporádicos ou familiares. Os familiares são hereditários, de padrão autossômico dominante, correspondem a 30%–50% dos casos e frequentemente com múltiplas lesões, ao contrário dos esporádicos, comumente únicos.",

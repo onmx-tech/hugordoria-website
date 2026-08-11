@@ -17,51 +17,11 @@ import { ChevronDown } from "lucide-react";
 import FAQ_ESPECIALIDADES from "../content/faq/especialidades.json";
 import { responsiveImg } from "@/lib/img";
 
-// Figuras médicas Magnific (navy). A legenda escolhe a figura por palavra-chave.
-//
-// ⚠️ Duas regras que nasceram de um defeito real (o cliente viu, jul/2026):
-//
-// 1. **Da regra mais específica para a mais genérica.** A ordem antiga testava
-//    `arteri|vascul` primeiro, então "Nidus arteriovenoso" caía em angiografia
-//    antes de a regra de `nidus` ser avaliada — e a página de MAVs mostrava a
-//    MESMA imagem em "Fig. 01 — Nidus" e "Fig. 02 — Angiografia digital".
-//    Termo anatômico ganha de termo vascular genérico.
-//
-// 2. **Sem repetir dentro da mesma página.** Se a figura escolhida já apareceu,
-//    cai para a próxima ainda não usada. Duas legendas diferentes descrevendo a
-//    mesma imagem é erro factual, não só monotonia.
-//
-// Continua havendo repetição ENTRE páginas (são 4 figuras para 11 condições) —
-// isso só se resolve gerando figuras próprias por condição, não em código.
-// ⚠️ `microscopio` FOI REMOVIDO do pool em 11/08/2026 e o arquivo apagado: a
-// imagem tinha o texto "COLO FRU @0B100" CRAVADO NO PIXEL (sobra de um export
-// quebrado), em dourado sobre navy com moldura, imitando a marca. Ela nunca
-// tinha aparecido no ar por acaso — nenhuma legenda existente casava a regra —
-// mas a regra que a selecionava incluía `cirúrg`, e "tratamento cirúrgico" é
-// das palavras mais prováveis de aparecer numa legenda deste site. Estava a UMA
-// legenda de ir ao ar. Não repor sem abrir o arquivo e olhar o canto superior
-// esquerdo.
-// Tirar o 4º item não muda nenhuma escolha atual: o default é
-// `FIGURAS[idx % length]` e nenhuma página tem 4 figuras, então idx nunca passa
-// de 2 — os três primeiros índices resolvem igual com length 3 ou 4.
-const FIGURAS = ["angiografia", "mri", "reconstrucao3d"] as const;
-
-function escolherFigura(caption: string, idx: number, usadas: Set<string>): string {
-  const c = caption.toLowerCase();
-  let key: string = FIGURAS[idx % FIGURAS.length];
-
-  if (/3d|reconstru|anatom|nidus|malforma|lesão|tumor|represent/.test(c)) key = "reconstrucao3d";
-  else if (/resson|rm\b|mri|tomograf|scan/.test(c)) key = "mri";
-  else if (/angiograf|vascul|arteri|fluxo|bypass/.test(c)) key = "angiografia";
-
-  if (usadas.has(key)) {
-    const livre = FIGURAS.find((f) => !usadas.has(f));
-    if (livre) key = livre;
-  }
-  usadas.add(key);
-  return `/v4/figuras/${key}.jpg`;
-}
-
+// A figura de cada seção vem de `figureSrc` no conteúdo — ver o comentário do
+// campo em `content/especialidades/types.ts`. Até 11/08/2026 era um sorteio por
+// regex sobre a legenda, e ele colocava a MESMA imagem genérica em 9 das 10
+// páginas, sob legendas clínicas diferentes. Seção sem `figureSrc` não desenha
+// figura: é melhor não ter imagem do que ter a imagem de outra condição.
 export default function EspecialidadePage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -137,15 +97,10 @@ export default function EspecialidadePage() {
   const lead = article?.lead ?? card.description;
   const sections = article?.sections ?? [];
 
-  // Resolve as figuras de UMA VEZ por artigo, em ordem, para que o controle de
-  // "não repetir" enxergue a página inteira. Se fosse chamado dentro do map do
-  // render, cada seção começaria com o conjunto de usadas vazio.
-  const figuras = useMemo(() => {
-    const usadas = new Set<string>();
-    return sections.map((s, i) =>
-      s.figureCaption ? escolherFigura(s.figureCaption, i, usadas) : null,
-    );
-  }, [sections]);
+  const figuras = useMemo(
+    () => sections.map((s) => (s.figureSrc ? `/v4/figuras/${s.figureSrc}.jpg` : null)),
+    [sections],
+  );
 
   return (
     <div className="flex min-h-screen flex-col bg-navy-600 font-body">
@@ -234,7 +189,7 @@ export default function EspecialidadePage() {
                     )}
 
                     {/* figura */}
-                    {s.figureCaption && (
+                    {s.figureCaption && figuras[si] && (
                       <figure className="mt-2 m-0">
                         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-navy-800 ring-1 ring-white/10">
                           <img

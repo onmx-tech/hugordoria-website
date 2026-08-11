@@ -23,7 +23,8 @@ export const article: ArticleContent = {
       tocLabel: "What it is",
       heading: "Tumors of the body's master gland.",
       emphasis: "master gland",
-      figureCaption: "Fig. 01 — Sellar region",
+      figureCaption: "Fig. 01 — Illustration: three-dimensional representation of the brain",
+      figureSrc: "reconstrucao3d",
       paragraphs: [
         "The sellar region comprises the sella turcica, a saddle-shaped bony structure within which the pituitary gland is located — also called the hypophysis or master gland, because it produces or stores most of the hormones involved in the functioning of the body.",
         "Tumors of the sellar region comprise mainly pituitary adenomas, craniopharyngiomas, and meningiomas. Pituitary tumors are divided into hormone-secreting and non-secreting and, by size, into microadenomas (< 1 cm) and macroadenomas (> 1 cm).",

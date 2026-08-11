@@ -24,7 +24,8 @@ export const article: ArticleContent = {
       tocLabel: "Qué es",
       heading: "Una dilatación en la pared de una arteria cerebral.",
       emphasis: "arteria cerebral",
-      figureCaption: "Fig. 01 — Representación angiográfica",
+      figureCaption: "Fig. 01 — Ilustración: representación tridimensional del encéfalo",
+      figureSrc: "reconstrucao3d",
       paragraphs: [
         "Los aneurismas cerebrales representan una dilatación anormal en la pared arterial de los vasos cerebrales, generalmente cerca de un punto de bifurcación, donde existe una anormalidad estructural de la pared. Cerca del 90% son saculares; los demás incluyen fusiformes, traumáticos, micóticos, disecantes y microaneurismas.",
         "Varían en tamaño — pequeños (< 10 mm), grandes (11–25 mm) y gigantes (> 25 mm). Aproximadamente el 85% se localizan en la circulación anterior del Polígono de Willis, donde las circulaciones anterior y posterior se anastomosan.",
@@ -51,7 +52,8 @@ export const article: ArticleContent = {
       id: "diagnostico",
       tocLabel: "Diagnóstico",
       heading: "Diagnóstico e investigación",
-      figureCaption: "Fig. 02 — Angiografía digital por sustracción",
+      figureCaption: "Fig. 02 — Ilustración: árbol vascular cerebral",
+      figureSrc: "angiografia",
       paragraphs: [
         "La mayoría de los aneurismas no rotos se identifican de forma incidental en una neuroimagen realizada por otra razón. Los individuos de alto riesgo pueden ser cribados con angiorresonancia o angiotomografía.",
         "Para los aneurismas rotos, el examen inicial confiable es la tomografía de cráneo sin contraste — positiva en el 98–100% de los casos en las primeras 12 horas. Cuando la TC es negativa pero la sospecha clínica es fuerte, las secuencias de resonancia (FLAIR, SWI, GRE) o la punción lumbar con búsqueda de xantocromía ayudan a confirmar el sangrado.",

@@ -18,7 +18,8 @@ export const article: ArticleContent = {
       tocLabel: "What it is",
       heading: "A “puff of smoke” in the vessels of the brain.",
       emphasis: "puff of smoke",
-      figureCaption: "Fig. 01 — Moya-Moya collateral network",
+      figureCaption: "Fig. 01 — Illustration: cerebral vascular tree",
+      figureSrc: "angiografia",
       paragraphs: [
         "Moya-Moya Disease affects the blood vessels of the brain: it causes the progressive narrowing of the arteries that carry blood to the brain, resulting in the formation of abnormal collateral vessels with the appearance of a “puff of smoke” on imaging studies — hence the name, which means “smoke” in Japanese.",
         "The exact cause is still unknown, but genetic factors play an important role. The condition can be primary or characterize a syndrome when associated with other diseases, such as sickle cell anemia, Down Syndrome, or autoimmune conditions.",

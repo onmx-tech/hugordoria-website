@@ -22,7 +22,8 @@ export const article: ArticleContent = {
       tocLabel: "What it is",
       heading: "Low-flow vascular malformations.",
       emphasis: "Low-flow",
-      figureCaption: "Fig. 01 — Cerebral cavernoma",
+      figureCaption: "Fig. 01 — Illustration: cerebral vascular tree",
+      figureSrc: "angiografia",
       paragraphs: [
         "Cavernous malformations — also known as cavernous angiomas or cavernomas — are low-flow vascular malformations located in the brain and spinal cord, formed by a cluster of dilated sinusoidal channels lined with endothelial cells. The vessels lack the normal muscular and elastic layers, and there is no neural tissue within the lesion.",
         "They can be sporadic or familial. The familial ones are hereditary, with an autosomal dominant pattern, account for 30%–50% of cases, and frequently present with multiple lesions, unlike the sporadic ones, which are commonly single.",

@@ -77,26 +77,28 @@ export function EspecialidadesPage() {
                         <Link
                           key={s.slug}
                           to={`/especialidade/${s.slug}`}
-                          className="group flex flex-col gap-8 bg-navy-800 p-8 transition-colors hover:bg-white/[0.04]"
+                          className="group flex flex-col bg-navy-800 transition-colors hover:bg-white/[0.04]"
                         >
-                          {/* Miniatura da própria condição, no lugar do ícone.
-                              Havia 4 símbolos genéricos servindo as 11
-                              especialidades — o mesmo glifo marcava Schwannoma
-                              e Moyamoya —, e o cliente leu exatamente como o que
-                              era: aleatório. A série de `procedimentos` já tem
-                              uma imagem por slug, e ela identifica a condição
-                              sem precisar de legenda. Fundo preto da imagem
-                              encosta no navy do card sem costura. */}
-                          <span className="block overflow-hidden" style={{ width: 96, height: 96 }}>
+                          {/* Faixa de imagem no topo — o mesmo formato dos cards
+                              da home, que já é o aprovado. Antes daqui havia um
+                              ícone de 48px, e eram 4 símbolos genéricos servindo
+                              as 11 especialidades: o mesmo glifo marcava
+                              Schwannoma e Moyamoya, e um deles era um hexágono
+                              vazio. O cliente leu como o que era — aleatório.
+                              A série `procedimentos` tem uma imagem por slug e
+                              identifica a condição sem legenda; nesta altura ela
+                              respira, o que a miniatura de ícone não permitia. */}
+                          <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16 / 10" }}>
                             <img
-                              {...responsiveImg(`/v4/procedimentos/${s.slug}.jpg`, "96px")}
+                              {...responsiveImg(`/v4/procedimentos/${s.slug}.jpg`, "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 460px")}
                               alt=""
                               aria-hidden
                               loading="lazy"
                               decoding="async"
-                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                             />
-                          </span>
+                          </div>
+                          <div className="flex flex-1 flex-col gap-8 p-8">
                           <div className="flex flex-col gap-3">
                             <h3 className="font-display text-white text-[22px]" style={{ fontWeight: 500 }}>{s.title}</h3>
                             <p className="font-body text-white/70 text-[16px]" style={{ lineHeight: 1.55 }}>{s.description}</p>
@@ -105,6 +107,7 @@ export function EspecialidadesPage() {
                             {t("sub.common.saibaMais")}
                             <ArrowRight className="size-5 text-gold-600 transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
                           </span>
+                          </div>
                         </Link>
                       );
                     })}

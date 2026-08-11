@@ -23,7 +23,8 @@ export const article: ArticleContent = {
       tocLabel: "Qué es",
       heading: "Tumores de la columna y de la médula espinal.",
       emphasis: "columna y de la médula",
-      figureCaption: "Fig. 01 — Afectación medular",
+      figureCaption: "Fig. 01 — Ilustración: cortes encefálicos",
+      figureSrc: "mri",
       paragraphs: [
         "Los tumores de la columna vertebral pueden afectar el hueso vertebral, las meninges o la médula propiamente dicha. La mayoría de las veces, los tumores vertebrales son metástasis — consecuencias de tumores primarios localizados en otros órganos, como pulmón, mama, próstata, ovarios o intestinos.",
         "En los tumores medulares, los ependimomas y astrocitomas son los más frecuentes.",

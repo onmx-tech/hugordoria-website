@@ -23,7 +23,8 @@ export const article: ArticleContent = {
       tocLabel: "What it is",
       heading: "An expansive lesion inside the cranial vault.",
       emphasis: "cranial vault",
-      figureCaption: "Fig. 01 — Supratentorial expansive lesion",
+      figureCaption: "Fig. 01 — Illustration: three-dimensional representation of the brain",
+      figureSrc: "reconstrucao3d",
       paragraphs: [
         "Brain tumors result from the disordered multiplication of cells in the central nervous system, forming an expansive lesion within a closed system, the cranial vault. All age groups are affected — in children there is a predominance of the lower compartment of the skull (posterior fossa) and in adults of the upper compartment (supratentorial).",
         "There are genetically inherited diseases, such as neurofibromatosis and tuberous sclerosis, that favor their onset. The lesions are classified by their cellular characteristics — astrocytomas, oligodendrogliomas, ependymomas, meningiomas, neurinomas — and, today, also by molecular and genetic characterization, with the goal of individualizing treatment and defining the prognosis.",

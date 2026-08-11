@@ -17,7 +17,8 @@ export const article: ArticleContent = {
       tocLabel: "O que é",
       heading: "Dor lancinante limitada a um lado da face.",
       emphasis: "um lado da face",
-      figureCaption: "Fig. 01 — Conflito neurovascular do trigêmeo",
+      figureCaption: "Fig. 01 — Ilustração: árvore vascular cerebral",
+      figureSrc: "angiografia",
       paragraphs: [
         "A neuralgia do trigêmeo, também chamada de “tic douloureux”, é caracterizada por dor lancinante, em crises, limitada a um lado da face — na região dos olhos, da asa do nariz, da mandíbula e dentes, ou em todas essas localizações. As dores são de curta duração, com completa remissão entre as crises.",
         "Geralmente ocorre em pacientes com mais de 50 anos e muito mais frequentemente nas mulheres. A causa mais frequente é a inflamação do nervo em decorrência do pulsar contínuo de uma alça vascular sobre o nervo trigêmeo.",

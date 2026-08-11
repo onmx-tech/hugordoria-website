@@ -18,7 +18,8 @@ export const article: ArticleContent = {
       tocLabel: "O que é",
       heading: "Um tumor benigno do nervo vestibulococlear.",
       emphasis: "nervo vestibulococlear",
-      figureCaption: "Fig. 01 — Ângulo pontocerebelar",
+      figureCaption: "Fig. 01 — Ilustração: representação tridimensional do encéfalo",
+      figureSrc: "reconstrucao3d",
       paragraphs: [
         "O schwannoma vestibular (SV), também chamado de neuroma acústico, é um tumor benigno derivado das células de Schwann com origem no nervo vestibulococlear. Representa 80–85% dos tumores que se originam no ângulo pontocerebelar. Apesar de benigno, pelo efeito de massa pode comprometer várias estruturas intracranianas.",
         "A maioria cresce a partir do nervo vestibular inferior, raramente do superior ou da porção coclear. A histologia é característica, com áreas Antoni A densamente celulares alternadas com áreas Antoni B microcísticas.",
@@ -43,7 +44,8 @@ export const article: ArticleContent = {
       id: "diagnostico",
       tocLabel: "Diagnóstico",
       heading: "Diagnóstico e classificação",
-      figureCaption: "Fig. 02 — RM do meato acústico interno",
+      figureCaption: "Fig. 02 — Ilustração: cortes encefálicos",
+      figureSrc: "mri",
       paragraphs: [
         "A ressonância magnética é o método de escolha — a sequência T1 com contraste é o padrão-ouro para avaliação inicial e pós-operatória. A tomografia complementa, fornecendo a anatomia óssea da base do crânio.",
         "O tumor surge como massa sólida com componente intracanalicular no meato acústico interno, que costuma alargar. É isointenso em T1, com forte realce após gadolínio, e heterogeneamente hiperintenso em T2; calcificações estão tipicamente ausentes.",

@@ -23,7 +23,8 @@ export const article: ArticleContent = {
       tocLabel: "O que é",
       heading: "Tumores da glândula mestra do corpo.",
       emphasis: "glândula mestra",
-      figureCaption: "Fig. 01 — Região selar",
+      figureCaption: "Fig. 01 — Ilustração: representação tridimensional do encéfalo",
+      figureSrc: "reconstrucao3d",
       paragraphs: [
         "A região selar compreende a sela túrcica, estrutura óssea em forma de sela dentro da qual se encontra a glândula hipófise — também chamada glândula pituitária ou glândula mestra, por produzir ou armazenar a maioria dos hormônios envolvidos no funcionamento do corpo.",
         "Os tumores da região selar compreendem principalmente os adenomas hipofisários, craniofaringeomas e meningeomas. Os tumores hipofisários dividem-se em secretores e não secretores de hormônios e, quanto ao tamanho, em microadenomas (< 1 cm) e macroadenomas (> 1 cm).",

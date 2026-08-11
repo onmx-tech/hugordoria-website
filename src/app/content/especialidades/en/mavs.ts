@@ -18,7 +18,8 @@ export const article: ArticleContent = {
       tocLabel: "What it is",
       heading: "Abnormal connections between cerebral arteries and veins.",
       emphasis: "cerebral arteries and veins",
-      figureCaption: "Fig. 01 — Arteriovenous nidus",
+      figureCaption: "Fig. 01 — Illustration: three-dimensional representation of the brain",
+      figureSrc: "reconstrucao3d",
       paragraphs: [
         "Arteriovenous malformations (AVMs) are direct shunts between dysplastic cerebral arteries and veins, in which a nidus of abnormal vessels, with thin and fragile walls, is interposed with no parenchyma inside it. They are considered to be congenital in origin, and may change their hemodynamic behavior throughout the patient's life.",
         "They can be located in any part of the central nervous system, being most common in the cerebral hemispheres and, in decreasing order, the cerebellum, cerebral nuclei, brainstem, and spinal cord. The morphology is quite variable, from a few millimeters to more than six centimeters.",
@@ -44,7 +45,8 @@ export const article: ArticleContent = {
       id: "diagnostico",
       tocLabel: "Diagnosis",
       heading: "Imaging diagnosis",
-      figureCaption: "Fig. 02 — Digital angiography",
+      figureCaption: "Fig. 02 — Illustration: cerebral vascular tree",
+      figureSrc: "angiografia",
       paragraphs: [
         "Imaging studies are essential to establish the diagnosis and characterize the lesion for planning. Head CT is usually the first study, used to rule out a hemorrhage.",
         "Magnetic resonance imaging defines the location of the nidus, its neuroanatomical relationships, and the associated draining vein; MR angiography characterizes the venous drainage and other vascular features with high precision.",

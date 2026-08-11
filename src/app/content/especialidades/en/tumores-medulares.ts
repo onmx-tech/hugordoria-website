@@ -23,7 +23,8 @@ export const article: ArticleContent = {
       tocLabel: "What it is",
       heading: "Tumors of the spine and spinal cord.",
       emphasis: "spine and spinal cord",
-      figureCaption: "Fig. 01 — Spinal cord involvement",
+      figureCaption: "Fig. 01 — Illustration: brain sections",
+      figureSrc: "mri",
       paragraphs: [
         "Tumors of the spinal column can affect the vertebral bone, the meninges, or the spinal cord itself. In most cases, vertebral tumors are metastases — consequences of primary tumors located in other organs, such as the lung, breast, prostate, ovaries, or intestines.",
         "Among spinal cord tumors, ependymomas and astrocytomas are the most frequent.",

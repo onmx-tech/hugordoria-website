@@ -16,6 +16,22 @@ export type ArticleSection = {
   emphasis?: string;
   /** Legenda da figura 16:9 que segue os parágrafos (placeholder se sem imagem). */
   figureCaption?: string;
+  /**
+   * Nome do arquivo em `public/v4/figuras/` (sem extensão) da figura desta seção.
+   *
+   * Existe porque até 11/08/2026 a figura era escolhida por REGEX sobre a
+   * legenda, sobre um pool de 3 imagens genéricas. O resultado: uma única
+   * `angiografia.jpg` ilustrava 9 das 10 páginas, cada vez com uma legenda
+   * clínica diferente afirmando o que a imagem não mostrava — e os três idiomas
+   * discordavam entre si, porque as regras casavam palavras em português (a
+   * página inglesa do aneurisma exibia a ilustração de RESSONÂNCIA sob a legenda
+   * "Digital subtraction angiography").
+   *
+   * A ligação agora é explícita: cada seção diz qual figura é a sua. É este o
+   * campo que recebe a arte própria de cada condição quando ela for gerada —
+   * basta apontar para o novo arquivo.
+   */
+  figureSrc?: string;
   /** Lista com marcadores em letra (A, B, C…) — usada em "Sinais de alerta". */
   bullets?: string[];
   /** Lista numerada com título + descrição — usada em opções de tratamento. */
