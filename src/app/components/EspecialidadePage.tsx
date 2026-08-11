@@ -93,7 +93,6 @@ export default function EspecialidadePage() {
     );
   }
 
-  const Icon = card.icon;
   const lead = article?.lead ?? card.description;
   const sections = article?.sections ?? [];
 
@@ -130,8 +129,20 @@ export default function EspecialidadePage() {
             <div className="grid gap-16 lg:grid-cols-[1.4fr_1fr]">
               {/* Conteúdo principal */}
               <div className="flex flex-col gap-16">
-                {/* Marca da especialidade (o intro vem do hero; a 1ª seção é a visão geral) */}
-                <span className="block [&>svg]:h-full [&>svg]:w-full" style={{ width: 44, height: 44 }}><Icon /></span>
+                {/* Marca da especialidade — a imagem da própria condição, no
+                    lugar do ícone genérico que existia aqui (4 símbolos para 11
+                    condições). Mesma fonte dos cards e do hero: a série
+                    `procedimentos`, resolvida pelo slug. */}
+                <span className="block size-11 shrink-0 overflow-hidden">
+                  <img
+                    {...responsiveImg(`/v4/procedimentos/${card.slug}.jpg`, "44px")}
+                    alt=""
+                    aria-hidden
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                </span>
 
                 {/* Fallback quando não há artigo estruturado */}
                 {sections.length === 0 && (
@@ -280,13 +291,12 @@ export default function EspecialidadePage() {
                   <Eyebrow>{ts("sub.especialidadeDetalhe.outrasEspecialidades")}</Eyebrow>
                   <div className="flex flex-col overflow-hidden rounded-2xl bg-white/[0.04]">
                     {others.map((c) => {
-                      const OIcon = c.icon;
                       return (
                         <Link key={c.slug} to={`/especialidade/${c.slug}`} className="group flex items-center justify-between gap-4 border-b border-white/10 px-5 py-4 transition-colors last:border-b-0 hover:bg-white/[0.06]">
-                          <span className="flex items-center gap-3">
-                            <span className="block shrink-0 [&>svg]:h-full [&>svg]:w-full" style={{ width: 20, height: 20 }}><OIcon /></span>
-                            <span className="font-display text-white/85 text-[15px]" style={{ fontWeight: 400 }}>{c.title}</span>
-                          </span>
+                          {/* Sem miniatura aqui: a 20px a arte da série vira
+                              mancha escura e não identifica nada. Numa lista de
+                              links, o nome basta. */}
+                          <span className="font-display text-white/85 text-[15px]" style={{ fontWeight: 400 }}>{c.title}</span>
                           <ArrowRight className="size-4 text-gold-600 transition-transform group-hover:translate-x-1" strokeWidth={1.7} />
                         </Link>
                       );

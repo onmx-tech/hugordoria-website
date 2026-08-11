@@ -18,8 +18,8 @@ export const article: ArticleContent = {
       tocLabel: "O que é",
       heading: "Contração involuntária de um lado da face.",
       emphasis: "um lado da face",
-      figureCaption: "Fig. 01 — Ilustração: árvore vascular cerebral",
-      figureSrc: "angiografia",
+      figureCaption: "Fig. 01 — Conflito neurovascular do nervo facial · ilustração",
+      figureSrc: "espasmo-hemifacial-fig01",
       paragraphs: [
         "O espasmo hemifacial é uma doença rara caracterizada por contração involuntária de um lado da face. Aparece espontaneamente e geralmente piora de forma progressiva. Apresenta efeito estético e psicologicamente danoso ao paciente.",
         "A principal causa é semelhante à da neuralgia do trigêmeo: frequentemente uma alça vascular está sobreposta ao nervo facial, promovendo, pelo pulsar contínuo sobre o nervo, inflamação e despolarização involuntária e repetida.",

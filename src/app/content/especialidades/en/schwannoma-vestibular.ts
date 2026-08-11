@@ -18,8 +18,8 @@ export const article: ArticleContent = {
       tocLabel: "What it is",
       heading: "A benign tumor of the vestibulocochlear nerve.",
       emphasis: "vestibulocochlear nerve",
-      figureCaption: "Fig. 01 — Illustration: three-dimensional representation of the brain",
-      figureSrc: "reconstrucao3d",
+      figureCaption: "Fig. 01 — Schwannoma at the cerebellopontine angle · illustration",
+      figureSrc: "schwannoma-vestibular-fig01",
       paragraphs: [
         "Vestibular schwannoma (VS), also known as acoustic neuroma, is a benign tumor derived from Schwann cells originating in the vestibulocochlear nerve. It represents 80–85% of tumors arising in the cerebellopontine angle. Although benign, through mass effect it can compromise several intracranial structures.",
         "Most grow from the inferior vestibular nerve, rarely from the superior nerve or the cochlear portion. The histology is characteristic, with densely cellular Antoni A areas alternating with microcystic Antoni B areas.",
@@ -44,8 +44,8 @@ export const article: ArticleContent = {
       id: "diagnostico",
       tocLabel: "Diagnosis",
       heading: "Diagnosis and classification",
-      figureCaption: "Fig. 02 — Illustration: brain sections",
-      figureSrc: "mri",
+      figureCaption: "Fig. 02 — Resection with facial nerve preservation · illustration",
+      figureSrc: "schwannoma-vestibular-fig02",
       paragraphs: [
         "Magnetic resonance imaging is the method of choice — the contrast-enhanced T1 sequence is the gold standard for initial and postoperative assessment. Computed tomography complements it, providing the bony anatomy of the skull base.",
         "The tumor appears as a solid mass with an intracanalicular component in the internal acoustic meatus, which it tends to widen. It is isointense on T1, with strong enhancement after gadolinium, and heterogeneously hyperintense on T2; calcifications are typically absent.",

@@ -179,17 +179,57 @@
     1000,
     342
   ],
-  "/v4/figuras/angiografia.jpg": [
-    1400,
-    801
+  "/v4/figuras/aneurisma-cerebral-fig01.jpg": [
+    2048,
+    1152
   ],
-  "/v4/figuras/mri.jpg": [
-    1400,
-    801
+  "/v4/figuras/aneurisma-cerebral-fig02.jpg": [
+    2048,
+    1152
   ],
-  "/v4/figuras/reconstrucao3d.jpg": [
-    1400,
-    801
+  "/v4/figuras/cavernomas-fig01.jpg": [
+    2048,
+    1152
+  ],
+  "/v4/figuras/doenca-de-moyamoya-fig01.jpg": [
+    2048,
+    1152
+  ],
+  "/v4/figuras/espasmo-hemifacial-fig01.jpg": [
+    2048,
+    1152
+  ],
+  "/v4/figuras/mavs-fig01.jpg": [
+    2048,
+    1152
+  ],
+  "/v4/figuras/mavs-fig02.jpg": [
+    2048,
+    1152
+  ],
+  "/v4/figuras/neuralgia-do-trigemeo-fig01.jpg": [
+    2048,
+    1152
+  ],
+  "/v4/figuras/schwannoma-vestibular-fig01.jpg": [
+    2048,
+    1152
+  ],
+  "/v4/figuras/schwannoma-vestibular-fig02.jpg": [
+    2048,
+    1152
+  ],
+  "/v4/figuras/tumores-cerebrais-fig01.jpg": [
+    2048,
+    1152
+  ],
+  "/v4/figuras/tumores-hipofisarios-fig01.jpg": [
+    2048,
+    1152
+  ],
+  "/v4/figuras/tumores-medulares-fig01.jpg": [
+    2048,
+    1152
   ],
   "/v4/videos/doutorado-poster.jpg": [
     1600,

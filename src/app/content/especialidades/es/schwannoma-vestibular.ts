@@ -18,8 +18,8 @@ export const article: ArticleContent = {
       tocLabel: "Qué es",
       heading: "Un tumor benigno del nervio vestibulococlear.",
       emphasis: "nervio vestibulococlear",
-      figureCaption: "Fig. 01 — Ilustración: representación tridimensional del encéfalo",
-      figureSrc: "reconstrucao3d",
+      figureCaption: "Fig. 01 — Schwannoma en el ángulo pontocerebeloso · ilustración",
+      figureSrc: "schwannoma-vestibular-fig01",
       paragraphs: [
         "El schwannoma vestibular (SV), también llamado neuroma acústico, es un tumor benigno derivado de las células de Schwann con origen en el nervio vestibulococlear. Representa el 80–85% de los tumores que se originan en el ángulo pontocerebeloso. A pesar de ser benigno, por el efecto de masa puede comprometer varias estructuras intracraneales.",
         "La mayoría crece a partir del nervio vestibular inferior, raramente del superior o de la porción coclear. La histología es característica, con áreas Antoni A densamente celulares alternadas con áreas Antoni B microquísticas.",
@@ -44,8 +44,8 @@ export const article: ArticleContent = {
       id: "diagnostico",
       tocLabel: "Diagnóstico",
       heading: "Diagnóstico y clasificación",
-      figureCaption: "Fig. 02 — Ilustración: cortes encefálicos",
-      figureSrc: "mri",
+      figureCaption: "Fig. 02 — Resección con preservación del nervio facial · ilustración",
+      figureSrc: "schwannoma-vestibular-fig02",
       paragraphs: [
         "La resonancia magnética es el método de elección — la secuencia T1 con contraste es el patrón de oro para la evaluación inicial y posoperatoria. La tomografía complementa, aportando la anatomía ósea de la base del cráneo.",
         "El tumor aparece como una masa sólida con componente intracanalicular en el meato acústico interno, que suele ensancharse. Es isointenso en T1, con fuerte realce tras gadolinio, y heterogéneamente hiperintenso en T2; las calcificaciones están típicamente ausentes.",

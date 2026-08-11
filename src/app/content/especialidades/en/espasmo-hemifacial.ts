@@ -18,8 +18,8 @@ export const article: ArticleContent = {
       tocLabel: "What it is",
       heading: "Involuntary contraction of one side of the face.",
       emphasis: "one side of the face",
-      figureCaption: "Fig. 01 — Illustration: cerebral vascular tree",
-      figureSrc: "angiografia",
+      figureCaption: "Fig. 01 — Neurovascular conflict of the facial nerve · illustration",
+      figureSrc: "espasmo-hemifacial-fig01",
       paragraphs: [
         "Hemifacial spasm is a rare disease characterized by involuntary contraction of one side of the face. It appears spontaneously and usually worsens progressively. It has an aesthetic and psychologically damaging effect on the patient.",
         "The main cause is similar to that of trigeminal neuralgia: a vascular loop is frequently overlying the facial nerve, promoting, through the continuous pulsing against the nerve, inflammation and involuntary, repeated depolarization.",

@@ -23,8 +23,8 @@ export const article: ArticleContent = {
       tocLabel: "Qué es",
       heading: "Una lesión expansiva dentro de la caja craneal.",
       emphasis: "caja craneal",
-      figureCaption: "Fig. 01 — Ilustración: representación tridimensional del encéfalo",
-      figureSrc: "reconstrucao3d",
+      figureCaption: "Fig. 01 — Lesión expansiva infiltrando el parénquima · ilustración",
+      figureSrc: "tumores-cerebrais-fig01",
       paragraphs: [
         "Los tumores cerebrales resultan de la multiplicación desordenada de células en el sistema nervioso central, formando una lesión expansiva dentro de un sistema cerrado, la caja craneal. Todas las franjas de edad se ven afectadas — en niños hay predominio del piso inferior del cráneo (fosa posterior) y en adultos del piso superior (supratentorial).",
         "Existen enfermedades heredadas genéticamente, como la neurofibromatosis y la esclerosis tuberosa, que favorecen su aparición. Las lesiones se clasifican por sus características celulares — astrocitomas, oligodendrogliomas, ependimomas, meningiomas, neurinomas — y, hoy, también por caracterización molecular y genética, con el objetivo de individualizar el tratamiento y trazar el pronóstico.",

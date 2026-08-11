@@ -17,8 +17,8 @@ export const article: ArticleContent = {
       tocLabel: "What it is",
       heading: "Lancinating pain limited to one side of the face.",
       emphasis: "one side of the face",
-      figureCaption: "Fig. 01 — Illustration: cerebral vascular tree",
-      figureSrc: "angiografia",
+      figureCaption: "Fig. 01 — Neurovascular conflict of the trigeminal nerve · illustration",
+      figureSrc: "neuralgia-do-trigemeo-fig01",
       paragraphs: [
         "Trigeminal neuralgia, also known as “tic douloureux,” is characterized by lancinating pain, in bouts, limited to one side of the face — in the region of the eyes, the ala of the nose, the jaw and teeth, or in all of these locations. The episodes of pain are short-lived, with complete remission between bouts.",
         "It generally occurs in patients over 50 years of age and far more frequently in women. The most common cause is inflammation of the nerve resulting from the continuous pulsing of a vascular loop against the trigeminal nerve.",

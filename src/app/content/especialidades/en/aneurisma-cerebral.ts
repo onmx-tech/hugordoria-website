@@ -24,8 +24,8 @@ export const article: ArticleContent = {
       tocLabel: "What it is",
       heading: "A dilation in the wall of a cerebral artery.",
       emphasis: "cerebral artery",
-      figureCaption: "Fig. 01 — Illustration: three-dimensional representation of the brain",
-      figureSrc: "reconstrucao3d",
+      figureCaption: "Fig. 01 — Saccular aneurysm at an arterial bifurcation · illustration",
+      figureSrc: "aneurisma-cerebral-fig01",
       paragraphs: [
         "Cerebral aneurysms are an abnormal dilation in the arterial wall of the cerebral vessels, usually near a bifurcation point, where there is a structural abnormality of the wall. About 90% are saccular; the remainder include fusiform, traumatic, mycotic, dissecting, and microaneurysms.",
         "They vary in size — small (< 10 mm), large (11–25 mm), and giant (> 25 mm). Approximately 85% are located in the anterior circulation of the Circle of Willis, where the anterior and posterior circulations anastomose.",
@@ -52,8 +52,8 @@ export const article: ArticleContent = {
       id: "diagnostico",
       tocLabel: "Diagnosis",
       heading: "Diagnosis and investigation",
-      figureCaption: "Fig. 02 — Illustration: cerebral vascular tree",
-      figureSrc: "angiografia",
+      figureCaption: "Fig. 02 — Microsurgical clipping of the neck · illustration",
+      figureSrc: "aneurisma-cerebral-fig02",
       paragraphs: [
         "Most unruptured aneurysms are identified incidentally on neuroimaging performed for another reason. High-risk individuals can be screened with MR angiography or CT angiography.",
         "For ruptured aneurysms, the reliable initial test is non-contrast head CT — positive in 98–100% of cases within the first 12 hours. When the CT is negative but clinical suspicion is strong, MRI sequences (FLAIR, SWI, GRE) or lumbar puncture with xanthochromia testing help confirm the bleeding.",

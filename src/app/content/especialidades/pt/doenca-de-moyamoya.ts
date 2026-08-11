@@ -18,8 +18,8 @@ export const article: ArticleContent = {
       tocLabel: "O que é",
       heading: "Uma “nuvem de fumaça” nos vasos do cérebro.",
       emphasis: "nuvem de fumaça",
-      figureCaption: "Fig. 01 — Ilustração: árvore vascular cerebral",
-      figureSrc: "angiografia",
+      figureCaption: "Fig. 01 — Estenose carotídea e rede colateral · ilustração",
+      figureSrc: "doenca-de-moyamoya-fig01",
       paragraphs: [
         "A Doença de Moya-Moya afeta os vasos sanguíneos do cérebro: provoca o estreitamento progressivo das artérias que levam sangue ao cérebro, resultando na formação de vasos colaterais anormais com aparência de “nuvem de fumaça” em exames de imagem — daí o nome, que significa “fumaça” em japonês.",
         "A causa exata ainda é desconhecida, mas fatores genéticos têm papel importante. A condição pode ser primária ou caracterizar uma síndrome quando associada a outras doenças, como anemia falciforme, Síndrome de Down ou condições autoimunes.",

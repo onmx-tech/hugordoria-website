@@ -18,8 +18,8 @@ export const article: ArticleContent = {
       tocLabel: "Qué es",
       heading: "Una “nube de humo” en los vasos del cerebro.",
       emphasis: "nube de humo",
-      figureCaption: "Fig. 01 — Ilustración: árbol vascular cerebral",
-      figureSrc: "angiografia",
+      figureCaption: "Fig. 01 — Estenosis carotídea y red colateral · ilustración",
+      figureSrc: "doenca-de-moyamoya-fig01",
       paragraphs: [
         "La Enfermedad de Moya-Moya afecta los vasos sanguíneos del cerebro: provoca el estrechamiento progresivo de las arterias que llevan sangre al cerebro, resultando en la formación de vasos colaterales anormales con apariencia de “nube de humo” en exámenes de imagen — de ahí el nombre, que significa “humo” en japonés.",
         "La causa exacta aún es desconocida, pero los factores genéticos tienen un papel importante. La condición puede ser primaria o caracterizar un síndrome cuando se asocia a otras enfermedades, como anemia falciforme, Síndrome de Down o condiciones autoinmunes.",

@@ -23,8 +23,8 @@ export const article: ArticleContent = {
       tocLabel: "O que é",
       heading: "Tumores da coluna e da medula espinhal.",
       emphasis: "coluna e da medula",
-      figureCaption: "Fig. 01 — Ilustração: cortes encefálicos",
-      figureSrc: "mri",
+      figureCaption: "Fig. 01 — Tumor intramedular expandindo o cordão · ilustração",
+      figureSrc: "tumores-medulares-fig01",
       paragraphs: [
         "Tumores da coluna vertebral podem acometer o osso vertebral, as meninges ou a medula propriamente dita. Na maioria das vezes, os tumores vertebrais são metástases — consequências de tumores primários localizados em outros órgãos, como pulmão, mama, próstata, ovários ou intestinos.",
         "Nos tumores medulares, ependimomas e astrocitomas são os mais frequentes.",
