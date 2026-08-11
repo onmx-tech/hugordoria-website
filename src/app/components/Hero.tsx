@@ -160,7 +160,7 @@ export default function Hero() {
       {/* Doctor photo — centered, full height behind content */}
       <div
         data-hero="photo"
-        className="pointer-events-none z-0 flex items-end justify-center portrait:max-lg:relative portrait:max-lg:order-2 portrait:max-lg:w-full portrait:max-lg:overflow-hidden portrait:max-lg:inset-auto landscape:max-lg:absolute landscape:max-lg:inset-x-0 landscape:max-lg:bottom-0 landscape:max-lg:justify-end landscape:max-lg:pr-[3vw] lg:absolute lg:inset-x-0 lg:bottom-0"
+        className="pointer-events-none z-0 flex items-end justify-center portrait:max-lg:relative portrait:max-lg:order-2 portrait:max-lg:w-full portrait:max-lg:overflow-hidden portrait:max-lg:[mask-image:linear-gradient(to_bottom,#000_0%,#000_72%,transparent_98%)] portrait:max-lg:[-webkit-mask-image:linear-gradient(to_bottom,#000_0%,#000_72%,transparent_98%)] portrait:max-lg:inset-auto landscape:max-lg:absolute landscape:max-lg:inset-x-0 landscape:max-lg:bottom-0 landscape:max-lg:justify-end landscape:max-lg:pr-[3vw] lg:absolute lg:inset-x-0 lg:bottom-0"
       >
         <div data-hero="photo-inner" className="will-change-[clip-path,transform] portrait:max-lg:flex portrait:max-lg:items-end portrait:max-lg:justify-center">
           <img
