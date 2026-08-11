@@ -160,9 +160,9 @@ export default function Hero() {
       {/* Doctor photo — centered, full height behind content */}
       <div
         data-hero="photo"
-        className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-center max-lg:landscape:justify-end max-lg:landscape:pr-[3vw] z-0"
+        className="pointer-events-none z-0 flex items-end justify-center portrait:max-lg:relative portrait:max-lg:order-2 portrait:max-lg:w-full portrait:max-lg:overflow-hidden portrait:max-lg:inset-auto landscape:max-lg:absolute landscape:max-lg:inset-x-0 landscape:max-lg:bottom-0 landscape:max-lg:justify-end landscape:max-lg:pr-[3vw] lg:absolute lg:inset-x-0 lg:bottom-0"
       >
-        <div data-hero="photo-inner" className="will-change-[clip-path,transform]">
+        <div data-hero="photo-inner" className="will-change-[clip-path,transform] portrait:max-lg:flex portrait:max-lg:items-end portrait:max-lg:justify-center">
           <img
             src="/hero/hero-doria-1000.webp"
             srcSet="/hero/hero-doria-500.webp 500w, /hero/hero-doria-750.webp 750w, /hero/hero-doria-1000.webp 1000w"
@@ -173,7 +173,7 @@ export default function Hero() {
             fetchPriority="high"
             loading="eager"
             decoding="async"
-            className="h-[65vh] sm:h-[72vh] max-lg:landscape:h-[92vh] lg:h-[96vh] max-h-none min-h-[420px] sm:min-h-[460px] lg:min-h-[520px] w-auto max-w-none object-contain object-bottom select-none block"
+            className="w-auto max-w-none object-contain object-bottom select-none block portrait:max-lg:h-[46vh] portrait:max-lg:min-h-[300px] portrait:max-lg:max-h-[56vh] landscape:max-lg:h-[92vh] landscape:max-lg:min-h-[420px] lg:h-[96vh] lg:min-h-[520px] lg:max-h-none"
             draggable={false}
           />
         </div>
@@ -206,7 +206,7 @@ export default function Hero() {
 
 
       {/* Content grid (header agora é o SiteHeader global, fixo no topo) */}
-      <div className="relative z-10 flex-1 grid grid-cols-12 gap-x-6 gap-y-10 px-6 md:px-8 pt-24 sm:pt-28 lg:pt-[18vh] content-start">
+      <div className="relative z-10 portrait:max-lg:order-1 portrait:max-lg:flex-none flex-1 grid grid-cols-12 gap-x-6 gap-y-10 px-6 md:px-8 pt-24 sm:pt-28 lg:pt-[18vh] content-start">
         {/* Left: eyebrow + title */}
         {/* O corte para duas colunas é `lg` (1024px), não `md`. Em md o hero
             virava duas colunas de 50% com a FOTO do Dr. no meio: o título
@@ -307,7 +307,7 @@ export default function Hero() {
       </div>
 
       {/* Rodapé — descrição (só mobile, sobre o terno) + wordmark */}
-      <div className="relative z-10 mt-auto w-full">
+      <div className="relative z-10 mt-auto portrait:max-lg:mt-0 portrait:max-lg:order-3 w-full">
         {/* Descrição no mobile: cai sobre o terno/braços (área escura),
             não sobre o rosto do Dr. */}
         {/* O fio que existia aqui separava a credencial da descrição. Com a
