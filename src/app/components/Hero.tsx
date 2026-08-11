@@ -221,6 +221,17 @@ export default function Hero() {
           >
             {t("home.hero.eyebrow")}
           </p>
+          {/* Só mobile. No mobile o hero é um retrato full-bleed: NÃO existe
+              "fundo limpo" abaixo dos CTAs — é ali que fica a cabeça do Dr.
+              (foi onde eu pus antes, e a credencial caiu em cima do rosto).
+              O único ponto seguro por construção é ACIMA do título, que já
+              está acima da cabeça em qualquer altura de tela. Fica colada na
+              eyebrow porque as duas são credencial — titulação e tempo de
+              prática — e a cor as distingue: a eyebrow é `text-soft`, esta é
+              gold. No desktop ela vive na coluna da direita. */}
+          <div data-hero="eyebrow" className="lg:hidden mt-3">
+            <Credencial escala="mobile" t={t} />
+          </div>
           <div
             data-hero="divider"
             className="mt-4 lg:mt-5 h-px w-full max-w-[440px] bg-white/24"
@@ -264,13 +275,6 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Só mobile: a credencial sobe para cá, encostada nos CTAs. No rodapé
-              ela caía sobre o terno do Dr. — o cliente pediu "fora da foto", e
-              aqui o fundo é o navy limpo. No desktop ela vive na coluna da
-              direita, junto da descrição clínica. */}
-          <div data-hero="cta" className="lg:hidden mt-7">
-            <Credencial escala="mobile" t={t} />
-          </div>
         </div>
 
         {/* Right: description — tablet/desktop (no mobile vai para o rodapé,

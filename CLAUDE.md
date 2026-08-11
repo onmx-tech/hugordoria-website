@@ -108,7 +108,13 @@ O site não exibe mais "+20 anos", "+100 artigos" nem "+9.500 pacientes". Não f
 
 ## Deploy — produção é SEMPRE prebuilt local
 
-Domínio: **`hugodoria.merinno.com`** (projeto Vercel `hugordoria-website`, scope `onmx-techs-projects`). ⚠️ Não confundir com `hugodoria.com.br`, que ainda é o WordPress antigo do cliente.
+⚠️ **PRODUÇÃO MUDOU DE CASA EM 10/08/2026. `hugodoria.com.br` é o site REAL, e ele NÃO está na Vercel.**
+
+O domínio do cliente foi virado para a **VPS do cliente** (CDN Gestão, Hostinger, `179.198.121.44`, Docker Swarm + Easypanel + Traefik). Medido: `dig +short A hugodoria.com.br` → `179.198.121.44`. O WordPress antigo saiu do caminho; a linha que dizia "`hugodoria.com.br` ainda é o WordPress antigo" ficou obsoleta no dia do cutover e mandava deployar no lugar errado — por isso este aviso.
+
+- **Produção hoje:** `https://hugodoria.com.br` — servida pela VPS. Deploy exige token da API do Easypanel + acesso root à VPS, que **não ficam guardados na máquina**: pedir ao Thalyson a cada sessão.
+- **`hugodoria.merinno.com`** (projeto Vercel `hugordoria-website`, scope `onmx-techs-projects`) continua existindo como **staging/preview**. O procedimento Vercel abaixo vale para ele — não para a produção.
+- Os sites irmãos do mesmo cliente moram na mesma VPS (`centrodorianeuro.com.br`, `pilotohugonetto.com.br`).
 
 O prerender (`scripts/prerender.mjs`) usa puppeteer, e **o build server do Vercel não tem Chrome** — se o deploy sair de lá, o site vai ao ar como SPA vazio (`<div id="root"></div>`), o que já derrubou o PageSpeed de 100 para 66. Por isso:
 
