@@ -1,11 +1,3 @@
-import type { ReactNode } from "react";
-import {
-  IconAneurisma,
-  IconMAV,
-  IconSchwannoma,
-  IconTumor,
-} from "./icons";
-
 export type Testimonial = {
   quote: string;
   name: string;
@@ -27,8 +19,6 @@ export type CardData = {
   description: string;
   detailedDescription?: string;
   family: Family;
-  icon: () => ReactNode;
-  image?: string;
   highlights?: string[];
   testimonials?: Testimonial[];
 };
@@ -53,13 +43,11 @@ export const cards: CardData[] = [
   {
     slug: "schwannoma-vestibular",
     family: "tumores",
-    icon: IconSchwannoma,
     title: "Schwannoma Vestibular",
     description:
       "O schwannoma vestibular (SV) é um tumor benigno do nervo vestibulococlear.",
     detailedDescription:
       "O schwannoma vestibular, também conhecido como neurinoma do acústico, é um tumor benigno que se origina das células de Schwann do nervo vestibulococlear (VIII par craniano). Embora benigno, seu crescimento pode comprimir estruturas cerebrais adjacentes, causando perda auditiva, zumbido, desequilíbrio e, em casos avançados, compressão do tronco cerebral. O tratamento inclui observação, radiocirurgia estereotáxica e microcirurgia, dependendo do tamanho e sintomas. O Dr. Hugo Doria utiliza técnicas microcirúrgicas avançadas com monitorização neurofisiológica intraoperatória para preservação da função facial e auditiva.",
-    image: "/images/especialidades/schwannoma.jpg",
     highlights: [
       "Monitorização neurofisiológica intraoperatória",
       "Preservação da função facial e auditiva",
@@ -78,13 +66,11 @@ export const cards: CardData[] = [
   {
     slug: "aneurisma-cerebral",
     family: "vascular",
-    icon: IconAneurisma,
     title: "Aneurisma Cerebral",
     description:
       "Os aneurismas cerebrais são dilatações anormais nas paredes das artérias cerebrais.",
     detailedDescription:
       "Os aneurismas cerebrais são dilatações anormais nas paredes das artérias do cérebro, geralmente em pontos de bifurcação. Quando rompem, causam hemorragia subaracnoidea — uma emergência neurológica com alta morbimortalidade. O tratamento pode ser realizado por clipagem microcirúrgica ou embolização endovascular. O Dr. Hugo Doria tem atuação no tratamento microcirúrgico de aneurismas complexos, incluindo aneurismas gigantes e de circulação posterior, utilizando técnicas de bypass cerebral quando necessário.",
-    image: "/images/especialidades/aneurisma.jpg",
     highlights: [
       "Clipagem microcirúrgica de alta complexidade",
       "Bypass cerebral quando necessário",
@@ -108,13 +94,11 @@ export const cards: CardData[] = [
   {
     slug: "mavs",
     family: "vascular",
-    icon: IconMAV,
     title: "MAVs",
     description:
       "As malformações arteriovenosas (MAVs) são conexões anormais entre artérias e veias cerebrais.",
     detailedDescription:
       "As malformações arteriovenosas cerebrais são emaranhados vasculares onde artérias se conectam diretamente a veias sem o leito capilar intermediário. Isso cria um fluxo de alta pressão que pode causar hemorragias, convulsões e déficits neurológicos. O tratamento envolve uma abordagem multidisciplinar com microcirurgia, embolização e radiocirurgia. O Dr. Hugo Doria realiza ressecção microcirúrgica de MAVs com auxílio de neuronavegação e angiografia intraoperatória.",
-    image: "/images/especialidades/mav.jpg",
     highlights: [
       "Abordagem multidisciplinar integrada",
       "Neuronavegação e angiografia intraoperatória",
@@ -124,13 +108,11 @@ export const cards: CardData[] = [
   {
     slug: "tumores-cerebrais",
     family: "tumores",
-    icon: IconTumor,
     title: "Tumores Cerebrais",
     description:
       "Avaliação e tratamento microcirúrgico de tumores cerebrais primários, metastáticos e de localização complexa, com planejamento individualizado e técnicas voltadas à preservação funcional.",
     detailedDescription:
       "Os tumores cerebrais podem ser primários (originados no cérebro) ou metastáticos (provenientes de outros órgãos). O tratamento cirúrgico visa a ressecção máxima segura, preservando áreas eloquentes do cérebro responsáveis por funções motoras, de linguagem e cognitivas. O Dr. Hugo Doria utiliza técnicas avançadas como neuronavegação, fluorescência com 5-ALA, estimulação cortical direta e cirurgia acordada para tumores em áreas eloquentes.",
-    image: "/images/especialidades/tumor.jpg",
     highlights: [
       "Neuronavegação e fluorescência com 5-ALA",
       "Cirurgia acordada em áreas eloquentes",
@@ -154,13 +136,11 @@ export const cards: CardData[] = [
   {
     slug: "doenca-de-moyamoya",
     family: "vascular",
-    icon: IconSchwannoma,
     title: "Doença de Moyamoya",
     description:
       "Avaliação e tratamento da doença de Moyamoya, incluindo técnicas de revascularização cerebral direta e indireta quando indicadas.",
     detailedDescription:
       "A doença de Moyamoya é uma condição cerebrovascular rara e progressiva caracterizada pelo estreitamento das artérias carótidas internas e seus ramos principais. Isso leva à formação de uma rede de vasos colaterais frágeis que podem causar isquemia cerebral e hemorragias. O tratamento de escolha é a revascularização cerebral cirúrgica, por meio de bypass direto (anastomose da artéria temporal superficial à artéria cerebral média) ou técnicas indiretas.",
-    image: "/images/especialidades/moyamoya.jpg",
     highlights: [
       "Bypass direto (STA-MCA)",
       "Técnicas indiretas de revascularização",
@@ -177,13 +157,11 @@ export const cards: CardData[] = [
   {
     slug: "neuralgia-do-trigemeo",
     family: "conflitos",
-    icon: IconAneurisma,
     title: "Neuralgia do Trigêmeo",
     description:
       "Avaliação especializada da neuralgia do trigêmeo e de suas alternativas terapêuticas, incluindo tratamento medicamentoso, procedimentos percutâneos, radiocirurgia e descompressão microvascular, conforme o perfil de cada caso.",
     detailedDescription:
       "A neuralgia do trigêmeo é uma das dores mais intensas conhecidas na medicina, caracterizada por episódios lancinantes e súbitos de dor em um lado da face. Geralmente é causada pela compressão do nervo trigêmeo por um vaso sanguíneo na base do crânio. A descompressão microvascular (técnica de Jannetta) consiste em afastar o vaso do nervo por meio de uma craniotomia retrosigmoide.",
-    image: "/images/especialidades/neuralgia.jpg",
     highlights: [
       "Descompressão microvascular (Jannetta)",
       "Preservação da sensibilidade facial",
@@ -192,13 +170,11 @@ export const cards: CardData[] = [
   {
     slug: "espasmo-hemifacial",
     family: "conflitos",
-    icon: IconMAV,
     title: "Espasmo Hemifacial",
     description:
       "Contrações involuntárias da musculatura facial tratadas por descompressão microvascular do nervo facial.",
     detailedDescription:
       "O espasmo hemifacial consiste em contrações involuntárias e repetitivas da musculatura de um lado da face, geralmente iniciando ao redor do olho e progredindo para a boca. Na maioria dos casos, é causado pela compressão do nervo facial por uma artéria na saída do tronco cerebral. O Dr. Hugo Doria realiza esse procedimento com monitorização neurofisiológica contínua.",
-    image: "/images/especialidades/espasmo.jpg",
     highlights: [
       "Monitorização neurofisiológica contínua",
       "Procedimento minimamente invasivo",
@@ -207,13 +183,11 @@ export const cards: CardData[] = [
   {
     slug: "revascularizacao-cerebral",
     family: "vascular",
-    icon: IconTumor,
     title: "Revascularização Cerebral",
     description:
       "Bypass cerebral para restaurar o fluxo sanguíneo em casos de isquemia crônica e doenças oclusivas.",
     detailedDescription:
       "A revascularização cerebral é uma técnica microcirúrgica altamente especializada que consiste na criação de novas vias de fluxo sanguíneo para o cérebro. É indicada para doença de Moyamoya, aneurismas complexos que requerem oclusão da artéria principal, e aterosclerose intracraniana refratária. O procedimento envolve a anastomose microcirúrgica de artérias extracranianas com artérias intracranianas (bypass EC-IC).",
-    image: "/images/especialidades/revascularizacao.jpg",
     highlights: [
       "Bypass EC-IC altamente especializado",
       "Indicado para múltiplas patologias vasculares",
@@ -222,13 +196,11 @@ export const cards: CardData[] = [
   {
     slug: "tumores-hipofisarios",
     family: "tumores",
-    icon: IconAneurisma,
     title: "Tumores Hipofisários",
     description:
       "Tratamento de adenomas hipofisários, incluindo abordagem endoscópica endonasal quando indicada, com planejamento voltado à preservação das estruturas e funções neuroendócrinas.",
     detailedDescription:
       "Os tumores hipofisários (adenomas) são lesões benignas que se desenvolvem na glândula hipófise, na base do crânio. Podem causar distúrbios hormonais, alterações visuais e cefaleia. O tratamento cirúrgico é realizado preferencialmente por via endoscópica endonasal transesfenoidal, uma técnica minimamente invasiva sem incisões externas. O Dr. Hugo Doria realiza esse procedimento em parceria com equipe otorrinolaringológica, utilizando endoscopia de alta definição e neuronavegação para remoção precisa do tumor com preservação da função glandular.",
-    image: "/images/especialidades/hipofise.jpg",
     highlights: [
       "Via endoscópica sem incisões externas",
       "Endoscopia de alta definição",
@@ -238,7 +210,6 @@ export const cards: CardData[] = [
   {
     slug: "cavernomas",
     family: "vascular",
-    icon: IconMAV,
     title: "Cavernomas",
     description:
       "Avaliação de cavernomas cerebrais e medulares, com definição individualizada entre acompanhamento clínico-radiológico e tratamento microcirúrgico quando indicado.",
@@ -253,7 +224,6 @@ export const cards: CardData[] = [
   {
     slug: "tumores-medulares",
     family: "tumores",
-    icon: IconTumor,
     title: "Tumores Medulares",
     description:
       "Tumores da coluna vertebral e da medula tratados com técnica microcirúrgica de precisão.",

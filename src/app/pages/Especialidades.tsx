@@ -10,6 +10,7 @@ import { FAMILIES, cardsByFamily } from "../components/section-especialidades/da
 import { LocaleLink as Link, useLocale } from "../i18n/LocaleProvider";
 import { useTranslation } from "react-i18next";
 import FloatingNav from "../components/FloatingNav";
+import { responsiveImg } from "@/lib/img";
 import { useSeo } from "../seo/useSeo";
 import { breadcrumbSchema } from "../seo/schema";
 
@@ -72,14 +73,30 @@ export function EspecialidadesPage() {
 
                   <div className="mt-10 grid gap-px overflow-hidden bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
                     {group.map((s) => {
-                      const Icon = s.icon;
                       return (
                         <Link
                           key={s.slug}
                           to={`/especialidade/${s.slug}`}
                           className="group flex flex-col gap-8 bg-navy-800 p-8 transition-colors hover:bg-white/[0.04]"
                         >
-                          <span className="block [&>svg]:h-full [&>svg]:w-full" style={{ width: 48, height: 48 }}><Icon /></span>
+                          {/* Miniatura da própria condição, no lugar do ícone.
+                              Havia 4 símbolos genéricos servindo as 11
+                              especialidades — o mesmo glifo marcava Schwannoma
+                              e Moyamoya —, e o cliente leu exatamente como o que
+                              era: aleatório. A série de `procedimentos` já tem
+                              uma imagem por slug, e ela identifica a condição
+                              sem precisar de legenda. Fundo preto da imagem
+                              encosta no navy do card sem costura. */}
+                          <span className="block overflow-hidden" style={{ width: 96, height: 96 }}>
+                            <img
+                              {...responsiveImg(`/v4/procedimentos/${s.slug}.jpg`, "96px")}
+                              alt=""
+                              aria-hidden
+                              loading="lazy"
+                              decoding="async"
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                          </span>
                           <div className="flex flex-col gap-3">
                             <h3 className="font-display text-white text-[22px]" style={{ fontWeight: 500 }}>{s.title}</h3>
                             <p className="font-body text-white/70 text-[16px]" style={{ lineHeight: 1.55 }}>{s.description}</p>

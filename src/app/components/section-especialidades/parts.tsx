@@ -8,7 +8,6 @@ const IMAGE_H = 260;
 
 export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
   const { t } = useTranslation("home");
-  const Icon = card.icon;
   const hasImage = true;
   const imgSrc = `/v4/procedimentos/${card.slug}.jpg`;
   const navigate = useNavigate();
@@ -138,7 +137,6 @@ export function Card({ x, y, card }: { x: number; y: number; card: CardData }) {
 
 export function CardMobile({ card }: { card: CardData }) {
   const { t } = useTranslation("home");
-  const Icon = card.icon;
   const hasImage = true;
   const imgSrc = `/v4/procedimentos/${card.slug}.jpg`;
   const navigate = useNavigate();
