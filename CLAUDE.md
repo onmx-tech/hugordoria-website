@@ -138,6 +138,18 @@ O HTML da home tem ~129 KB quando prerenderizado, ~5,5 KB quando não.
 
 ## Verificação
 
-- **Não existe `tsconfig.json` nem TypeScript instalado neste projeto** — o Vite transpila com esbuild, sem checagem de tipos. A verificação real é `npm run build` (deve terminar com `✓ built`). Ignore instruções antigas mandando rodar `npx tsc --noEmit`.
-- Validar visualmente com puppeteer-core (a home é scroll-pinado; subpáginas têm hero + corpo). Confirmar a porta certa pelo `<title>`.
+⚠️⚠️ **`✓ built` NÃO prova que a página abre. A verificação é ABRIR AS ROTAS.**
+
+- **Não existe `tsconfig.json` nem TypeScript instalado neste projeto** — o Vite transpila com esbuild, **sem checagem de tipos**. Ignore instruções antigas mandando rodar `npx tsc --noEmit`: aqui isso baixa um compilador avulso e checa ZERO arquivo, devolvendo um "limpo" que reforça a falsa confiança.
+- **O que isso custa, medido em 11/08/2026:** apaguei o campo `icon` do `CardData` e deixei um `<Icon />` órfão em `EspecialidadePage.tsx`. `npm run build` terminou com `✓ built` — e **as 11 páginas de especialidade renderizavam EM BRANCO** (React error #130: `undefined` usado como componente). Ficou assim por horas. Uma versão anterior desta seção dizia "a verificação real é `npm run build`"; foi exatamente essa frase que não pegou o defeito.
+- **Portanto, antes de considerar qualquer mudança verificada:** abrir com `puppeteer-core` (já está no `node_modules`; se sumir, `npm i puppeteer-core --no-save`) **uma rota de cada família de página** — home, uma `/especialidade/:slug`, uma institucional — escutando `pageerror` e confirmando que existe `<h1>`:
+
+```js
+p.on('pageerror', e => erros++);
+await p.goto(rota, { waitUntil: 'networkidle0' });
+const vivo = await p.evaluate(() => !!document.querySelector('h1'));
+```
+
+- ⚠️ **Ao remover um campo de dado ou um componente, o grep do CONSUMIDOR vem ANTES de apagar a definição** — e tem que voltar vazio: `grep -rn "\.icon\b\|<Icon" src/ | grep -v "icon:"`. Verificar a tela que USA o campo, não só a tela que você está editando (o erro acima passou porque eu conferi a listagem, onde mexi, e não a página de detalhe, onde quebrou).
+- Validação visual com puppeteer-core (a home é scroll-pinado; subpáginas têm hero + corpo). Confirmar a porta certa pelo `<title>`. Para layout, medir `getBoundingClientRect()` em 390 / 834 / 1440 — screenshot de aba oculta não pinta imagem e já produziu diagnóstico errado aqui.
 - Ao mexer em SEO, conferir no navegador o `<head>` **depois** do React montar (o `index.html` cru não reflete a rota).
