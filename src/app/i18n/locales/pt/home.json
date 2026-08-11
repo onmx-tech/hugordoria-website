@@ -5,9 +5,9 @@
       "title": "Neurocirurgia vascular e craniana de alta complexidade",
       "ctaAgendar": "Agendar consulta",
       "ctaSegundaOpiniao": "Solicitar segunda opinião",
-      "experience": "+25 anos de experiência",
-      "patients": "+20 mil pacientes atendidos",
-      "description": "Avaliação especializada de aneurismas cerebrais, malformações arteriovenosas, cavernomas, doença de Moyamoya, revascularização cerebral e tumores cranianos complexos."
+      "description": "Avaliação especializada de aneurismas cerebrais, malformações arteriovenosas, cavernomas, doença de Moyamoya, revascularização cerebral e tumores cranianos complexos.",
+      "experienceValue": "+25",
+      "experienceLabel": "anos de experiência"
     },
     "sobreMim": {
       "heading": "Uma trajetória dedicada à microneurocirurgia vascular",
@@ -15,8 +15,7 @@
       "fotoAlt": "Dr. Hugo Doria em seu consultório",
       "stats": {
         "titulacao": "Doutorado em Neurociência · UNIFESP",
-        "registro": "Dr. Hugo Leonardo Doria Netto · Médico - CRM-SP 118350",
-        "pacientes": "Pacientes atendidos ao longo da carreira"
+        "registro": "Dr. Hugo Leonardo Doria Netto · Médico - CRM-SP 118350"
       }
     },
     "casos": {

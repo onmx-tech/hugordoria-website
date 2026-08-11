@@ -17,14 +17,15 @@ import { responsiveImg } from "../../lib/img";
 // (Os valores antigos não são repetidos neste comentário de propósito: aviso
 // que reproduz a string removida dispara em toda varredura de compliance
 // futura e faz alguém perder tempo perseguindo o próprio aviso.)
+//
+// A contagem de pacientes chegou a voltar em 10/ago/2026 a pedido do cliente e
+// saiu de novo em 11/08/2026 — desta vez pelo critério que o PRÓPRIO cliente
+// formulou ao revisar o hero: fica só o que é "totalmente comprovável". Ela
+// saiu junto do hero, e não só de lá: manter o mesmo número 800px abaixo da
+// tela onde ele pediu para tirar seria retirar da vista, não do site.
 const STATS = [
   { value: "MD PhD", labelKey: "home.sobreMim.stats.titulacao" },
   { value: "RQE 48918", labelKey: "home.sobreMim.stats.registro" },
-  // Reintroduzido a pedido do cliente em 10/ago/2026, com o risco acima
-  // comunicado por escrito. Fica como o terceiro item da mesma lista para não
-  // virar um número solto: ao lado da titulação e do registro, ele é lido como
-  // parte de um conjunto de credenciais, e não como um cartaz de volume.
-  { value: "+20 mil", labelKey: "home.sobreMim.stats.pacientes" },
 ] as const;
 
 export default function SectionSobreMim() {

@@ -5,6 +5,44 @@ import { gsap } from "../../lib/gsap";
 import { CONTATO } from "../content/institucional";
 import { skipEntranceAnimation } from "../../lib/prerender";
 
+/**
+ * Credencial do hero — hoje só o tempo de prática.
+ *
+ * ⚠️ COMPLIANCE (CFM 2.336/2023, Art. 11, XVI). Aqui havia duas linhas: os anos
+ * de experiência e uma contagem de pacientes atendidos. A contagem saiu a
+ * pedido do cliente em 11/08/2026, com o critério dito por ele mesmo: fica o
+ * que é "totalmente verdadeiro, totalmente comprovável". Tempo de formado se
+ * confere no CRM; volume de atendimento não tinha metodologia documentada —
+ * nem definia se contava pessoas, consultas ou cirurgias.
+ * **Não reintroduzir contagem sem base auditável por escrito.**
+ *
+ * O número e o rótulo são chaves i18n SEPARADAS (`experienceValue` /
+ * `experienceLabel`) porque o "+25" é desenhado maior que as palavras. Partir
+ * uma frase única no meio quebraria em espanhol e inglês, onde a ordem muda.
+ */
+function Credencial({
+  escala,
+  t,
+}: {
+  escala: "mobile" | "desktop";
+  t: (k: string) => string;
+}) {
+  const desktop = escala === "desktop";
+  return (
+    <p
+      className="flex items-baseline gap-2 font-['Geist_Mono',sans-serif] font-medium uppercase leading-none tracking-[0.08em]"
+      style={{ color: "var(--color-accent-gold-light)" }}
+    >
+      <span className={desktop ? "text-[26px] lg:text-[30px]" : "text-[24px]"}>
+        {t("home.hero.experienceValue")}
+      </span>
+      <span className={desktop ? "text-[12px] lg:text-[13px]" : "text-[12px]"}>
+        {t("home.hero.experienceLabel")}
+      </span>
+    </p>
+  );
+}
+
 export default function Hero() {
   const { t } = useTranslation("home");
   const rootRef = useRef<HTMLElement | null>(null);
@@ -225,6 +263,14 @@ export default function Hero() {
               {t("home.hero.ctaSegundaOpiniao")}
             </Link>
           </div>
+
+          {/* Só mobile: a credencial sobe para cá, encostada nos CTAs. No rodapé
+              ela caía sobre o terno do Dr. — o cliente pediu "fora da foto", e
+              aqui o fundo é o navy limpo. No desktop ela vive na coluna da
+              direita, junto da descrição clínica. */}
+          <div data-hero="cta" className="lg:hidden mt-7">
+            <Credencial escala="mobile" t={t} />
+          </div>
         </div>
 
         {/* Right: description — tablet/desktop (no mobile vai para o rodapé,
@@ -239,19 +285,8 @@ export default function Hero() {
               Ficam ACIMA do fio: assim o fio deixa de ser a tampa do bloco e
               passa a separar a credencial da descrição clínica — que é o corte
               real entre as duas informações. */}
-          <div data-hero="description" className="flex flex-col gap-1.5">
-            <p
-              className="font-['Geist_Mono',sans-serif] font-medium uppercase text-[12px] lg:text-[13px] leading-none tracking-[0.08em]"
-              style={{ color: "var(--color-accent-gold-light)" }}
-            >
-              {t("home.hero.experience")}
-            </p>
-            <p
-              className="font-['Geist_Mono',sans-serif] font-medium uppercase text-[12px] lg:text-[13px] leading-none tracking-[0.08em]"
-              style={{ color: "var(--color-accent-gold-light)" }}
-            >
-              {t("home.hero.patients")}
-            </p>
+          <div data-hero="description">
+            <Credencial escala="desktop" t={t} />
           </div>
           <div
             data-hero="divider"
@@ -271,25 +306,13 @@ export default function Hero() {
       <div className="relative z-10 mt-auto w-full">
         {/* Descrição no mobile: cai sobre o terno/braços (área escura),
             não sobre o rosto do Dr. */}
+        {/* O fio que existia aqui separava a credencial da descrição. Com a
+            credencial promovida para junto dos CTAs, ele passou a separar o
+            nada — e um fio sozinho no alto de um bloco lê como sobra. */}
         <div className="lg:hidden px-6 md:px-8 mb-7 max-lg:landscape:max-w-[54%]">
-          <div data-hero="description" className="max-w-[440px] md:max-w-[560px] flex flex-col gap-1.5">
-            <p
-              className="font-['Geist_Mono',sans-serif] font-medium uppercase text-[12px] leading-none tracking-[0.08em]"
-              style={{ color: "var(--color-accent-gold-light)" }}
-            >
-              {t("home.hero.experience")}
-            </p>
-            <p
-              className="font-['Geist_Mono',sans-serif] font-medium uppercase text-[12px] leading-none tracking-[0.08em]"
-              style={{ color: "var(--color-accent-gold-light)" }}
-            >
-              {t("home.hero.patients")}
-            </p>
-          </div>
-          <div data-hero="divider" className="mt-4 h-px w-full max-w-[440px] md:max-w-[560px] bg-white/24" />
           <p
             data-hero="description"
-            className="mt-5 max-w-[440px] md:max-w-[560px] font-['Geist',sans-serif] font-normal text-cream leading-[1.41] text-[16px] md:text-[18px]"
+            className="max-w-[440px] md:max-w-[560px] font-['Geist',sans-serif] font-normal text-cream leading-[1.41] text-[16px] md:text-[18px]"
           >
             {t("home.hero.description")}
           </p>

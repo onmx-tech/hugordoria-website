@@ -5,9 +5,9 @@
       "title": "Vascular and cranial neurosurgery of high complexity",
       "ctaAgendar": "Book a consultation",
       "ctaSegundaOpiniao": "Request a second opinion",
-      "experience": "+25 years of experience",
-      "patients": "+20,000 patients treated",
-      "description": "Specialized evaluation of cerebral aneurysms, arteriovenous malformations, cavernomas, Moyamoya disease, cerebral revascularization, and complex cranial tumors."
+      "description": "Specialized evaluation of cerebral aneurysms, arteriovenous malformations, cavernomas, Moyamoya disease, cerebral revascularization, and complex cranial tumors.",
+      "experienceValue": "+25",
+      "experienceLabel": "years of experience"
     },
     "sobreMim": {
       "heading": "A career dedicated to vascular microneurosurgery",
@@ -15,8 +15,7 @@
       "fotoAlt": "Dr. Hugo Doria in his office",
       "stats": {
         "titulacao": "Doctorate in Neuroscience · UNIFESP",
-        "registro": "Dr. Hugo Leonardo Doria Netto · Médico - CRM-SP 118350",
-        "pacientes": "Patients treated over the course of his career"
+        "registro": "Dr. Hugo Leonardo Doria Netto · Médico - CRM-SP 118350"
       }
     },
     "casos": {
