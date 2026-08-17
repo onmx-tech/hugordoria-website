@@ -23,9 +23,14 @@ TEMP_HOST="https://hugodoria-hugodoria.vyho9y.easypanel.host"
 : "${EP_TOKEN:?defina EP_TOKEN=<chave da API do Easypanel>}"
 
 api() { # api <endpoint> <json>
-  curl -sS -m 60 -X POST "$EP/$1" \
+  # ⚠️ `deployService` só responde quando o build TERMINA na VPS (minutos), e o
+  # curl desiste antes com "Operation timed out (28)". Com `set -e` isso matava o
+  # script logo depois de disparar o deploy — o build seguia rodando lá e a
+  # verificação nunca acontecia aqui, o que parece falha e não é. Timeout longo,
+  # e um 28 não derruba o script: quem diz se deu certo é a medição no fim.
+  curl -sS -m 600 -X POST "$EP/$1" \
     -H "Authorization: Bearer $EP_TOKEN" -H "Content-Type: application/json" \
-    -d "$2"
+    -d "$2" || echo "(sem resposta da API — seguindo para a verificação)"
   echo
 }
 
@@ -68,7 +73,8 @@ echo
 
 echo "== verificação final"
 for u in "$TEMP_HOST" "https://hugodoria.com.br"; do
-  printf '%-52s prerender:%s  mavs-fig01:%s\n' "$u" \
+  printf '%-52s prerender:%s  mavs-fig01:%s  depoimento(410 esperado):%s\n' "$u" \
     "$(curl -s -m 15 "$u/" | grep -cE 'id="root"><(header|div|main)')" \
-    "$(curl -s -m 15 "$u/especialidade/mavs" | grep -c 'mavs-fig01')"
+    "$(curl -s -m 15 "$u/especialidade/mavs" | grep -c 'mavs-fig01')" \
+    "$(curl -so /dev/null -m 15 -w '%{http_code}' "$u/v4/depoimentos/depo-01.png")"
 done
