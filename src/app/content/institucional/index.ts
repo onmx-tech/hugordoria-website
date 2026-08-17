@@ -4,7 +4,7 @@
 // é pequeno e fixo. Fallback PT campo a campo garante que a página nunca fica
 // vazia se uma tradução ainda não existir.
 //
-// ⚠️ Os INVARIANTES (CONTATO, SOCIAL, DEPOIMENTOS_GALERIA) NÃO moram aqui —
+// ⚠️ Os INVARIANTES (CONTATO, SOCIAL) NÃO moram aqui —
 // ficam no barrel content/institucional.ts, que também reexporta getInstitucional.
 
 import type { Locale } from "../../i18n/config";

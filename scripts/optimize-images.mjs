@@ -18,7 +18,6 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIRS = [
   "public/v4/procedimentos",
   "public/v4/photos",
-  "public/v4/depoimentos",
   "public/v4/figuras",
   "public/v4/videos", // só os posters .jpg; os .mp4 são ignorados pelo filtro
 ];

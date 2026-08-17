@@ -1,7 +1,7 @@
 // Conteúdo institucional TRADUZÍVEL — Português (fonte/verdade).
 // Migrado 1:1 do site original hugodoria.com.br (docs/site-original/).
 // Textos preservados integralmente. Os INVARIANTES (CONTATO, SOCIAL,
-// DEPOIMENTOS_GALERIA) ficam no barrel content/institucional.ts.
+// ficam no barrel content/institucional.ts.
 
 export const SOBRE_MIM = {
   quote:

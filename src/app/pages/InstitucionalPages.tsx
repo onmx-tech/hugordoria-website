@@ -28,12 +28,7 @@ import { ScrollRevealManifesto } from "../components/sub/ScrollRevealManifesto";
 import { cards } from "../components/section-especialidades/data";
 import { useLocale, LocaleLink } from "../i18n/LocaleProvider";
 import { responsiveImg } from "@/lib/img";
-import {
-  CONTATO,
-  DEPOIMENTOS_GALERIA,
-  SOCIAL,
-  getInstitucional,
-} from "../content/institucional";
+import { CONTATO, SOCIAL, getInstitucional } from "../content/institucional";
 
 import svgPaths from "../../imports/svg-nx92b0rij3";
 import { TESTIMONIALS } from "../components/SectionCasosDeSucesso";

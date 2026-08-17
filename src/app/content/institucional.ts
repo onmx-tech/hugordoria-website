@@ -3,9 +3,8 @@
 // Este ARQUIVO (institucional.ts) tem precedência sobre a pasta
 // institucional/index.ts na resolução de módulos — logo, todo import de
 // "../content/institucional" cai aqui. É de propósito: os INVARIANTES abaixo
-// (CONTATO, SOCIAL, DEPOIMENTOS_GALERIA — telefone/endereço/URLs/galeria, que
-// não mudam com o idioma) precisam continuar exportados exatamente deste
-// caminho, pois seo/site.ts importa CONTATO/SOCIAL daqui.
+// (CONTATO, SOCIAL — telefone, endereço e URLs, que não mudam com o idioma)
+// precisam continuar exportados exatamente deste caminho, pois seo/site.ts importa CONTATO/SOCIAL daqui.
 //
 // Já o conteúdo TRADUZÍVEL (SOBRE_MIM, DOUTORADO, PUBLICACOES, EVENTOS,
 // MIDIA_VIDEOS, SEGUNDA_OPINIAO) vive em institucional/{pt,en,es}.ts e é lido
@@ -39,8 +38,13 @@ export const SOCIAL = {
   linkedin: "https://www.linkedin.com/in/hugo-doria-md-phd-107b834b/",
 } as const;
 
-// 24 screenshots reais de avaliações (public/v4/depoimentos/depo-01..24.png).
-export const DEPOIMENTOS_GALERIA = Array.from(
-  { length: 24 },
-  (_, i) => `/v4/depoimentos/depo-${String(i + 1).padStart(2, "0")}.png`,
-);
+// A galeria de 24 prints de avaliação foi REMOVIDA (CFM 2.336/2023 + LGPD) e
+// substituída por depoimentos em texto anonimizados, que vivem em
+// SectionCasosDeSucesso e são reusados na página de depoimentos.
+//
+// A constante que montava os caminhos dos prints saiu daqui em 17/08/2026: ela
+// já não era usada em lugar nenhum — sobrevivia como import órfão em
+// InstitucionalPages.tsx —, mas continuava sendo a receita pronta para alguém
+// religar a galeria sem saber por que ela tinha caído. Se a galeria voltar um
+// dia, volta com autorização por escrito de cada paciente, não com um
+// Array.from.
